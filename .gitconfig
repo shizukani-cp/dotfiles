@@ -1,0 +1,17 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[user]
+	name = shizukani-cp
+	email = to.maimai0606@gmail.com
+[core]
+	autocrlf = false
+	pager = less -cm
+	excludesfile = C:/Users/proch/.gitignore_global
+[init]
+	defaultBranch = main
+[alias]
+	tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
+	si = switch
