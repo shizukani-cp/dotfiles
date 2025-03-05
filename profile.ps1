@@ -16,18 +16,21 @@ set LANG=ja_JP.UTF-8
 set LESSCHARSET=utf-8
 
 function hb($prjname) {
+  if (Test-Path -Path "./.venv") {
+    deactivate
+  }
   cd "C:/Users/proch/Desktop/homebrew/homebrew/$prjname"  # このhomebrewはmacのパッケージ管理マネージャーとは関係なし
   if (Test-Path -Path "./.venv") {
     ./.venv/Scripts/activate
   }
 }
 
-# function astnt() {
-  # aider --model gemini/gemini-1.5-pro-latest $args
-# }
-
-function Edit-Profile {
+function Edit-Pwsh-Profile {
   hx C:/Users/proch/Documents/PowerShell/profile.ps1
+}
+
+function Edit-Term-Profile {
+  hx C:\Users\proch\appData\Local\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json
 }
 
 function Add-License {
@@ -63,6 +66,7 @@ SOFTWARE.
 
 function prompt{
     Write-Host "PS " -nonewline -foregroundcolor Yellow
+    Write-Host $VIRTUAL_ENV_PROMPT -nonewline -foregroundcolor White
     Write-Host (Split-Path -Path (Get-Location) -Leaf) -nonewline -foregroundcolor White
     Write-Host " >" -nonewline -foregroundcolor Yellow
 
