@@ -64,11 +64,4 @@ SOFTWARE.
   git commit -m "${msg}"
 }
 
-function prompt{
-    Write-Host "PS " -nonewline -foregroundcolor Yellow
-    Write-Host $VIRTUAL_ENV_PROMPT -nonewline -foregroundcolor White
-    Write-Host (Split-Path -Path (Get-Location) -Leaf) -nonewline -foregroundcolor White
-    Write-Host " >" -nonewline -foregroundcolor Yellow
-
-    return " "
-}
+oh-my-posh init pwsh | Invoke-Expression
