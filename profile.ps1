@@ -25,8 +25,12 @@ function hb($prjname) {
   }
 }
 
-function Edit-Pwsh-Profile {
+function Edit-Posh-Profile {
   hx C:/Users/proch/Documents/PowerShell/profile.ps1
+}
+
+function Edit-Ohmyposh-Profile {
+  hx C:\Users\proch\Desktop\apps\themes\1_shell.omp.json
 }
 
 function Edit-Term-Profile {
@@ -64,4 +68,4 @@ SOFTWARE.
   git commit -m "${msg}"
 }
 
-oh-my-posh init pwsh | Invoke-Expression
+oh-my-posh init pwsh --config $env:POSH_THEMES_PATH/1_shell.omp.json | Invoke-Expressions
