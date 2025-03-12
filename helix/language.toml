@@ -1,5 +1,12 @@
 [[language]]
 name = "python"
+language-servers = ["pylsp"]
+
+[language-server.pylsp]
+command = "pylsp"
+
+[language-server.pylsp.config]
+plugins = { pylint = { enabled = true } }
 
 [[language]]
 name = "rust"
