@@ -68,4 +68,4 @@ SOFTWARE.
   git commit -m "${msg}"
 }
 
-oh-my-posh init pwsh --config $env:POSH_THEMES_PATH/my_theme.omp.json | Invoke-Expressions
+oh-my-posh init pwsh --config $env:POSH_THEMES_PATH/my-theme.omp.json | Invoke-Expression
