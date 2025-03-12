@@ -3,9 +3,9 @@
 curl https://sh.rustup.rs -sSf | sh # rustup
 curl -LsSf https://astral.sh/uv/install.sh | sh # uv
 sudo apt-get update
-sudo apt-get install git-all # git
-sudo apt-get install build-essential # gcc and other
+sudo apt-get install git-all -y # git
+sudo apt-get install build-essential -y # gcc and other
 sudo apt-get update
 sudo add-apt-repository ppa:maveonair/helix-editor
 sudo apt-get update
-sudo apt-get install helix
+sudo apt-get install -y helix
