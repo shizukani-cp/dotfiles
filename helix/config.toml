@@ -1,3 +1,5 @@
+theme = "tokyonight"
+
 [keys.normal]
 C-g = [":new", ":insert-output [ -d .git ] && git status > .git/git_status && git tree >> .git/git_status", ":insert-output [ -d .git ] || echo '.git not found.' > .git/git_status", ":open .git/git_status"]
 C-r = [":reload"]
