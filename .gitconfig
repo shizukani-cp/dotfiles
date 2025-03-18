@@ -5,7 +5,7 @@
 	clean = git-lfs clean -- %f
 [user]
 	name = shizukani-cp
-	email = to.maimai0606@gmail.com
+	email = shizukani.cp@gmail.com
 [core]
 	autocrlf = false
 	pager = less -cm
@@ -15,3 +15,5 @@
 [alias]
 	tree = log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"
 	si = switch
+	st = status
+
