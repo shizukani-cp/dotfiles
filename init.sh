@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 # curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/init.sh | bash
-curl https://sh.rustup.rs -sSf | sh -- -y # rustup
+curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
 curl -LsSf https://astral.sh/uv/install.sh | sh # uv
 . "$HOME/.cargo/env"
 sudo apt-get update
