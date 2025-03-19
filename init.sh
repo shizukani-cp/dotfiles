@@ -10,3 +10,6 @@ sudo apt-get update
 echo | sudo add-apt-repository ppa:maveonair/helix-editor
 sudo apt-get update
 sudo apt-get install -y helix
+mkdir ~/.config/helix/
+curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/helix/config.toml > ~/.config/helix/config.toml
+curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/helix/language.toml > ~/.config/helix/language.toml
