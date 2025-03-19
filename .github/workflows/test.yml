@@ -14,5 +14,5 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: executing test
-        run: curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/init.sh | bash
+        run: curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/install.sh | bash
 
