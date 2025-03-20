@@ -13,3 +13,13 @@ sudo apt-get install -y helix
 mkdir ~/.config/helix/
 curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/helix/config.toml > ~/.config/helix/config.toml
 curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/helix/language.toml > ~/.config/helix/language.toml
+sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh # oh-my-posh
+sudo chmod +x /usr/local/bin/oh-my-posh
+mkdir ~/.poshthemes
+wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/themes.zip -O ~/.poshthemes/themes.zip
+sudo apt-get install -y unzip
+unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
+chmod u+rw ~/.poshthemes/*.omp.*
+rm ~/.poshthemes/themes.zip
+curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/posh/my-theme.omp.json > ~/.poshthemes/my-theme.omp.json
+echo 'eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"' >> ~/.bashrc
