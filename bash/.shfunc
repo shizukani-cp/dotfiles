@@ -13,11 +13,11 @@ prj() {
   fi
 }
 
-function Edit-Ohmyposh-Profile {
+edit_ohmyposh_profile() {
   hx ~/.poshthemes/my-theme.omp.json
 }
 
-function Add-Origin {
+add_origin() {
   git remote add origin https://$(cat ~/.github_token)@github.com/shizukani-cp/$1.git
 }
 
