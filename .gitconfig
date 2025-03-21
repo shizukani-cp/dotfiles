@@ -9,7 +9,7 @@
 [core]
 	autocrlf = false
 	pager = less -cm
-	excludesfile = C:/Users/proch/.gitignore_global
+	excludesfile = ~/.gitignore_global
 [init]
 	defaultBranch = main
 [alias]
