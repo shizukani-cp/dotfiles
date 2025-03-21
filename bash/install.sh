@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/install.sh | bash
+# curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/bash/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
 curl -LsSf https://astral.sh/uv/install.sh | sh # uv
 . "$HOME/.cargo/env"
@@ -21,5 +21,6 @@ sudo apt-get install -y unzip
 unzip ~/.poshthemes/themes.zip -d ~/.poshthemes
 chmod u+rw ~/.poshthemes/*.omp.*
 rm ~/.poshthemes/themes.zip
-curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/posh/my-theme.omp.json > ~/.poshthemes/my-theme.omp.json
-echo 'eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"' >> ~/.bashrc
+curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/bash/my-theme.omp.json > ~/.poshthemes/my-theme.omp.json
+curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/bash/.shfunc > ~/.shfunc
+echo '. "$HOME/.shfunc"' >> ~/.bashrc

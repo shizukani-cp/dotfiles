@@ -1,0 +1,50 @@
+eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"
+
+set LANG=ja_JP.UTF-8
+set LESSCHARSET=utf-8
+
+prj() {
+  if [ -d "./.venv" ]; then
+    deactivate
+  fi
+  cd "$HOME/programs/$1"
+  if [ -d "./.venv" ]; then
+    source ./.venv/bin/activate
+  fi
+}
+
+function Edit-Ohmyposh-Profile {
+  hx ~/.poshthemes/my-theme.omp.json
+}
+
+
+function add_license() {
+  local msg="${1:-ライセンスを追加}"
+  
+  cat <<EOF > LICENSE.txt
+MIT License
+
+Copyright (c) $(date +%Y) shizukani-cp
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+EOF
+
+  git add LICENSE.txt
+  git commit -m "$msg"
+}
