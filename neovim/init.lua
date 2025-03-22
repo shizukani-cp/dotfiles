@@ -1,5 +1,6 @@
 vim.g.mapleader = " "
 vim.opt.number = true
+vim.opt.whichwrap = 'b,s,h,l,<,>'
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -28,5 +29,4 @@ require("lazy").setup({
 
 vim.api.nvim_set_keymap('n', '<Space>f', ':Neotree<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Space>b', ':lua require("buffer_manager.ui").toggle_quick_menu()<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<Space>y', '"+y', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Space>p', '"+p', { noremap = true, silent = true })
+
