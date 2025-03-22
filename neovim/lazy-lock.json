@@ -1,0 +1,10 @@
+{
+  "buffer_manager.nvim": { "branch": "main", "commit": "03df0142e60cdf3827d270f01ccb36999d5a4e08" },
+  "lazy.nvim": { "branch": "main", "commit": "6c3bda4aca61a13a9c63f1c1d1b16b9d3be90d7a" },
+  "neo-tree.nvim": { "branch": "main", "commit": "dda4c9e9a7806d72fab2c733462b9beb33a45714" },
+  "nui.nvim": { "branch": "main", "commit": "8d3bce9764e627b62b07424e0df77f680d47ffdb" },
+  "nvim-web-devicons": { "branch": "master", "commit": "4c3a5848ee0b09ecdea73adcd2a689190aeb728c" },
+  "plenary.nvim": { "branch": "master", "commit": "857c5ac632080dba10aae49dba902ce3abf91b35" },
+  "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },
+  "vim-gitgutter": { "branch": "main", "commit": "6620e5fbbe6a28de0bfed081f5bd2767023b7eea" }
+}
