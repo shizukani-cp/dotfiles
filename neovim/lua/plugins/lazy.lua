@@ -20,6 +20,12 @@ return {
         end,
     },
     {
+        "j-morano/buffer_manager.nvim",
+        config = function()
+            require("buffer_manager").setup()
+        end
+    },
+    {
         "airblade/vim-gitgutter",
         config = function()
             vim.g.gitgutter_enabled = 1
