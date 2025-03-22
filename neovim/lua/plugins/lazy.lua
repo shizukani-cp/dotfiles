@@ -1,7 +1,6 @@
 return {
     {
         "folke/tokyonight.nvim",
-        lazy = false,
         priority = 1000,
         config = function()
             vim.cmd[[colorscheme tokyonight]]
@@ -9,7 +8,6 @@ return {
     },
     {
         "nvim-neo-tree/neo-tree.nvim",
-        lazy = false,
         dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" },
         config = function()
             require("neo-tree").setup({
@@ -38,7 +36,8 @@ return {
             "onsails/lspkind-nvim",
         },
         config = function()
-	    require('cmp').setup({
+            local cmp = require('cmp')
+            cmp.setup({
                 snippet = {
                     expand = function(args)
                         require('luasnip').lsp_expand(args.body)
@@ -65,11 +64,12 @@ return {
         config = function()
             require("mason").setup()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "pylsp", "rust-analyzer", "html", "cssls", "tsserver" },
+		automatic_installation = true,
+                ensure_installed = { "lua_ls", "pylsp", "rust_analyzer", "html", "cssls", "ts_ls" },
             })
 
             local lspconfig = require("lspconfig")
-            local on_attach = function(client, bufnr)
+            local on_attach = function(_, bufnr)
                 vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
                     vim.lsp.buf.format()
                 end, { desc = 'Format current buffer with LSP' })
@@ -96,6 +96,15 @@ return {
             lspconfig.pylsp.setup{
                 on_attach = on_attach,
                 capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                cmd = { "pylsp" },
+                settings = {
+                    pylsp = {
+                        plugins = {
+                            pyflakes = { enabled = true },
+                            pylint = { enabled = true },
+                        }
+                    }
+                }
             }
 
             lspconfig.rust_analyzer.setup{
