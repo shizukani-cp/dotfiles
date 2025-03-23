@@ -1,5 +1,7 @@
 eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"
 
+alias nvim=~/.local/bin/nvim-linux64/bin/nvim
+
 set LANG=ja_JP.UTF-8
 set LESSCHARSET=utf-8
 
