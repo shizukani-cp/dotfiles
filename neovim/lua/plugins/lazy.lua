@@ -126,7 +126,7 @@ return {
                 on_attach = on_attach,
                 capabilities = require('cmp_nvim_lsp').default_capabilities(),
             }
-            lspconfig.tsserver.setup{
+            lspconfig.ts_ls.setup{
                 on_attach = on_attach,
                 capabilities = require('cmp_nvim_lsp').default_capabilities(),
             }
