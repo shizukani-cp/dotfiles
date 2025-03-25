@@ -33,14 +33,6 @@ return {
         end
     },
     {
-        "airblade/vim-gitgutter",
-        config = function()
-            vim.g.gitgutter_enabled = 1
-            vim.g.gitgutter_max_signs = 500
-            vim.g.gitgutter_map_keys = 0
-        end,
-    },
-    {
         "hrsh7th/nvim-cmp",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
@@ -198,5 +190,12 @@ return {
             require("scrollbar").setup()
         end,
     },
+    {
+        'lewis6991/gitsigns.nvim',
+        config = function ()
+            require("gitsigns").setup()
+            require("scrollbar.handlers.gitsigns").setup()
+        end,
+    }
 }
 
