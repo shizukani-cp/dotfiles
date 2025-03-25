@@ -198,16 +198,6 @@ return {
         end,
     },
     {
-        "NeogitOrg/neogit",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "sindrets/diffview.nvim",
-        },
-        config = function ()
-            require("neogit").setup({})
-        end,
-    },
-    {
       "j-hui/fidget.nvim",
       opts = {},
     },
