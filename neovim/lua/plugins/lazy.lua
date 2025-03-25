@@ -192,5 +192,11 @@ return {
         event = "InsertEnter",
         config = true
     },
+    {
+        'petertriho/nvim-scrollbar',
+        config = function ()
+            require("scrollbar").setup()
+        end,
+    },
 }
 
