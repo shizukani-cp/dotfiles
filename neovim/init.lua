@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 vim.opt.number = true
 vim.opt.whichwrap = 'b,s,h,l,<,>'
 vim.opt.clipboard = "unnamedplus"
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
