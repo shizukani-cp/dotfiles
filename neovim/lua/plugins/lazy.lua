@@ -211,5 +211,12 @@ return {
       "j-hui/fidget.nvim",
       opts = {},
     },
+    {
+        'stevearc/aerial.nvim',
+        opts = {},
+        dependencies = {
+            "nvim-tree/nvim-web-devicons"
+        },
+    },
 }
 
