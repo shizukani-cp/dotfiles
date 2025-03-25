@@ -153,6 +153,17 @@ return {
         config = function ()
             require('colorizer').setup({})
         end,
-    }
+    },
+    {
+        'numToStr/Comment.nvim',
+        config = function ()
+            require('Comment').setup({
+                toggler = {
+                    line = "<Space>c",
+                    block = "<Space>C",
+                },
+            })
+        end,
+    },
 }
 
