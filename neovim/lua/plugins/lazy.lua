@@ -69,7 +69,7 @@ return {
         config = function()
             require("mason").setup()
             require("mason-lspconfig").setup({
-		automatic_installation = true,
+		        automatic_installation = true,
                 ensure_installed = { "lua_ls", "pylsp", "rust_analyzer", "html", "cssls", "ts_ls" },
             })
 
