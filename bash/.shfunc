@@ -13,12 +13,6 @@ prj() {
   fi
 }
 
-bind_nvim_setting() {
-  if [ $(basename $(pwd -P)) = "dotfiles" ]; then
-    sudo --bind ~/.config/nvim/ ./neovim/
-  fi
-}
-
 edit_ohmyposh_profile() {
   hx ~/.poshthemes/my-theme.omp.json
 }
