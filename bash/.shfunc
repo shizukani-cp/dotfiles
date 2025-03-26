@@ -1,7 +1,7 @@
 eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"
 
-set LANG=ja_JP.UTF-8
-set LESSCHARSET=utf-8
+export LANG=ja_JP.UTF-8
+export LESSCHARSET=utf-8
 export EDITOR=/snap/bin/nvim
 
 prj() {
