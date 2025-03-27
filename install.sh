@@ -1,13 +1,12 @@
 #!/usr/bin/bash
-# curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/bash/install.sh | bash
-NVIM_VERSION="10.0.4"
+# curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
 curl -LsSf https://astral.sh/uv/install.sh | sh # uv
 . "$HOME/.cargo/env"
 sudo apt-get update
 sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
-sudo snap install nvim --classic
+sudo snap install nvim --classic # neovim
 mkdir -p ~/.config/nvim/lua/plugins/
 curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/neovim/init.lua > ~/.config/nvim/init.lua
 curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/neovim/lua/plugins/lazy.lua > ~/.config/nvim/lua/plugins/lazy.lua
