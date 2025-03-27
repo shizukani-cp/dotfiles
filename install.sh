@@ -6,7 +6,10 @@ curl -LsSf https://astral.sh/uv/install.sh | sh # uv
 sudo apt-get update
 sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
-sudo snap install nvim --classic # neovim
+mkdir ~/appimages/
+wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
+mv nvim-linux-x86_64.appimage ~/appimages/nvim.appimage
+chmod a+x ~/appimages/nvim.appimage
 mkdir -p ~/.config/nvim/lua/plugins/
 curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/neovim/init.lua > ~/.config/nvim/init.lua
 curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/neovim/lua/plugins/lazy.lua > ~/.config/nvim/lua/plugins/lazy.lua
