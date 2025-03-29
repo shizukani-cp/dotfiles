@@ -227,6 +227,7 @@ return {
         opts = {
             dashboard = { enabled = true },
             indent = { enabled = true },
+            lazygit = { enabled = true },
         }
     },
 }
