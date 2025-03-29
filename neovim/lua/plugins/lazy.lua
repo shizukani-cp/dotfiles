@@ -221,5 +221,11 @@ return {
       config = function()
         require('numb').setup()
       end,
-    }
+    },
+    {
+        "folke/snacks.nvim",
+        opts = {
+            dashboard = { enabled = true },
+        }
+    },
 }
