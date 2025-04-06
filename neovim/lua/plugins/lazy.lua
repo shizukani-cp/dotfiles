@@ -28,12 +28,14 @@ return {
     },
     {
         "j-morano/buffer_manager.nvim",
+        lazy = true,
         config = function()
             require("buffer_manager").setup()
         end
     },
     {
         "hrsh7th/nvim-cmp",
+        event = "InsertEnter",
         dependencies = {
             "hrsh7th/cmp-nvim-lsp",
             "hrsh7th/cmp-buffer",
@@ -66,6 +68,7 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = { "williamboman/mason.nvim", "williamboman/mason-lspconfig.nvim" },
+        event = "InsertEnter",
         config = function()
             require("mason").setup()
             require("mason-lspconfig").setup({
@@ -164,6 +167,7 @@ return {
     },
     {
         'norcalli/nvim-colorizer.lua',
+        lazy = true,
         config = function ()
             require('colorizer').setup({})
         end,
@@ -186,6 +190,7 @@ return {
     },
     {
         'petertriho/nvim-scrollbar',
+        lazy = true,
         config = function ()
             require("scrollbar").setup()
         end,
@@ -218,6 +223,7 @@ return {
     },
     {
       'nacro90/numb.nvim',
+      lazy = true,
       config = function()
         require('numb').setup()
       end,
