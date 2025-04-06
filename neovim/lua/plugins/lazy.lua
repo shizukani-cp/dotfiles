@@ -10,29 +10,25 @@ return {
         "nvim-neo-tree/neo-tree.nvim",
         event = "VeryLazy",
         dependencies = { "nvim-lua/plenary.nvim", "nvim-tree/nvim-web-devicons", "MunifTanjim/nui.nvim" },
-        config = function()
-            require("neo-tree").setup({
-                filesystem = {
-                    filtered_items = {
-                        visible = true,
-                        hide_dotfiles = false,
-                        hide_gitignored = false,
-                    },
+        opts = {
+            filesystem = {
+                filtered_items = {
+                    visible = true,
+                    hide_dotfiles = false,
+                    hide_gitignored = false,
                 },
-                window = {
-                    position = "float",
-                    width = 40,
-                    height = 30,
-                },
-            })
-        end,
+            },
+            window = {
+                position = "float",
+                width = 40,
+                height = 30,
+            },
+        }
     },
     {
         "j-morano/buffer_manager.nvim",
         lazy = true,
-        config = function()
-            require("buffer_manager").setup()
-        end
+        opts = {}
     },
     {
         "hrsh7th/nvim-cmp",
@@ -138,51 +134,45 @@ return {
     {
         'nvim-lualine/lualine.nvim',
         dependencies = { 'nvim-tree/nvim-web-devicons' },
-        config = function ()
-            require('lualine').setup({
-                options = {
-                    theme = "onedark",
-                },
-                sections = {
-                    lualine_a = {'mode'},
-                    lualine_b = {'branch'},
-                    lualine_c = {
-                        {
-                            'diff',
-                            symbols = {added = ' ', modified = ' ', removed = ' '},
-                        },
-                        {
-                            'diagnostics',
-                             symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
-                        },
+        opts = {
+            options = {
+                theme = "onedark",
+            },
+            sections = {
+                lualine_a = {'mode'},
+                lualine_b = {'branch'},
+                lualine_c = {
+                    {
+                        'diff',
+                        symbols = {added = ' ', modified = ' ', removed = ' '},
                     },
-                    lualine_x = {'encoding'},
-                    lualine_y = {
-                        'filetype',
-                        { 'filename', path=1 }
+                    {
+                        'diagnostics',
+                         symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
                     },
-                    lualine_z = {'location'}
                 },
-            })
-        end,
+                lualine_x = {'encoding'},
+                lualine_y = {
+                    'filetype',
+                    { 'filename', path=1 }
+                },
+                lualine_z = {'location'}
+            },
+        }
     },
     {
         'norcalli/nvim-colorizer.lua',
         lazy = true,
-        config = function ()
-            require('colorizer').setup({})
-        end,
+        opts = {}
     },
     {
         'numToStr/Comment.nvim',
-        config = function ()
-            require('Comment').setup({
-                toggler = {
-                    line = "<Space>c",
-                    block = "<Space>C",
-                },
-            })
-        end,
+        opts = {
+            toggler = {
+                line = "<Space>c",
+                block = "<Space>C",
+            },
+        }
     },
     {
         'windwp/nvim-autopairs',
@@ -192,9 +182,7 @@ return {
     {
         'petertriho/nvim-scrollbar',
         lazy = true,
-        config = function ()
-            require("scrollbar").setup()
-        end,
+        opts = {}
     },
     {
         'lewis6991/gitsigns.nvim',
@@ -225,9 +213,7 @@ return {
     {
         'nacro90/numb.nvim',
         lazy = true,
-        config = function()
-            require('numb').setup()
-        end,
+        opts = {}
     },
     {
         "folke/snacks.nvim",
