@@ -203,8 +203,8 @@ return {
         end,
     },
     {
-      "j-hui/fidget.nvim",
-      opts = {},
+        "j-hui/fidget.nvim",
+        opts = {},
     },
     {
         'stevearc/aerial.nvim',
@@ -222,11 +222,11 @@ return {
         'jghauser/mkdir.nvim'
     },
     {
-      'nacro90/numb.nvim',
-      lazy = true,
-      config = function()
-        require('numb').setup()
-      end,
+        'nacro90/numb.nvim',
+        lazy = true,
+        config = function()
+            require('numb').setup()
+        end,
     },
     {
         "folke/snacks.nvim",
