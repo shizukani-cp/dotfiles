@@ -18,5 +18,13 @@ return {
             mode = { "n", },
             silent = true,
         },
+        {
+            "<Space>s",
+            function ()
+                require('telescope.builtin').lsp_document_symbols()
+            end,
+            mode = { "n", },
+            silent = true,
+        },
     },
 }
