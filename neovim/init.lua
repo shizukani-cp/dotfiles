@@ -32,9 +32,6 @@ require("lazy").setup({
     },
 })
 
-vim.api.nvim_set_keymap('n', '<Space>f', '<CMD>Neotree<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Space>b', '<CMD>lua require("buffer_manager.ui").toggle_quick_menu()<CR>', { noremap = true, silent = true})
-vim.api.nvim_set_keymap('n', '<Space>s', '<CMD>AerialToggle float<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<Space>y', '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Space>p', '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })

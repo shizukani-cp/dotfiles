@@ -15,5 +15,13 @@ return {
             width = 40,
             height = 30,
         },
-    }
+    },
+    keys = {
+        {
+            "<Space>f",
+            "<CMD>Neotree<CR>",
+            mode = { "n", },
+            silent = true,
+        },
+    },
 }
