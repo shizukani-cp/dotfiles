@@ -24,6 +24,7 @@ return {
             "<cmd>Trouble diagnostics toggle<cr>",
             mode = { "n", },
             silent = true,
+            desc = "Show diagnostics",
         },
     },
 }

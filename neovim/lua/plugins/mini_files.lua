@@ -9,6 +9,7 @@ return {
             end,
             mode = { "n", },
             silent = true,
+            desc = "File tree",
         },
     },
 }
