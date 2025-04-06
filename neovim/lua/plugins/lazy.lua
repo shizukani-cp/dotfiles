@@ -236,4 +236,13 @@ return {
             lazygit = { enabled = true },
         }
     },
+    {
+        'echasnovski/mini.nvim',
+        version = false,
+    },
+    {
+        'echasnovski/mini.icons',
+        lazy = true,
+        version = false,
+    },
 }
