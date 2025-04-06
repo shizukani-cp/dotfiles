@@ -32,6 +32,7 @@ require("lazy").setup({
     },
 })
 
+vim.api.nvim_set_keymap('n', '<Space>g', '<CMD>lua require("snacks").lazygit()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('v', '<Space>y', '"+y', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Space>p', '"+p', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
