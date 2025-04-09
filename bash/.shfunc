@@ -1,9 +1,8 @@
 eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"
 
-alias nvim=$HOME/appimages/nvim.appimage
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
-export EDITOR=$HOME/appimages/nvim.appimage
+export EDITOR=/snap/bin/nvim
 
 prj() {
   if [ -d "./.venv" ]; then

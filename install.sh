@@ -6,11 +6,7 @@ curl -fsSL https://bun.sh/install | bash
 sudo apt-get update
 sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
-mkdir ~/appimages/
-wget https://github.com/neovim/neovim/releases/download/stable/nvim-linux-x86_64.appimage
-mv nvim-linux-x86_64.appimage ~/appimages/nvim.appimage
-chmod a+x ~/appimages/nvim.appimage
-mkdir -p ~/.config/nvim/lua/plugins/
+sudo snap install nvim --classic
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh # oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
 mkdir ~/.poshthemes
