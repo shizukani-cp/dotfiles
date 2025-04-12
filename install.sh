@@ -21,3 +21,4 @@ cp ~/.cache/dotfiles/bash/.shfunc ~/.shfunc
 cp -r ~/.cache/dotfiles/neovim/ ~/.config/nvim/
 rm -rf ~/.cache/dotfiles/
 echo '. "$HOME/.shfunc"' >> ~/.bashrc
+mkdir ~/.Trash/
