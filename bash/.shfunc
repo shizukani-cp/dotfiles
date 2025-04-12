@@ -23,6 +23,11 @@ add_origin() {
   git remote add origin https://$(cat ~/.github_token)@github.com/shizukani-cp/$1.git
 }
 
+clean_trash() {
+  rm -rf ~/.Trash/
+  mkdir ~/.Trash/
+}
+
 function add_license() {
   local msg="${1:-ライセンスを追加}"
   
