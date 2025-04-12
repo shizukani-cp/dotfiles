@@ -1,3 +1,7 @@
+vim.scriptencoding = 'utf-8'
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
+
 vim.g.mapleader = " "
 vim.opt.number = true
 vim.opt.whichwrap = 'b,s,h,l,<,>'
