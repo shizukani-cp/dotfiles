@@ -38,5 +38,6 @@ require("lazy").setup({
 
 vim.api.nvim_set_keymap('v', '<Space>y', 'y', { noremap = true, silent = true, desc = "Yank to clipboard" })
 vim.api.nvim_set_keymap('n', '<Space>p', 'p', { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.api.nvim_set_keymap('n', '<Space>P', 'P', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 
