@@ -5,11 +5,11 @@ vim.opt.fileencoding = 'utf-8'
 vim.g.mapleader = " "
 vim.opt.number = true
 vim.opt.whichwrap = 'b,s,h,l,<,>'
-vim.opt.clipboard = "unnamedplus"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.scrolloff = 4
+vim.opt.clipboard:append('unnamedplus,unnamed')
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
@@ -36,7 +36,7 @@ require("lazy").setup({
     },
 })
 
-vim.api.nvim_set_keymap('v', '<Space>y', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
-vim.api.nvim_set_keymap('n', '<Space>p', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.api.nvim_set_keymap('v', '<Space>y', 'y', { noremap = true, silent = true, desc = "Yank to clipboard" })
+vim.api.nvim_set_keymap('n', '<Space>p', 'p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
 
