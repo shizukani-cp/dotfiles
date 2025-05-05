@@ -5,5 +5,9 @@ return {
             line = "<Space>c",
             block = "<Space>C",
         },
+        opleader = {
+            line = "<Space>c",
+            block = "<Space>C",
+        }
     }
 }
