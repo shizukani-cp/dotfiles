@@ -9,6 +9,7 @@ return {
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
         "onsails/lspkind-nvim",
+        "uga-rosa/cmp-skkeleton",
     },
     config = function()
         local lsp_servers = {
@@ -92,6 +93,7 @@ return {
                 { name = "luasnip" },
                 { name = "buffer" },
                 { name = "path" },
+                { name = "skkeleton" },
             },
             formatting = {
                 fields = { "menu", "abbr", "kind" },
@@ -101,6 +103,7 @@ return {
                         luasnip = "snip",
                         buffer = "buf",
                         path = "path",
+                        skkeleton = "skk",
                     }
                     vim_item.menu = menu_icon[entry.source.name] or "?"
                     return vim_item
