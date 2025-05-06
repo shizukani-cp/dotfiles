@@ -2,7 +2,6 @@ vim.scriptencoding = 'utf-8'
 vim.opt.encoding = 'utf-8'
 vim.opt.fileencoding = 'utf-8'
 
-vim.g.mapleader = " "
 vim.g.clipboard = {
     name = 'WslClipboard',
     copy = {
