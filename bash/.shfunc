@@ -20,7 +20,7 @@ add_origin() {
 }
 
 clean_trash() {
-  rm -rf ~/.Trash/
+  \rm -rf ~/.Trash/
   mkdir ~/.Trash/
 }
 
