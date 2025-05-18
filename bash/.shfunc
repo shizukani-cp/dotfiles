@@ -65,7 +65,7 @@ shfunc_help() {
 - edit_ohmyposh_profile ... Edit OhMyPosh's profile.
 - add_origin ... Add git origin with token.
 - clean_trash ... Permanently delete the directory for the Recycle Bin.
-- function add_license [msg] ... Add an MIT license to your project and even commit git.
+- add_license [msg] ... Add an MIT license to your project and even commit git.
 EOS
 }
 
