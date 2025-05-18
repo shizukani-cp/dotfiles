@@ -15,10 +15,6 @@ prj() {
   fi
 }
 
-edit_ohmyposh_profile() {
-  hx ~/.poshthemes/my-theme.omp.json
-}
-
 add_origin() {
   git remote add origin https://$(cat ~/.github_token)@github.com/shizukani-cp/$1.git
 }
@@ -62,7 +58,6 @@ EOF
 shfunc_help() {
     cat <<EOS
 - prj [project-name] ... Go to the project with project-name. If project-name is not specified, you will be redirected to a directory with many projects.
-- edit_ohmyposh_profile ... Edit OhMyPosh's profile.
 - add_origin ... Add git origin with token.
 - clean_trash ... Permanently delete the directory for the Recycle Bin.
 - add_license [msg] ... Add an MIT license to your project and even commit git.
