@@ -3,8 +3,8 @@ return {
     dependencies = {
         "hrsh7th/nvim-cmp",
         "saghen/blink.cmp",
-        "williamboman/mason.nvim",
-        "williamboman/mason-lspconfig.nvim",
+        "mason-org/mason.nvim",
+        "mason-org/mason-lspconfig.nvim",
         "hrsh7th/cmp-nvim-lsp",
         "hrsh7th/cmp-buffer",
         "hrsh7th/cmp-path",
