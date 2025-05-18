@@ -1,7 +1,10 @@
 return {
     "nvimdev/lspsaga.nvim",
-    opts = {},
-    lazy = false,
+    opts = {
+        lightbulb = {
+            enable = false,
+        },
+    },
     keys = {
         {
             "<Space>r",
