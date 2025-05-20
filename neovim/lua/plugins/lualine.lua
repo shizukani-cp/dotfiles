@@ -4,6 +4,11 @@ return {
     opts = {
         options = {
             theme = "onedark",
+            disabled_filetypes = {
+                winbar = {
+                    "dap-repl",
+                },
+            },
         },
         sections = {
             lualine_a = {'mode'},
@@ -15,7 +20,7 @@ return {
                 },
                 {
                     'diagnostics',
-                     symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
+                    symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
                 },
             },
             lualine_x = {'encoding'},

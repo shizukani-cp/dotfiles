@@ -5,6 +5,8 @@ curl -LsSf https://astral.sh/uv/install.sh | sh # uv
 sudo apt-get update
 sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
+sudo apt-get install gdb -y # gdb
+uv tool install debugpy
 sudo snap install nvim --classic
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh # oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
