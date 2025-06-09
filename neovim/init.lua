@@ -23,6 +23,17 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.scrolloff = 4
 
+local term_grp = vim.api.nvim_create_augroup("NeovimTerminal", { clear = true })
+vim.api.nvim_create_autocmd("TermOpen", {
+  group = term_grp,
+  pattern = "*",
+  callback = function()
+    vim.opt_local.number = false
+    vim.cmd("startinsert")
+  end,
+})
+
+
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not (vim.uv or vim.loop).fs_stat(lazypath) then
   local lazyrepo = "https://github.com/folke/lazy.nvim.git"
