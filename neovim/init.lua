@@ -16,6 +16,7 @@ vim.g.clipboard = {
     cache_enabled = 1,
 }
 
+vim.o.helplang = "ja,en"
 vim.opt.number = true
 vim.opt.whichwrap = 'b,s,h,l,<,>'
 vim.opt.tabstop = 4
