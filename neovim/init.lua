@@ -17,6 +17,7 @@ vim.g.clipboard = {
 }
 
 vim.o.helplang = "ja,en"
+vim.wo.cursorline = true
 vim.opt.number = true
 vim.opt.whichwrap = 'b,s,h,l,<,>'
 vim.opt.tabstop = 4
