@@ -4,6 +4,7 @@ alias rm='mv -i -f --backup=numbered --target-directory ~/.Trash'
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 export EDITOR=/snap/bin/nvim
+export OPENROUTER_DEFAULT_MODEL=mistralai/mistral-small-3.2-24b-instruct:free
 
 prj() {
   if [ -d "./.venv" ]; then
