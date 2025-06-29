@@ -81,7 +81,7 @@ return {
                 local client = vim.lsp.get_client_by_id(ev.data.client_id)
                 local bufnr = ev.buf
                 if client.server_capabilities.completionProvider then
-                    vim.lsp.completion.enable(true, client.id, bufnr, { autotrigger = true })
+                    vim.lsp.completion.enable(true, client.id, bufnr)
                 end
             end,
         })
