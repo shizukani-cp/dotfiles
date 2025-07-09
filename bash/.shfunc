@@ -1,6 +1,7 @@
 eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"
 
 alias rm='mv -i -f --backup=numbered --target-directory ~/.Trash'
+alias tree='tree -I node_modules'
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 export EDITOR=/snap/bin/nvim
