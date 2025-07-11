@@ -3,6 +3,7 @@ return {
     event = "VeryLazy",
     opts = {
         dashboard = { enabled = true },
+        input = { enabled = true },
         lazygit = { enabled = true },
         picker = { enabled = true },
     },
