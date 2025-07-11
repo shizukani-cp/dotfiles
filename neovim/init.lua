@@ -2,6 +2,7 @@ vim.scriptencoding = 'utf-8'
 vim.o.encoding = 'utf-8'
 vim.o.fileencoding = 'utf-8'
 vim.o.fileencodings = "utf-8,cp932,euc-jp,sjis"
+vim.diagnostic.config({ virtual_text = true })
 
 vim.g.clipboard = {
     name = 'win32yankClipboard',
