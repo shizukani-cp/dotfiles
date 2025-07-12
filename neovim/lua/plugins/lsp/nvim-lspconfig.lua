@@ -3,8 +3,7 @@ return {
     dependencies = {
         "mason-org/mason.nvim",
         "mason-org/mason-lspconfig.nvim",
-        "hrsh7th/cmp-nvim-lsp",
-        "onsails/lspkind-nvim",
+        "Shougo/ddc-source-lsp",
     },
     config = function()
         local lsp_servers = {
@@ -49,8 +48,6 @@ return {
             ensure_installed = installed_servers,
         })
 
-        local cmp_capabilities = require('cmp_nvim_lsp').default_capabilities()
-
         local on_attach = function(client, bufnr)
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
                 vim.lsp.buf.format()
@@ -59,7 +56,7 @@ return {
 
         vim.lsp.config('*', {
             on_attach = on_attach,
-            capabilities = cmp_capabilities,
+            capabilities = require("ddc_source_lsp").make_client_capabilities(),
         })
 
         for server_name, server_config in pairs(lsp_servers) do
