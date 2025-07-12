@@ -55,7 +55,7 @@ vim.opt.rtp:prepend(lazypath)
 require("lazy").setup({
     dev = {
         path = "~/programs",
-        patterns = { "gemini.nvim" },
+        patterns = { "gemini.nvim", "reglist.nvim" },
     },
     spec = {
         { import = "plugins" },
