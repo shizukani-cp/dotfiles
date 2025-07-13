@@ -18,7 +18,7 @@ return {
                 _ = {
                     matchers = { "matcher_fuzzy" },
                     sorters = { "sorter_fuzzy" },
-                    converters = { "converter_fuzzy" },
+                    converters = { "converter_fuzzy", "converter_kind_labels" },
                 },
                 lsp = {
                     mark = "L",
@@ -36,6 +36,40 @@ return {
                     debounce = 500,
                 },
             },
+        })
+
+        vim.fn["ddc#custom#patch_global"]({
+            filterParams = {
+                converter_kind_labels = {
+                    kindLabels = {
+                        Text = "󰉿 Text",
+                        Method = "󰆧 Method",
+                        Function = "󰊕 Function",
+                        Constructor = " Constructor",
+                        Field = "󰜢 Field",
+                        Variable = "󰀫 Variable",
+                        Class = "󰠱 Class",
+                        Interface = " Interface",
+                        Module = " Module",
+                        Property = "󰜢 Property",
+                        Unit = "󰑭 Unit",
+                        Value = "󰎠 Value",
+                        Enum = " Enum",
+                        Keyword = "󰌋 Keyword",
+                        Snippet = " Snippet",
+                        Color = "󰏘 Color",
+                        File = "󰈙 FIle",
+                        Reference = "󰈇 Reference",
+                        Folder = "󰉋 Folder",
+                        EnumMember = " EnumMember",
+                        Constant = "󰏿 Constant",
+                        Struct = "󰙅 Struct",
+                        Event = " Event",
+                        Operator = "󰆕 Operator",
+                        TypeParameter = " TypeParameter",
+                    }
+                }
+            }
         })
 
         vim.keymap.set(
