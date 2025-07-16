@@ -7,6 +7,7 @@ sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
 sudo apt-get install gdb -y # gdb
 sudo apt-get install nodejs npm -y # node.js and npm
+sudo npm install -g @google/gemini-cli # gemini-cli
 uv tool install debugpy # debugpy
 uv tool install blog-manage # blog-gen
 sudo snap install nvim --classic
