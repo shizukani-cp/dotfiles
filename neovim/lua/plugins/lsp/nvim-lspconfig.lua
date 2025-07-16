@@ -38,6 +38,7 @@ return {
             html = {},
             cssls = {},
             ts_ls = {},
+            jsonls = {},
         }
 
         local installed_servers = vim.tbl_keys(lsp_servers)
