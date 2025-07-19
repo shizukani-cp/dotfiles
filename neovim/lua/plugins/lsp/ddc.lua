@@ -6,6 +6,7 @@ return {
         "Shougo/ddc-source-lsp",
         "matsui54/ddc-source-buffer",
         "LumaKernel/ddc-source-file",
+        "tani/ddc-path",
         "Shougo/ddc-filter-matcher_head",
         "Shougo/ddc-filter-sorter_rank",
         "tani/ddc-fuzzy",
@@ -13,7 +14,7 @@ return {
     config = function()
         vim.fn["ddc#custom#set_global"]({
             ui = "native",
-            sources = { "lsp", "buffer", "file", },
+            sources = { "lsp", "buffer", "file", "path", },
             sourceOptions = {
                 _ = {
                     matchers = { "matcher_fuzzy" },
@@ -30,10 +31,16 @@ return {
                 file = {
                     mark = "F",
                 },
+                path = {
+                    mark = "P",
+                },
             },
             sourceParams = {
                 lsp = {
                     debounce = 500,
+                },
+                path = {
+                    cmd = { "fd", "--max-depth", "5", },
                 },
             },
         })
