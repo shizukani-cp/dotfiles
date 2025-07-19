@@ -22,17 +22,17 @@ return {
                     converters = { "converter_fuzzy", "converter_kind_labels" },
                 },
                 lsp = {
-                    mark = "L",
+                    mark = "⚡",
                     forceCompletionPattern = [[\.\w*|::\w*|->\w*]],
                 },
                 buffer = {
-                    mark = "B",
+                    mark = "📃",
                 },
                 file = {
-                    mark = "F",
+                    mark = "📄",
                 },
                 path = {
-                    mark = "P",
+                    mark = "📁",
                 },
             },
             sourceParams = {
