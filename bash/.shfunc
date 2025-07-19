@@ -17,10 +17,6 @@ prj() {
   fi
 }
 
-add_origin() {
-  git remote add origin https://$(cat ~/.github_token)@github.com/shizukani-cp/$1.git
-}
-
 clean_trash() {
   \rm -rf ~/.Trash/
   mkdir ~/.Trash/
@@ -60,7 +56,6 @@ EOF
 shfunc_help() {
     cat <<EOS
 - prj [project-name] ... Go to the project with project-name. If project-name is not specified, you will be redirected to a directory with many projects.
-- add_origin ... Add git origin with token.
 - clean_trash ... Permanently delete the directory for the Recycle Bin.
 - add_license [msg] ... Add an MIT license to your project and even commit git.
 EOS
