@@ -19,6 +19,7 @@ return {
             "<CMD>Oil<CR>",
             mode = { "n", },
             silent = true,
+            desc = "Open oil buffer",
         },
     },
 }
