@@ -24,7 +24,7 @@ return {
             end,
             mode = { "n", },
             silent = true,
-            desc = "File picker",
+            desc = "Open file picker",
         },
         {
             "<Space>b",
@@ -33,7 +33,7 @@ return {
             end,
             mode = { "n", },
             silent = true,
-            desc = "Buffer picker",
+            desc = "Open buffer picker",
         },
         {
             "<Space>s",
@@ -42,7 +42,7 @@ return {
             end,
             mode = { "n", },
             silent = true,
-            desc = "Symbol picker"
+            desc = "Open symbol picker"
         },
 
     },

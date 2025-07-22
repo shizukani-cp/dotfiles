@@ -11,7 +11,7 @@ return {
             "<cmd>Lspsaga rename<cr>",
             mode = { "n" },
             silent = true,
-            desc = "Symbol rename",
+            desc = "Rename symbol",
         },
     },
 }
