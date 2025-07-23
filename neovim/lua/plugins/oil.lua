@@ -12,6 +12,9 @@ return {
             signcolumn = "yes:2",
             statuscolumn = "",
         },
+        view_options = {
+            show_hidden = true,
+        },
     },
     keys = {
         {
