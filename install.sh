@@ -9,7 +9,6 @@ sudo apt-get install gdb -y # gdb
 sudo apt-get install nodejs npm -y # node.js and npm
 sudo npm install -g @google/gemini-cli # gemini-cli
 uv tool install debugpy # debugpy
-uv tool install blog-manage # blog-gen
 sudo snap install nvim --classic
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh # oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
