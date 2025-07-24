@@ -11,7 +11,27 @@ return {
             },
         },
         sections = {
-            lualine_a = {'mode'},
+            lualine_a = {
+                'mode',
+                {
+                    function()
+                        local _, mode = pcall(vim.fn["skkeleton#mode"])
+                        if mode == "hira" then
+                            return "全ひ"
+                        elseif mode == "kata" then
+                            return "全カ"
+                        elseif mode == "hankata" then
+                            return "半ｶﾀ"
+                        elseif mode == "zenkaku" then
+                            return "全Ａ"
+                        elseif mode == "abbrev" then
+                            return "abbr"
+                        else
+                            return "英ab"
+                        end
+                    end,
+                }
+            },
             lualine_b = {'branch'},
             lualine_c = {
                 {
