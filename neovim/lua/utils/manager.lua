@@ -129,4 +129,15 @@ function M.update(target_id)
   process_update_queue(queue)
 end
 
+function M.list()
+  local ids = {}
+  for id, _ in pairs(M.plugins) do
+    table.insert(ids, id)
+  end
+
+  table.sort(ids)
+
+  return ids
+end
+
 return M
