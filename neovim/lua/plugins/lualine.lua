@@ -38,12 +38,14 @@ manager.add({
                         end,
                     }
                 },
-                lualine_b = {'branch'},
-                lualine_c = {
+                lualine_b = {
+                    'branch',
                     {
                         'diff',
                         symbols = {added = ' ', modified = ' ', removed = ' '},
                     },
+                },
+                lualine_c = {
                     {
                         'diagnostics',
                         symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
