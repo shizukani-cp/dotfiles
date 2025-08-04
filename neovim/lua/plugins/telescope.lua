@@ -16,5 +16,5 @@ manager.add({
 
 set_keymap("n", "<Space>F", "<Cmd>lua require('telescope.builtin').find_files()<Cr>", "telescope.nvim", { noremap = true, silent = true, desc = "Open file picker" })
 set_keymap("n", "<Space>b", "<Cmd>lua require('telescope.builtin').buffers()<Cr>", "telescope.nvim", { noremap = true, silent = true, desc = "Open buffer picker" })
-set_keymap("n", "<Space>s", "<Cmd>lua require('telescope.builtin').lsp_workspace_symbols()<Cr>", "telescope.nvim", { noremap = true, silent = true, desc = "Open symbol picker" })
+set_keymap("n", "<Space>s", "<Cmd>lua require('telescope.builtin').lsp_document_symbols()<Cr>", "telescope.nvim", { noremap = true, silent = true, desc = "Open symbol picker" })
 
