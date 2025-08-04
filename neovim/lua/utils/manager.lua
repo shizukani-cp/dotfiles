@@ -21,7 +21,7 @@ end
 
 function M.add(spec)
   if not spec.id or not spec.url then
-    error("プラグインには 'id' と 'url' が必須やで！ spec: " .. vim.inspect(spec))
+    error("Plugin must have 'id' and 'url'. spec: " .. vim.inspect(spec))
   end
   if M.plugins[spec.id] then return end
   local install_path = fn.stdpath('data') .. '/site/pack/manager/opt/' .. spec.id
@@ -46,7 +46,7 @@ function M.add(spec)
             plugin.on_installed_callbacks = {}
           else
             plugin.status = 'failed'
-            notify("'" .. spec.id .. "' のインストール、失敗したみたいや…😢", vim.log.levels.ERROR)
+            notify("'" .. spec.id .. "' installation failed.", vim.log.levels.ERROR)
           end
         end)
       end,
@@ -58,7 +58,7 @@ function M.load(id)
   if loaded_plugins[id] then return end
   local plugin = M.plugins[id]
   if not plugin then
-    error("プラグイン '" .. id .. "' は見つからへんで。add()したか確認しとき！")
+    error("plugin '" .. id .. "' not found, please make sure you did add().")
   end
   if plugin.spec.dependencies then
     for _, dep_id in ipairs(plugin.spec.dependencies) do
@@ -70,31 +70,27 @@ function M.load(id)
   elseif plugin.status == 'installing' then
     table.insert(plugin.on_installed_callbacks, function() do_load(id) end)
   else
-    notify("'"..id.."' をロードできへんかった。ステータスがおかしいで: " .. plugin.status, vim.log.levels.ERROR)
+    notify("Could not load '"..id.."' The status is not correct: " .. plugin.status, vim.log.levels.ERROR)
   end
 end
 
 local function process_update_queue(queue)
   if #queue == 0 then
-    notify('プラグインの更新、全部終わったで！👍', vim.log.levels.INFO)
+    notify('Plugin installation is complete.', vim.log.levels.INFO)
     return
   end
   local id = table.remove(queue, 1)
   local plugin = M.plugins[id]
   local install_path = install_base_path .. '/' .. id
   if plugin.status ~= 'installed' then
-    notify("'" .. id .. "' はまだインストールされてへんからスキップや。", vim.log.levels.WARN)
     process_update_queue(queue)
     return
   end
-  notify("'" .. id .. "' を更新中…")
   fn.jobstart({ 'git', '-C', install_path, 'pull' }, {
     on_exit = function(_, code)
       vim.schedule(function()
-        if code == 0 then
-          notify("'" .. id .. "' の更新完了！")
-        else
-          notify("'" .. id .. "' の更新に失敗したみたいや…", vim.log.levels.ERROR)
+        if code ~= 0 then
+          notify("'" .. id .. "' update failed.", vim.log.levels.ERROR)
         end
         process_update_queue(queue)
       end)
@@ -102,16 +98,14 @@ local function process_update_queue(queue)
   })
 end
 
--- @param target_id (string | nil) 更新したいプラグインのID。nilなら全部。
+-- @param target_id (string | nil) ID of the plugin you want to update, or all of them if nil.
 function M.update(target_id)
   local queue = {}
 
   if target_id then
     if M.plugins[target_id] then
       table.insert(queue, target_id)
-      notify("プラグイン '" .. target_id .. "' の更新を始めるで！", vim.log.levels.INFO)
     else
-      notify("プラグイン '" .. target_id .. "' は登録されてへんで。", vim.log.levels.ERROR)
       return
     end
   else
@@ -120,10 +114,8 @@ function M.update(target_id)
     end
 
     if #queue == 0 then
-      notify('アップデートするプラグインが一つも登録されてへんで。', vim.log.levels.WARN)
       return
     end
-    notify('プラグインの更新を始めるで！', vim.log.levels.INFO)
   end
 
   process_update_queue(queue)
