@@ -8,6 +8,8 @@ local install_base_path = fn.stdpath('data') .. '/site/pack/manager/opt'
 
 M.plugins = {}
 local loaded_plugins = {}
+local is_locked = false
+local load_queue = {}
 
 local function do_load(id)
   if loaded_plugins[id] then return end
@@ -60,6 +62,12 @@ function M.load(id)
   if not plugin then
     error("plugin '" .. id .. "' not found, please make sure you did add().")
   end
+
+  if is_locked then
+    table.insert(load_queue, id)
+    return
+  end
+
   if plugin.spec.dependencies then
     for _, dep_id in ipairs(plugin.spec.dependencies) do
       M.load(dep_id)
@@ -71,6 +79,19 @@ function M.load(id)
     table.insert(plugin.on_installed_callbacks, function() do_load(id) end)
   else
     notify("Could not load '"..id.."' The status is not correct: " .. plugin.status, vim.log.levels.ERROR)
+  end
+end
+
+function M.lock()
+  is_locked = true
+end
+
+function M.unlock()
+  is_locked = false
+  local queue = load_queue
+  load_queue = {}
+  for _, id in ipairs(queue) do
+    M.load(id)
   end
 end
 
