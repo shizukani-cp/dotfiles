@@ -22,6 +22,7 @@ clean_trash() {
 }
 
 diary() {
+    original_dir="$(pwd)"
     cd $HOME/.diary/
 
     case "$1" in
@@ -50,6 +51,7 @@ diary() {
                 exit 1
             fi
     esac
+    cd "$original_dir"
 }
 
 shfunc_help() {
