@@ -12,14 +12,35 @@ manager.add({
             config = {
                 center = {
                      {
-                        icon = " ",
+                        icon = "  ",
                         key = "n",
                         keymap_hl = "New File",
                         desc = "New File",
-                        action = ":ene | startinsert"
+                        action = "ene | startinsert"
                     },
                     {
-                        icon = "",
+                        icon = "📁 ",
+                        key = "f",
+                        keymap_hl = "Open Oil",
+                        desc = "Open Oil",
+                        action = [[lua require("utils.manager").load("oil.nvim"); vim.cmd("Oil")]]
+                    },
+                    {
+                        icon = "🌀 ",
+                        key = "g",
+                        keymap_hl = "Show Lazygit",
+                        desc = "Show Lazygit",
+                        action = [[lua require("utils.manager").load("lazygit.nvim"); vim.cmd("LazyGit")]]
+                    },
+                    {
+                        icon = "🔄 ",
+                        key = "u",
+                        keymap_hl = "Update Plugins",
+                        desc = "Update Plugins",
+                        action = [[lua require("utils.manager").update()]]
+                    },
+                    {
+                        icon = "  ",
                         icon_hl = "Quit",
                         desc = "Quit",
                         key = "q",
