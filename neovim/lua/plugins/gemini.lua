@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local set_keymap = require("utils.set_keymap").set_keymap
 
 manager.add({
     id = "gemini.nvim",
