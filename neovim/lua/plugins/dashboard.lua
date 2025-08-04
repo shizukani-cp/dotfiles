@@ -40,6 +40,13 @@ manager.add({
                         action = [[lua require("utils.manager").update()]]
                     },
                     {
+                        icon = "🗑️ ",
+                        key = "c",
+                        keymap_hl = "Clean Unused Plugins",
+                        desc = "Clean Unused Plugins",
+                        action = [[lua require("utils.manager").clean()]]
+                    },
+                    {
                         icon = "  ",
                         icon_hl = "Quit",
                         desc = "Quit",
