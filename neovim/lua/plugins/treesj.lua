@@ -11,4 +11,4 @@ manager.add({
         require("treesj").setup()
     end
 })
-set_keymap("n", "<Space>t", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj", { noremap = true, silent = true, desc = "Yank to clipboard" })
+set_keymap("n", "<Space>t", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj", { noremap = true, silent = true, desc = "Split / Join" })
