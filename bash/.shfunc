@@ -30,8 +30,6 @@ diary() {
             git pull
             ;;
         push)
-            git add .
-            git commit -m "push"
             git push
             ;;
         *)
@@ -46,6 +44,9 @@ diary() {
 
                 mdfile="$dir/$day.md"
                 eval "$EDITOR $mdfile"
+
+                git add mdfile
+                git commit -m "mdfile"
             else
                 echo "Invaild command: $1"
                 exit 1
