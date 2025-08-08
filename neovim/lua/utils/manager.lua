@@ -1,10 +1,11 @@
 local fn = vim.fn
 local cmd = vim.cmd
 local notify = vim.notify
+local fs = vim.fs
 
 local M = {}
 
-local install_base_path = fn.stdpath('data') .. '/site/pack/manager/opt'
+local install_base_path = fs.joinpath(fn.stdpath('data'), 'site', 'pack', 'manager', 'opt')
 
 M.plugins = {}
 local loaded_plugins = {}
@@ -26,7 +27,7 @@ function M.add(spec)
         error("Plugin must have 'id' and 'url'. spec: " .. vim.inspect(spec))
     end
     if M.plugins[spec.id] then return end
-    local install_path = fn.stdpath('data') .. '/site/pack/manager/opt/' .. spec.id
+    local install_path = fs.joinpath(install_base_path, spec.id)
     local is_installed = fn.isdirectory(install_path) == 1
     M.plugins[spec.id] = {
         spec = spec,
@@ -36,7 +37,7 @@ function M.add(spec)
     if not is_installed then
         local plugin = M.plugins[spec.id]
         plugin.status = 'installing'
-        fn.jobstart('git clone --depth 1 ' .. spec.url .. ' ' .. install_path, {
+        fn.jobstart({ 'git', 'clone', '--depth', '1', spec.url, install_path }, {
             on_exit = function(_, code)
                 vim.schedule(function()
                     if code == 0 then
@@ -133,7 +134,7 @@ local function process_update_queue(queue)
     end
     local id = table.remove(queue, 1)
     local plugin = M.plugins[id]
-    local install_path = install_base_path .. '/' .. id
+    local install_path = fs.joinpath(install_base_path, id)
     if plugin.status ~= 'installed' then
         process_update_queue(queue)
         return
