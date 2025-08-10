@@ -19,12 +19,16 @@ manager.add({
             uiParams = {
                 ff = {
                     filterFloatingPosition = "bottom",
+                    filterSplitDirection = "floating",
                     floatingBorder = "rounded",
                     previewSplit = "horizontal",
                     previewFloating = true,
+                    previewFloatingBorder = "rounded",
+                    previewFloatingTitle = "Preview",
                     prompt = "> ",
+                    split = "floating",
                     startFilter = true,
-                },
+                }
             },
             sourceOptions = {
                 _ = {
