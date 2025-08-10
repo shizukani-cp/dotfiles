@@ -31,28 +31,38 @@ manager.add({
                         key = "f",
                         keymap_hl = "Open Oil",
                         desc = "Open Oil",
-                        action = [[lua require("utils.manager").load("oil.nvim"); vim.cmd("Oil")]]
+                        action = function ()
+                            manager.load("oil.nvim")
+                            vim.cmd[[Oil]]
+                        end
                     },
                     {
                         icon = "🌀 ",
                         key = "g",
                         keymap_hl = "Show Lazygit",
                         desc = "Show Lazygit",
-                        action = [[lua require("utils.manager").load("lazygit.nvim"); vim.cmd("LazyGit")]]
+                        action = function ()
+                            require("utils.manager").load("lazygit.nvim")
+                            vim.cmd[[LazyGit]]
+                        end
                     },
                     {
                         icon = "🔄 ",
                         key = "u",
                         keymap_hl = "Update Plugins",
                         desc = "Update Plugins",
-                        action = [[lua require("utils.manager").update()]]
+                        action = function ()
+                            require("utils.manager").update()
+                        end
                     },
                     {
                         icon = "🗑️ ",
                         key = "c",
                         keymap_hl = "Clean Unused Plugins",
                         desc = "Clean Unused Plugins",
-                        action = [[lua require("utils.manager").clean()]]
+                        action = function ()
+                            require("utils.manager").clean()
+                        end
                     },
                     {
                         icon = "  ",
