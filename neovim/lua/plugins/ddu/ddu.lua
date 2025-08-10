@@ -18,6 +18,10 @@ manager.add({
             ui = "ff",
             uiParams = {
                 ff = {
+                    startAutoAction = true,
+                    autoAction = {
+                        name = "preview"
+                    },
                     filterFloatingPosition = "bottom",
                     filterSplitDirection = "floating",
                     floatingBorder = "rounded",
@@ -69,7 +73,6 @@ manager.add({
                 vim.keymap.set("n", "q", [[<Cmd>call ddu#ui#do_action("quit")<CR>]], opts)
                 vim.keymap.set("n", "<CR>", [[<Cmd>call ddu#ui#do_action("itemAction")<CR>]], opts)
                 vim.keymap.set("n", "i", [[<Cmd>call ddu#ui#do_action("openFilterWindow")<CR>]], opts)
-                vim.keymap.set("n", "P", [[<Cmd>call ddu#ui#do_action("togglePreview")<CR>]], opts)
             end,
         })
     end
