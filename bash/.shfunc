@@ -45,8 +45,8 @@ diary() {
                 mdfile="$dir/$day.md"
                 eval "$EDITOR $mdfile"
 
-                git add mdfile
-                git commit -m "mdfile"
+                git add "$mdfile"
+                git commit -m "$1"
             else
                 echo "Invaild command: $1"
                 exit 1
