@@ -2,6 +2,7 @@
 # curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
 curl -LsSf https://astral.sh/uv/install.sh | sh # uv
+curl -fsSL https://bun.sh/install | bash # bun
 
 sudo apt-get update
 sudo apt-get install git-all -y # git
@@ -13,6 +14,7 @@ nvm use --lts
 sudo apt-get install ripgrep -y # ripgrep
 sudo apt-get install fd-find -y # fd
 sudo npm install -g @google/gemini-cli # gemini-cli
+sudo npm install -g gemistat # gemistat
 uv tool install debugpy # debugpy
 sudo snap install nvim --classic
 
