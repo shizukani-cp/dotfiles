@@ -13,8 +13,8 @@ nvm install --lts --latest-npm # node.js latest lts & latest npm
 nvm use --lts
 sudo apt-get install ripgrep -y # ripgrep
 sudo apt-get install fd-find -y # fd
-sudo npm install -g @google/gemini-cli # gemini-cli
-sudo npm install -g gemistat # gemistat
+npm install -g @google/gemini-cli # gemini-cli
+npm install -g gemistat # gemistat
 uv tool install debugpy # debugpy
 sudo snap install nvim --classic
 
