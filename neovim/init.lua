@@ -104,6 +104,24 @@ require("plugins.which-key")
 require("plugins.wtf")
 manager.unlock()
 
+vim.api.nvim_create_user_command("PluginList", function()
+    local buf = vim.api.nvim_create_buf(false, true)
+    local ids = {}
+
+    for name, _ in pairs(manager.plugins or {}) do
+        table.insert(ids, name)
+    end
+
+    if #ids == 0 then
+        ids = { "No plugins found" }
+    else
+        table.sort(ids)
+    end
+
+    vim.api.nvim_buf_set_lines(buf, 0, -1, false, ids)
+    vim.api.nvim_set_current_buf(buf)
+end, {})
+
 vim.api.nvim_set_keymap('v', '<Space>y', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
 vim.api.nvim_set_keymap('n', '<Space>p', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.api.nvim_set_keymap('n', '<Space>P', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
