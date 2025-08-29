@@ -5,7 +5,7 @@ manager.add({
     url = "https://github.com/akinsho/toggleterm.nvim",
     config = function ()
         require("toggleterm").setup({
-            open_mapping = [[<Space>/]],
+            open_mapping = [[<C-_>]],
             hide_numbers = true,
             close_on_exit = true,
             direction = "tab"
