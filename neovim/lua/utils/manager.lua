@@ -20,6 +20,7 @@ local function do_load(id)
         plugin.spec.config()
     end
     loaded_plugins[id] = true
+    plugin.status = "loaded"
 end
 
 function M.add(spec)
@@ -67,7 +68,7 @@ local function load_with_deps_check(id)
     for _, dep_id in ipairs(dependencies) do
         M.load(dep_id)
         local dep_plugin = M.plugins[dep_id]
-        if dep_plugin.status ~= 'installed' then
+        if dep_plugin.status ~= 'installed' and dep_plugin.status ~= 'loaded' then
             all_deps_installed = false
             table.insert(pending_deps, dep_plugin)
         end
@@ -104,7 +105,7 @@ function M.load(id)
         return
     end
 
-    if plugin.status == 'installed' then
+    if plugin.status == 'installed' or plugin.status == 'loaded' then
         load_with_deps_check(id)
     elseif plugin.status == 'installing' then
         table.insert(plugin.on_installed_callbacks, function()
@@ -206,6 +207,14 @@ function M.clean()
             end
         end
     end
+end
+
+function M._get()
+    local plugins = {}
+    for id, information in pairs(M.plugins) do
+        plugins[id] = information.status
+    end
+    return plugins
 end
 
 return M
