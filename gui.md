@@ -11,12 +11,12 @@
 - [Proton VPN](https://chromewebstore.google.com/detail/jplgfhpmjnbigmhklmmbgecoobifkmpa)(ログインも)
 - [uBlock](https://chromewebstore.google.com/detail/epcnnfbjfcgphgdmggkamkmgojdagdnn)
 - [Vimium](https://chromewebstore.google.com/detail/dbepggeogbaibhgnhhndojpepiihcmeb)(Custom key mappingを以下の通りに)
-  ```
+```
 unmap J
 unmap K
 map J nextTab
 map K previousTab
-  ```
+```
 - [左サイドバー(自作)](https://github.com/shizukani-cp/sidebar_left)
 ### 設定
 - [パスワードマネージャー無効化](edge://wallet/settings#settings-passwords-section)
