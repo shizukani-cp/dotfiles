@@ -9,7 +9,7 @@ manager.add({
     config = function()
         require("lualine").setup({
             options = {
-                theme = "onedark",
+                theme = "tokyonight",
                 disabled_filetypes = {
                     winbar = {
                         "dap-repl",
