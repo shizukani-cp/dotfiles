@@ -217,6 +217,28 @@ function M.clean()
     end
 end
 
+function M.remove(id)
+    local plugin = M.plugins[id]
+    if not plugin then
+        notify("Plugin '" .. id .. "' not found.", vim.log.levels.WARN)
+        return
+    end
+
+    local path = fs.joinpath(install_base_path, id)
+    if fn.isdirectory(path) == 1 then
+        local ok, err = pcall(fn.delete, path, 'rf')
+        if ok then
+            plugin.status = 'new'
+            loaded_plugins[id] = nil
+            notify("Plugin '" .. id .. "' removed.", vim.log.levels.INFO)
+        else
+            notify("Failed to remove '" .. id .. "': " .. err, vim.log.levels.ERROR)
+        end
+    else
+        notify("Plugin directory for '" .. id .. "' does not exist.", vim.log.levels.WARN)
+    end
+end
+
 function M._get()
     local plugins = {}
     for id, information in pairs(M.plugins) do
