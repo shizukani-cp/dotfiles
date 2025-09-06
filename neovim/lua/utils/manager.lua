@@ -38,7 +38,15 @@ function M.add(spec)
     if not is_installed then
         local plugin = M.plugins[spec.id]
         plugin.status = 'installing'
-        fn.jobstart({ 'git', 'clone', '--depth', '1', spec.url, install_path }, {
+        local args = { 'git', 'clone', '--depth', '1' }
+        if spec.branch then
+            table.insert(args, '-b')
+            table.insert(args, spec.branch)
+        end
+        table.insert(args, spec.url)
+        table.insert(args, install_path)
+
+        fn.jobstart(args, {
             on_exit = function(_, code)
                 vim.schedule(function()
                     if code == 0 then
