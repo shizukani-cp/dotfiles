@@ -6,11 +6,13 @@ manager.add({
     id = "nvim-lspconfig",
     url = "https://github.com/neovim/nvim-lspconfig",
     dependencies = {
+        "lazydev.nvim",
         "mason.nvim",
         "mason-lspconfig.nvim",
         "ddc-source-lsp",
     },
     config = function ()
+        require("lazydev").setup()
         local on_attach = function(client, bufnr)
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()
                 vim.lsp.buf.format()
