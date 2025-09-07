@@ -11,7 +11,7 @@ type Params = Record<never, never>;
 type PluginStatus = { status: "new" | "installing" | "installed" | "loaded" };
 
 export class Source extends BaseSource<Params> {
-  override kind = "manager";
+  // override kind = "manager";
 
   override gather(args: {
     denops: Denops;
