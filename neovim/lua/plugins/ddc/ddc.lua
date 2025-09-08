@@ -18,7 +18,7 @@ manager.add({
     config = function ()
         vim.fn["ddc#custom#set_global"]({
             ui = "native",
-            sources = { "lsp", "buffer", "file", "path", },
+            sources = { "denippet","lsp", "buffer", "file", "path", },
             sourceOptions = {
                 _ = {
                     matchers = { "matcher_fuzzy" },
@@ -37,6 +37,9 @@ manager.add({
                 },
                 path = {
                     mark = "📁",
+                },
+                denippet = {
+                    mark = "🧩",
                 },
             },
             sourceParams = {
