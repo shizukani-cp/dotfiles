@@ -9,8 +9,6 @@ manager.add({
     config = function ()
         local dir = vim.fn.stdpath("config") .. "/snippets/"
 
-        -- vim.fn["denippet#load"](dir .. "lua.toml")
-
         for _, file in ipairs(vim.fn.glob(dir .. "*.*", 1, 1)) do
             vim.fn["denippet#load"](file)
         end 
@@ -26,7 +24,7 @@ manager.add({
         end, { expr = true })
     end
 })
-vim.api.nvim_create_autocmd("VimEnter", {
+vim.api.nvim_create_autocmd("InsertEnter", {
     group = vim.api.nvim_create_augroup("denippet.vim_load", { clear = true }),
     pattern = "*",
     callback = function ()
