@@ -1,0 +1,19 @@
+[config]
+prefix = 'conf'
+body = """
+config = function ()
+\t$0
+end\
+"""
+
+[lazy_load]
+prefix = 'll'
+body = """
+vim.api.nvim_create_autocmd("$1", {
+    group = vim.api.nvim_create_augroup("$2_load", { clear = true }),
+    pattern = "*",
+    callback = function ()
+        manager.load("$2")
+    end
+})
+"""
