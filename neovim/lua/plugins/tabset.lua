@@ -11,7 +11,7 @@ manager.add({
             },
             languages = {
                 {
-                    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html", "css", "json", },
+                    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html", "htmldjango", "css", "json", },
                     config = {
                         tabwidth = 2,
                     },
