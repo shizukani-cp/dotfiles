@@ -19,6 +19,7 @@ vim.g.clipboard = {
 
 vim.o.helplang = "ja,en"
 vim.wo.cursorline = true
+vim.opt.foldmethod = "indent"
 vim.opt.number = true
 vim.opt.termguicolors = true
 vim.opt.whichwrap = 'b,s,h,l,<,>'
@@ -43,6 +44,15 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function()
         vim.lsp.buf.format({ async = false })
+    end,
+})
+
+local none_first_fold_grp = vim.api.nvim_create_augroup("NoneFirstFold", { clear = true })
+vim.api.nvim_create_autocmd("VimEnter", {
+    group = none_first_fold_grp,
+    pattern = "*",
+    callback = function()
+        vim.cmd("normal! zR")
     end,
 })
 
@@ -140,6 +150,7 @@ vim.api.nvim_set_keymap('v', '<Space>y', '"+y', { noremap = true, silent = true,
 vim.api.nvim_set_keymap('n', '<Space>p', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.api.nvim_set_keymap('n', '<Space>P', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.api.nvim_set_keymap('n', '<Space>=', 'gg=G``', { noremap = true, silent = true, desc = "Indent Buffer" })
+vim.api.nvim_set_keymap('n', '<Space>z', 'za', { noremap = true, silent = true, desc = "Fold Under Cursor" })
 vim.keymap.set({ 'n', 'x' }, 'gg', 'gg^', { noremap = true, silent = true, desc = "Go to the top of the file" })
 vim.keymap.set({ 'n', 'x' }, 'G', 'G$', { noremap = true, silent = true, desc = "Go to the end of the file" })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
