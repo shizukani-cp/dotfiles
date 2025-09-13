@@ -3,7 +3,7 @@ local manager = require("utils.manager")
 manager.add({
     id = "tabset.nvim",
     url = "https://github.com/FotiadisM/tabset.nvim",
-    config = function ()
+    config = function()
         require("tabset").setup({
             default = {
                 tabwidth = 4,
@@ -11,7 +11,7 @@ manager.add({
             },
             languages = {
                 {
-                    filetypes = { "javascript", "typescript", "html", "css", "json", },
+                    filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html", "css", "json", },
                     config = {
                         tabwidth = 2,
                     },
