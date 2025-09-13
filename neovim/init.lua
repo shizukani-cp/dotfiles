@@ -37,6 +37,15 @@ vim.api.nvim_create_autocmd("TermOpen", {
     end,
 })
 
+local format_on_save_grp = vim.api.nvim_create_augroup("FormatOnSave", { clear = true })
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = format_on_save_grp,
+    pattern = "*",
+    callback = function()
+        vim.lsp.buf.format({ async = false })
+    end,
+})
+
 local manager = require("utils.manager")
 
 manager.lock()
@@ -131,6 +140,6 @@ vim.api.nvim_set_keymap('v', '<Space>y', '"+y', { noremap = true, silent = true,
 vim.api.nvim_set_keymap('n', '<Space>p', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.api.nvim_set_keymap('n', '<Space>P', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.api.nvim_set_keymap('n', '<Space>=', 'gg=G``', { noremap = true, silent = true, desc = "Indent Buffer" })
-vim.keymap.set({'n','x'}, 'gg', 'gg^', { noremap = true, silent = true, desc = "Go to the top of the file" })
-vim.keymap.set({'n','x'}, 'G', 'G$', { noremap = true, silent = true, desc = "Go to the end of the file" })
+vim.keymap.set({ 'n', 'x' }, 'gg', 'gg^', { noremap = true, silent = true, desc = "Go to the top of the file" })
+vim.keymap.set({ 'n', 'x' }, 'G', 'G$', { noremap = true, silent = true, desc = "Go to the end of the file" })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
