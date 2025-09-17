@@ -20,6 +20,7 @@ vim.g.clipboard = {
 vim.o.helplang = "ja,en"
 vim.wo.cursorline = true
 vim.opt.foldmethod = "indent"
+vim.opt.foldlevel = 99
 vim.opt.number = true
 vim.opt.termguicolors = true
 vim.opt.whichwrap = 'b,s,h,l,<,>'
@@ -44,15 +45,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*",
     callback = function()
         vim.lsp.buf.format({ async = false })
-    end,
-})
-
-local none_first_fold_grp = vim.api.nvim_create_augroup("NoneFirstFold", { clear = true })
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = none_first_fold_grp,
-    pattern = "*",
-    callback = function()
-        vim.cmd("normal! zR")
     end,
 })
 
