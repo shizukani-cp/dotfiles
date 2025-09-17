@@ -7,7 +7,7 @@ manager.add({
     dependencies = {
         "nvim-web-devicons",
     },
-    config = function ()
+    config = function()
         require("oil").setup({
             win_options = {
                 signcolumn = "yes:2",
@@ -17,6 +17,6 @@ manager.add({
                 show_hidden = true,
             },
         })
+        vim.keymap.set("n", "<Space>f", "<Cmd>Oil<Cr>", { noremap = true, silent = true, desc = "Open oil buffer" })
     end
 })
-set_keymap("n", "<Space>f", "<cmd>Oil<CR>", "oil-git-signs.nvim", { noremap = true, silent = true, desc = "Open oil buffer" })

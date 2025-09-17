@@ -10,3 +10,4 @@ manager.add({
         require("oil-git-signs").setup()
     end
 })
+manager.load("oil-git-signs.nvim")
