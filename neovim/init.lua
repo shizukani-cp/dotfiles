@@ -2,6 +2,8 @@ vim.scriptencoding = 'utf-8'
 vim.o.encoding = 'utf-8'
 vim.o.fileencoding = 'utf-8'
 vim.o.fileencodings = "utf-8,cp932,euc-jp,sjis"
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
 vim.diagnostic.config({ virtual_text = true })
 
 vim.g.clipboard = {
