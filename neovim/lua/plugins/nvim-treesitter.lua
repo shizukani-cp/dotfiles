@@ -5,4 +5,3 @@ manager.add({
     url = "https://github.com/nvim-treesitter/nvim-treesitter",
 })
 manager.load("nvim-treesitter")
-
