@@ -5,6 +5,7 @@ manager.add({
     id = "ddu.vim",
     url = "https://github.com/Shougo/ddu.vim",
     dependencies = {
+        "ddu-filter-converter_devicon",
         "ddu-filter-matcher_substring",
         "ddu-kind-file",
         "ddu-source-buffer",
@@ -13,7 +14,7 @@ manager.add({
         "ddu-ui-ff",
         "denops.vim",
     },
-    config = function ()
+    config = function()
         vim.fn["ddu#custom#set_global"]({
             ui = "ff",
             uiParams = {
@@ -37,8 +38,10 @@ manager.add({
             sourceOptions = {
                 _ = {
                     matchers = { "matcher_substring" },
+                    converters = { "converter_devicon" },
                     ignoreCase = true,
                 },
+                buffer = {},
                 file_rec = {},
                 manager = {
                     sorters = { "manager_sorter" },
@@ -82,7 +85,11 @@ manager.add({
         vim.api.nvim_set_hl(0, 'MyStatusHL', { fg = '#569CD6' })
     end
 })
-set_keymap("n", "<Space>F", "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>", "ddu.vim", { noremap = true, silent = true, desc = "Open File Picker." })
-set_keymap("n", "<Space>b", "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>", "ddu.vim", { noremap = true, silent = true, desc = "Open Buffer Picker." })
-set_keymap("n", "<Space>s", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>", "ddu.vim", { noremap = true, silent = true, desc = "Open Symbol Picker." })
-set_keymap("n", "<Space>l", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim", { noremap = true, silent = true, desc = "Open Plugin List." })
+set_keymap("n", "<Space>F", "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>", "ddu.vim",
+    { noremap = true, silent = true, desc = "Open File Picker." })
+set_keymap("n", "<Space>b", "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>", "ddu.vim",
+    { noremap = true, silent = true, desc = "Open Buffer Picker." })
+set_keymap("n", "<Space>s", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>", "ddu.vim",
+    { noremap = true, silent = true, desc = "Open Symbol Picker." })
+set_keymap("n", "<Space>l", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim",
+    { noremap = true, silent = true, desc = "Open Plugin List." })
