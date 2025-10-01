@@ -6,7 +6,7 @@ manager.add({
     dependencies = {
         "nvim-web-devicons",
     },
-    config = function ()
+    config = function()
         require("dashboard").setup({
             theme = "doom",
             config = {
@@ -19,7 +19,7 @@ manager.add({
                     "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝",
                 },
                 center = {
-                     {
+                    {
                         icon = "  ",
                         key = "n",
                         keymap_hl = "New File",
@@ -31,9 +31,9 @@ manager.add({
                         key = "f",
                         keymap_hl = "Open Oil",
                         desc = "Open Oil",
-                        action = function ()
+                        action = function()
                             manager.load("oil.nvim")
-                            vim.cmd[[Oil]]
+                            vim.cmd [[Oil]]
                         end
                     },
                     {
@@ -41,9 +41,9 @@ manager.add({
                         key = "g",
                         keymap_hl = "Show Lazygit",
                         desc = "Show Lazygit",
-                        action = function ()
+                        action = function()
                             require("utils.manager").load("lazygit.nvim")
-                            vim.cmd[[LazyGit]]
+                            vim.cmd [[LazyGit]]
                         end
                     },
                     {
@@ -51,7 +51,7 @@ manager.add({
                         key = "u",
                         keymap_hl = "Update Plugins",
                         desc = "Update Plugins",
-                        action = function ()
+                        action = function()
                             require("utils.manager").update()
                         end
                     },
@@ -60,7 +60,7 @@ manager.add({
                         key = "c",
                         keymap_hl = "Clean Unused Plugins",
                         desc = "Clean Unused Plugins",
-                        action = function ()
+                        action = function()
                             require("utils.manager").clean()
                         end
                     },
@@ -75,6 +75,20 @@ manager.add({
                     },
                 }
             }
+        })
+        vim.api.nvim_create_autocmd("FileType", {
+            pattern = "dashboard",
+            callback = function()
+                vim.cmd("DisableWhitespace")
+            end,
+        })
+        vim.api.nvim_create_autocmd({ "BufLeave", "BufUnload" }, {
+            pattern = "*",
+            callback = function()
+                if vim.bo.filetype ~= "dashboard" then
+                    vim.cmd("EnableWhitespace")
+                end
+            end,
         })
     end
 })
