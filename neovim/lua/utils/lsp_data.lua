@@ -5,7 +5,7 @@ M.lsp_servers = {
         settings = {
             Lua = {
                 runtime = { version = 'LuaJIT' },
-                diagnostics = { globals = {'vim'} },
+                diagnostics = { globals = { 'vim' } },
                 workspace = {
                     library = vim.list_extend(vim.api.nvim_get_runtime_file("lua", true), {
                         "${3rd}/luv/library",
@@ -31,7 +31,28 @@ M.lsp_servers = {
     rust_analyzer = {},
     html = {},
     cssls = {},
-    ts_ls = {},
+    ts_ls = {
+        root_dir = function(fname)
+            if fname and string.find(fname, "/denops/") then
+                return nil
+            end
+            local util = require("lspconfig.util")
+            return util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
+        end,
+    },
+    denols = {
+        init_options = {
+            lint = true,
+            unstable = true,
+        },
+        root_dir = function(fname)
+            if fname and string.find(fname, "/denops/") then
+                local util = require("lspconfig.util")
+                return util.root_pattern(".git", "deno.json", "deno.jsonc")(fname)
+            end
+            return nil
+        end,
+    },
     jsonls = {},
 }
 
