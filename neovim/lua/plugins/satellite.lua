@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "satellite.nvim",
@@ -10,10 +11,4 @@ manager.add({
         "gitsigns.nvim"
     }
 })
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = vim.api.nvim_create_augroup("satellite.nvim_load", { clear = true }),
-    pattern = "*",
-    callback = function ()
-        manager.load("satellite.nvim")
-    end
-})
+lazyload.event("VimEnter", "satellite.nvim")

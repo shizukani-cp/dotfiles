@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "nvim-autopairs",
@@ -7,10 +8,4 @@ manager.add({
         require("nvim-autopairs").setup()
     end
 })
-vim.api.nvim_create_autocmd("InsertEnter", {
-    group = vim.api.nvim_create_augroup("nvim-autopairs_load", { clear = true }),
-    pattern = "*",
-    callback = function()
-        manager.load("nvim-autopairs")
-    end,
-})
+lazyload.event("InsertEnter", "nvim-autopairs")

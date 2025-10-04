@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "hlargs.nvim",
@@ -9,10 +10,4 @@ manager.add({
     end
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = vim.api.nvim_create_augroup("hlargs.nvim_load", { clear = true }),
-    pattern = "*",
-    callback = function()
-        manager.load("hlargs.nvim")
-    end
-})
+lazyload.event("VimEnter", "hlargs.nvim")

@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "registers.nvim",
@@ -8,5 +8,5 @@ manager.add({
         require("registers").setup()
     end
 })
-set_keymap("n", "<Space>R", "<Cmd>Registers<Cr>", "registers.nvim",
+lazyload.key("n", "<Space>R", "<Cmd>Registers<Cr>", "registers.nvim",
     { noremap = true, silent = true, desc = "Show Registers" })

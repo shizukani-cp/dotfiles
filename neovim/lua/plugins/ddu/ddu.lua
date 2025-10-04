@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "ddu.vim",
@@ -85,11 +85,11 @@ manager.add({
         vim.api.nvim_set_hl(0, 'MyStatusHL', { fg = '#569CD6' })
     end
 })
-set_keymap("n", "<Space>F", "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>", "ddu.vim",
+lazyload.key("n", "<Space>F", "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open File Picker." })
-set_keymap("n", "<Space>b", "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>", "ddu.vim",
+lazyload.key("n", "<Space>b", "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open Buffer Picker." })
-set_keymap("n", "<Space>s", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>", "ddu.vim",
+lazyload.key("n", "<Space>s", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open Symbol Picker." })
-set_keymap("n", "<Space>l", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim",
+lazyload.key("n", "<Space>l", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open Plugin List." })

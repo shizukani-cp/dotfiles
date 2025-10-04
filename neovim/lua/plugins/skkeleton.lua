@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "skkeleton",
@@ -14,11 +15,5 @@ manager.add({
         vim.keymap.set({"i", "c"}, "<C-s>", "<Plug>(skkeleton-toggle)", { noremap = true, silent = true, desc = "Toggle skkeleton enable/disable" })
     end
 })
-vim.api.nvim_create_autocmd("InsertEnter", {
-    group = vim.api.nvim_create_augroup("skkeleton_load", { clear = true }),
-    pattern = "*",
-    callback = function()
-        manager.load("skkeleton")
-    end,
-})
+lazyload.event("InsertEnter", "skkeleton")
 

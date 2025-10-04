@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "dropbar.nvim",
@@ -12,10 +13,4 @@ manager.add({
         vim.ui.select = require('dropbar.utils.menu').select
     end
 })
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = vim.api.nvim_create_augroup("dropbar.nvim_load", { clear = true }),
-    pattern = "*",
-    callback = function ()
-        manager.load("dropbar.nvim")
-    end
-})
+lazyload.event("VimEnter", "dropbar.nvim")

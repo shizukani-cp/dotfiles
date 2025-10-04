@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "nvim-spectre",
@@ -12,4 +12,4 @@ manager.add({
         require("spectre").setup()
     end
 })
-set_keymap("n", "<Space>S", "<Cmd>lua require('spectre').toggle()<Cr>", "nvim-spectre", { noremap = true, silent = true, desc = "Toggle spectre" })
+lazyload.key("n", "<Space>S", "<Cmd>lua require('spectre').toggle()<Cr>", "nvim-spectre", { noremap = true, silent = true, desc = "Toggle spectre" })

@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "undotree",
@@ -11,4 +11,4 @@ manager.add({
         require('undotree').setup()
     end,
 })
-set_keymap("n", "<Space>u", function() require('undotree').toggle() end, "undotree", { noremap = true, silent = true, desc = "Show undo tree" })
+lazyload.key("n", "<Space>u", function() require('undotree').toggle() end, "undotree", { noremap = true, silent = true, desc = "Show undo tree" })

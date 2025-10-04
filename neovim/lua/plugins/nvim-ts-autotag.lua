@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "nvim-ts-autotag",
@@ -8,10 +9,4 @@ manager.add({
     end
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = vim.api.nvim_create_augroup("nvim-ts-autotag_load", { clear = true }),
-    pattern = "*",
-    callback = function()
-        manager.load("nvim-ts-autotag")
-    end
-})
+lazyload.event("VimEnter", "nvim-ts-autotag")

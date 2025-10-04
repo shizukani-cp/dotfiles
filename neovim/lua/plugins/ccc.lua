@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "ccc.nvim",
@@ -8,4 +8,4 @@ manager.add({
         require("ccc").setup()
     end
 })
-set_keymap("n", "<Space>#", "<Cmd>CccPick<Cr>", "ccc.nvim", { noremap = true, silent = true, desc = "Color Pick" })
+lazyload.key("n", "<Space>#", "<Cmd>CccPick<Cr>", "ccc.nvim", { noremap = true, silent = true, desc = "Color Pick" })

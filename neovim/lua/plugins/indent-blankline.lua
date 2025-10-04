@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "indent-blankline.nvim",
@@ -8,10 +9,4 @@ manager.add({
     end
 })
 
-vim.api.nvim_create_autocmd("VimEnter", {
-    group = vim.api.nvim_create_augroup("indent-blankline.nvim_load", { clear = true }),
-    pattern = "*",
-    callback = function()
-        manager.load("indent-blankline.nvim")
-    end
-})
+lazyload.event("VimEnter", "indent-blankline.nvim")

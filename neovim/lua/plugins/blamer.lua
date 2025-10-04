@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "blamer.nvim",
@@ -9,4 +9,4 @@ manager.add({
         vim.g.blamer_date_format = '%y/%m/%d'
     end
 })
-set_keymap("n", "<Space>B", "<Cmd>BlamerToggle<Cr>", "blamer.nvim", { noremap = true, silent = true, desc = "Show Blame" })
+lazyload.key("n", "<Space>B", "<Cmd>BlamerToggle<Cr>", "blamer.nvim", { noremap = true, silent = true, desc = "Show Blame" })

@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "treesj",
@@ -11,4 +11,4 @@ manager.add({
         require("treesj").setup()
     end
 })
-set_keymap("n", "<Space>t", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj", { noremap = true, silent = true, desc = "Split / Join" })
+lazyload.key("n", "<Space>t", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj", { noremap = true, silent = true, desc = "Split / Join" })

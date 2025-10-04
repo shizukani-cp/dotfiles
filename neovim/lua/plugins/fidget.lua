@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "fidget.nvim",
@@ -7,10 +8,4 @@ manager.add({
         require("fidget").setup()
     end
 })
-vim.api.nvim_create_autocmd("LspAttach", {
-    group = lspattach_plugin_grp,
-    pattern = "*",
-    callback = function ()
-        manager.load("fidget.nvim")
-    end
-})
+lazyload.event("LspAttach", "fidget.nvim")

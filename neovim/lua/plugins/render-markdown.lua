@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "render-markdown.nvim",
@@ -11,10 +12,4 @@ manager.add({
         require("render-markdown").setup()
     end
 })
-vim.api.nvim_create_autocmd({ "BufReadPre", "BufNewFile", "FileType" }, {
-    group = vim.api.nvim_create_augroup("render-markdown.nvim_load", { clear = true }),
-    pattern = { "*.md", "*.markdown", "*.norg", "*.rmd", "*.org" },
-    callback = function(event)
-        manager.load("render-markdown.nvim")
-    end,
-})
+lazyload.event({ "BufReadPre", "BufNewFile", "FileType" }, "render-markdown.nvim", { "*.md", "*.markdown", "*.norg", "*.rmd", "*.org" })

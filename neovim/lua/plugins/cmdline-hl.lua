@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "cmdline-hl.nvim",
@@ -7,10 +8,4 @@ manager.add({
         require("cmdline-hl").setup()
     end
 })
-vim.api.nvim_create_autocmd("CmdlineEnter", {
-    group = vim.api.nvim_create_augroup("cmdline-hl.nvim_load", { clear = true }),
-    pattern = "*",
-    callback = function ()
-        manager.load("cmdline-hl.nvim")
-    end
-})
+lazyload.event("CmdlineEnter", "cmdline-hl.nvim")

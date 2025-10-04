@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "nvim_context_vt",
@@ -8,5 +8,5 @@ manager.add({
         require("nvim_context_vt").setup()
     end
 })
-set_keymap("n", "<Space>v", "<Cmd>NvimContextVtToggle<Cr>", "nvim_context_vt",
+lazyload.key("n", "<Space>v", "<Cmd>NvimContextVtToggle<Cr>", "nvim_context_vt",
     { noremap = true, silent = true, desc = "Toggle context virtual text" })

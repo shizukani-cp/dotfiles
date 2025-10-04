@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "ddc.vim",
@@ -120,10 +121,4 @@ manager.add({
         vim.fn["ddc#enable"]()
     end
 })
-vim.api.nvim_create_autocmd("InsertEnter", {
-    group = vim.api.nvim_create_augroup("ddc.vim_load", { clear = true }),
-    pattern = "*",
-    callback = function()
-        manager.load("ddc.vim")
-    end,
-})
+lazyload.event("InsertEnter", "ddc.vim")

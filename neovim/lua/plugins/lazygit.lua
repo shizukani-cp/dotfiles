@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "lazygit.nvim",
@@ -8,4 +8,4 @@ manager.add({
         "plenary.nvim"
     },
 })
-set_keymap("n", "<Space>g", "<Cmd>LazyGit<Cr>", "lazygit.nvim", { noremap = true, silent = true, desc = "Show lazygit" })
+lazyload.key("n", "<Space>g", "<Cmd>LazyGit<Cr>", "lazygit.nvim", { noremap = true, silent = true, desc = "Show lazygit" })

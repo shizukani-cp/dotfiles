@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "gemini.nvim",
@@ -10,4 +10,4 @@ manager.add({
         })
     end
 })
-set_keymap("n", "<Space>G", "<Cmd>GeminiOpen<Cr>", "gemini.nvim", { noremap = true, silent = true, desc = "Open Gemini CLI" })
+lazyload.key("n", "<Space>G", "<Cmd>GeminiOpen<Cr>", "gemini.nvim", { noremap = true, silent = true, desc = "Open Gemini CLI" })

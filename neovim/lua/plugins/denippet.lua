@@ -1,4 +1,5 @@
 local manager = require("utils.manager")
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "denippet.vim",
@@ -24,10 +25,4 @@ manager.add({
         end, { expr = true })
     end
 })
-vim.api.nvim_create_autocmd("InsertEnter", {
-    group = vim.api.nvim_create_augroup("denippet.vim_load", { clear = true }),
-    pattern = "*",
-    callback = function ()
-        manager.load("denippet.vim")
-    end
-})
+lazyload.event("InsertEnter", "denippet.vim")

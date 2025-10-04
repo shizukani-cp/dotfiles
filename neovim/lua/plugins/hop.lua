@@ -1,5 +1,5 @@
 local manager = require("utils.manager")
-local set_keymap = require("utils.set_keymap").set_keymap
+local lazyload = require("utils.lazyload")
 
 manager.add({
     id = "hop.nvim",
@@ -10,4 +10,4 @@ manager.add({
         })
     end
 })
-set_keymap("n", "f", "<Cmd>HopWord<Cr>", "hop.nvim", { noremap = true, silent = true, desc = "Go to any word in the current buffer." })
+lazyload.key("n", "f", "<Cmd>HopWord<Cr>", "hop.nvim", { noremap = true, silent = true, desc = "Go to any word in the current buffer." })
