@@ -7,13 +7,15 @@ manager.add({
     dependencies = {
         "denops.vim"
     },
-    config = function ()
+    config = function()
         vim.fn["skkeleton#config"]({
             globalDictionaries = { '~/.config/eskk/SKK-JISYO.L' },
             eggLikeNewline = true,
+            markerHenkan = "¦",
+            markerHenkanSelect = "|",
         })
-        vim.keymap.set({"i", "c"}, "<C-s>", "<Plug>(skkeleton-toggle)", { noremap = true, silent = true, desc = "Toggle skkeleton enable/disable" })
+        vim.keymap.set({ "i", "c" }, "<C-s>", "<Plug>(skkeleton-toggle)",
+            { noremap = true, silent = true, desc = "Toggle skkeleton enable/disable" })
     end
 })
 lazyload.event("InsertEnter", "skkeleton")
-
