@@ -85,11 +85,11 @@ manager.add({
         vim.api.nvim_set_hl(0, 'MyStatusHL', { fg = '#569CD6' })
     end
 })
-lazyload.key("n", "<Space>F", "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>", "ddu.vim",
+lazyload.key("n", "<Leader>F", "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open File Picker." })
-lazyload.key("n", "<Space>b", "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>", "ddu.vim",
+lazyload.key("n", "<Leader>b", "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open Buffer Picker." })
-lazyload.key("n", "<Space>s", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>", "ddu.vim",
+lazyload.key("n", "<Leader>s", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open Symbol Picker." })
-lazyload.key("n", "<Space>l", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim",
+lazyload.key("n", "<Leader>l", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open Plugin List." })

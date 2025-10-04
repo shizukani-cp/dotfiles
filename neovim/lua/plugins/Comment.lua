@@ -4,15 +4,15 @@ local lazyload = require("utils.lazyload")
 manager.add({
     id = "Comment.nvim",
     url = "https://github.com/numToStr/Comment.nvim",
-    config = function ()
+    config = function()
         require("Comment").setup({
             toggler = {
-                line = "<Space>c",
-                block = "<Space>C",
+                line = "<Leader>c",
+                block = "<Leader>C",
             },
             opleader = {
-                line = "<Space>c",
-                block = "<Space>C",
+                line = "<Leader>c",
+                block = "<Leader>C",
             }
         })
     end

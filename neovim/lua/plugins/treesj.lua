@@ -7,8 +7,9 @@ manager.add({
     dependencies = {
         "nvim-treesitter"
     },
-    config = function ()
+    config = function()
         require("treesj").setup()
     end
 })
-lazyload.key("n", "<Space>t", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj", { noremap = true, silent = true, desc = "Split / Join" })
+lazyload.key("n", "<Leader>t", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj",
+    { noremap = true, silent = true, desc = "Split / Join" })

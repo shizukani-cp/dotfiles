@@ -7,9 +7,10 @@ manager.add({
     dependencies = {
         "plenary.nvim"
     },
-    config = function ()
+    config = function()
         require("renamer").setup()
     end
 })
 
-lazyload.key({ "n", "v" }, "<Space>r", "<Cmd>lua require('renamer').rename()<Cr>", "renamer.nvim", { noremap = true, silent = true, desc = "Rename symbol" })
+lazyload.key({ "n", "v" }, "<Leader>r", "<Cmd>lua require('renamer').rename()<Cr>", "renamer.nvim",
+    { noremap = true, silent = true, desc = "Rename symbol" })

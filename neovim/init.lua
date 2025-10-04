@@ -4,6 +4,7 @@ vim.o.fileencoding = 'utf-8'
 vim.o.fileencodings = "utf-8,cp932,euc-jp,sjis"
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
+vim.g.mapleader = " "
 vim.diagnostic.config({ virtual_text = true })
 
 vim.g.clipboard = {
@@ -149,11 +150,11 @@ vim.api.nvim_create_user_command("PluginList", function()
     vim.api.nvim_set_current_buf(buf)
 end, {})
 
-vim.api.nvim_set_keymap('v', '<Space>y', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
-vim.api.nvim_set_keymap('n', '<Space>p', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
-vim.api.nvim_set_keymap('n', '<Space>P', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
-vim.api.nvim_set_keymap('n', '<Space>z', 'za', { noremap = true, silent = true, desc = "Fold Under Cursor" })
-vim.keymap.set("n", "<Space>n", function()
+vim.api.nvim_set_keymap('v', '<Leader>y', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
+vim.api.nvim_set_keymap('n', '<Leader>p', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.api.nvim_set_keymap('n', '<Leader>P', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.api.nvim_set_keymap('n', '<Leader>z', 'za', { noremap = true, silent = true, desc = "Fold Under Cursor" })
+vim.keymap.set("n", "<Leader>n", function()
     if vim.wo.relativenumber then
         vim.wo.relativenumber = false
         vim.wo.number = true

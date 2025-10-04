@@ -8,4 +8,5 @@ manager.add({
         "plenary.nvim"
     },
 })
-lazyload.key("n", "<Space>g", "<Cmd>LazyGit<Cr>", "lazygit.nvim", { noremap = true, silent = true, desc = "Show lazygit" })
+lazyload.key("n", "<Leader>g", "<Cmd>LazyGit<Cr>", "lazygit.nvim",
+    { noremap = true, silent = true, desc = "Show lazygit" })
