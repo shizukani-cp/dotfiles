@@ -8,8 +8,9 @@ manager.add({
         "plenary.nvim",
         "nvim-web-devicons"
     },
-    config = function ()
+    config = function()
         require("spectre").setup()
     end
 })
-lazyload.key("n", "<Leader>S", "<Cmd>lua require('spectre').toggle()<Cr>", "nvim-spectre", { noremap = true, silent = true, desc = "Toggle spectre" })
+lazyload.key("n", "<Leader>s", "<Cmd>lua require('spectre').toggle()<Cr>", "nvim-spectre",
+    { noremap = true, silent = true, desc = "Toggle spectre" })
