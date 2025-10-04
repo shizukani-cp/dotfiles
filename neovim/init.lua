@@ -150,7 +150,6 @@ vim.api.nvim_create_user_command("PluginList", function()
 end, {})
 
 vim.api.nvim_set_keymap('v', '<Leader>y', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
-vim.api.nvim_set_keymap('n', '<Leader>p', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.api.nvim_set_keymap('n', '<Leader>P', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.api.nvim_set_keymap('n', '<Leader>z', 'za', { noremap = true, silent = true, desc = "Fold Under Cursor" })
 vim.keymap.set("n", "<Leader>n", function()
