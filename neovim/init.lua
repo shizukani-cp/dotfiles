@@ -151,7 +151,7 @@ end, {})
 
 vim.api.nvim_set_keymap('v', '<Leader>y', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
 vim.api.nvim_set_keymap('n', '<Leader>P', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
-vim.api.nvim_set_keymap('n', '<Leader>z', 'za', { noremap = true, silent = true, desc = "Fold Under Cursor" })
+vim.api.nvim_set_keymap('n', '<Leader>F', 'za', { noremap = true, silent = true, desc = "Fold Under Cursor" })
 vim.keymap.set("n", "<Leader>n", function()
     if vim.wo.relativenumber then
         vim.wo.relativenumber = false
