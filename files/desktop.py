@@ -1,0 +1,17 @@
+from PIL import Image, ImageDraw, ImageFont
+
+im = Image.new('RGB', (1920, 1080), (255, 255, 255))
+draw = ImageDraw.Draw(im)
+draw.rectangle((0, 0, 960, 540), fill=(237, 125, 46))
+draw.rectangle((960, 0, 1920, 540), fill=(1, 176, 241))
+draw.rectangle((0, 540, 960, 1080), fill=(112, 173, 64))
+draw.rectangle((960, 540, 1920, 1080), fill=(0, 87, 150))
+draw.line((0, 540, 1920, 540), fill=(0, 0, 0), width=4)
+draw.line((960, 0, 960, 1080), fill=(0, 0, 0), width=4)
+font = ImageFont.truetype('HGSoeiKakugothicUB_X0213(04).ttc', 100)
+small_font = ImageFont.truetype('HGSoeiKakugothicUB_X0213(04).ttc', 88)
+draw.text((280, 220), "アイコン", (0, 0, 0), align="center", font=font)
+draw.text((1200, 220), "フォルダー", (0, 0, 0), align="center", font=font)
+draw.text((0, 775), "いらないショートカット", (0, 0, 0), align="center", font=small_font)
+draw.text((1230, 765), "空き場所", (0, 0, 0), align="center", font=font)
+im.save('desctop.jpg')
