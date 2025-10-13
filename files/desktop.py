@@ -1,17 +1,40 @@
 from PIL import Image, ImageDraw, ImageFont
 
-im = Image.new('RGB', (1920, 1080), (255, 255, 255))
+
+def get_max_font_size(draw, text, font_path, box_width, box_height, max_font_size=300):
+    for font_size in range(max_font_size, 0, -1):
+        font = ImageFont.truetype(font_path, font_size)
+        bbox = draw.textbbox((0, 0), text, font=font)
+        w = bbox[2] - bbox[0]
+        h = bbox[3] - bbox[1]
+        if w <= box_width and h <= box_height:
+            return font_size
+    return 1
+
+
+WIDTH = 1920
+HEIGHT = 1080
+font_path = '/mnt/c/Windows/Fonts/HGRSGU.TTC'
+
+im = Image.new('RGB', (WIDTH, HEIGHT), (255, 255, 255))
 draw = ImageDraw.Draw(im)
-draw.rectangle((0, 0, 960, 540), fill=(237, 125, 46))
-draw.rectangle((960, 0, 1920, 540), fill=(1, 176, 241))
-draw.rectangle((0, 540, 960, 1080), fill=(112, 173, 64))
-draw.rectangle((960, 540, 1920, 1080), fill=(0, 87, 150))
-draw.line((0, 540, 1920, 540), fill=(0, 0, 0), width=4)
-draw.line((960, 0, 960, 1080), fill=(0, 0, 0), width=4)
-font = ImageFont.truetype('HGSoeiKakugothicUB_X0213(04).ttc', 100)
-small_font = ImageFont.truetype('HGSoeiKakugothicUB_X0213(04).ttc', 88)
-draw.text((280, 220), "アイコン", (0, 0, 0), align="center", font=font)
-draw.text((1200, 220), "フォルダー", (0, 0, 0), align="center", font=font)
-draw.text((0, 775), "いらないショートカット", (0, 0, 0), align="center", font=small_font)
-draw.text((1230, 765), "空き場所", (0, 0, 0), align="center", font=font)
-im.save('desctop.jpg')
+blocks = [
+    ((0, 0, WIDTH/2, HEIGHT/2), "アイコン", (237, 125, 46)),
+    ((WIDTH/2, 0, WIDTH, HEIGHT/2), "フォルダー", (1, 176, 241)),
+    ((0, HEIGHT/2, WIDTH/2, HEIGHT), "いらないショートカット", (112, 173, 64)),
+    ((WIDTH/2, HEIGHT/2, WIDTH, HEIGHT), "空き場所", (0, 87, 150)),
+]
+for rect, text, color in blocks:
+    draw.rectangle(rect, fill=color)
+    box_w = int(rect[2] - rect[0])
+    box_h = int(rect[3] - rect[1])
+    font_size = get_max_font_size(
+        draw, text, font_path, box_w, box_h, max_font_size=300)
+    font = ImageFont.truetype(font_path, font_size)
+    x = (rect[0]+rect[2])/2
+    y = (rect[1]+rect[3])/2
+    draw.text((x, y), text, (0, 0, 0), font=font, anchor="mm")
+
+draw.line((0, HEIGHT/2, WIDTH, HEIGHT/2), fill=(0, 0, 0), width=4)
+draw.line((WIDTH/2, 0, WIDTH/2, HEIGHT), fill=(0, 0, 0), width=4)
+im.save("desktop.jpg")
