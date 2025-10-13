@@ -9,7 +9,13 @@ manager.add({
     },
     config = function()
         vim.fn["skkeleton#config"]({
-            globalDictionaries = { '~/.config/eskk/SKK-JISYO.L' },
+            globalDictionaries = {
+                '~/.config/eskk/SKK-JISYO.L',
+                '~/.config/eskk/SKK-JISYO.geo',
+                '~/.config/eskk/SKK-JISYO.jinmei',
+                '~/.config/eskk/SKK-JISYO.propernoun',
+                '~/.config/eskk/SKK-JISYO.station',
+            },
             eggLikeNewline = true,
             markerHenkan = "¦",
             markerHenkanSelect = "|",
