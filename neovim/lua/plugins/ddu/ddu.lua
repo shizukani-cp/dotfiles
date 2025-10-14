@@ -10,6 +10,7 @@ manager.add({
         "ddu-kind-file",
         "ddu-source-buffer",
         "ddu-source-file_rec",
+        "ddu-source-line_dir",
         "ddu-source-lsp",
         "ddu-ui-ff",
         "denops.vim",
@@ -92,5 +93,7 @@ lazyload.key("n", "<Leader>pb", "<Cmd>call ddu#start({ 'sources': ['buffer'], 'u
     { noremap = true, silent = true, desc = "Open Buffer Picker." })
 lazyload.key("n", "<Leader>ps", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open Symbol Picker." })
-lazyload.key("n", "<Leader>pl", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim",
+lazyload.key("n", "<Leader>pp", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Open Plugin List." })
+lazyload.key("n", "<Leader>pl", "<Cmd>call ddu#start({ 'sources': ['line_dir'], 'ui': 'ff' })<CR>", "ddu.vim",
+    { noremap = true, silent = true, desc = "Open Line Picker" })
