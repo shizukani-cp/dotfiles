@@ -166,4 +166,6 @@ vim.keymap.set({ 'n', 'x' }, 'gg', 'gg^', { noremap = true, silent = true, desc 
 vim.keymap.set({ 'n', 'x' }, 'G', 'G$', { noremap = true, silent = true, desc = "Go to the end of the file" })
 vim.keymap.set('n', 'o', 'o<Esc>', { noremap = true, silent = true, desc = "Add new line" })
 vim.keymap.set('n', 'O', 'O<Esc>', { noremap = true, silent = true, desc = "Add new line before" })
+vim.keymap.set('n', 'L', ':bnext<CR>', { noremap = true, silent = true, desc = "Next buffer" })
+vim.keymap.set('n', 'H', ':bprevious<CR>', { noremap = true, silent = true, desc = "Previous buffer" })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
