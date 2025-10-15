@@ -5,6 +5,7 @@ manager.add({
     url = "https://github.com/nvim-lualine/lualine.nvim",
     dependencies = {
         "nvim-web-devicons",
+        "lualine-lsp-status",
     },
     config = function()
         require("lualine").setup({
@@ -42,21 +43,26 @@ manager.add({
                     'branch',
                     {
                         'diff',
-                        symbols = {added = ' ', modified = ' ', removed = ' '},
+                        symbols = { added = ' ', modified = ' ', removed = ' ' },
                     },
                 },
                 lualine_c = {
                     {
                         'diagnostics',
-                        symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
+                        symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
                     },
                 },
-                lualine_x = {'encoding'},
-                lualine_y = {
-                    'filetype',
-                    { 'filename', path=1 }
+                lualine_x = {
+                    'lsp-status',
                 },
-                lualine_z = {'location'}
+                lualine_y = {
+                    'encoding',
+                    'filetype',
+                },
+                lualine_z = {
+                    { 'filename', path = 1 },
+                    'location'
+                }
             },
         })
     end
