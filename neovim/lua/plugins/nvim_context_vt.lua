@@ -9,4 +9,4 @@ manager.add({
     end
 })
 lazyload.key("n", "<Leader>v", "<Cmd>NvimContextVtToggle<Cr>", "nvim_context_vt",
-    { noremap = true, silent = true, desc = "Toggle context virtual text" })
+    { noremap = true, silent = true, desc = "Context virtual text" })

@@ -10,4 +10,4 @@ manager.add({
     end
 })
 lazyload.key("n", "<Leader>b", "<Cmd>BlamerToggle<Cr>", "blamer.nvim",
-    { noremap = true, silent = true, desc = "Show Blame" })
+    { noremap = true, silent = true, desc = "Blame" })

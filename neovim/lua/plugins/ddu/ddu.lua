@@ -88,12 +88,12 @@ manager.add({
 })
 
 lazyload.key("n", "<Leader>pf", "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>", "ddu.vim",
-    { noremap = true, silent = true, desc = "Open File Picker." })
+    { noremap = true, silent = true, desc = "File" })
 lazyload.key("n", "<Leader>pb", "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>", "ddu.vim",
-    { noremap = true, silent = true, desc = "Open Buffer Picker." })
+    { noremap = true, silent = true, desc = "Buffer" })
 lazyload.key("n", "<Leader>ps", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>", "ddu.vim",
-    { noremap = true, silent = true, desc = "Open Symbol Picker." })
+    { noremap = true, silent = true, desc = "LSP Symbol" })
 lazyload.key("n", "<Leader>pp", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim",
-    { noremap = true, silent = true, desc = "Open Plugin List." })
+    { noremap = true, silent = true, desc = "Plugin List" })
 lazyload.key("n", "<Leader>pl", "<Cmd>call ddu#start({ 'sources': ['line_dir'], 'ui': 'ff' })<CR>", "ddu.vim",
-    { noremap = true, silent = true, desc = "Open Line Picker" })
+    { noremap = true, silent = true, desc = "Line" })

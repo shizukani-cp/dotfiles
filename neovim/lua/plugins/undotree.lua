@@ -12,4 +12,4 @@ manager.add({
     end,
 })
 lazyload.key("n", "<Leader>u", function() require('undotree').toggle() end, "undotree",
-    { noremap = true, silent = true, desc = "Show undo tree" })
+    { noremap = true, silent = true, desc = "Undo tree" })

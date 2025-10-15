@@ -7,12 +7,12 @@ manager.add({
     dependencies = {
         "denops.vim",
     },
-    config = function ()
+    config = function()
         local dir = vim.fn.stdpath("config") .. "/snippets/"
 
         for _, file in ipairs(vim.fn.glob(dir .. "*.*", 1, 1)) do
             vim.fn["denippet#load"](file)
-        end 
+        end
 
         vim.keymap.set("i", "<C-l>", "<Plug>(denippet-expand)")
 

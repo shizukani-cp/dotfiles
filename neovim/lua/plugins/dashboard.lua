@@ -29,8 +29,8 @@ manager.add({
                     {
                         icon = "📁 ",
                         key = "f",
-                        keymap_hl = "Open Oil",
-                        desc = "Open Oil",
+                        keymap_hl = "Oil",
+                        desc = "Oil",
                         action = function()
                             manager.load("oil.nvim")
                             vim.cmd [[Oil]]
@@ -39,8 +39,8 @@ manager.add({
                     {
                         icon = "🌀 ",
                         key = "g",
-                        keymap_hl = "Show Lazygit",
-                        desc = "Show Lazygit",
+                        keymap_hl = "Lazygit",
+                        desc = "Lazygit",
                         action = function()
                             require("utils.manager").load("lazygit.nvim")
                             vim.cmd [[LazyGit]]
@@ -93,3 +93,4 @@ manager.add({
     end
 })
 manager.load("dashboard-nvim")
+

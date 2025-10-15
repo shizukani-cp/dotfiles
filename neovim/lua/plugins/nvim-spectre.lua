@@ -13,4 +13,4 @@ manager.add({
     end
 })
 lazyload.key("n", "<Leader>s", "<Cmd>lua require('spectre').toggle()<Cr>", "nvim-spectre",
-    { noremap = true, silent = true, desc = "Toggle spectre" })
+    { noremap = true, silent = true, desc = "Spectre" })

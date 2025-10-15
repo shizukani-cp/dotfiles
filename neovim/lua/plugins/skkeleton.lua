@@ -21,7 +21,7 @@ manager.add({
             markerHenkanSelect = "|",
         })
         vim.keymap.set({ "i", "c" }, "<C-s>", "<Plug>(skkeleton-toggle)",
-            { noremap = true, silent = true, desc = "Toggle skkeleton enable/disable" })
+            { noremap = true, silent = true, desc = "Skkeleton enable/disable" })
     end
 })
 lazyload.event("InsertEnter", "skkeleton")

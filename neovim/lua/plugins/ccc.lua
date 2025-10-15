@@ -8,4 +8,4 @@ manager.add({
         require("ccc").setup()
     end
 })
-lazyload.key("n", "<Leader>#", "<Cmd>CccPick<Cr>", "ccc.nvim", { noremap = true, silent = true, desc = "Color Pick" })
+lazyload.key("n", "<Leader>#", "<Cmd>CccPick<Cr>", "ccc.nvim", { noremap = true, silent = true, desc = "Color Picker" })
