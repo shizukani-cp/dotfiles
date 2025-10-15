@@ -9,7 +9,9 @@ manager.add({
     },
     config = function()
         require("treesj").setup()
+        vim.keymap.del('n', '<leader>m')
+        vim.keymap.del('n', '<leader>j')
     end
 })
-lazyload.key("n", "<Leader>t", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj",
-    { noremap = true, silent = true, desc = "Split / Join" })
+lazyload.key("n", "<Leader>S", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj",
+    { noremap = true, silent = true, desc = "Split or Join code block with autodetect" })
