@@ -23,7 +23,7 @@
 - [Proton VPN](https://chromewebstore.google.com/detail/jplgfhpmjnbigmhklmmbgecoobifkmpa)(ログインも)
 - [uBlock](https://chromewebstore.google.com/detail/epcnnfbjfcgphgdmggkamkmgojdagdnn)
 - [Vimium](https://chromewebstore.google.com/detail/dbepggeogbaibhgnhhndojpepiihcmeb)(Custom key mappingを以下の通りに)
-```
+```vim
 unmap J
 unmap K
 map J nextTab
