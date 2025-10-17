@@ -19,6 +19,7 @@
 - [Casca](https://chromewebstore.google.com/detail/nifaiikfnpnppeicpgannigjabpjdcmh)
 - [Dark Reader](https://chromewebstore.google.com/detail/eimadpbcbfnmbkopoojfekhnkhdbieeh)
 - [DeepL](https://chromewebstore.google.com/detail/cofdbpoegempjloogbagkncekinflcnj)(ログインも)
+- [Enhancer for YouTube](https://chromewebstore.google.com/detail/ponfpcnoihfmfllpaingbgckeeldkhle)
 - [Proton Pass](https://chromewebstore.google.com/detail/ghmbeldphafepmbegfdlkpapadhbakde)(ログインも)
 - [Proton VPN](https://chromewebstore.google.com/detail/jplgfhpmjnbigmhklmmbgecoobifkmpa)(ログインも)
 - [uBlock](https://chromewebstore.google.com/detail/epcnnfbjfcgphgdmggkamkmgojdagdnn)
