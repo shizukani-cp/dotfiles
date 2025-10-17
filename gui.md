@@ -31,8 +31,8 @@ map J nextTab
 map K previousTab
 ```
 ### 設定
-- [パスワードマネージャー無効化](edge://wallet/settings#settings-passwords-section)
-- [閲覧履歴削除](edge://settings/privacy/clearBrowsingData/clearOnClose)
-- [ダークテーマ](edge://settings/appearance)
-- [検索エンジンDuckDuckGo化](edge://settings/privacy/services/search/searchEngines)
-- [垂直タブバー](edge://settings/appearance/tabs)
+- [パスワードマネージャー無効化](brave://password-manager/settings)
+- [閲覧履歴削除](brave://settings/clearBrowserData)
+- [ダークテーマ](brave://settings/appearance)「モード」ボタンからいく
+- [垂直タブバー](brave://settings/appearance)下の方にスクロールするとある
+- [検索エンジンDuckDuckGo化](brave://settings/search)
