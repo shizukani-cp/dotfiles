@@ -18,8 +18,8 @@ vim.keymap.set('n', 'L', ':bnext<CR>', { noremap = true, silent = true, desc = "
 vim.keymap.set('n', 'H', ':bprevious<CR>', { noremap = true, silent = true, desc = "Previous buffer" })
 vim.keymap.set('n', '<Cr>', 'za', { noremap = true, silent = true, desc = "Fold under Cursor" })
 vim.keymap.set('i', 'fk', '<Esc>', { noremap = true })
-vim.keymap.set('i', '<Esc>', function()
+vim.keymap.set('i', '<Esc>', vim.schedule_wrap(function()
     vim.notify("Escは無効にしておいたぞ。代わりに 'fk' を使っとけ(^^)", vim.log.levels.WARN)
     return ""
-end, { noremap = true, expr = true })
+end), { noremap = true, expr = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })
