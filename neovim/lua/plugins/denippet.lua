@@ -6,12 +6,31 @@ manager.add({
     url = "https://github.com/uga-rosa/denippet.vim",
     dependencies = {
         "denops.vim",
+        "friendly-snippets",
     },
     config = function()
         local dir = vim.fn.stdpath("config") .. "/snippets/"
 
         for _, file in ipairs(vim.fn.glob(dir .. "*.*", 1, 1)) do
             vim.fn["denippet#load"](file)
+        end
+
+        local root = vim.fs.joinpath(
+            vim.fn.stdpath("data"),
+            "site", "pack", "manager", "opt", "friendly-snippets", "snippets"
+        )
+
+        for name, type in vim.fs.dir(root) do
+            if type == "file" then
+                vim.fn["denippet#load"](vim.fs.joinpath(root, name))
+            elseif type == "directory" then
+                local dirname = name
+                for name2, type2 in vim.fs.dir(vim.fs.joinpath(root, dirname)) do
+                    if type2 == "file" then
+                        vim.fn["denippet#load"](vim.fs.joinpath(root, dirname, name2))
+                    end
+                end
+            end
         end
 
         vim.keymap.set("i", "<C-l>", "<Plug>(denippet-expand)")
