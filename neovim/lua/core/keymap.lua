@@ -19,7 +19,7 @@ vim.keymap.set('n', 'H', ':bprevious<CR>', { noremap = true, silent = true, desc
 vim.keymap.set('n', '<Cr>', 'za', { noremap = true, silent = true, desc = "Fold under Cursor" })
 vim.keymap.set('i', 'fj', '<Esc>', { noremap = true })
 vim.keymap.set('i', 'fk', '<Esc><Cmd>w<Cr>', { noremap = true })
-vim.keymap.set('i', 'fl', '<Esc><Cmd>wq<Cr>', { noremap = true })
+vim.keymap.set('i', 'fh', '<Esc><Cmd>wq<Cr>', { noremap = true })
 vim.keymap.set('i', '<Esc>', vim.schedule_wrap(function()
     vim.notify("Escは無効にしておいたぞ。代わりに 'fj' を使っとけ(^^)", vim.log.levels.WARN)
     return ""
