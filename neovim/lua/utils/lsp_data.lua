@@ -44,6 +44,15 @@ M.lsp_servers = {
         init_options = {
             lint = true,
             unstable = true,
+            suggest = {
+                imports = {
+                    hosts = {
+                        ['https://crux.land'] = true,
+                        ['https://deno.land'] = true,
+                        ['https://x.nest.land'] = true,
+                    },
+                },
+            },
         },
         root_dir = function(fname)
             if fname and string.find(fname, "/denops/") then
