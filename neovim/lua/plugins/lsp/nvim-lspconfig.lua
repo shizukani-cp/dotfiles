@@ -1,6 +1,6 @@
 local manager = require("utils.manager")
 
-local lsp_servers = require("utils.lsp_data").lsp_servers
+local lsp_servers = require("plugins.lsp.data").lsp_servers
 
 manager.add({
     id = "nvim-lspconfig",
@@ -11,7 +11,7 @@ manager.add({
         "mason-lspconfig.nvim",
         "ddc-source-lsp",
     },
-    config = function ()
+    config = function()
         require("lazydev").setup()
         local on_attach = function(client, bufnr)
             vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()
@@ -33,9 +33,9 @@ manager.add({
                     if user_attach then user_attach(client, bufnr) end
                     global_on_attach(client, bufnr)
                 end
-                                    require("lspconfig")[name].setup(cfg)
-                                end
-                            end
+                require("lspconfig")[name].setup(cfg)
+            end
+        end
         vim.api.nvim_create_autocmd('LspAttach', {
             callback = function(ev)
                 local client = vim.lsp.get_client_by_id(ev.data.client_id)
