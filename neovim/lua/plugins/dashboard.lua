@@ -27,6 +27,15 @@ manager.add({
                         action = "ene | startinsert"
                     },
                     {
+                        icon = "  ",
+                        key = "e",
+                        keymap_hl = "New Example Buffer",
+                        desc = "New Example Buffer",
+                        action = function()
+                            require("utils.example_file").open_example()
+                        end
+                    },
+                    {
                         icon = "📁 ",
                         key = "f",
                         keymap_hl = "Oil",
@@ -93,4 +102,3 @@ manager.add({
     end
 })
 manager.load("dashboard-nvim")
-
