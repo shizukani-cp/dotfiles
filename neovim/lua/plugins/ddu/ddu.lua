@@ -10,6 +10,7 @@ manager.add({
         "ddu-kind-file",
         "ddu-source-buffer",
         "ddu-source-file_rec",
+        "ddu-source-git_status",
         "ddu-source-line_dir",
         "ddu-source-lsp",
         "ddu-ui-ff",
@@ -44,6 +45,7 @@ manager.add({
                 },
                 buffer = {},
                 file_rec = {},
+                git_status = {},
                 manager = {
                     sorters = { "manager_sorter" },
                     converters = { "manager_converter" }
@@ -54,6 +56,9 @@ manager.add({
             },
             kindOptions = {
                 file = {
+                    defaultAction = "open",
+                },
+                git_status = {
                     defaultAction = "open",
                 },
                 colorscheme = {
@@ -97,3 +102,5 @@ lazyload.key("n", "<Leader>pp", "<Cmd>call ddu#start({ 'sources': ['manager'], '
     { noremap = true, silent = true, desc = "Plugin List" })
 lazyload.key("n", "<Leader>pl", "<Cmd>call ddu#start({ 'sources': ['line_dir'], 'ui': 'ff' })<CR>", "ddu.vim",
     { noremap = true, silent = true, desc = "Line" })
+lazyload.key("n", "<Leader>pg", "<Cmd>call ddu#start({ 'sources': ['git_status'], 'ui': 'ff' })<CR>", "ddu.vim",
+    { noremap = true, silent = true, desc = "GIt Status" })
