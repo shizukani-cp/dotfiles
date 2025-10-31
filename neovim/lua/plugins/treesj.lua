@@ -13,5 +13,5 @@ manager.add({
         vim.keymap.del('n', '<leader>j')
     end
 })
-lazyload.key("n", "<Leader>S", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj",
+lazyload.key("n", "<Leader>cS", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj",
     { noremap = true, silent = true, desc = "Split or Join code block with autodetect" })

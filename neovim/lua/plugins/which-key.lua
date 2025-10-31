@@ -9,6 +9,12 @@ manager.add({
         wk.register({
             p = { name = "Picker" }
         }, { prefix = "<Leader>" })
+        wk.register({
+            e = { name = "Editor" }
+        }, { prefix = "<Leader>" })
+        wk.register({
+            c = { name = "Code" }
+        }, { prefix = "<Leader>" })
     end
 })
 manager.load("which-key.nvim")

@@ -7,12 +7,12 @@ manager.add({
     config = function()
         require("Comment").setup({
             toggler = {
-                line = "<Leader>c",
-                block = "<Leader>C",
+                line = "<Leader>cc",
+                block = "<Leader>cC",
             },
             opleader = {
-                line = "<Leader>c",
-                block = "<Leader>C",
+                line = "<Leader>cc",
+                block = "<Leader>cC",
             }
         })
     end

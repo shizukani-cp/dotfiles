@@ -9,5 +9,5 @@ manager.add({
         vim.g.blamer_date_format = '%y/%m/%d'
     end
 })
-lazyload.key("n", "<Leader>b", "<Cmd>BlamerToggle<Cr>", "blamer.nvim",
+lazyload.key("n", "<Leader>cb", "<Cmd>BlamerToggle<Cr>", "blamer.nvim",
     { noremap = true, silent = true, desc = "Blame" })

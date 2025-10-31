@@ -9,5 +9,5 @@ manager.add({
     end
 })
 lazyload.event("VimEnter", "oklch-color-picker.nvim")
-lazyload.key("n", "<Leader>#", function() require("oklch-color-picker").pick_under_cursor() end,
+lazyload.key("n", "<Leader>c#", function() require("oklch-color-picker").pick_under_cursor() end,
     "oklch-color-picker.nvim", { noremap = true, silent = true, desc = "Color Picker" })

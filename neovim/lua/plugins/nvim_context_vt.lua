@@ -8,5 +8,5 @@ manager.add({
         require("nvim_context_vt").setup()
     end
 })
-lazyload.key("n", "<Leader>v", "<Cmd>NvimContextVtToggle<Cr>", "nvim_context_vt",
+lazyload.key("n", "<Leader>cv", "<Cmd>NvimContextVtToggle<Cr>", "nvim_context_vt",
     { noremap = true, silent = true, desc = "Context virtual text" })

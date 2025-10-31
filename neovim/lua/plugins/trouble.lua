@@ -8,5 +8,5 @@ manager.add({
         require("trouble").setup()
     end
 })
-lazyload.key("n", "<Leader>d", "<Cmd>Trouble diagnostics toggle<Cr>", "trouble.nvim",
+lazyload.key("n", "<Leader>cd", "<Cmd>Trouble diagnostics toggle<Cr>", "trouble.nvim",
     { noremap = true, silent = true, desc = "Diagnostics" })

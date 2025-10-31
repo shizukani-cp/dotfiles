@@ -1,8 +1,9 @@
-vim.api.nvim_set_keymap('v', '<Leader>y', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
-vim.api.nvim_set_keymap('n', '<Leader>P', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
-vim.keymap.set('n', '<Leader>U', function() require("utils.uuid").yank_uuid() end,
+vim.api.nvim_set_keymap('v', '<Leader>cy', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
+vim.api.nvim_set_keymap('n', '<Leader>cp', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.api.nvim_set_keymap('n', '<Leader>cP', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.keymap.set('n', '<Leader>cu', function() require("utils.uuid").yank_uuid() end,
     { noremap = true, silent = true, desc = "Yank UUID" })
-vim.keymap.set("n", "<Leader>n", function()
+vim.keymap.set("n", "<Leader>en", function()
     if vim.wo.relativenumber then
         vim.wo.relativenumber = false
         vim.wo.number = true
@@ -23,6 +24,10 @@ vim.keymap.set('i', 'fk', '<Esc><Cmd>w<Cr>', { noremap = true })
 vim.keymap.set('i', 'fh', '<Esc><Cmd>wq<Cr>', { noremap = true })
 vim.keymap.set('i', '<Esc>', vim.schedule_wrap(function()
     vim.notify("Escは無効にしておいたぞ。代わりに 'fj' を使っとけ(^^)", vim.log.levels.WARN)
+    return ""
+end), { noremap = true, expr = true })
+vim.keymap.set('n', '<Leader>f', vim.schedule_wrap(function()
+    vim.notify("もしかしてファイラーが欲しかったのかい？<Leader>efだよ(^^)", vim.log.levels.WARN)
     return ""
 end), { noremap = true, expr = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })

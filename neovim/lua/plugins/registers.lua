@@ -8,5 +8,5 @@ manager.add({
         require("registers").setup()
     end
 })
-lazyload.key("n", "<Leader>R", "<Cmd>Registers<Cr>", "registers.nvim",
+lazyload.key("n", "<Leader>er", "<Cmd>Registers<Cr>", "registers.nvim",
     { noremap = true, silent = true, desc = "Registers" })
