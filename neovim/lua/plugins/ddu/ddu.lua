@@ -6,6 +6,7 @@ manager.add({
     url = "https://github.com/Shougo/ddu.vim",
     dependencies = {
         "ddu-filter-converter_devicon",
+        "ddu-filter-converter_hl_dir",
         "ddu-filter-matcher_substring",
         "ddu-kind-file",
         "ddu-source-buffer",
@@ -40,7 +41,7 @@ manager.add({
             sourceOptions = {
                 _ = {
                     matchers = { "matcher_substring" },
-                    converters = { "converter_devicon" },
+                    converters = { "converter_devicon", "converter_hl_dir" },
                     ignoreCase = true,
                 },
                 buffer = {},
