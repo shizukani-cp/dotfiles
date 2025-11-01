@@ -26,8 +26,4 @@ vim.keymap.set('i', '<Esc>', vim.schedule_wrap(function()
     vim.notify("Escは無効にしておいたぞ。代わりに 'fj' を使っとけ(^^)", vim.log.levels.WARN)
     return ""
 end), { noremap = true, expr = true })
-vim.keymap.set('n', '<Leader>f', vim.schedule_wrap(function()
-    vim.notify("もしかしてファイラーが欲しかったのかい？<Leader>efだよ(^^)", vim.log.levels.WARN)
-    return ""
-end), { noremap = true, expr = true })
 vim.api.nvim_set_keymap('t', '<Esc>', '<C-\\><C-n>', { noremap = true, silent = true })

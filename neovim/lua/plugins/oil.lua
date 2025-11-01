@@ -16,6 +16,6 @@ manager.add({
                 show_hidden = true,
             },
         })
-        vim.keymap.set("n", "<Leader>ef", "<Cmd>Oil<Cr>", { noremap = true, silent = true, desc = "Oil" })
+        vim.keymap.set("n", "<Leader>f", "<Cmd>Oil<Cr>", { noremap = true, silent = true, desc = "Oil" })
     end
 })
