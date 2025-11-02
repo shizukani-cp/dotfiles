@@ -1,19 +1,59 @@
-[config]
-prefix = 'conf'
+[plugin]
+prefix = 'pl'
 body = """
-config = function ()
-\t$0
-end\
+return function(manager)
+\tmanager.add({
+\t\tid = "$1",
+\t\turl = "$2",$3
+\t})
+end
 """
 
-[lazy_load]
-prefix = 'll'
+[plugin_config]
+prefix = 'plc'
 body = """
-vim.api.nvim_create_autocmd("$1", {
-    group = vim.api.nvim_create_augroup("$2_load", { clear = true }),
-    pattern = "*",
-    callback = function ()
-        manager.load("$2")
-    end
-})
+local function config()
+\t$1
+end
+
+return function(manager)
+\tmanager.add({
+\t\tid = "$2",
+\t\turl = "$3",$4
+\t\tconfig = config,
+\t})
+end
+"""
+
+[plugin_lazy]
+prefix = 'pll'
+body = """
+local lazyload = require("utils.lazyload")
+
+return function(manager)
+\tmanager.add({
+\t\tid = "$1",
+\t\turl = "$2",$3
+\t})
+\tlazyload.$4
+end
+"""
+
+[plugin_config_lazy]
+prefix = 'plcl'
+body = """
+local lazyload = require("utils.lazyload")
+
+local function config()
+\t$1
+end
+
+return function(manager)
+\tmanager.add({
+\t\tid = "$2",
+\t\turl = "$3",$4
+\t\tconfig = config,
+\t})
+\tlazyload.$5
+end
 """
