@@ -1,10 +1,12 @@
-local manager = require("utils.manager")
+local function config()
+    require("notify").setup()
+end
 
-manager.add({
-    id = "nvim-notify",
-    url = "https://github.com/rcarriga/nvim-notify",
-    config = function ()
-        require("notify").setup()
-    end
-})
-manager.load("nvim-notify")
+return function(manager)
+    manager.add({
+        id = "nvim-notify",
+        url = "https://github.com/rcarriga/nvim-notify",
+        config = config,
+    })
+    manager.load("nvim-notify")
+end

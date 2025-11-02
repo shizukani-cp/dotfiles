@@ -1,15 +1,18 @@
-local manager = require("utils.manager")
 local lazyload = require("utils.lazyload")
 
-manager.add({
-    id = "undotree",
-    url = "https://github.com/jiaoshijie/undotree",
-    dependencies = {
-        "plenary.nvim",
-    },
-    config = function()
-        require('undotree').setup()
-    end,
-})
-lazyload.key("n", "<Leader>eu", function() require('undotree').toggle() end, "undotree",
-    { noremap = true, silent = true, desc = "Undo tree" })
+local function config()
+    require('undotree').setup()
+end
+
+return function(manager)
+    manager.add({
+        id = "undotree",
+        url = "https://github.com/jiaoshijie/undotree",
+        dependencies = {
+            "plenary.nvim",
+        },
+        config = config,
+    })
+    lazyload.key("n", "<Leader>eu", function() require('undotree').toggle() end, "undotree",
+        { noremap = true, silent = true, desc = "Undo tree" })
+end

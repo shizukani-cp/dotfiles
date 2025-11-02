@@ -1,11 +1,14 @@
-local manager = require("utils.manager")
 local lazyload = require("utils.lazyload")
 
-manager.add({
-    id = "numb.nvim",
-    url = "https://github.com/nacro90/numb.nvim",
-    config = function ()
-        require("numb").setup()
-    end
-})
-lazyload.event("VimEnter", "numb.nvim")
+local function config()
+    require("numb").setup()
+end
+
+return function(manager)
+    manager.add({
+        id = "numb.nvim",
+        url = "https://github.com/nacro90/numb.nvim",
+        config = config,
+    })
+    lazyload.event("VimEnter", "numb.nvim")
+end

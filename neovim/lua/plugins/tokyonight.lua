@@ -1,10 +1,12 @@
-local manager = require("utils.manager")
+local function config()
+    vim.cmd [[colorscheme tokyonight]]
+end
 
-manager.add({
-    id = "tokyonight.nvim",
-    url = "https://github.com/folke/tokyonight.nvim",
-    config = function ()
-        vim.cmd[[colorscheme tokyonight]]
-    end,
-})
-manager.load("tokyonight.nvim")
+return function(manager)
+    manager.add({
+        id = "tokyonight.nvim",
+        url = "https://github.com/folke/tokyonight.nvim",
+        config = config,
+    })
+    manager.load("tokyonight.nvim")
+end

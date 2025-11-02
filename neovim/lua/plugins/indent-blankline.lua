@@ -1,12 +1,15 @@
-local manager = require("utils.manager")
 local lazyload = require("utils.lazyload")
 
-manager.add({
-    id = "indent-blankline.nvim",
-    url = "https://github.com/lukas-reineke/indent-blankline.nvim",
-    config = function()
-        require("ibl").setup()
-    end
-})
+local function config()
+    require("ibl").setup()
+end
 
-lazyload.event("VimEnter", "indent-blankline.nvim")
+return function(manager)
+    manager.add({
+        id = "indent-blankline.nvim",
+        url = "https://github.com/lukas-reineke/indent-blankline.nvim",
+        config = config
+    })
+
+    lazyload.event("VimEnter", "indent-blankline.nvim")
+end

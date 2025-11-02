@@ -1,15 +1,18 @@
-local manager = require("utils.manager")
 local lazyload = require("utils.lazyload")
 
-manager.add({
-    id = "wtf.nvim",
-    url = "https://github.com/piersolenski/wtf.nvim",
-    dependencies = {
-        "plenary.nvim",
-        "nui.nvim",
-    },
-    config = function ()
-        require("wtf").setup()
-    end
-})
-lazyload.event("VimEnter", "wtf.nvim")
+local function config()
+    require("wtf").setup()
+end
+
+return function(manager)
+    manager.add({
+        id = "wtf.nvim",
+        url = "https://github.com/piersolenski/wtf.nvim",
+        dependencies = {
+            "plenary.nvim",
+            "nui.nvim",
+        },
+        config = config
+    })
+    lazyload.event("VimEnter", "wtf.nvim")
+end

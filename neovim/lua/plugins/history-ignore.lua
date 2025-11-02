@@ -1,11 +1,14 @@
-local manager = require("utils.manager")
 local lazyload = require("utils.lazyload")
 
-manager.add({
-    id = "history-ignore.nvim",
-    url = "https://github.com/yutkat/history-ignore.nvim",
-    config = function()
-        require("history-ignore").setup()
-    end
-})
-lazyload.event("VimEnter", "history-ignore.nvim")
+local function config()
+    require("history-ignore").setup()
+end
+
+return function(manager)
+    manager.add({
+        id = "history-ignore.nvim",
+        url = "https://github.com/yutkat/history-ignore.nvim",
+        config = config
+    })
+    lazyload.event("VimEnter", "history-ignore.nvim")
+end

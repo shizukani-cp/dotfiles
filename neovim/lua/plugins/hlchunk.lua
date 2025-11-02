@@ -1,14 +1,16 @@
-local manager = require("utils.manager")
+local function config()
+    require("hlchunk").setup({
+        chunk = { enable = true, },
+        indent = { enable = true, },
+        blank = { enable = true, },
+    })
+end
 
-manager.add({
-    id = "hlchunk.nvim",
-    url = "https://github.com/shellRaining/hlchunk.nvim",
-    config = function ()
-         require("hlchunk").setup({
-            chunk = { enable = true, },
-            indent = { enable = true, },
-            blank = { enable = true, },
-        })
-    end
-})
-manager.load("hlchunk.nvim")
+return function(manager)
+    manager.add({
+        id = "hlchunk.nvim",
+        url = "https://github.com/shellRaining/hlchunk.nvim",
+        config = config
+    })
+    manager.load("hlchunk.nvim")
+end
