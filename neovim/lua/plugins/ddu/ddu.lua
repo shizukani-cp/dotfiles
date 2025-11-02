@@ -30,6 +30,7 @@ local function config()
             buffer = {},
             file_rec = {},
             git_status = {},
+            keymap = {},
             manager = {
                 sorters = { "manager_sorter" },
                 converters = { "manager_converter" }
@@ -44,6 +45,9 @@ local function config()
             },
             git_status = {
                 defaultAction = "open",
+            },
+            keymap = {
+                defaultAction = "type",
             },
             colorscheme = {
                 defaultAction = "set",
@@ -87,6 +91,7 @@ return function(manager)
             "ddu-source-buffer",
             "ddu-source-file_rec",
             "ddu-source-git_status",
+            "ddu-source-keymap",
             "ddu-source-line_dir",
             "ddu-source-lsp",
             "ddu-ui-ff",
@@ -108,4 +113,6 @@ return function(manager)
         { noremap = true, silent = true, desc = "Line" })
     lazyload.key("n", "<Leader>pg", "<Cmd>call ddu#start({ 'sources': ['git_status'], 'ui': 'ff' })<CR>", "ddu.vim",
         { noremap = true, silent = true, desc = "GIt Status" })
+    lazyload.key("n", "<Leader>pk", "<Cmd>call ddu#start({ 'sources': ['keymap'], 'ui': 'ff' })<CR>", "ddu.vim",
+        { noremap = true, silent = true, desc = "Keymap" })
 end
