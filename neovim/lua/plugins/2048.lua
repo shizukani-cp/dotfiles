@@ -4,7 +4,7 @@ local lazyload = require("utils.lazyload")
 manager.add({
     id = "2048.nvim",
     url = "https://github.com/NStefan002/2048.nvim",
-    config = function ()
+    config = function()
         require("2048").setup({
             keys = {
                 up = "<Up>",
