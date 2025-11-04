@@ -1,6 +1,6 @@
-vim.api.nvim_set_keymap('v', '<Leader>cy', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
-vim.api.nvim_set_keymap('n', '<Leader>cp', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
-vim.api.nvim_set_keymap('n', '<Leader>cP', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.api.nvim_set_keymap('x', '<Leader>y', '"+y', { noremap = true, silent = true, desc = "Yank to clipboard" })
+vim.api.nvim_set_keymap('n', '<Leader>p', '"+p', { noremap = true, silent = true, desc = "Paste from clipboard" })
+vim.api.nvim_set_keymap('n', '<Leader>P', '"+P', { noremap = true, silent = true, desc = "Paste from clipboard" })
 vim.keymap.set('n', '<Leader>cu', function() require("utils.uuid").yank_uuid() end,
     { noremap = true, silent = true, desc = "Yank UUID" })
 vim.keymap.set("n", "<Leader>en", function()

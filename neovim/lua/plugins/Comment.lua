@@ -7,8 +7,8 @@ local function config()
             block = "<Leader>cC",
         },
         opleader = {
-            line = "<Leader>cc",
-            block = "<Leader>cC",
+            line = "<Leader>c",
+            block = "<Leader>C",
         }
     })
 end

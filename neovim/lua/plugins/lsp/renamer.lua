@@ -14,6 +14,8 @@ return function(manager)
         config = config,
     })
 
-    lazyload.key({ "n", "v" }, "<Leader>cr", "<Cmd>lua require('renamer').rename()<Cr>", "renamer.nvim",
+    lazyload.key("n", "<Leader>cr", "<Cmd>lua require('renamer').rename()<Cr>", "renamer.nvim",
+        { noremap = true, silent = true, desc = "Rename symbol" })
+    lazyload.key("v", "<Leader>r", "<Cmd>lua require('renamer').rename()<Cr>", "renamer.nvim",
         { noremap = true, silent = true, desc = "Rename symbol" })
 end
