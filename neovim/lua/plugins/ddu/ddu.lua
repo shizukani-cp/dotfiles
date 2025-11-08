@@ -29,6 +29,7 @@ local function config()
             },
             action = {},
             buffer = {},
+            command_history = {},
             file_rec = {},
             git_status = {},
             keymap = {},
@@ -94,6 +95,7 @@ return function(manager)
             "ddu-kind-file",
             "ddu-source-action",
             "ddu-source-buffer",
+            "ddu-source-command_history",
             "ddu-source-file_rec",
             "ddu-source-git_status",
             "ddu-source-keymap",
@@ -122,4 +124,6 @@ return function(manager)
         { noremap = true, silent = true, desc = "Keymap" })
     lazyload.key("n", "<Leader>pa", "<Cmd>call ddu#start({ 'sources': ['action'], 'ui': 'ff' })<CR>", "ddu.vim",
         { noremap = true, silent = true, desc = "Action" })
+    lazyload.key("n", "<Leader>pc", "<Cmd>call ddu#start({ 'sources': ['command_history'], 'ui': 'ff' })<CR>", "ddu.vim",
+        { noremap = true, silent = true, desc = "Command History" })
 end
