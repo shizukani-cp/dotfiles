@@ -27,6 +27,7 @@ local function config()
                 converters = { "converter_devicon", "converter_hl_dir" },
                 ignoreCase = true,
             },
+            action = {},
             buffer = {},
             file_rec = {},
             git_status = {},
@@ -40,6 +41,9 @@ local function config()
             }
         },
         kindOptions = {
+            action = {
+                defaultAction = "do",
+            },
             file = {
                 defaultAction = "open",
             },
@@ -88,6 +92,7 @@ return function(manager)
             "ddu-filter-converter_hl_dir",
             "ddu-filter-matcher_substring",
             "ddu-kind-file",
+            "ddu-source-action",
             "ddu-source-buffer",
             "ddu-source-file_rec",
             "ddu-source-git_status",
@@ -115,4 +120,6 @@ return function(manager)
         { noremap = true, silent = true, desc = "Git Status" })
     lazyload.key("n", "<Leader>pk", "<Cmd>call ddu#start({ 'sources': ['keymap'], 'ui': 'ff' })<CR>", "ddu.vim",
         { noremap = true, silent = true, desc = "Keymap" })
+    lazyload.key("n", "<Leader>pa", "<Cmd>call ddu#start({ 'sources': ['action'], 'ui': 'ff' })<CR>", "ddu.vim",
+        { noremap = true, silent = true, desc = "Action" })
 end
