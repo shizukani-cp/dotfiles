@@ -32,7 +32,7 @@ local function config()
                 debounce = 500,
             },
             path = {
-                cmd = { "fd", "--max-depth", "5", },
+                cmd = { "fd", "--max-depth", "3", },
             },
         },
     })
