@@ -3,7 +3,7 @@ local lazyload = require("utils.lazyload")
 local function config()
     vim.fn["ddc#custom#set_global"]({
         ui = "native",
-        sources = { "denippet", "lsp", "buffer", "file", "path", },
+        sources = { "denippet", "cmdline", "lsp", "buffer", "file", "path" },
         sourceOptions = {
             _ = {
                 matchers = { "matcher_fuzzy" },
@@ -25,6 +25,9 @@ local function config()
             },
             denippet = {
                 mark = "🧩",
+            },
+            cmdline = {
+                mark = "⚙️",
             },
         },
         sourceParams = {
@@ -114,6 +117,7 @@ return function(manager)
             "ddc-ui-native",
             "ddc-source-lsp",
             "ddc-source-buffer",
+            "ddc-source-cmdline",
             "ddc-source-file",
             "ddc-path",
             "ddc-filter-match_head",
