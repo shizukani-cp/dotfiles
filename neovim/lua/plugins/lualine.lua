@@ -42,6 +42,7 @@ local function config()
                     'diagnostics',
                     symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
                 },
+                'overseer',
             },
             lualine_x = {
                 'lsp-status',

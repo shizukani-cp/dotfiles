@@ -10,6 +10,9 @@ local function config()
     wk.register({
         c = { name = "Code" }
     }, { prefix = "<Leader>" })
+    wk.register({
+        o = { name = "Overseer" }
+    }, { prefix = "<Leader>" })
 end
 
 
