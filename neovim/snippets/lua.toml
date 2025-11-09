@@ -13,13 +13,13 @@ end
 prefix = 'plc'
 body = """
 local function config()
-\t$1
+\t$4
 end
 
 return function(manager)
 \tmanager.add({
-\t\tid = "$2",
-\t\turl = "$3",$4
+\t\tid = "$1",
+\t\turl = "$2",$3
 \t\tconfig = config,
 \t})
 end
@@ -45,15 +45,15 @@ body = """
 local lazyload = require("utils.lazyload")
 
 local function config()
-\t$1
+\t$5
 end
 
 return function(manager)
 \tmanager.add({
-\t\tid = "$2",
-\t\turl = "$3",$4
+\t\tid = "$1",
+\t\turl = "$2",$3
 \t\tconfig = config,
 \t})
-\tlazyload.$5
+\tlazyload.$4
 end
 """
