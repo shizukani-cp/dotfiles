@@ -15,7 +15,6 @@ local function config()
         markerHenkan = "¦",
         markerHenkanSelect = "|",
     })
-    vim.fn["skkeleton#register_kanatable"]("rom", { fk = "escape" })
     vim.keymap.set({ "i", "c" }, "<Esc>", "<Plug>(skkeleton-toggle)",
         { noremap = true, silent = true, desc = "Skkeleton enable/disable" })
 end
