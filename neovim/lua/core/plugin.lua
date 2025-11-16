@@ -1,4 +1,18 @@
-local manager = require("manager")
+local managerpath = vim.fs.joinpath(vim.fn.stdpath('data'), 'site', 'pack', 'manager', 'start', 'manager.nvim')
+if not (vim.uv or vim.loop).fs_stat(managerpath) then
+    local managerrepo = "https://github.com/shizukani-cp/manager.nvim.git"
+    vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=main", managerrepo, managerpath })
+    if vim.v.shell_error ~= 0 then
+        vim.api.nvim_echo({
+            { "Failed to clone manager.nvim:\n", "ErrorMsg" },
+        }, true, {})
+    end
+end
+vim.opt.runtimepath:prepend(managerpath)
+
+local manager = require("manager.core")
+
+require("plugins.manager.manager-lazyload")(manager)
 
 manager.lock()
 require("plugins.2048")(manager)
@@ -57,6 +71,7 @@ require("plugins.lsp.nvim-lspconfig")(manager)
 require("plugins.lsp.renamer")(manager)
 require("plugins.lualine")(manager)
 require("plugins.lualine-lsp-status")(manager)
+require("plugins.manager.manager-command")(manager)
 require("plugins.markview")(manager)
 require("plugins.mkdir")(manager)
 require("plugins.noice")(manager)
@@ -102,4 +117,4 @@ require("plugins.which-key")(manager)
 require("plugins.wtf")(manager)
 manager.unlock()
 
-require("manager.command").setup()
+-- require("manager.command").setup()

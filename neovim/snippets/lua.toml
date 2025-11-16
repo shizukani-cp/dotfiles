@@ -28,7 +28,7 @@ end
 [plugin_lazy]
 prefix = 'pll'
 body = """
-local lazyload = require("utils.lazyload")
+local lazyload = require("manager.lazyload")
 
 return function(manager)
 \tmanager.add({
@@ -42,7 +42,7 @@ end
 [plugin_config_lazy]
 prefix = 'plcl'
 body = """
-local lazyload = require("utils.lazyload")
+local lazyload = require("manager.lazyload")
 
 local function config()
 \t$5
