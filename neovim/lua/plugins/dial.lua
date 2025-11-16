@@ -1,4 +1,4 @@
-local lazyload = require("utils.lazyload")
+local lazyload = require("manager.lazyload")
 
 local function config()
     local augend = require("dial.augend")

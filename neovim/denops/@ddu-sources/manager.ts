@@ -25,19 +25,24 @@ export class Source extends BaseSource<Params> {
         const tree = async (plugins: Record<string, PluginStatus>) => {
           const items: Item<ActionData>[] = [];
           try {
-            const maxIdLen = Math.max(...Object.keys(plugins).map(id => id.length));
-            const maxStatusLen = Math.max(...Object.values(plugins).map(p => p.status.length));
+            const maxIdLen = Math.max(
+              ...Object.keys(plugins).map((id) => id.length),
+            );
+            const maxStatusLen = Math.max(
+              ...Object.values(plugins).map((p) => p.status.length),
+            );
 
             for (const id of Object.keys(plugins)) {
               const status = plugins[id].status;
               // plugin名を右にパディング
               const paddedId = id + " ".repeat(maxIdLen - id.length);
               // statusは右側にスペースで揃える
-              const paddedStatus = status + " ".repeat(maxStatusLen - status.length);
+              const paddedStatus = status +
+                " ".repeat(maxStatusLen - status.length);
 
               items.push({
                 word: `${paddedId} ${paddedStatus}`,
-                display: `${paddedId} ${paddedStatus}`,  // []なしで表示
+                display: `${paddedId} ${paddedStatus}`, // []なしで表示
                 action: {
                   load_id: id,
                 },
@@ -52,8 +57,8 @@ export class Source extends BaseSource<Params> {
         controller.enqueue(
           await tree(
             await args.denops.eval(
-              `luaeval('require("utils.manager").plugins')`
-            )
+              `luaeval('require("manager").plugins')`,
+            ),
           ),
         );
         controller.close();
@@ -65,4 +70,3 @@ export class Source extends BaseSource<Params> {
     return {};
   }
 }
-

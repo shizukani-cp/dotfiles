@@ -1,4 +1,4 @@
-local manager = require("utils.manager")
+local manager = require("manager")
 
 manager.lock()
 require("plugins.2048")(manager)

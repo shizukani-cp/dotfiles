@@ -33,7 +33,7 @@ local function config()
                     keymap_hl = "Oil",
                     desc = "Oil",
                     action = function()
-                        require("utils.manager").load("oil.nvim")
+                        require("manager").load("oil.nvim")
                         vim.cmd [[Oil]]
                     end
                 },
@@ -43,7 +43,7 @@ local function config()
                     keymap_hl = "Lazygit",
                     desc = "Lazygit",
                     action = function()
-                        require("utils.manager").load("lazygit.nvim")
+                        require("manager").load("lazygit.nvim")
                         vim.cmd [[LazyGit]]
                     end
                 },
@@ -53,7 +53,7 @@ local function config()
                     keymap_hl = "Update Plugins",
                     desc = "Update Plugins",
                     action = function()
-                        require("utils.manager").update()
+                        require("manager").update()
                     end
                 },
                 {
@@ -62,7 +62,7 @@ local function config()
                     keymap_hl = "Clean Unused Plugins",
                     desc = "Clean Unused Plugins",
                     action = function()
-                        require("utils.manager").clean()
+                        require("manager").clean()
                     end
                 },
                 {

@@ -1,6 +1,6 @@
 local M = {}
 
-local manager = require("utils.manager")
+local manager = require("manager")
 
 function M.key(mode, lhs, rhs, plugin_id, opts)
     vim.keymap.set(

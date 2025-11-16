@@ -1,4 +1,4 @@
-local lazyload = require("utils.lazyload")
+local lazyload = require("manager.lazyload")
 
 return function(manager)
     manager.add({
