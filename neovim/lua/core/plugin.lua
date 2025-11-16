@@ -102,20 +102,4 @@ require("plugins.which-key")(manager)
 require("plugins.wtf")(manager)
 manager.unlock()
 
-vim.api.nvim_create_user_command("PluginList", function()
-    local buf = vim.api.nvim_create_buf(false, true)
-    local ids = {}
-
-    for name, _ in pairs(manager.plugins or {}) do
-        table.insert(ids, name)
-    end
-
-    if #ids == 0 then
-        ids = { "No plugins found" }
-    else
-        table.sort(ids)
-    end
-
-    vim.api.nvim_buf_set_lines(buf, 0, -1, false, ids)
-    vim.api.nvim_set_current_buf(buf)
-end, {})
+require("manager.command").setup()
