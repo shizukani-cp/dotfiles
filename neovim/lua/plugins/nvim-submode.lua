@@ -3,7 +3,17 @@ local lazyload = require("utils.lazyload")
 local function config()
     local sm = require("nvim-submode")
     local leave_normal_sm = sm.build_submode(
-        { name = "LEAVE_NORMAL", is_count_enable = false },
+        {
+            name = "EXINS",
+            color = "#7DB9B4",
+            after_enter = function()
+                vim.schedule(function() require("lualine").refresh() end)
+            end,
+            after_leave = function()
+                vim.schedule(function() require("lualine").refresh() end)
+            end,
+            is_count_enable = false
+        },
         { { 'j',
             function()
                 vim.cmd [[stopinsert]]
@@ -35,7 +45,6 @@ local function config()
             end
         } }
     )
-    vim.g.leave_normal_sm = leave_normal_sm
     vim.keymap.set({ "i", "c" }, "f", function()
         sm.enable(leave_normal_sm)
     end)
@@ -45,6 +54,9 @@ return function(manager)
     manager.add({
         id = "nvim-submode",
         url = "https://github.com/sirasagi62/nvim-submode",
+        dependencies = {
+            "lualine.nvim"
+        },
         config = config,
     })
     lazyload.event("VimEnter", "nvim-submode")
