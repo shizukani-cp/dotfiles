@@ -12,7 +12,7 @@ local loaded_plugins = {}
 local is_locked = false
 local load_queue = {}
 
-local function do_load(id)
+local function _do_load(id)
     if loaded_plugins[id] then return end
     local plugin = M.plugins[id]
     cmd('packadd ' .. plugin.spec.id)
@@ -21,6 +21,72 @@ local function do_load(id)
     end
     loaded_plugins[id] = true
     plugin.status = "loaded"
+end
+
+local function _load_with_deps_check(id)
+    if loaded_plugins[id] then return end
+    local plugin = M.plugins[id]
+    local dependencies = plugin.spec.dependencies or {}
+    local all_deps_installed = true
+    local pending_deps = {}
+
+    for _, dep_id in ipairs(dependencies) do
+        M.load(dep_id)
+        local dep_plugin = M.plugins[dep_id]
+        if dep_plugin.status ~= 'installed' and dep_plugin.status ~= 'loaded' then
+            all_deps_installed = false
+            table.insert(pending_deps, dep_plugin)
+        end
+    end
+
+    if all_deps_installed then
+        _do_load(id)
+    else
+        local loaded_deps_count = 0
+        local total_deps = #pending_deps
+
+        local function check_and_load_self()
+            loaded_deps_count = loaded_deps_count + 1
+            if loaded_deps_count == total_deps then
+                _do_load(id)
+            end
+        end
+
+        for _, dep_plugin in ipairs(pending_deps) do
+            table.insert(dep_plugin.on_installed_callbacks, check_and_load_self)
+        end
+    end
+end
+
+local function _process_update_queue(queue)
+    if #queue == 0 then
+        return
+    end
+    local id = table.remove(queue, 1)
+    local plugin = M.plugins[id]
+    local install_path = fs.joinpath(install_base_path, id)
+    if plugin.status ~= 'installed' then
+        _process_update_queue(queue)
+        return
+    end
+    fn.jobstart({ 'git', '-C', install_path, 'pull' }, {
+        on_exit = function(_, code)
+            vim.schedule(function()
+                if code ~= 0 then
+                    notify("'" .. id .. "' update failed.", vim.log.levels.ERROR)
+                end
+                _process_update_queue(queue)
+            end)
+        end,
+    })
+end
+
+function M._get()
+    local plugins = {}
+    for id, information in pairs(M.plugins) do
+        plugins[id] = information.status
+    end
+    return plugins
 end
 
 function M.add(spec)
@@ -66,41 +132,6 @@ function M.add(spec)
     end
 end
 
-local function load_with_deps_check(id)
-    if loaded_plugins[id] then return end
-    local plugin = M.plugins[id]
-    local dependencies = plugin.spec.dependencies or {}
-    local all_deps_installed = true
-    local pending_deps = {}
-
-    for _, dep_id in ipairs(dependencies) do
-        M.load(dep_id)
-        local dep_plugin = M.plugins[dep_id]
-        if dep_plugin.status ~= 'installed' and dep_plugin.status ~= 'loaded' then
-            all_deps_installed = false
-            table.insert(pending_deps, dep_plugin)
-        end
-    end
-
-    if all_deps_installed then
-        do_load(id)
-    else
-        local loaded_deps_count = 0
-        local total_deps = #pending_deps
-
-        local function check_and_load_self()
-            loaded_deps_count = loaded_deps_count + 1
-            if loaded_deps_count == total_deps then
-                do_load(id)
-            end
-        end
-
-        for _, dep_plugin in ipairs(pending_deps) do
-            table.insert(dep_plugin.on_installed_callbacks, check_and_load_self)
-        end
-    end
-end
-
 function M.load(id)
     if loaded_plugins[id] then return end
     local plugin = M.plugins[id]
@@ -114,13 +145,13 @@ function M.load(id)
     end
 
     if plugin.status == 'installed' or plugin.status == 'loaded' then
-        load_with_deps_check(id)
+        _load_with_deps_check(id)
     elseif plugin.status == 'installing' then
         table.insert(plugin.on_installed_callbacks, function()
-            load_with_deps_check(id)
+            _load_with_deps_check(id)
         end)
     else
-        notify("Could not load '"..id.."' The status is not correct: " .. plugin.status, vim.log.levels.ERROR)
+        notify("Could not load '" .. id .. "' The status is not correct: " .. plugin.status, vim.log.levels.ERROR)
     end
 end
 
@@ -135,29 +166,6 @@ function M.unlock()
     for _, id in ipairs(queue) do
         M.load(id)
     end
-end
-
-local function process_update_queue(queue)
-    if #queue == 0 then
-        return
-    end
-    local id = table.remove(queue, 1)
-    local plugin = M.plugins[id]
-    local install_path = fs.joinpath(install_base_path, id)
-    if plugin.status ~= 'installed' then
-        process_update_queue(queue)
-        return
-    end
-    fn.jobstart({ 'git', '-C', install_path, 'pull' }, {
-        on_exit = function(_, code)
-            vim.schedule(function()
-                if code ~= 0 then
-                    notify("'" .. id .. "' update failed.", vim.log.levels.ERROR)
-                end
-                process_update_queue(queue)
-            end)
-        end,
-    })
 end
 
 function M.update(target_id)
@@ -179,18 +187,7 @@ function M.update(target_id)
         end
     end
 
-    process_update_queue(queue)
-end
-
-function M.list()
-    local ids = {}
-    for id, _ in pairs(M.plugins) do
-        table.insert(ids, id)
-    end
-
-    table.sort(ids)
-
-    return ids
+    _process_update_queue(queue)
 end
 
 function M.clean()
@@ -237,14 +234,6 @@ function M.remove(id)
     else
         notify("Plugin directory for '" .. id .. "' does not exist.", vim.log.levels.WARN)
     end
-end
-
-function M._get()
-    local plugins = {}
-    for id, information in pairs(M.plugins) do
-        plugins[id] = information.status
-    end
-    return plugins
 end
 
 return M
