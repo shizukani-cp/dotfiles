@@ -57,7 +57,7 @@ export class Source extends BaseSource<Params> {
         controller.enqueue(
           await tree(
             await args.denops.eval(
-              `luaeval('require("manager").plugins')`,
+              `luaeval('require("manager.core").plugins')`,
             ),
           ),
         );
