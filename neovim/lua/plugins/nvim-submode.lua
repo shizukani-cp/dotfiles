@@ -45,7 +45,7 @@ local function config()
             end
         } }
     )
-    vim.keymap.set({ "i", "c" }, "f", function()
+    vim.keymap.set("i", "f", function()
         sm.enable(leave_normal_sm)
     end)
 end
