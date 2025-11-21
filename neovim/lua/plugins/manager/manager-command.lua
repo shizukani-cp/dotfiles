@@ -11,4 +11,11 @@ return function(manager)
         config = config,
     })
     lazyload.event("CmdLineEnter", "manager-command")
+    --[[ vim.api.nvim_create_autocmd("CmdlineEnter", {
+        group = vim.api.nvim_create_augroup("manager-command_load", { clear = true }),
+        pattern = "*",
+        callback = function()
+            vim.opt.runtimepath:prepend(vim.fn.expand("$HOME") .. "/programs/manager-command")
+        end
+    }) ]]
 end

@@ -4,4 +4,5 @@ return function(manager)
         url = "https://github.com/shizukani-cp/manager-lazyload",
     })
     manager.load("manager-lazyload")
+    -- vim.opt.runtimepath:prepend(vim.fn.expand("$HOME") .. "/programs/manager-lazyload")
 end
