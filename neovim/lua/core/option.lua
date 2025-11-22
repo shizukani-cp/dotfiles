@@ -30,3 +30,5 @@ vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
 vim.opt.scrolloff = 4
 vim.opt.relativenumber = true
+vim.opt.messagesopt:append("wait:0")
+vim.opt.messagesopt:remove("hit-enter")
