@@ -11,6 +11,7 @@ vim.keymap.set("n", "<Leader>en", function()
         vim.wo.number = true
     end
 end, { desc = "Relative/Absolute Line Numbers" })
+vim.keymap.set("n", "<Leader>eh", "<Cmd>ToggleHitEnter<Cr>", { desc = "Enable/Disable hit enter" })
 vim.keymap.set({ 'n', 'x' }, 'gg', 'gg^', { noremap = true, silent = true, desc = "Go to the top of the file" })
 vim.keymap.set({ 'n', 'x' }, 'G', 'G$', { noremap = true, silent = true, desc = "Go to the end of the file" })
 vim.keymap.set('n', 'o', 'o<Esc>', { noremap = true, silent = true, desc = "Add new line" })
