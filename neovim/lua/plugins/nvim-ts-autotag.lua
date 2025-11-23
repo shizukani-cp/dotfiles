@@ -11,5 +11,5 @@ return function(manager)
         config = config,
     })
 
-    lazyload.event("VimEnter", "nvim-ts-autotag")
+    lazyload.event("BufWinEnter", "nvim-ts-autotag")
 end

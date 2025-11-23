@@ -10,5 +10,5 @@ return function(manager)
         url = "https://github.com/lewis6991/gitsigns.nvim",
         config = config,
     })
-    lazyload.event("VimEnter", "gitsigns.nvim")
+    lazyload.event("BufReadPost", "gitsigns.nvim")
 end

@@ -10,5 +10,5 @@ return function(manager)
         url = "https://github.com/yutkat/history-ignore.nvim",
         config = config
     })
-    lazyload.event("VimEnter", "history-ignore.nvim")
+    lazyload.event("CmdLineEnter", "history-ignore.nvim")
 end

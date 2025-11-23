@@ -10,5 +10,5 @@ return function(manager)
         url = "https://github.com/sQVe/sort.nvim",
         config = config
     })
-    lazyload.event("VimEnter", "sort.nvim")
+    lazyload.event("BufWinEnter", "sort.nvim")
 end

@@ -13,5 +13,5 @@ return function(manager)
         },
         config = config
     })
-    lazyload.event("VimEnter", "bufferline.nvim")
+    lazyload.event("BufWinEnter", "bufferline.nvim")
 end

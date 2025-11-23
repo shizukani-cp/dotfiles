@@ -5,5 +5,5 @@ return function(manager)
         id = "capture.vim",
         url = "https://github.com/tyru/capture.vim",
     })
-    lazyload.event("VimEnter", "capture.vim")
+    lazyload.event("CmdLineEnter", "capture.vim")
 end

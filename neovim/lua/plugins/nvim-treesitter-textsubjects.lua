@@ -21,5 +21,5 @@ return function(manager)
         config = config,
     })
 
-    lazyload.event("VimEnter", "nvim-treesitter-textsubjects")
+    lazyload.event("BufWinEnter", "nvim-treesitter-textsubjects")
 end

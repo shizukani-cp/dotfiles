@@ -19,5 +19,5 @@ return function(manager)
         url = "https://github.com/numToStr/Comment.nvim",
         config = config
     })
-    lazyload.event("VimEnter", "Comment.nvim")
+    lazyload.event("BufWinEnter", "Comment.nvim")
 end

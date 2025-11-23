@@ -13,5 +13,5 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("VimEnter", "satellite.nvim")
+    lazyload.event("BufWinEnter", "satellite.nvim")
 end

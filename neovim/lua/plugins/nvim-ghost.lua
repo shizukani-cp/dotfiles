@@ -5,5 +5,5 @@ return function(manager)
         id = "nvim-ghost",
         url = "https://github.com/subnut/nvim-ghost.nvim",
     })
-    lazyload.event("VimEnter", "nvim-ghost")
+    lazyload.event("BufWinEnter", "nvim-ghost")
 end

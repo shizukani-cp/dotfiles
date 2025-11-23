@@ -15,5 +15,5 @@ return function(manager)
         },
         config = config
     })
-    lazyload.event("VimEnter", "dropbar.nvim")
+    lazyload.event("BufWinEnter", "dropbar.nvim")
 end

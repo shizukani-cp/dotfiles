@@ -6,5 +6,5 @@ return function(manager)
         url = "https://github.com/ntpeters/vim-better-whitespace",
     })
 
-    lazyload.event("VimEnter", "vim-better-whitespace")
+    lazyload.event("BufWinEnter", "vim-better-whitespace")
 end

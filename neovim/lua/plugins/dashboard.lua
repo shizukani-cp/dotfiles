@@ -99,6 +99,7 @@ return function(manager)
         url = "https://github.com/nvimdev/dashboard-nvim",
         dependencies = {
             "nvim-web-devicons",
+            "vim-better-whitespace",
         },
         config = config
     })

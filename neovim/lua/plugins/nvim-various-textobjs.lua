@@ -14,5 +14,5 @@ return function(manager)
         url = "https://github.com/chrisgrieser/nvim-various-textobjs",
         config = config,
     })
-    lazyload.event("VimEnter", "nvim-various-textobjs")
+    lazyload.event("BufWinEnter", "nvim-various-textobjs")
 end

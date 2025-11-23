@@ -11,5 +11,5 @@ return function(manager)
         url = "https://github.com/mcauley-penney/visual-whitespace.nvim",
         config = config
     })
-    lazyload.event("VimEnter", "visual-whitespace.nvim")
+    lazyload.event("BufWinEnter", "visual-whitespace.nvim")
 end

@@ -5,5 +5,5 @@ return function(manager)
         id = "vimdoc-ja",
         url = "https://github.com/vim-jp/vimdoc-ja",
     })
-    lazyload.event("VimEnter", "vimdoc-ja")
+    lazyload.event("CmdLineEnter", "vimdoc-ja")
 end

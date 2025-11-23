@@ -15,5 +15,5 @@ return function(manager)
         url = "https://github.com/akinsho/toggleterm.nvim",
         config = config
     })
-    lazyload.event("VimEnter", "toggleterm.nvim")
+    lazyload.event("BufWinEnter", "toggleterm.nvim")
 end

@@ -10,5 +10,5 @@ return function(manager)
         url = "https://github.com/nacro90/numb.nvim",
         config = config,
     })
-    lazyload.event("VimEnter", "numb.nvim")
+    lazyload.event("CmdLineEnter", "numb.nvim")
 end

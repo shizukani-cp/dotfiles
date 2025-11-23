@@ -17,5 +17,5 @@ return function(manager)
         url = "https://github.com/NStefan002/2048.nvim",
         config = config,
     })
-    lazyload.event("VimEnter", "2048.nvim")
+    lazyload.event("CmdLineEnter", "2048.nvim")
 end

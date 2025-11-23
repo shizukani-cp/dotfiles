@@ -5,5 +5,5 @@ return function(manager)
         id = "vim-illuminate",
         url = "https://github.com/RRethy/vim-illuminate",
     })
-    lazyload.event("VimEnter", "vim-illuminate")
+    lazyload.event("BufRead", "vim-illuminate")
 end

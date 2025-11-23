@@ -11,5 +11,5 @@ return function(manager)
         config = config
     })
 
-    lazyload.event("VimEnter", "nvim-surround")
+    lazyload.event("BufWinEnter", "nvim-surround")
 end

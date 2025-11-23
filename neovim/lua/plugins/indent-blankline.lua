@@ -11,5 +11,5 @@ return function(manager)
         config = config
     })
 
-    lazyload.event("VimEnter", "indent-blankline.nvim")
+    lazyload.event("BufRead", "indent-blankline.nvim")
 end

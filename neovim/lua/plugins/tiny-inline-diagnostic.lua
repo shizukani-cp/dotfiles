@@ -23,5 +23,5 @@ return function(manager)
         url = "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
         config = config,
     })
-    lazyload.event("VimEnter", "tiny-inline-diagnostic.nvim")
+    lazyload.event("LspAttach", "tiny-inline-diagnostic.nvim")
 end

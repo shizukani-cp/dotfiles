@@ -12,5 +12,5 @@ return function(manager)
         config = config
     })
 
-    lazyload.event("VimEnter", "hlargs.nvim")
+    lazyload.event("BufRead", "hlargs.nvim")
 end
