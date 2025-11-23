@@ -113,7 +113,6 @@ require("plugins.vim-illuminate")(manager)
 require("plugins.vimdoc-ja")(manager)
 require("plugins.visual-whitespace")(manager)
 require("plugins.which-key")(manager)
-require("plugins.wtf")(manager)
 manager.unlock()
 
 -- require("manager.command").setup()
