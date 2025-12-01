@@ -1,3 +1,5 @@
+#! /usr/bin/bash
+
 eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"
 
 alias rm='mv -i -f --backup=numbered --target-directory ~/.Trash'
