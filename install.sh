@@ -2,7 +2,7 @@
 # curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/install.sh | bash
 curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
 curl -LsSf https://astral.sh/uv/install.sh | sh # uv
-curl -fsSL https://bun.sh/install | bash # bun
+curl -fsSL https://deno.land/install.sh | sh # deno
 
 sudo apt-get update
 sudo apt-get install git-all -y # git
@@ -14,9 +14,13 @@ nvm use --lts
 sudo apt-get install ripgrep -y # ripgrep
 sudo apt-get install fd-find -y # fd
 npm install -g @google/gemini-cli # gemini-cli
-npm install -g gemistat # gemistat
 uv tool install debugpy # debugpy
 sudo snap install nvim --classic
+
+LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
+curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+tar xf lazygit.tar.gz lazygit
+sudo install lazygit -D -t /usr/local/bin/
 
 sudo wget https://github.com/JanDeDobbeleer/oh-my-posh/releases/latest/download/posh-linux-amd64 -O /usr/local/bin/oh-my-posh # oh-my-posh
 sudo chmod +x /usr/local/bin/oh-my-posh
