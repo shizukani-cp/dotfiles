@@ -3,6 +3,7 @@ local config = wezterm.config_builder()
 
 config.color_scheme = 'Ubuntu'
 config.font_size = 16
+config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
 if not config.keys then
     config.keys = {}
