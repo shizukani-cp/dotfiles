@@ -12,7 +12,7 @@ prj() {
   if [ -d "./.venv" ]; then
     deactivate
   fi
-  cd "$HOME/programs/$1"
+  cd "$HOME/workspace/$1"
   if [ -d "./.venv" ]; then
     source ./.venv/bin/activate
   fi
