@@ -16,6 +16,7 @@ sudo apt-get install fd-find -y # fd
 npm install -g @google/gemini-cli # gemini-cli
 uv tool install debugpy # debugpy
 sudo snap install nvim --classic
+sudo snap install gh # GitHub CLI
 
 LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
 curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
