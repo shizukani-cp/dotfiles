@@ -3,13 +3,7 @@ local lazyload = require("manager.lazyload")
 local function config()
     vim.fn["skkeleton#config"]({
         globalDictionaries = {
-            '~/.config/eskk/SKK-JISYO.L',
-            '~/.config/eskk/SKK-JISYO.assoc',
-            '~/.config/eskk/SKK-JISYO.fullname',
-            '~/.config/eskk/SKK-JISYO.geo',
-            '~/.config/eskk/SKK-JISYO.jinmei',
-            '~/.config/eskk/SKK-JISYO.propernoun',
-            '~/.config/eskk/SKK-JISYO.station',
+            '~/.local/share/skk/SKK-JISYO.L',
         },
         eggLikeNewline = true,
         markerHenkan = "¦",
