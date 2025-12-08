@@ -45,3 +45,6 @@ rm -rf ~/.cache/dotfiles/
 
 echo '. "$HOME/.shfunc"' >> ~/.bashrc
 mkdir ~/.Trash/
+
+gsettings set org.gnome.mutter dynamic-workspaces false
+gsettings set org.gnome.desktop.wm.preferences num-workspaces 4
