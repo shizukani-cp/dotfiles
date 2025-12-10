@@ -15,7 +15,7 @@ sudo apt-get install ripgrep -y # ripgrep
 sudo apt-get install fd-find -y # fd
 npm install -g @google/gemini-cli # gemini-cli
 uv tool install debugpy # debugpy
-sudo snap install nvim --classic
+sudo snap install nvim --classic # NeoVim
 sudo snap install gh # GitHub CLI
 sudo snap install tetris-thefenriswolf # tetris
 
