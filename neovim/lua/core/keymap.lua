@@ -19,4 +19,8 @@ vim.keymap.set('n', 'O', 'O<Esc>', { noremap = true, silent = true, desc = "Add 
 vim.keymap.set('n', 'L', ':bnext<CR>', { noremap = true, silent = true, desc = "Next buffer" })
 vim.keymap.set('n', 'H', ':bprevious<CR>', { noremap = true, silent = true, desc = "Previous buffer" })
 vim.keymap.set('n', '<Cr>', 'za', { noremap = true, silent = true, desc = "Fold under Cursor" })
-vim.api.nvim_set_keymap('t', 'fj', '<C-\\><C-n>', { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('i', 'jf', '<Esc><Cmd>w<Cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'jd', '<Esc>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('i', 'jg', '<Esc><Cmd>wq<Cr>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', 'jf', '<C-\\><C-n>', { noremap = true, silent = true })
