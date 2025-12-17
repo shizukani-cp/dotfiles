@@ -22,4 +22,6 @@ config.font = wezterm.font_with_fallback({
     'Noto Sans CJK JP', --Japanese
 })
 
+config.use_ime = true
+
 return config
