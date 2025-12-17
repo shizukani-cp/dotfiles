@@ -19,6 +19,10 @@ prj() {
   fi
 }
 
+prjs() {
+    ls ~/workspace
+}
+
 clean_trash() {
   \rm -rf ~/.Trash/
   mkdir ~/.Trash/
