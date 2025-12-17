@@ -39,6 +39,7 @@ git clone https://github.com/shizukani-cp/dotfiles.git ~/.cache/dotfiles
 cp ~/.cache/dotfiles/bash/my-theme.omp.json ~/.poshthemes/my-theme.omp.json
 
 cp ~/.cache/dotfiles/bash/.shfunc ~/.shfunc
+cp ~/.cache/dotfiles/bash/.shopts ~/.shopts
 cp -r ~/.cache/dotfiles/neovim/ ~/.config/nvim/
 
 mkdir ~/.diary
@@ -47,6 +48,7 @@ git clone https://github.com/shizukani-cp/diary.git ~/.diary
 rm -rf ~/.cache/dotfiles/
 
 echo '. "$HOME/.shfunc"' >> ~/.bashrc
+echo '. "$HOME/.shopts"' >> ~/.bashrc
 mkdir ~/.Trash/
 
 gsettings set org.gnome.mutter dynamic-workspaces false

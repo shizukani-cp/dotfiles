@@ -1,16 +1,5 @@
 #! /usr/bin/bash
 
-eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"
-
-alias rm='gio trash'
-alias tree='tree --gitignore'
-alias bat='batcat'
-alias tetris=/snap/bin/tetris-thefenriswolf.tetris
-export LANG=ja_JP.UTF-8
-export LESSCHARSET=utf-8
-export EDITOR=/snap/bin/nvim
-export PROJECTS_DIR="$HOME/workspace"
-
 prj() {
   if [ -d "./.venv" ]; then
     deactivate
