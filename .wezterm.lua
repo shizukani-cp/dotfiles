@@ -17,6 +17,9 @@ local ctrl_slash_key = {
 
 table.insert(config.keys, ctrl_slash_key)
 
-config.font = wezterm.font 'BitstromWera Nerd Font Mono'
+config.font = wezterm.font_with_fallback({
+    'BitstromWera Nerd Font Mono',
+    'Noto Sans CJK JP', --Japanese
+})
 
 return config
