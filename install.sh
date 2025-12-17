@@ -8,6 +8,7 @@ sudo apt-get update
 sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
 sudo apt-get install gdb -y # gdb
+sudo apt-get install bat -y # bat
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash # nvm
 nvm install --lts --latest-npm # node.js latest lts & latest npm
 nvm use --lts
