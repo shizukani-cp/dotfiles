@@ -8,16 +8,25 @@ export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 export EDITOR=/snap/bin/nvim
 alias tetris=/snap/bin/tetris-thefenriswolf.tetris
+export PROJECTS_DIR="$HOME/workspace"
 
 prj() {
   if [ -d "./.venv" ]; then
     deactivate
   fi
-  cd "$HOME/workspace/$1"
+  cd "$PROJECTS_DIR/$1"
   if [ -d "./.venv" ]; then
     source ./.venv/bin/activate
   fi
 }
+
+_prj_completion() {
+    local cur=${COMP_WORDS[COMP_CWORD]}
+    if [ -d "$PROJECTS_DIR" ]; then
+        COMPREPLY=( $(cd "$PROJECTS_DIR" && compgen -d -- "$cur") )
+    fi
+}
+complete -F _prj_completion prj
 
 prjs() {
     ls ~/workspace
