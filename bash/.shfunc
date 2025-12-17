@@ -2,7 +2,7 @@
 
 eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"
 
-alias rm='mv -i -f --backup=numbered --target-directory ~/.Trash'
+alias rm='gio trash'
 alias tree='tree --gitignore'
 alias bat='batcat'
 alias tetris=/snap/bin/tetris-thefenriswolf.tetris
@@ -31,11 +31,6 @@ complete -F _prj_completion prj
 
 prjs() {
     ls ~/workspace
-}
-
-clean_trash() {
-  \rm -rf ~/.Trash/
-  mkdir ~/.Trash/
 }
 
 diary() {
@@ -75,7 +70,6 @@ diary() {
 shfunc_help() {
     cat <<EOS
 - prj [project-name] ... Go to the project with project-name. If project-name is not specified, you will be redirected to a directory with many projects.
-- clean_trash ... Permanently delete the directory for the Recycle Bin.
 EOS
 }
 
