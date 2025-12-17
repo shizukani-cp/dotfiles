@@ -1,7 +1,7 @@
 local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 
-config.color_scheme = 'Ubuntu'
+config.color_scheme = 'Tokyo Night'
 config.font_size = 16
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 
