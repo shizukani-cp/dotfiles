@@ -2,19 +2,20 @@ local function config()
     local wk = require("which-key")
     wk.setup()
     wk.register({
-        p = { name = "Picker" }
-    }, { prefix = "<Leader>" })
-    wk.register({
-        e = { name = "Editor" }
-    }, { prefix = "<Leader>" })
-    wk.register({
-        c = { name = "Code" }
-    }, { prefix = "<Leader>" })
-    wk.register({
-        o = { name = "Overseer" }
-    }, { prefix = "<Leader>" })
+        {
+            "<Leader>p", group = "Picker",
+        },
+        {
+            "<Leader>e", group = "Editor",
+        },
+        {
+            "<Leader>c", group = "Code",
+        },
+        {
+            "<Leader>o", group = "Overseer",
+        },
+    })
 end
-
 
 return function(manager)
     manager.add({
