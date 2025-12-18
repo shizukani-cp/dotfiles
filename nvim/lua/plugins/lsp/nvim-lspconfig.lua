@@ -21,7 +21,7 @@ local function config()
                 if user_attach then user_attach(client, bufnr) end
                 global_on_attach(client, bufnr)
             end
-            require("lspconfig")[name].setup(cfg)
+            vim.lsp.config(name, cfg)
         end
     end
     vim.api.nvim_create_autocmd('LspAttach', {
