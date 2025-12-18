@@ -22,6 +22,22 @@ prjs() {
     ls ~/workspace
 }
 
+function sc() {
+    if [[ "$PWD" != "$HOME/scratch" ]]; then
+        echo "カレントディレクトリが~/scratchでありません"
+        return 1
+    fi
+
+    if [ -z "$(ls -A)" ]; then
+        return 0
+    fi
+
+    (
+        shopt -s dotglob
+        gio trash *
+    )
+}
+
 diary() {
     original_dir="$(pwd)"
     cd $HOME/.diary/

@@ -9,13 +9,18 @@ if not config.keys then
     config.keys = {}
 end
 
-local ctrl_slash_key = {
+table.insert(config.keys, {
     key = '/',
     mods = 'CTRL',
     action = wezterm.action.SendString('\x1f'),
-}
-
-table.insert(config.keys, ctrl_slash_key)
+})
+table.insert(config.keys, {
+    key = 'T',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.SpawnCommandInNewTab {
+        cwd = wezterm.home_dir .. "/scratch/",
+    },
+})
 
 config.font = wezterm.font_with_fallback({
     'BitstromWera Nerd Font Mono',
@@ -58,6 +63,17 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
         { Foreground = { Color = edge_foreground } },
         { Text = SOLID_RIGHT_ARROW },
     }
+end)
+
+wezterm.on('gui-startup', function(cmd)
+    local spawn_opts = {}
+    if cmd and cmd.args then
+        spawn_opts.args = cmd.args
+    end
+    spawn_opts.cwd = wezterm.home_dir .. "/scratch/"
+
+    local tab, pane, window = wezterm.mux.spawn_window(spawn_opts)
+    window:gui_window():maximize()
 end)
 
 return config
