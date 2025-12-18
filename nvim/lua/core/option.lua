@@ -18,8 +18,8 @@ vim.opt.expandtab = true
 vim.opt.scrolloff = 4
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
-vim.opt.winblend = 0
-vim.opt.pumblend = 0
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
 vim.g.hit_enter = false
 local function set_hit_enter()
