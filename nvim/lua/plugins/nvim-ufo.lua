@@ -9,7 +9,10 @@ local function config()
     })
     require("ufo").setup({
         provider_selector = function(bufnr, filetype, buftype)
-            return { 'treesitter', 'indent' }
+            if filetype == "dashboard" then
+                return
+            end
+            return { 'indent' }
         end
     })
 end
