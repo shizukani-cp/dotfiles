@@ -87,12 +87,16 @@
       "segments": [
         {
           "foreground": "#7eb8da",
-          "properties": {
-            "style": "full"
-          },
           "style": "plain",
           "template": "\u2516[<#98bfad>{{ .Path }}</>]",
-          "type": "path"
+          "type": "path",
+          "options": {
+            "style": "full",
+            "max_depth": 0,
+            "mapped_locations": {
+              "~/workspace": "\uDB80\uDCD6"
+            }
+          }
         }
       ],
       "type": "prompt"
