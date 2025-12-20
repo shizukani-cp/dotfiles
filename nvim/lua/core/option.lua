@@ -7,8 +7,11 @@ vim.diagnostic.config({ virtual_text = true })
 
 vim.o.helplang = "ja,en"
 vim.wo.cursorline = true
-vim.opt.foldmethod = "indent"
-vim.opt.foldlevel = 99
+vim.o.foldcolumn = '1'
+vim.o.foldlevel = 99
+vim.o.foldlevelstart = 99
+vim.o.foldenable = true
+vim.o.updatetime = 1000
 vim.opt.number = true
 vim.opt.termguicolors = true
 vim.opt.whichwrap = 'b,s,h,l,<,>'
