@@ -18,10 +18,6 @@ _prj_completion() {
 }
 complete -F _prj_completion prj
 
-prjs() {
-    ls ~/workspace
-}
-
 function sc() {
     if [[ "$PWD" != "$HOME/scratch" ]]; then
         echo "カレントディレクトリが~/scratchでありません"
