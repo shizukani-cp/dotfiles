@@ -34,7 +34,7 @@ local function config()
             git_status = {},
             keymap = {},
             manager_plugins = {
-                sorters = { "manager_sorter" },
+                sorters = { "sorter_alpha" },
                 converters = { "manager_converter" }
             },
             lsp_documentSymbol = {
@@ -97,6 +97,7 @@ return function(manager)
             "ddu-filter-converter_devicon",
             "ddu-filter-converter_hl_dir",
             "ddu-filter-matcher_substring",
+            "ddu-filter-sorter_alpha",
             "ddu-kind-file",
             "ddu-source-action",
             "ddu-source-buffer",
