@@ -11,7 +11,6 @@ type Params = Record<never, never>;
 type PluginStatus = { status: "new" | "installing" | "installed" | "loaded" };
 
 export class Source extends BaseSource<Params> {
-  // override kind = "manager";
 
   override gather(args: {
     denops: Denops;
@@ -34,15 +33,13 @@ export class Source extends BaseSource<Params> {
 
             for (const id of Object.keys(plugins)) {
               const status = plugins[id].status;
-              // plugin名を右にパディング
               const paddedId = id + " ".repeat(maxIdLen - id.length);
-              // statusは右側にスペースで揃える
               const paddedStatus = status +
                 " ".repeat(maxStatusLen - status.length);
 
               items.push({
                 word: `${paddedId} ${paddedStatus}`,
-                display: `${paddedId} ${paddedStatus}`, // []なしで表示
+                display: `${paddedId} ${paddedStatus}`,
                 action: {
                   load_id: id,
                 },
