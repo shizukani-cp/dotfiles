@@ -41,6 +41,11 @@ local function config()
                 converters = { "converter_lsp_symbol" }
             }
         },
+        sourceParams = {
+            manager_logs = {
+                level = 1,
+            },
+        },
         kindOptions = {
             action = {
                 defaultAction = "do",

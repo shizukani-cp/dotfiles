@@ -6,7 +6,9 @@ import {
 import { BaseSource } from "jsr:@shougo/ddu-vim@~6.1.0/source";
 import type { Denops } from "jsr:@denops/core@~7.0.0";
 
-type Params = Record<never, never>;
+type Params = {
+  level: number;
+};
 
 type LogEntry = {
   level: number;
@@ -46,9 +48,12 @@ export class Source extends BaseSource<Params> {
     return new ReadableStream({
       async start(controller) {
         try {
+          const filterLevel = args.sourceParams.level;
+
           const logs = await args.denops.call(
             "luaeval",
-            `require("manager.core").logger:get_logs(1)`
+            `require("manager.core").logger:get_logs(_A)`,
+            filterLevel,
           ) as LogEntry[];
 
           const items: Item<ActionData>[] = [];
@@ -90,6 +95,8 @@ export class Source extends BaseSource<Params> {
   }
 
   override params(): Params {
-    return {};
+    return {
+      level: 2,
+    };
   }
 }
