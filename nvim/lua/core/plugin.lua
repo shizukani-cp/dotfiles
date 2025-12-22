@@ -13,6 +13,14 @@ vim.opt.runtimepath:prepend(managerpath)
 
 local manager = require("manager.core")
 
+local _ = manager.logger:on(
+    function(e)
+        if e.level >= 3 then
+            vim.notify(e.msg, e.level)
+        end
+    end
+)
+
 require("plugins.manager.manager-lazyload")(manager)
 
 manager.lock()
