@@ -105,6 +105,7 @@ return function(manager)
             "ddu-source-git_status",
             "ddu-source-keymap",
             "ddu-source-lsp",
+            "ddu-source-manager",
             "ddu-ui-ff",
             "denops.vim",
         },
