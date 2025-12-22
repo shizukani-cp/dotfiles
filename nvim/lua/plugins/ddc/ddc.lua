@@ -8,7 +8,7 @@ local function config()
             _ = {
                 matchers = { "matcher_fuzzy" },
                 sorters = { "sorter_fuzzy" },
-                converters = { "converter_fuzzy", "converter_kind_labels" },
+                converters = { "converter_fuzzy" },
             },
             lsp = {
                 mark = "⚡",
