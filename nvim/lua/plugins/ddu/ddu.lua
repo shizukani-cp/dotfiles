@@ -99,7 +99,6 @@ return function(manager)
             "ddu-source-file_rec",
             "ddu-source-git_status",
             "ddu-source-keymap",
-            "ddu-source-line_dir",
             "ddu-source-lsp",
             "ddu-ui-ff",
             "denops.vim",
@@ -116,8 +115,6 @@ return function(manager)
         { noremap = true, silent = true, desc = "LSP Symbol" })
     lazyload.key("n", "<Leader>pp", "<Cmd>call ddu#start({ 'sources': ['manager_plugins'], 'ui': 'ff' })<CR>", "ddu.vim",
         { noremap = true, silent = true, desc = "Plugin List" })
-    lazyload.key("n", "<Leader>pl", "<Cmd>call ddu#start({ 'sources': ['line_dir'], 'ui': 'ff' })<CR>", "ddu.vim",
-        { noremap = true, silent = true, desc = "Line" })
     lazyload.key("n", "<Leader>pg", "<Cmd>call ddu#start({ 'sources': ['git_status'], 'ui': 'ff' })<CR>", "ddu.vim",
         { noremap = true, silent = true, desc = "Git Status" })
     lazyload.key("n", "<Leader>pk", "<Cmd>call ddu#start({ 'sources': ['keymap'], 'ui': 'ff' })<CR>", "ddu.vim",
