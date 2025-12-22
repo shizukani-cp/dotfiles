@@ -35,7 +35,6 @@ local function config()
             keymap = {},
             manager_plugins = {
                 sorters = { "sorter_alpha" },
-                converters = { "manager_converter" }
             },
             lsp_documentSymbol = {
                 converters = { "converter_lsp_symbol" }
