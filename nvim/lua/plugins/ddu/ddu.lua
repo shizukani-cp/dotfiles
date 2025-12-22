@@ -33,7 +33,7 @@ local function config()
             file_rec = {},
             git_status = {},
             keymap = {},
-            manager = {
+            manager_plugins = {
                 sorters = { "manager_sorter" },
                 converters = { "manager_converter" }
             },
@@ -114,7 +114,7 @@ return function(manager)
     lazyload.key("n", "<Leader>ps", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "LSP Symbol" })
-    lazyload.key("n", "<Leader>pp", "<Cmd>call ddu#start({ 'sources': ['manager'], 'ui': 'ff' })<CR>", "ddu.vim",
+    lazyload.key("n", "<Leader>pp", "<Cmd>call ddu#start({ 'sources': ['manager_plugins'], 'ui': 'ff' })<CR>", "ddu.vim",
         { noremap = true, silent = true, desc = "Plugin List" })
     lazyload.key("n", "<Leader>pl", "<Cmd>call ddu#start({ 'sources': ['line_dir'], 'ui': 'ff' })<CR>", "ddu.vim",
         { noremap = true, silent = true, desc = "Line" })
