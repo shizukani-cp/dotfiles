@@ -7,6 +7,9 @@ local function config()
             augend.integer.alias.decimal,
             augend.integer.alias.hex,
             augend.date.alias["%Y/%m/%d"],
+            augend.constant.new({
+                elements = { "true", "false" },
+            }),
         },
     }
 end
