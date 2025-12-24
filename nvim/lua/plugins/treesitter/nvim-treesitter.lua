@@ -20,7 +20,7 @@ local parsers = {
 
 local function config()
     require("nvim-treesitter").setup({
-        install_dir = vim.fs.joinpath(vim.fn.stdpath("data"), "site"),
+        install_dir = require("plugins.treesitter.install_path"),
     })
     require("nvim-treesitter").install(parsers, {
         force = false,
