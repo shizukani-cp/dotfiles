@@ -4,6 +4,7 @@ local config = wezterm.config_builder()
 config.color_scheme = 'Catppuccin Mocha'
 config.font_size = 16
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+config.default_cwd = wezterm.home_dir .. "/scratch/"
 
 if not config.keys then
     config.keys = {}
@@ -13,13 +14,6 @@ table.insert(config.keys, {
     key = '/',
     mods = 'CTRL',
     action = wezterm.action.SendString('\x1f'),
-})
-table.insert(config.keys, {
-    key = 'T',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.SpawnCommandInNewTab {
-        cwd = wezterm.home_dir .. "/scratch/",
-    },
 })
 
 config.font = wezterm.font_with_fallback({
@@ -65,14 +59,9 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     }
 end)
 
-wezterm.on('gui-startup', function(cmd)
-    local spawn_opts = {}
-    if cmd and cmd.args then
-        spawn_opts.args = cmd.args
-    end
-    spawn_opts.cwd = wezterm.home_dir .. "/scratch/"
-
-    local tab, pane, window = wezterm.mux.spawn_window(spawn_opts)
+local mux = wezterm.mux
+wezterm.on("gui-startup", function()
+    local tab, pane, window = mux.spawn_window {}
     window:gui_window():maximize()
 end)
 
