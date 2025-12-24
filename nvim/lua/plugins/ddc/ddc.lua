@@ -123,7 +123,8 @@ return function(manager)
             "ddc-filter-match_head",
             "ddc-filter-sorter_rank",
             "ddc-fuzzy",
-            "skkeleton"
+            "denippet.vim",
+            "skkeleton",
         },
         config = config
     })
