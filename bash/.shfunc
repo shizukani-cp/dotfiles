@@ -18,20 +18,31 @@ _prj_completion() {
 }
 complete -F _prj_completion prj
 
-function sc() {
-    if [[ "$PWD" != "$HOME/scratch" ]]; then
-        echo "カレントディレクトリが~/scratchでありません"
-        return 1
-    fi
+function s() {
+    scratch_dir="$HOME/scratch"
+    case "$1" in
+        c)
+            if [[ "$PWD" != "$scratch_dir" ]]; then
+                echo "カレントディレクトリが~/scratchでありません"
+                return 1
+            fi
 
-    if [ -z "$(ls -A)" ]; then
-        return 0
-    fi
+            if [ -z "$(ls -A)" ]; then
+                return 0
+            fi
 
-    (
-        shopt -s dotglob
-        gio trash *
-    )
+            (
+                shopt -s dotglob
+                gio trash *
+            )
+        ;;
+        "")
+            cd $scratch_dir
+        ;;
+        *)
+            cd "Argument required"
+        ;;
+    esac
 }
 
 diary() {
