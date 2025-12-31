@@ -33,9 +33,6 @@ M.lsp_servers = {
     cssls = {},
     ts_ls = {
         root_dir = function(fname)
-            if fname and string.find(fname, "/denops/") then
-                return nil
-            end
             local util = require("lspconfig.util")
             return util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
         end,
@@ -55,11 +52,8 @@ M.lsp_servers = {
             },
         },
         root_dir = function(fname)
-            if fname and string.find(fname, "/denops/") then
-                local util = require("lspconfig.util")
-                return util.root_pattern(".git", "deno.json", "deno.jsonc")(fname)
-            end
-            return nil
+            local util = require("lspconfig.util")
+            return util.root_pattern(".git", "deno.json", "deno.jsonc")(fname)
         end,
     },
     jsonls = {},

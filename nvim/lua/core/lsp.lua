@@ -33,3 +33,22 @@ vim.api.nvim_create_autocmd('LspAttach', {
         end
     end,
 })
+
+vim.api.nvim_create_autocmd("FileType", {
+    group = vim.api.nvim_create_augroup("LspStartNodeOrDeno", { clear = true }),
+    callback = function(ctx)
+        if not vim.tbl_contains(
+                { "javascript", "javascriptreact", "javascript.jsx", "typescript", "typescriptreact", "typescript.tsx" },
+                ctx.match
+            ) then
+            return
+        end
+
+        if vim.fn.findfile("package.json", ".;") ~= "" then
+            vim.lsp.start("vtsls")
+            return
+        end
+
+        vim.lsp.start("denols")
+    end,
+})
