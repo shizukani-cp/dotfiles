@@ -5,7 +5,7 @@ manager.load("mason.nvim")
 manager.load("mason-lspconfig.nvim")
 manager.load("ddc-source-lsp-setup")
 
-local lsp_servers = require("plugins.lsp.data").lsp_servers
+local lsp_servers = require("data.lsp").lsp_servers
 require("lazydev").setup()
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()

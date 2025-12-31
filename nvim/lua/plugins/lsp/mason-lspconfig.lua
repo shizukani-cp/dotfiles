@@ -1,5 +1,5 @@
 local function config()
-    local installed_servers = require("plugins.lsp.data").installed_servers
+    local installed_servers = require("data.lsp").installed_servers
     require("mason-lspconfig").setup({
         automatic_installation = true,
         ensure_installed = installed_servers,
