@@ -59,10 +59,8 @@ wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_wid
     }
 end)
 
-local mux = wezterm.mux
-wezterm.on("gui-startup", function()
-    local tab, pane, window = mux.spawn_window {}
-    window:gui_window():maximize()
+wezterm.on('window-config-reloaded', function(window, pane)
+    window:maximize()
 end)
 
 return config

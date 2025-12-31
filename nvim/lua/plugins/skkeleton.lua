@@ -23,4 +23,17 @@ return function(manager)
         config = config
     })
     lazyload.event("InsertEnter", "skkeleton")
+    vim.api.nvim_create_autocmd("BufRead", {
+        pattern = "/tmp/input.md",
+        callback = function()
+            vim.cmd("normal! ggdG")
+            vim.api.nvim_create_autocmd("VimLeavePre", {
+                buffer = 0,
+                callback = function()
+                    vim.cmd("silent %y+")
+                    os.execute("sleep 0.1 && wl-copy < /tmp/input.md && wtype -M ctrl v -m ctrl")
+                end
+            })
+        end
+    })
 end
