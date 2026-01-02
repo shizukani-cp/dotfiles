@@ -4,6 +4,7 @@ local config = wezterm.config_builder()
 config.color_scheme = 'Catppuccin Mocha'
 config.font_size = 16
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
+config.default_prog = { 'tmux', 'new-session', '-A', '-s', 'main' }
 config.default_cwd = wezterm.home_dir .. "/scratch/"
 
 if not config.keys then
