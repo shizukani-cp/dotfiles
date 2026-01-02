@@ -29,12 +29,6 @@
           "type": "root"
         },
         {
-          "foreground": "#be9ddf",
-          "style": "diamond",
-          "template": "[<#ffffff>\ue266</> RAM: {{ (div ((sub .PhysicalTotalMemory .PhysicalAvailableMemory)|float64) 1073741824.0) }}/{{ (div .PhysicalTotalMemory 1073741824.0) }}GB]",
-          "type": "sysinfo"
-        },
-        {
           "foreground": "#7eb8da",
           "properties": {
             "time_format": "Monday at 3:04:05 PM"
