@@ -20,6 +20,33 @@ table.insert(config.keys, {
     action = wezterm.action.SendString('\x1f'),
 })
 
+table.insert(config.keys, {
+    key = 'T',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.Multiple {
+        wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
+        wezterm.action.SendKey { key = 'c' },
+    },
+})
+
+table.insert(config.keys, {
+    key = 'Tab',
+    mods = 'CTRL',
+    action = wezterm.action.Multiple {
+        wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
+        wezterm.action.SendKey { key = 'n' },
+    },
+})
+
+table.insert(config.keys, {
+    key = 'Tab',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.Multiple {
+        wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
+        wezterm.action.SendKey { key = 'p' },
+    },
+})
+
 config.font = wezterm.font_with_fallback({
     'BitstromWera Nerd Font Mono',
     'Noto Sans CJK JP', --Japanese
