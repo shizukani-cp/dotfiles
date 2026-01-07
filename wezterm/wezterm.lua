@@ -46,6 +46,15 @@ table.insert(config.keys, {
     },
 })
 
+table.insert(config.keys, {
+    key = 'W',
+    mods = 'CTRL|SHIFT',
+    action = wezterm.action.Multiple {
+        wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
+        wezterm.action.SendKey { key = '&' },
+    },
+})
+
 config.font = wezterm.font_with_fallback({
     'BitstromWera Nerd Font Mono',
     'Noto Sans CJK JP', --Japanese
