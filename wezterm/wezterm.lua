@@ -5,53 +5,44 @@ config.color_scheme = 'Catppuccin Mocha'
 config.font_size = 16
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
 config.default_prog = { 'tmux', 'new-session', '-A', '-s', 'main', '-c', wezterm.home_dir .. "/scratch/" }
-config.use_ime = true
 config.window_background_opacity = 0.85
 config.hide_tab_bar_if_only_one_tab = true
 
-if not config.keys then
-    config.keys = {}
+local function merge_lists(t1, t2)
+    for _, v in ipairs(t2) do table.insert(t1, v) end
+    return t1
 end
 
-table.insert(config.keys, {
-    key = '/',
-    mods = 'CTRL',
-    action = wezterm.action.SendString('\x1f'),
-})
-
-table.insert(config.keys, {
-    key = 'T',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.Multiple {
-        wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
-        wezterm.action.SendKey { key = 'c' },
+config.keys = config.keys or {}
+merge_lists(config.keys, {
+    { key = '/', mods = 'CTRL', action = wezterm.action.SendString('\x1f') },
+    {
+        key = 'T',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.Multiple {
+            { SendKey = { key = 'a', mods = 'CTRL' } }, { SendKey = { key = 'c' } }
+        }
     },
-})
-
-table.insert(config.keys, {
-    key = 'Tab',
-    mods = 'CTRL',
-    action = wezterm.action.Multiple {
-        wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
-        wezterm.action.SendKey { key = 'n' },
+    {
+        key = 'Tab',
+        mods = 'CTRL',
+        action = wezterm.action.Multiple {
+            { SendKey = { key = 'a', mods = 'CTRL' } }, { SendKey = { key = 'n' } }
+        }
     },
-})
-
-table.insert(config.keys, {
-    key = 'Tab',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.Multiple {
-        wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
-        wezterm.action.SendKey { key = 'p' },
+    {
+        key = 'Tab',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.Multiple {
+            { SendKey = { key = 'a', mods = 'CTRL' } }, { SendKey = { key = 'p' } }
+        }
     },
-})
-
-table.insert(config.keys, {
-    key = 'W',
-    mods = 'CTRL|SHIFT',
-    action = wezterm.action.Multiple {
-        wezterm.action.SendKey { key = 'a', mods = 'CTRL' },
-        wezterm.action.SendKey { key = '&' },
+    {
+        key = 'W',
+        mods = 'CTRL|SHIFT',
+        action = wezterm.action.Multiple {
+            { SendKey = { key = 'a', mods = 'CTRL' } }, { SendKey = { key = '&' } }
+        }
     },
 })
 
