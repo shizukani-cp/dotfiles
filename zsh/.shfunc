@@ -10,13 +10,10 @@ prj() {
   fi
 }
 
-_prj_completion() {
-    local cur=${COMP_WORDS[COMP_CWORD]}
-    if [ -d "$PROJECTS_DIR" ]; then
-        COMPREPLY=( $(cd "$PROJECTS_DIR" && compgen -d -- "$cur") )
-    fi
+_prj() {
+  _path_files -W "$PROJECTS_DIR" -/
 }
-complete -F _prj_completion prj
+compdef _prj prj
 
 function s() {
     scratch_dir="$HOME/scratch"

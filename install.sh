@@ -1,10 +1,11 @@
 #!/usr/bin/bash
 # curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/install.sh | bash
+sudo apt-get update
+sudo apt-get install zsh -y # zsh
 curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
 curl -LsSf https://astral.sh/uv/install.sh | sh # uv
 curl -fsSL https://deno.land/install.sh | sh # deno
 
-sudo apt-get update
 sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
 sudo apt-get install gdb -y # gdb

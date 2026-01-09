@@ -1,6 +1,6 @@
 #! /usr/bin/bash
 
-eval "$(oh-my-posh init bash --config ~/.poshthemes/my-theme.omp.json)"
+eval "$(oh-my-posh init zsh --config ~/.poshthemes/my-theme.omp.json)"
 
 alias rm='gio trash'
 alias tree='tree --gitignore'
