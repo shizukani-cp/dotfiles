@@ -8,43 +8,9 @@ config.default_prog = { 'tmux', 'new-session', '-A', '-s', 'main', '-c', wezterm
 config.window_background_opacity = 0.85
 config.hide_tab_bar_if_only_one_tab = true
 
-local function merge_lists(t1, t2)
-    for _, v in ipairs(t2) do table.insert(t1, v) end
-    return t1
-end
-
-config.keys = config.keys or {}
-merge_lists(config.keys, {
-    { key = '/', mods = 'CTRL', action = wezterm.action.SendString('\x1f') },
-    {
-        key = 'T',
-        mods = 'CTRL|SHIFT',
-        action = wezterm.action.Multiple {
-            { SendKey = { key = 'a', mods = 'CTRL' } }, { SendKey = { key = 'c' } }
-        }
-    },
-    {
-        key = 'Tab',
-        mods = 'CTRL',
-        action = wezterm.action.Multiple {
-            { SendKey = { key = 'a', mods = 'CTRL' } }, { SendKey = { key = 'n' } }
-        }
-    },
-    {
-        key = 'Tab',
-        mods = 'CTRL|SHIFT',
-        action = wezterm.action.Multiple {
-            { SendKey = { key = 'a', mods = 'CTRL' } }, { SendKey = { key = 'p' } }
-        }
-    },
-    {
-        key = 'W',
-        mods = 'CTRL|SHIFT',
-        action = wezterm.action.Multiple {
-            { SendKey = { key = 'a', mods = 'CTRL' } }, { SendKey = { key = '&' } }
-        }
-    },
-})
+config.keys = require('keybinds').keys
+config.key_tables = require('keybinds').key_tables
+config.disable_default_key_bindings = true
 
 config.font = wezterm.font_with_fallback({
     'BitstromWera Nerd Font Mono',
