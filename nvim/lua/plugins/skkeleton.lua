@@ -36,4 +36,5 @@ return function(manager)
             })
         end
     })
+    vim.keymap.set({ "i", "c" }, "<Esc>", "<Nop>")
 end
