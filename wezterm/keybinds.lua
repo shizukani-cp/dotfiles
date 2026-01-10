@@ -62,7 +62,6 @@ return {
         { key = 'p',          mods = 'SHIFT|CTRL', action = act.ActivateCommandPalette },
         { key = 'r',          mods = 'SHIFT|CTRL', action = act.ReloadConfiguration },
         { key = 'r',          mods = 'SUPER',      action = act.ReloadConfiguration },
-        { key = 't',          mods = 'SHIFT|CTRL', action = act.SpawnTab 'CurrentPaneDomain' },
         { key = 't',          mods = 'SUPER',      action = act.SpawnTab 'CurrentPaneDomain' },
         { key = 'u',          mods = 'SHIFT|CTRL', action = act.CharSelect { copy_on_select = true, copy_to = 'ClipboardAndPrimarySelection' } },
         { key = 'v',          mods = 'SHIFT|CTRL', action = act.PasteFrom 'Clipboard' },
