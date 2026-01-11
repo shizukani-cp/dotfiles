@@ -8,5 +8,5 @@ wezterm -e nvim "$FILE_PATH"
 
 if [ -f "$FILE_PATH" ]; then
     sleep 0.1
-    wl-copy < "$FILE_PATH"
+    printf %s "$(cat "$FILE_PATH")" | wl-copy
 fi
