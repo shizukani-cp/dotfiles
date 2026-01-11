@@ -8,6 +8,7 @@ if [ $(basename $(pwd -P)) = "dotfiles" ]; then
   ln -sf "$DOTFILES_PATH/tmux/" "$HOME/.config/"
   ln -sf "$DOTFILES_PATH/.gitconfig" "$HOME/.gitconfig"
   ln -sf "$DOTFILES_PATH/zsh/link.sh" "$HOME/.local/bin/link.sh"
+  ln -sf "$DOTFILES_PATH/zsh/input.sh" "$HOME/.local/bin/input.sh"
   ln -sf "$DOTFILES_PATH/zsh/my-theme.omp.json" "$HOME/.poshthemes/my-theme.omp.json"
   ln -sf "$DOTFILES_PATH/gemini/settings.json" "$HOME/.gemini/settings.json"
   ln -sf "$DOTFILES_PATH/gemini/GEMINI.md" "$HOME/.gemini/GEMINI.md"
