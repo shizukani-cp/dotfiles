@@ -1,0 +1,2 @@
+#compdef prj
+_path_files -W "$PROJECTS_DIR" -/

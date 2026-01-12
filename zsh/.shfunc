@@ -14,11 +14,6 @@ function ensure_zcompiled {
 ensure_zcompiled ~/.zshrc
 alias .='source'
 
-_prj() {
-  _path_files -W "$PROJECTS_DIR" -/
-}
-compdef _prj prj
-
 shfunc_help() {
     cat <<EOS
 - prj [project-name] ... Go to the project with project-name. If project-name is not specified, you will be redirected to a directory with many projects.
