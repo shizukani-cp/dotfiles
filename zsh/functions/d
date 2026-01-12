@@ -1,0 +1,32 @@
+#! /usr/bin/env zsh
+original_dir="$(pwd)"
+cd $HOME/.diary/
+
+case "$1" in
+    pull)
+        git pull
+        ;;
+    push)
+        git push
+        ;;
+    *)
+        if [[ $1 =~ ^[0-9]{8}$ ]]; then
+            datekey=$1
+            year=${datekey:0:4}
+            month=${datekey:4:2}
+            day=${datekey:6:2}
+
+            dir="$year/$month"
+            mkdir -p -- "$dir"
+
+            mdfile="$dir/$day.md"
+            eval "$EDITOR $mdfile"
+
+            git add "$mdfile"
+            git commit -m "$1"
+        else
+            echo "Invaild command: $1"
+            exit 1
+        fi
+esac
+cd "$original_dir"

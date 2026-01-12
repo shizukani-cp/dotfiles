@@ -14,81 +14,10 @@ function ensure_zcompiled {
 ensure_zcompiled ~/.zshrc
 alias .='source'
 
-prj() {
-  if [ -d "./.venv" ]; then
-    deactivate
-  fi
-  cd "$PROJECTS_DIR/$1"
-  if [ -d "./.venv" ]; then
-    source ./.venv/bin/activate
-  fi
-}
-
 _prj() {
   _path_files -W "$PROJECTS_DIR" -/
 }
 compdef _prj prj
-
-function s() {
-    scratch_dir="$HOME/scratch"
-    case "$1" in
-        c)
-            if [[ "$PWD" != "$scratch_dir" ]]; then
-                echo "カレントディレクトリが~/scratchでありません"
-                return 1
-            fi
-
-            if [ -z "$(ls -A)" ]; then
-                return 0
-            fi
-
-            (
-                shopt -s dotglob
-                gio trash *
-            )
-        ;;
-        "")
-            cd $scratch_dir
-        ;;
-        *)
-            cd "Argument required"
-        ;;
-    esac
-}
-
-diary() {
-    original_dir="$(pwd)"
-    cd $HOME/.diary/
-
-    case "$1" in
-        pull)
-            git pull
-            ;;
-        push)
-            git push
-            ;;
-        *)
-            if [[ $1 =~ ^[0-9]{8}$ ]]; then
-                datekey=$1
-                year=${datekey:0:4}
-                month=${datekey:4:2}
-                day=${datekey:6:2}
-
-                dir="$year/$month"
-                mkdir -p -- "$dir"
-
-                mdfile="$dir/$day.md"
-                eval "$EDITOR $mdfile"
-
-                git add "$mdfile"
-                git commit -m "$1"
-            else
-                echo "Invaild command: $1"
-                exit 1
-            fi
-    esac
-    cd "$original_dir"
-}
 
 shfunc_help() {
     cat <<EOS

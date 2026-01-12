@@ -1,0 +1,25 @@
+#! /usr/bin/env zsh
+scratch_dir="$HOME/scratch"
+case "$1" in
+    c)
+        if [[ "$PWD" != "$scratch_dir" ]]; then
+            echo "カレントディレクトリが~/scratchでありません"
+            return 1
+        fi
+
+        if [ -z "$(ls -A)" ]; then
+            return 0
+        fi
+
+        (
+            shopt -s dotglob
+            gio trash *
+        )
+    ;;
+    "")
+        cd $scratch_dir
+    ;;
+    *)
+        cd "Argument required"
+    ;;
+esac

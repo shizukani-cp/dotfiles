@@ -1,0 +1,8 @@
+#! /usr/bin/env zsh
+if [ -d "./.venv" ]; then
+    deactivate
+fi
+cd "$PROJECTS_DIR/$1"
+if [ -d "./.venv" ]; then
+    source ./.venv/bin/activate
+fi

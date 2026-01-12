@@ -17,3 +17,5 @@ export EDITOR=/snap/bin/nvim
 export PROJECTS_DIR="$HOME/workspace"
 alias prjs="ls $PROJECTS_DIR"
 
+fpath=(~/.config/zsh/functions $fpath)
+autoload -Uz $(ls ~/.config/zsh/functions)
