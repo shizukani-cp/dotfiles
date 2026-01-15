@@ -1,5 +1,5 @@
-#!/usr/bin/bash
-# curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/install.sh | bash
+#!/usr/bin/zsh
+# curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/install.sh | zsh
 sudo apt-get update
 sudo apt-get install zsh -y # zsh
 curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
@@ -11,7 +11,7 @@ sudo apt-get install build-essential -y # gcc and other
 sudo apt-get install gdb -y # gdb
 sudo apt-get install bat -y # bat
 sudo apt-get install tmux -y #tmux
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash # nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh # nvm
 nvm install --lts --latest-npm # node.js latest lts & latest npm
 nvm use --lts
 sudo apt-get install ripgrep -y # ripgrep
@@ -43,10 +43,10 @@ chmod u+rw ~/.poshthemes/*.omp.*
 rm ~/.poshthemes/themes.zip
 
 git clone https://github.com/shizukani-cp/dotfiles.git ~/.cache/dotfiles
-cp ~/.cache/dotfiles/bash/my-theme.omp.json ~/.poshthemes/my-theme.omp.json
+cp ~/.cache/dotfiles/zsh/my-theme.omp.json ~/.poshthemes/my-theme.omp.json
 
-cp ~/.cache/dotfiles/bash/.shfunc ~/.shfunc
-cp ~/.cache/dotfiles/bash/.shopts ~/.shopts
+cp ~/.cache/dotfiles/zsh/.shfunc ~/.config/zsh/.shfunc
+cp ~/.cache/dotfiles/zsh/.shopts ~/.config/zsh/.shopts
 cp -r ~/.cache/dotfiles/neovim/ ~/.config/nvim/
 
 mkdir ~/.diary
@@ -54,8 +54,8 @@ git clone https://github.com/shizukani-cp/diary.git ~/.diary
 
 rm -rf ~/.cache/dotfiles/
 
-echo '. "$HOME/.shfunc"' >> ~/.bashrc
-echo '. "$HOME/.shopts"' >> ~/.bashrc
+echo '. "$HOME/.shfunc"' >> ~/.zshrc
+echo '. "$HOME/.shopts"' >> ~/.zshrc
 mkdir ~/.Trash/
 
 gsettings set org.gnome.mutter dynamic-workspaces false
