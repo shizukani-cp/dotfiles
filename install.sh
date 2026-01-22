@@ -5,30 +5,19 @@ curl --proto '=https' --tlsv1.2 -sSfL https://install.determinate.systems/nix | 
 sudo apt-get update
 sudo apt-get install zsh -y # zsh
 curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
-curl -LsSf https://astral.sh/uv/install.sh | sh # uv
-curl -fsSL https://deno.land/install.sh | sh # deno
+# curl -LsSf https://astral.sh/uv/install.sh | sh # uv
+# curl -fsSL https://deno.land/install.sh | sh # deno
 
 sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
 sudo apt-get install gdb -y # gdb
-sudo apt-get install bat -y # bat
-sudo apt-get install tmux -y #tmux
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh # nvm
 nvm install --lts --latest-npm # node.js latest lts & latest npm
 nvm use --lts
-sudo apt-get install ripgrep -y # ripgrep
-sudo apt-get install fd-find -y # fd
 npm install -g @google/gemini-cli # gemini-cli
 uv tool install debugpy # debugpy
 sudo snap install nvim --classic # NeoVim
-sudo snap install gh # GitHub CLI
 sudo snap install tetris-thefenriswolf # tetris
-sudo snap install bottom # bottom
-
-LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | \grep -Po '"tag_name": *"v\K[^"]*')
-curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/download/v${LAZYGIT_VERSION}/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-tar xf lazygit.tar.gz lazygit
-sudo install lazygit -D -t /usr/local/bin/
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
