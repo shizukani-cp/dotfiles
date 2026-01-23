@@ -5,7 +5,7 @@ if [ $(basename $(pwd -P)) = "dotfiles" ]; then
   ln -sf "$DOTFILES_PATH/zsh" "$HOME/.config/"
   ln -sf "$DOTFILES_PATH/tmux/" "$HOME/.config/"
   ln -sf "$DOTFILES_PATH/foot/" "$HOME/.config/"
-  ln -sf "$DOTFILES_PATH/home-manager/" "$HOME/.config/"
+  ln -sf "$DOTFILES_PATH/" "$HOME/.config/home-manager"
   ln -sf "$DOTFILES_PATH/.gitconfig" "$HOME/.gitconfig"
   ln -sf "$DOTFILES_PATH/zsh/link.sh" "$HOME/.local/bin/link.sh"
   ln -sf "$DOTFILES_PATH/zsh/input.sh" "$HOME/.local/bin/input.sh"
