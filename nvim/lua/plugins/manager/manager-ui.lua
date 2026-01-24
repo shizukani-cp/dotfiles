@@ -11,6 +11,8 @@ return function(manager)
         dependencies = {
             "manager-command",
         },
+        dev = false,
+        dir = vim.fn.expand("$PROJECTS_DIR") .. "/manager-ui",
         config = config,
     })
     lazyload.event("CmdLineEnter", "manager-ui")
