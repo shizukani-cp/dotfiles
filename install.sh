@@ -4,10 +4,6 @@ curl --proto '=https' --tlsv1.2 -sSfL https://install.determinate.systems/nix | 
 
 sudo apt-get update
 
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh # nvm
-nvm install --lts --latest-npm # node.js latest lts & latest npm
-nvm use --lts
-npm install -g @google/gemini-cli # gemini-cli
 uv tool install debugpy # debugpy
 sudo snap install nvim --classic # NeoVim
 sudo snap install tetris-thefenriswolf # tetris

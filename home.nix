@@ -15,6 +15,7 @@
     glibc
     gnumake
     lazygit
+    nodejs_24
     ripgrep
     rustup
     stylua
