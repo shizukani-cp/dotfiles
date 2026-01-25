@@ -6,15 +6,15 @@
   home.stateVersion = "25.11";
   home.packages = with pkgs; [
     bat
-    fd
-    ripgrep
     bottom
+    deno
+    fd
     gh
     lazygit
+    ripgrep
     stylua
     tmux
     uv
-    deno
   ];
   home.file = {
     ".config/nvim/".source = ./nvim;
