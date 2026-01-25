@@ -9,8 +9,11 @@
     bottom
     deno
     fd
+    gcc
     gh
     gitFull
+    glibc
+    gnumake
     lazygit
     ripgrep
     rustup
