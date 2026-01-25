@@ -10,6 +10,7 @@
     deno
     fd
     gh
+    gitFull
     lazygit
     ripgrep
     rustup

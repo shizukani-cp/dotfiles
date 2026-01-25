@@ -4,7 +4,6 @@ curl --proto '=https' --tlsv1.2 -sSfL https://install.determinate.systems/nix | 
 
 sudo apt-get update
 
-sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
 sudo apt-get install gdb -y # gdb
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | zsh # nvm
