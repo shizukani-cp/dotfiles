@@ -12,6 +12,7 @@
     gh
     lazygit
     ripgrep
+    rustup
     stylua
     tmux
     uv

@@ -3,7 +3,6 @@
 curl --proto '=https' --tlsv1.2 -sSfL https://install.determinate.systems/nix | sh -s -- install --determine-intel-64 --no-confirm # nix
 
 sudo apt-get update
-curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
 
 sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
