@@ -4,7 +4,6 @@ curl --proto '=https' --tlsv1.2 -sSfL https://install.determinate.systems/nix | 
 
 sudo apt-get update
 
-uv tool install debugpy # debugpy
 sudo snap install nvim --classic # NeoVim
 sudo snap install tetris-thefenriswolf # tetris
 
