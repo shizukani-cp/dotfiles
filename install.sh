@@ -3,7 +3,6 @@
 curl --proto '=https' --tlsv1.2 -sSfL https://install.determinate.systems/nix | sh -s -- install --determine-intel-64 --no-confirm # nix
 
 sudo apt-get update
-sudo apt-get install zsh -y # zsh
 curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
 # curl -LsSf https://astral.sh/uv/install.sh | sh # uv
 # curl -fsSL https://deno.land/install.sh | sh # deno

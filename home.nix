@@ -15,6 +15,7 @@
     stylua
     tmux
     uv
+    zsh
   ];
   home.file = {
     ".config/nvim/".source = ./nvim;
