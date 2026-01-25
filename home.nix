@@ -1,10 +1,18 @@
 { config, pkgs, ... }:
 
+let
+  unstable = import <unstable> {
+    inherit (pkgs.stdenv.hostPlatform) system;
+    config = {
+      allowUnfree = true;
+    };
+  };
+in
 {
   home.username = "shizukani-cp";
   home.homeDirectory = "/home/shizukani-cp";
   home.stateVersion = "25.11";
-  home.packages = with pkgs; [
+  home.packages = (with pkgs; [
     bat
     bottom
     deno
@@ -23,6 +31,8 @@
     tmux
     uv
     zsh
+  ]) ++ [
+    unstable.theclicker
   ];
   home.file = {
     ".config/nvim/".source = ./nvim;
