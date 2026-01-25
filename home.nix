@@ -15,6 +15,7 @@
     glibc
     gnumake
     lazygit
+    neovim
     nodejs_24
     ripgrep
     rustup
