@@ -4,8 +4,6 @@ curl --proto '=https' --tlsv1.2 -sSfL https://install.determinate.systems/nix | 
 
 sudo apt-get update
 curl https://sh.rustup.rs -sSf | sh -s -- -y # rustup
-# curl -LsSf https://astral.sh/uv/install.sh | sh # uv
-# curl -fsSL https://deno.land/install.sh | sh # deno
 
 sudo apt-get install git-all -y # git
 sudo apt-get install build-essential -y # gcc and other
