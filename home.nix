@@ -11,6 +11,7 @@
     bottom
     gh
     lazygit
+    stylua
     tmux
     uv
     deno

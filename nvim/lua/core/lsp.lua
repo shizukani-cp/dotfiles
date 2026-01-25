@@ -4,13 +4,14 @@ manager.load("nvim-lspconfig")
 manager.load("mason.nvim")
 manager.load("mason-lspconfig.nvim")
 manager.load("ddc-source-lsp-setup")
+manager.load("conform.nvim")
 
 local lsp_servers = require("data.lsp").lsp_servers
 require("lazydev").setup()
 local on_attach = function(client, bufnr)
     vim.api.nvim_buf_create_user_command(bufnr, 'Format', function()
-        vim.lsp.buf.format()
-    end, { desc = 'Format current buffer with LSP' })
+        require("conform").format({ bufnr = bufnr, lsp_fallback = true })
+    end, { desc = 'Format current buffer with conform.nvim' })
 end
 
 local global_on_attach = on_attach
@@ -18,6 +19,10 @@ local global_on_attach = on_attach
 for name, cfg in pairs(lsp_servers) do
     local user_attach = cfg.on_attach
     cfg.on_attach = function(client, bufnr)
+        if name == "lua_ls" then
+            client.server_capabilities.documentFormattingProvider = false
+            client.server_capabilities.documentRangeFormattingProvider = false
+        end
         if user_attach then user_attach(client, bufnr) end
         global_on_attach(client, bufnr)
     end
