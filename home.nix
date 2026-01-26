@@ -48,7 +48,6 @@
       tree = "tree --gitignore";
     };
     initContent = ''
-    . ~/.config/zsh/.shfunc
     . ~/.config/zsh/.shopts
     '';
   };
