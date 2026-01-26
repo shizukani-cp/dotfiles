@@ -50,6 +50,17 @@
     initContent = ''
     . ~/.config/zsh/.shopts
     '';
+    oh-my-zsh = {
+      enable = true;
+      plugins = [
+        "git"
+        "gh"
+        "rust"
+        "uv"
+      ];
+    };
+    enableAutosuggestions = true;
+    syntaxHighlighting.enable = true;
   };
   programs.home-manager.enable = true;
 }
