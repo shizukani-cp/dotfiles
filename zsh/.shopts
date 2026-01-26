@@ -1,7 +1,5 @@
 #! /usr/bin/bash
 
-eval "$(oh-my-posh init zsh --config ~/.poshthemes/my-theme.omp.json)"
-
 fpath=(~/.config/zsh/functions $fpath)
 autoload -Uz $(ls ~/.config/zsh/functions)
 if [ -n "$TMUX" ] && [ -z "$NVIM" ]; then

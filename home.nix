@@ -33,7 +33,6 @@
     ".config/foot/".source = ./foot;
     ".gemini/".source = ./gemini;
     ".gitconfig".source = ./.gitconfig;
-    ".poshthemes/my-theme.omp.json".source = ./zsh/my-theme.omp.json;
   };
   home.sessionVariables = {
     EDITOR = "nvim";
@@ -61,6 +60,11 @@
     };
     enableAutosuggestions = true;
     syntaxHighlighting.enable = true;
+  };
+  programs.oh-my-posh = {
+    enable = true;
+    enableZshIntegration = true;
+    configFile = ./zsh/my-theme.omp.json;
   };
   programs.home-manager.enable = true;
 }
