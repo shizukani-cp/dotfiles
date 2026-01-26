@@ -7,13 +7,10 @@ source $ZSH/oh-my-zsh.sh
 
 eval "$(oh-my-posh init zsh --config ~/.poshthemes/my-theme.omp.json)"
 
-alias rm='gio trash'
-alias tree='tree --gitignore'
 export LANG=ja_JP.UTF-8
 export LESSCHARSET=utf-8
 export EDITOR=/snap/bin/nvim
 export PROJECTS_DIR="$HOME/workspace"
-alias prjs="ls $PROJECTS_DIR"
 
 fpath=(~/.config/zsh/functions $fpath)
 autoload -Uz $(ls ~/.config/zsh/functions)

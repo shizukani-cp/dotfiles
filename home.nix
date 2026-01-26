@@ -37,6 +37,10 @@
   };
   programs.zsh = {
     enable = true;
+    shellAliases = {
+      rm = "gio trash";
+      tree = "tree --gitignore";
+    };
     initContent = ''
     . ~/.config/zsh/.shfunc
     . ~/.config/zsh/.shopts
