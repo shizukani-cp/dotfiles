@@ -47,7 +47,13 @@
       tree = "tree --gitignore";
     };
     initContent = ''
-    . ~/.config/zsh/.shopts
+      fpath=(~/.config/zsh/functions $fpath)
+      autoload -Uz $(ls ~/.config/zsh/functions)
+      if [ -n "$TMUX" ] && [ -z "$NVIM" ]; then
+          if [ "$PWD" = "$HOME" ]; then
+              s
+          fi
+      fi
     '';
     oh-my-zsh = {
       enable = true;

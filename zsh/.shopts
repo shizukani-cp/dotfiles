@@ -1,9 +1,0 @@
-#! /usr/bin/bash
-
-fpath=(~/.config/zsh/functions $fpath)
-autoload -Uz $(ls ~/.config/zsh/functions)
-if [ -n "$TMUX" ] && [ -z "$NVIM" ]; then
-    if [ "$PWD" = "$HOME" ]; then
-        s
-    fi
-fi
