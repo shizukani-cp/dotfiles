@@ -35,5 +35,12 @@
     ".gitconfig".source = ./.gitconfig;
     ".poshthemes/my-theme.omp.json".source = ./zsh/my-theme.omp.json;
   };
+  programs.zsh = {
+    enable = true;
+    initContent = ''
+    . ~/.config/zsh/.shfunc
+    . ~/.config/zsh/.shopts
+    '';
+  };
   programs.home-manager.enable = true;
 }
