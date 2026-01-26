@@ -1,13 +1,5 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
-let
-  unstable = import <unstable> {
-    inherit (pkgs.stdenv.hostPlatform) system;
-    config = {
-      allowUnfree = true;
-    };
-  };
-in
 {
   home.username = "shizukani-cp";
   home.homeDirectory = "/home/shizukani-cp";
