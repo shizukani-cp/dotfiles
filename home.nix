@@ -35,6 +35,12 @@
     ".gitconfig".source = ./.gitconfig;
     ".poshthemes/my-theme.omp.json".source = ./zsh/my-theme.omp.json;
   };
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    PROJECTS_DIR = "$HOME/workspace";
+    LANG = "ja_JP.UTF-8";
+    LESSCHARSET = "utf-8";
+  };
   programs.zsh = {
     enable = true;
     shellAliases = {
