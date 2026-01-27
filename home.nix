@@ -36,7 +36,7 @@
   };
   home.sessionVariables = {
     EDITOR = "nvim";
-    PROJECTS_DIR = "$HOME/workspace";
+    PROJECTS_DIR = "${config.home.homeDirectory}/workspace";
     LANG = "ja_JP.UTF-8";
     LESSCHARSET = "utf-8";
   };
