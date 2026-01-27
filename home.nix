@@ -16,7 +16,9 @@
     gnumake
     lazygit
     neovim
+    nerd-fonts.bitstream-vera-sans-mono
     nodejs_24
+    noto-fonts-cjk-sans
     ripgrep
     rustup
     stylua
