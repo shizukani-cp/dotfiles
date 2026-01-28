@@ -29,11 +29,23 @@
     unstable.theclicker
   ];
   home.file = {
-    ".config/nvim/".source = ./nvim;
-    ".config/zsh/".source = ./zsh;
-    ".config/foot/".source = ./foot;
     ".gemini/".source = ./gemini;
     ".gitconfig".source = ./.gitconfig;
+  };
+  xdg.enable = true;
+  xdg.configFile = {
+    "nvim" = {
+      source = ./nvim;
+      recursive = true;
+    };
+    "foot" = {
+      source = ./foot;
+      recursive = true;
+    };
+    "zsh" = {
+      source = ./zsh;
+      recursive = true;
+    };
   };
   home.sessionVariables = {
     EDITOR = "nvim";
