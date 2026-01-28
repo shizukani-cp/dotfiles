@@ -69,7 +69,7 @@
         "uv"
       ];
     };
-    enableAutosuggestions = true;
+    autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
   };
   programs.oh-my-posh = {
