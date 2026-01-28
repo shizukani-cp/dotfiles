@@ -31,7 +31,6 @@
   home.file = {
     ".config/nvim/".source = ./nvim;
     ".config/zsh/".source = ./zsh;
-    ".config/tmux/".source = ./tmux;
     ".config/foot/".source = ./foot;
     ".gemini/".source = ./gemini;
     ".gitconfig".source = ./.gitconfig;
@@ -41,6 +40,10 @@
     PROJECTS_DIR = "${config.home.homeDirectory}/workspace";
     LANG = "ja_JP.UTF-8";
     LESSCHARSET = "utf-8";
+  };
+  programs.tmux = {
+    enable = true;
+    extraConfig = builtins.readFile ./tmux/tmux.conf;
   };
   programs.zsh = {
     enable = true;
