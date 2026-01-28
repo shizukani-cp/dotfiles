@@ -2,6 +2,8 @@
 # curl -sSf https://raw.githubusercontent.com/shizukani-cp/dotfiles/main/install.sh | zsh
 curl --proto '=https' --tlsv1.2 -sSfL https://install.determinate.systems/nix | sh -s -- install --determine-intel-64 --no-confirm # nix
 
+home-manager switch --flake .#shizukani-cp
+
 git clone https://github.com/rvaiya/keyd
 cd keyd
 make && sudo make install
