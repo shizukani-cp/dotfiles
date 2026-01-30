@@ -9,12 +9,6 @@ local function config()
         markerHenkan = "¦",
         markerHenkanSelect = "|",
     })
-    vim.keymap.set(
-        { "i", "c" },
-        "<Esc>",
-        "<Plug>(skkeleton-toggle)",
-        { noremap = true, silent = true, desc = "Skkeleton enable/disable" }
-    )
 end
 
 return function(manager)
@@ -26,6 +20,6 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("InsertEnter", "skkeleton")
+    lazyload.event("InsertEnter", "skkeleton-azik-kanatable")
     vim.keymap.set({ "i", "c" }, "<Esc>", "<Nop>")
 end
