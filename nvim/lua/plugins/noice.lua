@@ -13,4 +13,5 @@ return function(manager)
         end,
     })
     lazyload.event("CmdLineEnter", "noice.nvim")
+    lazyload.event("BufWinEnter", "noice.nvim")
 end
