@@ -3,8 +3,8 @@ local lazyload = require("manager.lazyload")
 local function config()
     require("various-textobjs").setup({
         keymaps = {
-            useDefaults = true
-        }
+            useDefaults = true,
+        },
     })
 end
 

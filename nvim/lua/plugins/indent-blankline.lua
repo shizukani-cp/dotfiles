@@ -8,7 +8,7 @@ return function(manager)
     manager.add({
         id = "indent-blankline.nvim",
         url = "https://github.com/lukas-reineke/indent-blankline.nvim",
-        config = config
+        config = config,
     })
 
     lazyload.event("BufRead", "indent-blankline.nvim")

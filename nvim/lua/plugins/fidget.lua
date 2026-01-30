@@ -8,7 +8,7 @@ return function(manager)
     manager.add({
         id = "fidget.nvim",
         url = "https://github.com/j-hui/fidget.nvim",
-        config = config
+        config = config,
     })
     lazyload.event("LspAttach", "fidget.nvim")
 end

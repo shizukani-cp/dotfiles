@@ -7,7 +7,7 @@ local function config()
             ff = {
                 startAutoAction = true,
                 autoAction = {
-                    name = "preview"
+                    name = "preview",
                 },
                 filterFloatingPosition = "bottom",
                 filterSplitDirection = "floating",
@@ -19,7 +19,7 @@ local function config()
                 prompt = "> ",
                 split = "floating",
                 startFilter = true,
-            }
+            },
         },
         sourceOptions = {
             _ = {
@@ -37,8 +37,8 @@ local function config()
                 sorters = { "sorter_alpha" },
             },
             lsp_documentSymbol = {
-                converters = { "converter_lsp_symbol" }
-            }
+                converters = { "converter_lsp_symbol" },
+            },
         },
         sourceParams = {
             manager_logs = {
@@ -85,7 +85,7 @@ local function config()
             vim.keymap.set("n", "i", [[<Cmd>call ddu#ui#do_action("openFilterWindow")<CR>]], opts)
         end,
     })
-    vim.api.nvim_set_hl(0, 'MyStatusHL', { fg = '#569CD6' })
+    vim.api.nvim_set_hl(0, "MyStatusHL", { fg = "#569CD6" })
 end
 
 return function(manager)
@@ -109,26 +109,70 @@ return function(manager)
             "ddu-ui-ff",
             "denops.vim",
         },
-        config = config
+        config = config,
     })
 
-    lazyload.key("n", "<Leader>pf", "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>", "ddu.vim",
-        { noremap = true, silent = true, desc = "File" })
-    lazyload.key("n", "<Leader>pb", "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>", "ddu.vim",
-        { noremap = true, silent = true, desc = "Buffer" })
-    lazyload.key("n", "<Leader>ps", "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>",
+    lazyload.key(
+        "n",
+        "<Leader>pf",
+        "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>",
         "ddu.vim",
-        { noremap = true, silent = true, desc = "LSP Symbol" })
-    lazyload.key("n", "<Leader>pp", "<Cmd>call ddu#start({ 'sources': ['manager_plugins'], 'ui': 'ff' })<CR>", "ddu.vim",
-        { noremap = true, silent = true, desc = "Plugin List" })
-    lazyload.key("n", "<Leader>pl", "<Cmd>call ddu#start({ 'sources': ['manager_logs'], 'ui': 'ff' })<CR>", "ddu.vim",
-        { noremap = true, silent = true, desc = "manager.nvim logs" })
-    lazyload.key("n", "<Leader>pg", "<Cmd>call ddu#start({ 'sources': ['git_status'], 'ui': 'ff' })<CR>", "ddu.vim",
-        { noremap = true, silent = true, desc = "Git Status" })
-    lazyload.key("n", "<Leader>pk", "<Cmd>call ddu#start({ 'sources': ['keymap'], 'ui': 'ff' })<CR>", "ddu.vim",
-        { noremap = true, silent = true, desc = "Keymap" })
-    lazyload.key("n", "<Leader>pa", "<Cmd>call ddu#start({ 'sources': ['action'], 'ui': 'ff' })<CR>", "ddu.vim",
-        { noremap = true, silent = true, desc = "Action" })
-    lazyload.key("n", "<Leader>pc", "<Cmd>call ddu#start({ 'sources': ['command_history'], 'ui': 'ff' })<CR>", "ddu.vim",
-        { noremap = true, silent = true, desc = "Command History" })
+        { noremap = true, silent = true, desc = "File" }
+    )
+    lazyload.key(
+        "n",
+        "<Leader>pb",
+        "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>",
+        "ddu.vim",
+        { noremap = true, silent = true, desc = "Buffer" }
+    )
+    lazyload.key(
+        "n",
+        "<Leader>ps",
+        "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>",
+        "ddu.vim",
+        { noremap = true, silent = true, desc = "LSP Symbol" }
+    )
+    lazyload.key(
+        "n",
+        "<Leader>pp",
+        "<Cmd>call ddu#start({ 'sources': ['manager_plugins'], 'ui': 'ff' })<CR>",
+        "ddu.vim",
+        { noremap = true, silent = true, desc = "Plugin List" }
+    )
+    lazyload.key(
+        "n",
+        "<Leader>pl",
+        "<Cmd>call ddu#start({ 'sources': ['manager_logs'], 'ui': 'ff' })<CR>",
+        "ddu.vim",
+        { noremap = true, silent = true, desc = "manager.nvim logs" }
+    )
+    lazyload.key(
+        "n",
+        "<Leader>pg",
+        "<Cmd>call ddu#start({ 'sources': ['git_status'], 'ui': 'ff' })<CR>",
+        "ddu.vim",
+        { noremap = true, silent = true, desc = "Git Status" }
+    )
+    lazyload.key(
+        "n",
+        "<Leader>pk",
+        "<Cmd>call ddu#start({ 'sources': ['keymap'], 'ui': 'ff' })<CR>",
+        "ddu.vim",
+        { noremap = true, silent = true, desc = "Keymap" }
+    )
+    lazyload.key(
+        "n",
+        "<Leader>pa",
+        "<Cmd>call ddu#start({ 'sources': ['action'], 'ui': 'ff' })<CR>",
+        "ddu.vim",
+        { noremap = true, silent = true, desc = "Action" }
+    )
+    lazyload.key(
+        "n",
+        "<Leader>pc",
+        "<Cmd>call ddu#start({ 'sources': ['command_history'], 'ui': 'ff' })<CR>",
+        "ddu.vim",
+        { noremap = true, silent = true, desc = "Command History" }
+    )
 end

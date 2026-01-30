@@ -9,7 +9,7 @@ return function(manager)
     manager.add({
         id = "hlargs.nvim",
         url = "https://github.com/m-demare/hlargs.nvim",
-        config = config
+        config = config,
     })
 
     lazyload.event("BufRead", "hlargs.nvim")

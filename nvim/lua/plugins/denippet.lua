@@ -7,10 +7,8 @@ local function config()
         vim.fn["denippet#load"](file)
     end
 
-    local root = vim.fs.joinpath(
-        vim.fn.stdpath("data"),
-        "site", "pack", "manager", "opt", "friendly-snippets", "snippets"
-    )
+    local root =
+        vim.fs.joinpath(vim.fn.stdpath("data"), "site", "pack", "manager", "opt", "friendly-snippets", "snippets")
 
     for name, type in vim.fs.dir(root) do
         if type == "file" then
@@ -44,7 +42,7 @@ return function(manager)
             "denops.vim",
             "friendly-snippets",
         },
-        config = config
+        config = config,
     })
     lazyload.event("InsertEnter", "denippet.vim")
 end

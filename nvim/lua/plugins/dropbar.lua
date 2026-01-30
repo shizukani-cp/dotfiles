@@ -2,7 +2,7 @@ local lazyload = require("manager.lazyload")
 
 local function config()
     require("dropbar").setup()
-    vim.ui.select = require('dropbar.utils.menu').select
+    vim.ui.select = require("dropbar.utils.menu").select
 end
 
 return function(manager)
@@ -13,7 +13,7 @@ return function(manager)
             "nvim-web-devicons",
             "nvim-treesitter",
         },
-        config = config
+        config = config,
     })
     lazyload.event("BufWinEnter", "dropbar.nvim")
 end

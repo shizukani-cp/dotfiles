@@ -16,7 +16,7 @@ local function config()
                     key = "n",
                     keymap_hl = "New File",
                     desc = "New File",
-                    action = "ene | startinsert"
+                    action = "ene | startinsert",
                 },
                 {
                     icon = "  ",
@@ -25,7 +25,7 @@ local function config()
                     desc = "New Example Buffer",
                     action = function()
                         require("utils.example_file").open_example()
-                    end
+                    end,
                 },
                 {
                     icon = "📁 ",
@@ -34,8 +34,8 @@ local function config()
                     desc = "Oil",
                     action = function()
                         require("manager.core").load("oil.nvim")
-                        vim.cmd [[Oil]]
-                    end
+                        vim.cmd([[Oil]])
+                    end,
                 },
                 {
                     icon = "🌀 ",
@@ -44,8 +44,8 @@ local function config()
                     desc = "Lazygit",
                     action = function()
                         require("manager.core").load("lazygit.nvim")
-                        vim.cmd [[LazyGit]]
-                    end
+                        vim.cmd([[LazyGit]])
+                    end,
                 },
                 {
                     icon = "🔄 ",
@@ -54,7 +54,7 @@ local function config()
                     desc = "Update Plugins",
                     action = function()
                         require("manager.core").update()
-                    end
+                    end,
                 },
                 {
                     icon = "🗑️ ",
@@ -63,7 +63,7 @@ local function config()
                     desc = "Clean Unused Plugins",
                     action = function()
                         require("manager.core").clean()
-                    end
+                    end,
                 },
                 {
                     icon = "  ",
@@ -72,10 +72,10 @@ local function config()
                     key = "q",
                     keymap_hl = "Quit",
                     key_format = " %s",
-                    action = "quit"
+                    action = "quit",
                 },
-            }
-        }
+            },
+        },
     })
     vim.api.nvim_create_autocmd("FileType", {
         pattern = "dashboard",
@@ -101,7 +101,7 @@ return function(manager)
             "nvim-web-devicons",
             "vim-better-whitespace",
         },
-        config = config
+        config = config,
     })
     manager.load("dashboard-nvim")
 end

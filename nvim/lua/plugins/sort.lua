@@ -8,7 +8,7 @@ return function(manager)
     manager.add({
         id = "sort.nvim",
         url = "https://github.com/sQVe/sort.nvim",
-        config = config
+        config = config,
     })
     lazyload.event("BufWinEnter", "sort.nvim")
 end

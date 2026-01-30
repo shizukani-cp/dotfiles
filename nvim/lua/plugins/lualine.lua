@@ -10,7 +10,7 @@ local function config()
         },
         sections = {
             lualine_a = {
-                'mode',
+                "mode",
                 {
                     function()
                         local _, mode = pcall(vim.fn["skkeleton#mode"])
@@ -28,33 +28,33 @@ local function config()
                             return "英ab"
                         end
                     end,
-                }
+                },
             },
             lualine_b = {
-                'branch',
+                "branch",
                 {
-                    'diff',
-                    symbols = { added = ' ', modified = ' ', removed = ' ' },
+                    "diff",
+                    symbols = { added = " ", modified = " ", removed = " " },
                 },
             },
             lualine_c = {
                 {
-                    'diagnostics',
-                    symbols = { error = ' ', warn = ' ', info = ' ', hint = ' ' }
+                    "diagnostics",
+                    symbols = { error = " ", warn = " ", info = " ", hint = " " },
                 },
-                'overseer',
+                "overseer",
             },
             lualine_x = {
-                'lsp-status',
+                "lsp-status",
             },
             lualine_y = {
-                'encoding',
-                'filetype',
+                "encoding",
+                "filetype",
             },
             lualine_z = {
-                { 'filename', path = 1 },
-                'location'
-            }
+                { "filename", path = 1 },
+                "location",
+            },
         },
     })
 end
@@ -67,7 +67,7 @@ return function(manager)
             "nvim-web-devicons",
             "lualine-lsp-status",
         },
-        config = config
+        config = config,
     })
     manager.load("lualine.nvim")
 end

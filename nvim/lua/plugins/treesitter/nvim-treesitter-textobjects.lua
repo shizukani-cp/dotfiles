@@ -1,7 +1,7 @@
 local lazyload = require("manager.lazyload")
 
 local function config()
-    require('nvim-treesitter-textobjects').setup({
+    require("nvim-treesitter-textobjects").setup({
         select = {
             enable = true,
             lookahead = true,
@@ -14,9 +14,9 @@ local function config()
                 ["if"] = "@function.inner",
             },
             selection_modes = {
-                ['@parameter.outer'] = 'v',
-                ['@function.outer'] = 'V',
-                ['@class.outer'] = '<c-v>',
+                ["@parameter.outer"] = "v",
+                ["@function.outer"] = "V",
+                ["@class.outer"] = "<c-v>",
             },
             include_surrounding_whitespace = true,
         },

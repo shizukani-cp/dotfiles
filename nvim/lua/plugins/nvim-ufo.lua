@@ -4,7 +4,7 @@ local function config()
     vim.api.nvim_create_autocmd("CursorHold", {
         pattern = "*",
         callback = function()
-            require('ufo').peekFoldedLinesUnderCursor()
+            require("ufo").peekFoldedLinesUnderCursor()
         end,
     })
     require("ufo").setup({
@@ -12,8 +12,8 @@ local function config()
             if filetype == "dashboard" then
                 return
             end
-            return { 'indent' }
-        end
+            return { "indent" }
+        end,
     })
 end
 

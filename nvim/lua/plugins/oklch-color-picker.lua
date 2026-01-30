@@ -11,6 +11,7 @@ return function(manager)
         config = config,
     })
     lazyload.event("BufRead", "oklch-color-picker.nvim")
-    lazyload.key("n", "<Leader>c#", function() require("oklch-color-picker").pick_under_cursor() end,
-        "oklch-color-picker.nvim", { noremap = true, silent = true, desc = "Color Picker" })
+    lazyload.key("n", "<Leader>c#", function()
+        require("oklch-color-picker").pick_under_cursor()
+    end, "oklch-color-picker.nvim", { noremap = true, silent = true, desc = "Color Picker" })
 end

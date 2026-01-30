@@ -10,7 +10,7 @@ return function(manager)
         },
         config = function()
             require("noice").setup()
-        end
+        end,
     })
     lazyload.event("CmdLineEnter", "noice.nvim")
 end

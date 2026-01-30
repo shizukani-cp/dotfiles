@@ -9,7 +9,7 @@ local function config()
         opleader = {
             line = "gcc",
             block = "gcC",
-        }
+        },
     })
 end
 
@@ -17,7 +17,7 @@ return function(manager)
     manager.add({
         id = "Comment.nvim",
         url = "https://github.com/numToStr/Comment.nvim",
-        config = config
+        config = config,
     })
     lazyload.event("BufWinEnter", "Comment.nvim")
 end

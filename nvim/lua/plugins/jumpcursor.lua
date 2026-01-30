@@ -5,6 +5,11 @@ return function(manager)
         id = "jumpcursor.vim",
         url = "https://github.com/skanehira/jumpcursor.vim",
     })
-    lazyload.key("n", "f", "<Plug>(jumpcursor-jump)", "jumpcursor.vim",
-        { noremap = true, silent = true, desc = "Go to any word in the current buffer." })
+    lazyload.key(
+        "n",
+        "f",
+        "<Plug>(jumpcursor-jump)",
+        "jumpcursor.vim",
+        { noremap = true, silent = true, desc = "Go to any word in the current buffer." }
+    )
 end

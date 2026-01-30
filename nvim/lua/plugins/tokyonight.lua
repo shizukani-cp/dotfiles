@@ -6,7 +6,7 @@ local function config()
             floats = "transparent",
         },
     })
-    vim.cmd [[colorscheme tokyonight]]
+    vim.cmd([[colorscheme tokyonight]])
 end
 
 return function(manager)

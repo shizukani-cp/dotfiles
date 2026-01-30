@@ -2,7 +2,7 @@ local lazyload = require("manager.lazyload")
 
 local function config()
     local augend = require("dial.augend")
-    require("dial.config").augends:register_group {
+    require("dial.config").augends:register_group({
         default = {
             augend.integer.alias.decimal,
             augend.integer.alias.hex,
@@ -11,14 +11,14 @@ local function config()
                 elements = { "true", "false" },
             }),
         },
-    }
+    })
 end
 
 return function(manager)
     manager.add({
         id = "dial.nvim",
         url = "https://github.com/monaqa/dial.nvim",
-        config = config
+        config = config,
     })
 
     lazyload.key("n", "<C-a>", function()

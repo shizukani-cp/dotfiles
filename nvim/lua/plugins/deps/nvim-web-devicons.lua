@@ -6,6 +6,6 @@ return function(manager)
     manager.add({
         id = "nvim-web-devicons",
         url = "https://github.com/nvim-tree/nvim-web-devicons",
-        config = config
+        config = config,
     })
 end

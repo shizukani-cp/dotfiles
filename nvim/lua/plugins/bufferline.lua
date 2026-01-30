@@ -11,7 +11,7 @@ return function(manager)
         dependencies = {
             "nvim-web-devicons",
         },
-        config = config
+        config = config,
     })
     lazyload.event("BufWinEnter", "bufferline.nvim")
 end

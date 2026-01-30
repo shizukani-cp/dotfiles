@@ -2,8 +2,8 @@ local lazyload = require("manager.lazyload")
 
 local function config()
     require("treesj").setup()
-    vim.keymap.del('n', '<leader>m')
-    vim.keymap.del('n', '<leader>j')
+    vim.keymap.del("n", "<leader>m")
+    vim.keymap.del("n", "<leader>j")
 end
 
 return function(manager)
@@ -11,10 +11,15 @@ return function(manager)
         id = "treesj",
         url = "https://github.com/Wansmer/treesj",
         dependencies = {
-            "nvim-treesitter"
+            "nvim-treesitter",
         },
-        config = config
+        config = config,
     })
-    lazyload.key("n", "<Leader>cS", "<Cmd>lua require('treesj').toggle()<Cr>", "treesj",
-        { noremap = true, silent = true, desc = "Split or Join code block with autodetect" })
+    lazyload.key(
+        "n",
+        "<Leader>cS",
+        "<Cmd>lua require('treesj').toggle()<Cr>",
+        "treesj",
+        { noremap = true, silent = true, desc = "Split or Join code block with autodetect" }
+    )
 end

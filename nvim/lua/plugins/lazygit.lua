@@ -5,9 +5,14 @@ return function(manager)
         id = "lazygit.nvim",
         url = "https://github.com/kdheepak/lazygit.nvim",
         dependencies = {
-            "plenary.nvim"
+            "plenary.nvim",
         },
     })
-    lazyload.key("n", "<Leader>g", "<Cmd>LazyGit<Cr>", "lazygit.nvim",
-        { noremap = true, silent = true, desc = "Lazygit" })
+    lazyload.key(
+        "n",
+        "<Leader>g",
+        "<Cmd>LazyGit<Cr>",
+        "lazygit.nvim",
+        { noremap = true, silent = true, desc = "Lazygit" }
+    )
 end

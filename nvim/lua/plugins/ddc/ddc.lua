@@ -35,7 +35,7 @@ local function config()
                 debounce = 500,
             },
             path = {
-                cmd = { "fd", "--max-depth", "3", },
+                cmd = { "fd", "--max-depth", "3" },
             },
         },
     })
@@ -69,25 +69,17 @@ local function config()
                     Event = " Event",
                     Operator = "󰆕 Operator",
                     TypeParameter = " TypeParameter",
-                }
-            }
-        }
+                },
+            },
+        },
     })
 
-    vim.keymap.set(
-        'i', '<C-j>',
-        function()
-            return vim.fn.pumvisible() == 1 and '<C-n>' or vim.fn['ddc#map#manual_complete']()
-        end,
-        { expr = true, silent = true, desc = 'ddc candidate next' }
-    )
-    vim.keymap.set(
-        'i', '<C-k>',
-        function()
-            return vim.fn.pumvisible() == 1 and '<C-p>' or ''
-        end,
-        { expr = true, silent = true, desc = 'ddc candidate prev' }
-    )
+    vim.keymap.set("i", "<C-j>", function()
+        return vim.fn.pumvisible() == 1 and "<C-n>" or vim.fn["ddc#map#manual_complete"]()
+    end, { expr = true, silent = true, desc = "ddc candidate next" })
+    vim.keymap.set("i", "<C-k>", function()
+        return vim.fn.pumvisible() == 1 and "<C-p>" or ""
+    end, { expr = true, silent = true, desc = "ddc candidate prev" })
     vim.fn["ddc#custom#patch_filetype"]("skkeleton", {
         sources = { "skkeleton" },
     })
@@ -95,14 +87,14 @@ local function config()
     vim.fn["ddc#custom#patch_global"]({
         sourceOptions = {
             ["skkeleton"] = {
-                mark = 'skkeleton',
+                mark = "skkeleton",
                 matchers = {},
                 sorters = {},
                 converters = {},
                 isVolatile = true,
                 minAutoCompleteLength = 1,
             },
-        }
+        },
     })
 
     vim.fn["ddc#enable"]()
@@ -126,7 +118,7 @@ return function(manager)
             "denippet.vim",
             "skkeleton",
         },
-        config = config
+        config = config,
     })
     lazyload.event("InsertEnter", "ddc.vim")
 end

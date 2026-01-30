@@ -6,7 +6,16 @@ local function config()
         },
         languages = {
             {
-                filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "html", "htmldjango", "css", "json", },
+                filetypes = {
+                    "javascript",
+                    "javascriptreact",
+                    "typescript",
+                    "typescriptreact",
+                    "html",
+                    "htmldjango",
+                    "css",
+                    "json",
+                },
                 config = {
                     tabwidth = 2,
                 },
@@ -19,7 +28,7 @@ return function(manager)
     manager.add({
         id = "tabset.nvim",
         url = "https://github.com/FotiadisM/tabset.nvim",
-        config = config
+        config = config,
     })
     manager.load("tabset.nvim")
 end

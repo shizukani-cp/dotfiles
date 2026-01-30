@@ -26,7 +26,7 @@ vim.api.nvim_create_autocmd("ModeChanged", {
     end,
 })
 
-vim.api.nvim_create_autocmd('QuitPre', {
+vim.api.nvim_create_autocmd("QuitPre", {
     group = vim.api.nvim_create_augroup("CloseSpecialBufferOnQuit", { clear = true }),
     pattern = "*",
     callback = function()
@@ -34,7 +34,7 @@ vim.api.nvim_create_autocmd('QuitPre', {
         for _, win in ipairs(vim.api.nvim_list_wins()) do
             if win ~= current_win then
                 local buf = vim.api.nvim_win_get_buf(win)
-                if vim.bo[buf].buftype == '' then
+                if vim.bo[buf].buftype == "" then
                     return
                 end
             end

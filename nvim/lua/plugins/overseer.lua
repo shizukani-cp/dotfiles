@@ -10,8 +10,18 @@ return function(manager)
         url = "https://github.com/stevearc/overseer.nvim",
         config = config,
     })
-    lazyload.key("n", "<Leader>or", "<Cmd>OverseerRun<Cr>", "overseer.nvim",
-        { noremap = true, silent = true, desc = "Overseer run" })
-    lazyload.key("n", "<Leader>ot", "<Cmd>OverseerToggle<Cr>", "overseer.nvim",
-        { noremap = true, silent = true, desc = "Overseer toggle" })
+    lazyload.key(
+        "n",
+        "<Leader>or",
+        "<Cmd>OverseerRun<Cr>",
+        "overseer.nvim",
+        { noremap = true, silent = true, desc = "Overseer run" }
+    )
+    lazyload.key(
+        "n",
+        "<Leader>ot",
+        "<Cmd>OverseerToggle<Cr>",
+        "overseer.nvim",
+        { noremap = true, silent = true, desc = "Overseer toggle" }
+    )
 end

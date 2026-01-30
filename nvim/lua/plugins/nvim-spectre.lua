@@ -10,10 +10,15 @@ return function(manager)
         url = "https://github.com/nvim-pack/nvim-spectre",
         dependencies = {
             "plenary.nvim",
-            "nvim-web-devicons"
+            "nvim-web-devicons",
         },
         config = config,
     })
-    lazyload.key("n", "<Leader>cs", "<Cmd>lua require('spectre').toggle()<Cr>", "nvim-spectre",
-        { noremap = true, silent = true, desc = "Spectre" })
+    lazyload.key(
+        "n",
+        "<Leader>cs",
+        "<Cmd>lua require('spectre').toggle()<Cr>",
+        "nvim-spectre",
+        { noremap = true, silent = true, desc = "Spectre" }
+    )
 end

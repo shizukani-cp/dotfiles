@@ -5,6 +5,11 @@ return function(manager)
         id = "cellular-automaton.nvim",
         url = "https://github.com/Eandrju/cellular-automaton.nvim",
     })
-    lazyload.key('n', '<Leader>ec', "<Cmd>CellularAutomaton game_of_life<Cr>", "cellular-automaton.nvim",
-        { noremap = true, silent = true, desc = "Game of life" })
+    lazyload.key(
+        "n",
+        "<Leader>ec",
+        "<Cmd>CellularAutomaton game_of_life<Cr>",
+        "cellular-automaton.nvim",
+        { noremap = true, silent = true, desc = "Game of life" }
+    )
 end

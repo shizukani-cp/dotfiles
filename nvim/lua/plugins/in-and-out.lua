@@ -1,8 +1,6 @@
 local lazyload = require("manager.lazyload")
 
-local function config()
-
-end
+local function config() end
 
 return function(manager)
     manager.add({
@@ -10,5 +8,7 @@ return function(manager)
         url = "https://github.com/ysmb-wtsg/in-and-out.nvim",
         config = config,
     })
-    lazyload.key('i', '<C-CR>', function() require("in-and-out").in_and_out() end)
+    lazyload.key("i", "<C-CR>", function()
+        require("in-and-out").in_and_out()
+    end)
 end

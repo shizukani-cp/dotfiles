@@ -1,4 +1,4 @@
-local managerpath = vim.fs.joinpath(vim.fn.stdpath('data'), 'site', 'pack', 'manager', 'start', 'manager.nvim')
+local managerpath = vim.fs.joinpath(vim.fn.stdpath("data"), "site", "pack", "manager", "start", "manager.nvim")
 if not (vim.uv or vim.loop).fs_stat(managerpath) then
     local managerrepo = "https://github.com/shizukani-cp/manager.nvim.git"
     vim.fn.system({ "git", "clone", "--filter=blob:none", "--branch=main", managerrepo, managerpath })
@@ -13,13 +13,11 @@ vim.opt.runtimepath:prepend(managerpath)
 
 local manager = require("manager.core")
 
-local _ = manager.logger:on(
-    function(e)
-        if e.level >= 3 then
-            vim.notify(e.msg, e.level)
-        end
+local _ = manager.logger:on(function(e)
+    if e.level >= 3 then
+        vim.notify(e.msg, e.level)
     end
-)
+end)
 
 require("plugins.manager.manager-lazyload")(manager)
 

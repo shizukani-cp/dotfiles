@@ -8,8 +8,13 @@ return function(manager)
     manager.add({
         id = "registers.nvim",
         url = "https://github.com/tversteeg/registers.nvim",
-        config = config
+        config = config,
     })
-    lazyload.key("n", "<Leader>er", "<Cmd>Registers<Cr>", "registers.nvim",
-        { noremap = true, silent = true, desc = "Registers" })
+    lazyload.key(
+        "n",
+        "<Leader>er",
+        "<Cmd>Registers<Cr>",
+        "registers.nvim",
+        { noremap = true, silent = true, desc = "Registers" }
+    )
 end

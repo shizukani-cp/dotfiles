@@ -7,9 +7,9 @@ return function(manager)
         id = "oil-git-signs.nvim",
         url = "https://github.com/FerretDetective/oil-git-signs.nvim",
         dependencies = {
-            "oil.nvim"
+            "oil.nvim",
         },
-        config = config
+        config = config,
     })
     manager.load("oil-git-signs.nvim")
 end

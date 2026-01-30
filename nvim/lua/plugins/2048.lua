@@ -7,7 +7,7 @@ local function config()
             down = "<Down>",
             left = "<Left>",
             right = "<Right>",
-        }
+        },
     })
 end
 

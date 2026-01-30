@@ -10,7 +10,7 @@ return function(manager)
     manager.add({
         id = "smear-cursor.nvim",
         url = "https://github.com/sphamba/smear-cursor.nvim",
-        config = config
+        config = config,
     })
     manager.load("smear-cursor.nvim")
 end

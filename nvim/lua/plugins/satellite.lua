@@ -9,7 +9,7 @@ return function(manager)
         id = "satellite.nvim",
         url = "https://github.com/lewis6991/satellite.nvim",
         dependencies = {
-            "gitsigns.nvim"
+            "gitsigns.nvim",
         },
         config = config,
     })

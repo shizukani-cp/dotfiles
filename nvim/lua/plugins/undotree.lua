@@ -1,7 +1,7 @@
 local lazyload = require("manager.lazyload")
 
 local function config()
-    require('undotree').setup()
+    require("undotree").setup()
 end
 
 return function(manager)
@@ -13,6 +13,7 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.key("n", "<Leader>eu", function() require('undotree').toggle() end, "undotree",
-        { noremap = true, silent = true, desc = "Undo tree" })
+    lazyload.key("n", "<Leader>eu", function()
+        require("undotree").toggle()
+    end, "undotree", { noremap = true, silent = true, desc = "Undo tree" })
 end

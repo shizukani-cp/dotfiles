@@ -4,7 +4,7 @@ local function config()
     require("pantran").setup({
         default_engine = "google",
         engines = {
-            google = {}
+            google = {},
         },
         ui = {
             width_percentage = 0.8,
@@ -54,11 +54,16 @@ return function(manager)
     manager.add({
         id = "pantran.nvim",
         url = "https://github.com/potamides/pantran.nvim",
-        config = config
+        config = config,
     })
 
-    lazyload.key("n", "<Leader>et", "<Cmd>Pantran<Cr>", "pantran.nvim",
-        { noremap = true, silent = true, desc = "Translate Window" })
+    lazyload.key(
+        "n",
+        "<Leader>et",
+        "<Cmd>Pantran<Cr>",
+        "pantran.nvim",
+        { noremap = true, silent = true, desc = "Translate Window" }
+    )
     --[[ lazyload.key("x", "<Leader>t", function() require("pantran").range_translate({}) end, "pantran.nvim",
     { noremap = true, silent = true, desc = "Open Translate Window" }) ]]
 end

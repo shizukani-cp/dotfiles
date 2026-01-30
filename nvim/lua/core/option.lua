@@ -1,20 +1,20 @@
-vim.scriptencoding = 'utf-8'
-vim.o.encoding = 'utf-8'
-vim.o.fileencoding = 'utf-8'
+vim.scriptencoding = "utf-8"
+vim.o.encoding = "utf-8"
+vim.o.fileencoding = "utf-8"
 vim.o.fileencodings = "utf-8,cp932,euc-jp,sjis"
 vim.g.mapleader = " "
 vim.diagnostic.config({ virtual_text = true })
 
 vim.o.helplang = "ja,en"
 vim.wo.cursorline = true
-vim.o.foldcolumn = '1'
+vim.o.foldcolumn = "1"
 vim.o.foldlevel = 99
 vim.o.foldlevelstart = 99
 vim.o.foldenable = true
 vim.o.updatetime = 1000
 vim.opt.number = true
 vim.opt.termguicolors = true
-vim.opt.whichwrap = 'b,s,h,l,<,>'
+vim.opt.whichwrap = "b,s,h,l,<,>"
 vim.opt.tabstop = 4
 vim.opt.shiftwidth = 4
 vim.opt.expandtab = true
@@ -37,7 +37,7 @@ local function set_hit_enter()
 end
 
 vim.api.nvim_create_user_command("ToggleHitEnter", set_hit_enter, {
-    nargs = 0
+    nargs = 0,
 })
 
 set_hit_enter()

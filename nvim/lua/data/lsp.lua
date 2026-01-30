@@ -4,8 +4,8 @@ M.lsp_servers = {
     lua_ls = {
         settings = {
             Lua = {
-                runtime = { version = 'LuaJIT' },
-                diagnostics = { globals = { 'vim' } },
+                runtime = { version = "LuaJIT" },
+                diagnostics = { globals = { "vim" } },
                 workspace = {
                     library = vim.list_extend(vim.api.nvim_get_runtime_file("lua", true), {
                         "${3rd}/luv/library",
@@ -44,9 +44,9 @@ M.lsp_servers = {
             suggest = {
                 imports = {
                     hosts = {
-                        ['https://crux.land'] = true,
-                        ['https://deno.land'] = true,
-                        ['https://x.nest.land'] = true,
+                        ["https://crux.land"] = true,
+                        ["https://deno.land"] = true,
+                        ["https://x.nest.land"] = true,
                     },
                 },
             },
