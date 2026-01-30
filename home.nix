@@ -36,15 +36,12 @@
   xdg.configFile = {
     "nvim" = {
       source = ./nvim;
-      recursive = true;
     };
     "foot" = {
       source = ./foot;
-      recursive = true;
     };
     "zsh" = {
       source = ./zsh;
-      recursive = true;
     };
   };
   home.sessionVariables = {
