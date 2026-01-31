@@ -45,12 +45,12 @@
     };
   };
   home.sessionVariables = {
-    EDITOR = "nvim";
-    PROJECTS_DIR = "${config.home.homeDirectory}/workspace";
     DOTFILES_DIR = "${config.home.sessionVariables.PROJECTS_DIR}/dotfiles";
+    EDITOR = "nvim";
     LANG = "ja_JP.UTF-8";
-    PATH = "$HOME/.local/bin:$PATH";
     LESSCHARSET = "utf-8";
+    PATH = "$HOME/.local/bin:$PATH";
+    PROJECTS_DIR = "${config.home.homeDirectory}/workspace";
   };
   programs.tmux = {
     enable = true;
