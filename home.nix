@@ -47,6 +47,7 @@
   home.sessionVariables = {
     EDITOR = "nvim";
     PROJECTS_DIR = "${config.home.homeDirectory}/workspace";
+    DOTFILES_DIR = "${config.home.sessionVariables.PROJECTS_DIR}/dotfiles";
     LANG = "ja_JP.UTF-8";
     LESSCHARSET = "utf-8";
   };
