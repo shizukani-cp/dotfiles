@@ -2,11 +2,6 @@ local function config()
     require("lualine").setup({
         options = {
             theme = "onedark",
-            disabled_filetypes = {
-                winbar = {
-                    "dap-repl",
-                },
-            },
         },
         sections = {
             lualine_a = {
@@ -38,16 +33,17 @@ local function config()
                 },
             },
             lualine_c = {
+                "lsp-status",
                 {
                     "diagnostics",
                     symbols = { error = " ", warn = " ", info = " ", hint = " " },
                 },
-                "overseer",
             },
             lualine_x = {
-                "lsp-status",
+                "overseer",
             },
             lualine_y = {
+                "filesize",
                 "encoding",
                 "filetype",
             },
