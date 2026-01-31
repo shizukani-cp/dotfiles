@@ -49,6 +49,7 @@
     PROJECTS_DIR = "${config.home.homeDirectory}/workspace";
     DOTFILES_DIR = "${config.home.sessionVariables.PROJECTS_DIR}/dotfiles";
     LANG = "ja_JP.UTF-8";
+    PATH = "$HOME/.local/bin:$PATH";
     LESSCHARSET = "utf-8";
   };
   programs.tmux = {
