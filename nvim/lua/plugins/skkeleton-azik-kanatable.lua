@@ -3,7 +3,6 @@ local function config()
     vim.fn["skkeleton#config"]({
         kanaTable = "azik",
     })
-    vim.fn["skkeleton#register_keymap"]("input", "q", "katakana")
     vim.keymap.set(
         { "i", "c" },
         "<F9>",
