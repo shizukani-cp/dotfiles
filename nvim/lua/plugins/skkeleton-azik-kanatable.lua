@@ -6,7 +6,7 @@ local function config()
     vim.fn["skkeleton#register_keymap"]("input", "q", "katakana")
     vim.keymap.set(
         { "i", "c" },
-        "<Esc>",
+        "<F9>",
         "<Plug>(skkeleton-toggle)",
         { noremap = true, silent = true, desc = "Skkeleton enable/disable" }
     )
