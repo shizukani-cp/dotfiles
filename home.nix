@@ -1,4 +1,4 @@
-{ config, pkgs, unstable, ... }:
+{ config, pkgs, unstable, nixGL, inputs, ... }:
 
 {
   home.username = "shizukani-cp";
@@ -27,6 +27,11 @@
     zsh
   ]) ++ [
     unstable.theclicker
+    (pkgs.writeShellScriptBin "nyxt" ''
+      export LD_LIBRARY_PATH=${pkgs.mesa.drivers}/lib:${pkgs.libGL}/lib:$LD_LIBRARY_PATH
+      export WEBKIT_WEB_PROCESS_SANDBOX=0
+      exec ${pkgs.nyxt}/bin/nyxt "$@"
+    '')
   ];
   home.file = {
     ".gemini/".source = ./gemini;
