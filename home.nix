@@ -45,6 +45,9 @@
     "foot" = {
       source = ./foot;
     };
+    "nyxt" = {
+      source = ./nyxt;
+    };
     "zsh" = {
       source = ./zsh;
     };
