@@ -13,6 +13,8 @@
     };
   };
 
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   networking.hostName = "shizukani-cp";
   networking.networkmanager.enable = true;
 
