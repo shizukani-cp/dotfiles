@@ -1,10 +1,10 @@
-{ config, pkgs, unstable, nixGL, inputs, ... }:
+{ config, pkgs, ... }:
 
 {
   home.username = "shizukani-cp";
   home.homeDirectory = "/home/shizukani-cp";
   home.stateVersion = "25.11";
-  home.packages = (with pkgs; [
+  home.packages = with pkgs; [
     bat
     bottom
     deno
@@ -23,15 +23,9 @@
     rustup
     stylua
     tmux
+    tree-sitter
     uv
     zsh
-  ]) ++ [
-    unstable.theclicker
-    (pkgs.writeShellScriptBin "nyxt" ''
-      export LD_LIBRARY_PATH=${pkgs.mesa.drivers}/lib:${pkgs.libGL}/lib:$LD_LIBRARY_PATH
-      export WEBKIT_WEB_PROCESS_SANDBOX=0
-      exec ${pkgs.nyxt}/bin/nyxt "$@"
-    '')
   ];
   home.file = {
     ".gemini/".source = ./gemini;
@@ -44,9 +38,6 @@
     };
     "foot" = {
       source = ./foot;
-    };
-    "nyxt" = {
-      source = ./nyxt;
     };
     "zsh" = {
       source = ./zsh;
