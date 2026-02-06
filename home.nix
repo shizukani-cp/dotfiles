@@ -4,7 +4,6 @@
   home.username = "shizukani-cp";
   home.homeDirectory = "/home/shizukani-cp";
   home.stateVersion = "25.11";
-  home.backupFileExtension = "backup";
   home.packages = with pkgs; [
     bat
     bottom
