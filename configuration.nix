@@ -32,6 +32,8 @@
     shell = pkgs.zsh;
   };
 
+  home.backupFileExtension = "backup";
+
   environment.systemPackages = with pkgs; [ git neovim wget ];
   programs.zsh.enable = true;
 
