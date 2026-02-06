@@ -7,6 +7,7 @@
   home.packages = with pkgs; [
     bat
     bottom
+    brave
     deno
     fd
     gcc
