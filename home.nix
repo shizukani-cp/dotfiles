@@ -17,6 +17,7 @@
     brave
     deno
     fd
+    ffmpeg
     foot
     gcc
     gh
