@@ -19,6 +19,7 @@
     bat
     bottom
     brave
+    clamtk
     deno
     fd
     ffmpeg
