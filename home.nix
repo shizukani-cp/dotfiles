@@ -1,6 +1,10 @@
-{ config, pkgs, ... }:
+{ config, pkgs, plasma-manager, ... }:
 
 {
+  imports = [
+    plasma-manager.homeModules.plasma-manager
+  ];
+
   home.username = "shizukani-cp";
   home.homeDirectory = "/home/shizukani-cp";
   home.stateVersion = "25.11";
@@ -115,6 +119,35 @@
     enable = true;
     enableZshIntegration = true;
     configFile = ./zsh/my-theme.omp.json;
+  };
+  programs.plasma = {
+    enable = true;
+    panels = [{
+      location = "left";
+      lengthMode = "fill";
+      height = 33;
+      widgets = [
+        "org.kde.plasma.kickoff"
+        {
+          name = "org.kde.plasma.icontasks";
+          config = {
+            General = {
+              launchers = [
+                "applications:brave-browser.desktop"
+                "applications:foot.desktop"
+                "applications:org.kde.dolphin.desktop"
+              ];
+            };
+          };
+        }
+        # "org.kde.plasma.weather"
+        # "org.kde.plasma.systemmonitor.diskusage"
+        # "org.kde.plasma.systemmonitor.diskquota"
+        "org.kde.plasma.systemtray"
+        "org.kde.plasma.digitalclock"
+      ];
+    }];
+    kwin.virtualDesktops.number = 4;
   };
   services.mpd = {
     enable = true;
