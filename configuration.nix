@@ -28,6 +28,16 @@
   services.displayManager.sddm.enable = true;
   services.desktopManager.plasma6.enable = true;
 
+  services.keyd = {
+    enable = true;
+    keyboards = {
+      default = {
+        ids = [ "*" ];
+        extraConfig = builtins.readFile ./keyd.conf;
+      };
+    };
+  };
+
   users.users.shizukani-cp = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];
