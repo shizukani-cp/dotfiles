@@ -10,6 +10,7 @@
     brave
     deno
     fd
+    foot
     gcc
     gh
     gitFull
