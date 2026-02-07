@@ -27,7 +27,24 @@
     tmux
     tree-sitter
     uv
+    wl-clipboard
     zsh
+    (writeShellScriptBin "vime" ''
+      export XDG_RUNTIME_DIR="/run/user/1001"
+      export WAYLAND_DISPLAY=wayland-0
+      export PATH="/run/current-system/sw/bin:/etc/profiles/per-user/shizukani-cp/bin:$PATH"
+
+      FILE_PATH="/tmp/$(date +%Y%m%d%H%M%S).md"
+
+      touch "$FILE_PATH"
+
+      foot nvim "$FILE_PATH"
+
+      if [ -f "$FILE_PATH" ]; then
+        sleep 0.1
+        printf %s "$(cat "$FILE_PATH")" | wl-copy
+      fi
+    '')
   ];
   home.file = {
     ".gemini/".source = ./gemini;
