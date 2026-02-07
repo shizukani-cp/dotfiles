@@ -1,8 +1,6 @@
 local manager = require("manager.core")
 manager.load("lazydev.nvim")
 manager.load("nvim-lspconfig")
-manager.load("mason.nvim")
-manager.load("mason-lspconfig.nvim")
 manager.load("ddc-source-lsp-setup")
 manager.load("conform.nvim")
 

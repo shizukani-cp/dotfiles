@@ -29,18 +29,21 @@
     glibc
     gnumake
     lazygit
+    lua-language-server
     mpc
     ncmpcpp
     neovim
     nerd-fonts.bitstream-vera-sans-mono
     nodejs_24
     noto-fonts-cjk-sans
+    python312Packages.python-lsp-server
     ripgrep
     rustup
     stylua
     tmux
     tree-sitter
     uv
+    vscode-langservers-extracted
     wl-clipboard
     zsh
     (writeShellScriptBin "vime" ''
