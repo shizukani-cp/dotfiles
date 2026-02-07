@@ -21,6 +21,8 @@
   i18n.defaultLocale = "ja_JP.UTF-8";
   console.keyMap = "jp106";
 
+  hardware.bluetooth.enable = true;
+
   services.xserver = {
     enable = true;
     xkb.layout = "jp";
