@@ -52,6 +52,7 @@
 
   environment.systemPackages = with pkgs; [ git neovim wget ];
   programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
 
   system.stateVersion = "25.11";
 }
