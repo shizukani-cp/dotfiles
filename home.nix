@@ -122,6 +122,14 @@
   };
   programs.plasma = {
     enable = true;
+    shortcuts = {
+    "kwin" = {
+      "Walk Through Windows" = "Alt+Tab";
+      "Walk Through Windows (Reverse)" = "Alt+Shift+Tab";
+      "Walk Through Windows Alternative" = [ ];
+      "Overview" = "Meta+Tab";
+    };
+  };
     panels = [{
       location = "left";
       lengthMode = "fill";
