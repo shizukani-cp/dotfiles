@@ -12,7 +12,7 @@ case "$1" in
         fi
 
         (
-            shopt -s dotglob
+            setopt dotglob
             trash-put *
         )
     ;;
