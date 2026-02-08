@@ -42,6 +42,7 @@
     rustup
     stylua
     tmux
+    trash-cli
     tree-sitter
     uv
     vscode-langservers-extracted
@@ -95,7 +96,7 @@
   programs.zsh = {
     enable = true;
     shellAliases = {
-      rm = "gio trash";
+      rm = "trash-put";
       tree = "tree --gitignore";
     };
     initContent = ''

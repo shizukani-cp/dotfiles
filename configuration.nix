@@ -42,6 +42,8 @@
 
   services.gnome.gnome-keyring.enable = true;
 
+  services.gvfs.enable = true;
+
   users.users.shizukani-cp = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" ];

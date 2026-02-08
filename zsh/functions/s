@@ -13,7 +13,7 @@ case "$1" in
 
         (
             shopt -s dotglob
-            gio trash *
+            trash-put *
         )
     ;;
     "")
