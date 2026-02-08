@@ -159,7 +159,7 @@
         "org.kde.plasma.digitalclock"
       ];
     }];
-    kwin.virtualDesktops.number = 4;
+    kwin.virtualDesktops.number = 2;
   };
   services.mpd = {
     enable = true;
