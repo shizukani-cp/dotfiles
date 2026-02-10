@@ -9,6 +9,9 @@ local function config()
     lowercases["$"] = "4"
     lowercases["%"] = "5"
     lowercases["&"] = "6"
+    lowercases["'"] = "7"
+    lowercases["("] = "8"
+    lowercases[")"] = "9"
     vim.fn["skkeleton#config"]({
         globalDictionaries = {
             "~/.local/share/skk/SKK-JISYO.L",
