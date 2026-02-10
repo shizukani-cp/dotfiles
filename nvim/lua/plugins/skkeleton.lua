@@ -1,6 +1,14 @@
 local lazyload = require("manager.lazyload")
+local pji8_table = require("data.pji8")
 
 local function config()
+    vim.fn["skkeleton#register_kanatable"]("pji8", pji8_table, 1)
+    local lowercases = {}
+    lowercases['"'] = "2"
+    lowercases["#"] = "3"
+    lowercases["$"] = "4"
+    lowercases["%"] = "5"
+    lowercases["&"] = "6"
     vim.fn["skkeleton#config"]({
         globalDictionaries = {
             "~/.local/share/skk/SKK-JISYO.L",
@@ -8,7 +16,15 @@ local function config()
         eggLikeNewline = true,
         markerHenkan = "¦",
         markerHenkanSelect = "|",
+        kanaTable = "pji8",
+        lowercaseMap = lowercases,
     })
+    vim.keymap.set(
+        { "i", "c" },
+        "<F9>",
+        "<Plug>(skkeleton-toggle)",
+        { noremap = true, silent = true, desc = "Skkeleton enable/disable" }
+    )
 end
 
 return function(manager)
@@ -20,6 +36,6 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("InsertEnter", "skkeleton-azik-kanatable")
+    lazyload.event("InsertEnter", "skkeleton")
     vim.keymap.set({ "i", "c" }, "<Esc>", "<Nop>")
 end
