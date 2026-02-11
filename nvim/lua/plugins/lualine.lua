@@ -1,5 +1,4 @@
 local function config()
-    local azik_map = "[ai:q uu:h ei:w ou:p] [an:z in:k un:j en:d on:l]"
     require("lualine").setup({
         options = {
             theme = "onedark",
@@ -41,11 +40,6 @@ local function config()
                 },
             },
             lualine_x = {
-                {
-                    function()
-                        return azik_map
-                    end,
-                },
                 "overseer",
             },
             lualine_y = {
