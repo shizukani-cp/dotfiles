@@ -21,6 +21,12 @@
   i18n.defaultLocale = "ja_JP.UTF-8";
   console.keyMap = "jp106";
 
+  nix.gc = {
+    automatic = true;
+    dates = "weekly";
+    options = "--delete-older-than 7d";
+  };
+
   hardware.bluetooth.enable = true;
 
   services.xserver = {
