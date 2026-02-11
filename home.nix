@@ -37,10 +37,12 @@
     nerd-fonts.bitstream-vera-sans-mono
     nodejs_24
     noto-fonts-cjk-sans
+    prismlauncher
     python312Packages.python-lsp-server
     ripgrep
     rustup
     stylua
+    temurin-bin-17
     tmux
     trash-cli
     tree-sitter
