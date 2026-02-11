@@ -1,8 +1,8 @@
 local lazyload = require("manager.lazyload")
-local pji8_table = require("data.pji8")
+local huj8_table = require("data.huj8")
 
 local function config()
-    vim.fn["skkeleton#register_kanatable"]("pji8", pji8_table, 1)
+    vim.fn["skkeleton#register_kanatable"]("huj8", huj8_table, 1)
     local lowercases = {}
     lowercases['"'] = "2"
     lowercases["#"] = "3"
@@ -20,7 +20,7 @@ local function config()
         eggLikeNewline = true,
         markerHenkan = "¦",
         markerHenkanSelect = "|",
-        kanaTable = "pji8",
+        kanaTable = "huj8",
         lowercaseMap = lowercases,
     })
     vim.keymap.set(
