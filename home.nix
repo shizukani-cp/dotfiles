@@ -41,6 +41,7 @@
     python312Packages.python-lsp-server
     ripgrep
     rustup
+    skkDictionaries.l
     stylua
     temurin-bin-17
     tmux
@@ -70,6 +71,7 @@
   home.file = {
     ".gemini/".source = ./gemini;
     ".gitconfig".source = ./.gitconfig;
+    ".local/share/skk/SKK-JISYO.L".source = "${pkgs.skkDictionaries.l}/share/skk/SKK-JISYO.L";
   };
   xdg.enable = true;
   xdg.configFile = {
