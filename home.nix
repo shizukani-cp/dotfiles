@@ -58,8 +58,6 @@
     wl-clipboard
     zsh
     (writeShellScriptBin "vime" ''
-      export XDG_RUNTIME_DIR="/run/user/1001"
-      export WAYLAND_DISPLAY=wayland-0
       export PATH="/run/current-system/sw/bin:/etc/profiles/per-user/shizukani-cp/bin:$PATH"
 
       FILE_PATH="/tmp/$(date +%Y%m%d%H%M%S).md"
