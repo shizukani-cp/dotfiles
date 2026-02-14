@@ -3,7 +3,10 @@
 {
   imports = [ ./host/hardware-configuration.nix ];
 
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   boot.loader = {
     efi.canTouchEfiVariables = true;
@@ -52,13 +55,20 @@
 
   users.users.shizukani-cp = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" ];
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
     shell = pkgs.zsh;
   };
 
   home-manager.backupFileExtension = "backup";
 
-  environment.systemPackages = with pkgs; [ git neovim wget ];
+  environment.systemPackages = with pkgs; [
+    git
+    neovim
+    wget
+  ];
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
 

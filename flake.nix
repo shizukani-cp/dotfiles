@@ -8,10 +8,18 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, plasma-manager, ... }:
+  outputs =
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      plasma-manager,
+      ...
+    }:
     let
       system = "x86_64-linux";
-    in {
+    in
+    {
       nixosConfigurations."shizukani-cp" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
