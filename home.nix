@@ -31,6 +31,7 @@
     foot
     gcc
     gh
+    ghq
     gitFull
     glibc
     gnumake
