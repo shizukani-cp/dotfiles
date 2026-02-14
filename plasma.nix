@@ -41,5 +41,12 @@
       ];
     }];
     kwin.virtualDesktops.number = 2;
+    configFile = {
+      "kdeglobals" = {
+        "KScreen" = {
+          "ScaleFactor" = 1.25;
+        };
+      };
+    };
   };
 }
