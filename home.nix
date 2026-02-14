@@ -96,7 +96,7 @@
     LANG = "ja_JP.UTF-8";
     LESSCHARSET = "utf-8";
     PATH = "$HOME/.local/bin:$PATH";
-    PROJECTS_DIR = "${config.home.homeDirectory}/workspace";
+    PROJECTS_DIR = "${config.home.homeDirectory}/workspace/github.com/shizukani-cp";
   };
   programs.tmux = {
     enable = true;
