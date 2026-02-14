@@ -9,8 +9,8 @@
 [core]
 	autocrlf = false
 	pager = less -cm
-    excludesfile = ~/.gitignore_global
-    editor = nvim
+	excludesfile = ~/.gitignore_global
+	editor = nvim
 [init]
 	defaultBranch = main
 [alias]
