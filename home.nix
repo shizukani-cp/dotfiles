@@ -55,6 +55,7 @@
     temurin-bin-17
     tmux
     trash-cli
+    tree
     tree-sitter
     uv
     vscode-langservers-extracted
