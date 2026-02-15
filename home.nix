@@ -51,6 +51,7 @@
     rustup
     skkDictionaries.l
     stylua
+    superTuxKart
     temurin-bin-17
     tmux
     trash-cli
