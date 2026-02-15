@@ -36,6 +36,7 @@
     glibc
     gnumake
     lazygit
+    libreoffice-fresh
     lua-language-server
     mpc
     ncmpcpp
