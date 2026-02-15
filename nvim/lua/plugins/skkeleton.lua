@@ -1,5 +1,5 @@
 local lazyload = require("manager.lazyload")
-local huj8_table = require("data.huj8")
+local huj8_table = require("data.huj8_auto")
 
 local function config()
     vim.fn["skkeleton#register_kanatable"]("huj8", huj8_table, 1)
