@@ -150,6 +150,7 @@ for ck, cv in pairs(consonants) do
     for vk, vv in pairs(vowels) do
         kanatable_romaji[ck .. vk] = cv .. vv
         kanatable_romaji[ck .. "n" .. vk] = cv .. "y" .. vv
+        kanatable_romaji[ck .. ":" .. vk] = cv .. "y" .. vv
     end
 end
 local final_kanatable = {}
