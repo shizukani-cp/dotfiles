@@ -19,3 +19,5 @@
 	st = status
 [ghq]
 	root = ~/workspace
+[url "git@github.com:"]
+	insteadOf = https://github.com/
