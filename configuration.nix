@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 
 {
   imports = [ ./host/hardware-configuration.nix ];
@@ -71,6 +76,17 @@
   ];
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
+  programs.steam = {
+    enable = true;
+  };
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-run"
+      "steam-unwrapped"
+    ];
 
   system.stateVersion = "25.11";
 }
