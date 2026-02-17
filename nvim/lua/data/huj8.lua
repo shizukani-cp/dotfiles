@@ -28,6 +28,7 @@ local consonants = {
     c = "d",
     r = "n",
     s = "h",
+    ["5"] = "hux",
     q = "b",
     x = "p",
     ["3"] = "m",
