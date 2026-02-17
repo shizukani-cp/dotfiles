@@ -40,6 +40,9 @@ local function config()
                 },
             },
             lualine_x = {
+                function()
+                    return "f;=こと,3k=ます,ck=です,th=たら,fl=から,wh=られ"
+                end,
                 "overseer",
             },
             lualine_y = {
