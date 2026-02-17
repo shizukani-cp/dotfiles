@@ -152,6 +152,9 @@ for k, v in pairs(romaji_map_no_youon) do
         youon_romaji_map[k:sub(1, 1) .. "ya"] = v .. "ゃ"
         youon_romaji_map[k:sub(1, 1) .. "yu"] = v .. "ゅ"
         youon_romaji_map[k:sub(1, 1) .. "yo"] = v .. "ょ"
+    elseif #k == 2 and k:sub(2, 2) == "e" then
+        youon_romaji_map[k:sub(1, 1) .. "yi"] = v .. "ぃ"
+        youon_romaji_map[k:sub(1, 1) .. "ye"] = v .. "ぇ"
     end
 end
 local romaji_map = vim.tbl_extend("force", romaji_map_no_youon, youon_romaji_map)
@@ -203,6 +206,7 @@ local specials = {
     ["v"] = { "っ", "" },
     [","] = { "、", "" },
     ["."] = { "。", "" },
+    ["ak"] = { "うぉ", "" },
 
     [":f;"] = { "こと", "" },
     [":dj"] = { "した", "" },
