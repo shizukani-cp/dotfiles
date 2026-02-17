@@ -19,6 +19,15 @@ local function to_kana(romaji, dict)
     end
     return result
 end
+
+--[[
+1:小 2:z  3:m  4:記 5:f  6:v  7:un 8:in 9:on 0:en
+ Q:b  W:r  E:ん R:n  T:t  Y:ai U:uu I:ai O:ou P:ei
+  A:w  S:h  D:s  F:k  G:g  H:a  J:i  K:u  L:e  ;:o
+   Z:y  X:p  C:D  V:っ B:   N:拗 M:   ,:、 .:。
+]]
+--
+
 local consonants = {
     f = "k",
     g = "g",
