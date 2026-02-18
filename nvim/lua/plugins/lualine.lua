@@ -41,7 +41,7 @@ local function config()
             },
             lualine_x = {
                 function()
-                    return "f;=こと,3k=ます,ck=です,th=たら,fl=から,wh=られ"
+                    return "こと=こ,ます=む,です=づ,たら=た,から=け,られ=ら"
                 end,
                 "overseer",
             },
