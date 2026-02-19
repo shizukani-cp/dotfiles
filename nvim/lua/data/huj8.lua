@@ -167,6 +167,9 @@ for ck, cv in pairs(consonants) do
         kanatable_romaji[ck .. " " .. vk] = cv .. "y" .. vv
     end
 end
+for vk, vv in pairs(vowels) do
+    kanatable_romaji[vk] = vv
+end
 local final_kanatable = {}
 
 for key, romaji in pairs(kanatable_romaji) do
@@ -196,11 +199,6 @@ local specials = {
     ["4k"] = { "↑", "" },
     ["4l"] = { "→", "" },
 
-    ["h"] = { "あ", "" },
-    ["j"] = { "い", "" },
-    ["k"] = { "う", "" },
-    ["l"] = { "え", "" },
-    [";"] = { "お", "" },
     ["e"] = { "ん", "" },
     ["v"] = { "っ", "" },
     [","] = { "、", "" },
