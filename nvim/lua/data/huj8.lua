@@ -1,23 +1,23 @@
 local function to_kana(romaji, dict)
-    local result = ""
+    local results = {}
     local i = 1
     while i <= #romaji do
         local found = false
         for len = 3, 1, -1 do
             local part = romaji:sub(i, i + len - 1)
             if dict[part] then
-                result = result .. dict[part]
+                table.insert(results, dict[part])
                 i = i + len
                 found = true
                 break
             end
         end
         if not found then
-            result = result .. romaji:sub(i, i)
+            table.insert(results, romaji:sub(i, i))
             i = i + 1
         end
     end
-    return result
+    return table.concat(results)
 end
 
 --[[
