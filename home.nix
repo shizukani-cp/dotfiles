@@ -42,6 +42,7 @@
     ncmpcpp
     neovim
     nerd-fonts.bitstream-vera-sans-mono
+    nil
     nixfmt
     nodejs_24
     noto-fonts-cjk-sans

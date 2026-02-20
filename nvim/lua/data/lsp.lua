@@ -57,6 +57,7 @@ M.lsp_servers = {
         end,
     },
     jsonls = {},
+    ["nil"] = {},
 }
 
 M.installed_servers = vim.tbl_keys(M.lsp_servers)
