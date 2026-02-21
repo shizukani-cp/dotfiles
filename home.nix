@@ -111,6 +111,7 @@
     shellAliases = {
       rm = "trash-put";
       tree = "tree --gitignore";
+      nv = "nvim";
     };
     initContent = ''
       fpath=(~/.config/zsh/functions $fpath)
