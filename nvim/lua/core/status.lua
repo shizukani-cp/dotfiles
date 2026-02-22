@@ -1,5 +1,16 @@
 local status = require("utils.status")
 
+local mode_map = {
+    n = "NORMAL",
+    i = "INSERT",
+    v = "VISUAL",
+    V = "V-LINE",
+    ["\22"] = "V-BLOCK",
+    c = "COMMAND",
+    R = "REPLACE",
+    t = "TERMINAL",
+}
+
 local function setup_highlights()
     local colors = {
         blue = "#82aaff",
@@ -22,7 +33,10 @@ local std = {}
 function std.mode()
     local raw_mode = vim.api.nvim_get_mode().mode
     local first_char = string.sub(raw_mode, 1, 1)
-    return status.mode_map[first_char] or raw_mode
+    local mode = mode_map[first_char] or raw_mode
+    local hl_group = "Status" .. mode:gsub("-", "")
+    local hl = "%#" .. hl_group .. "#"
+    return hl .. " " .. mode .. " %#StatusMain#"
 end
 
 function std.file()
