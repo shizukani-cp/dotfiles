@@ -49,7 +49,28 @@
     keyboards = {
       default = {
         ids = [ "*" ];
-        extraConfig = builtins.readFile ./keyd.conf;
+        settings = {
+          main = {
+            capslock = "overload(capslock_layer, f9)";
+          };
+          "capslock_layer:S" = {
+            b = "backspace";
+            n = "delete";
+            h = "left";
+            j = "down";
+            k = "up";
+            l = "right";
+            o = "enter";
+
+            w = "up";
+            a = "left";
+            s = "down";
+            d = "right";
+            e = "enter";
+            q = "backspace";
+            r = "delete";
+          };
+        };
       };
     };
   };
