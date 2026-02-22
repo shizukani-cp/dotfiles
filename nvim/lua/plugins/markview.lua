@@ -1,3 +1,5 @@
+local lock = require("manager.lock")
+
 local function config()
     require("markview").setup()
 end
@@ -8,5 +10,5 @@ return function(manager)
         url = "https://github.com/OXY2DEV/markview.nvim",
         config = config,
     })
-    manager.load("markview.nvim")
+    lock.load("markview.nvim")
 end

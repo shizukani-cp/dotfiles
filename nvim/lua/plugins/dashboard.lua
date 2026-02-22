@@ -1,3 +1,5 @@
+local lock = require("manager.lock")
+
 local function config()
     require("dashboard").setup({
         theme = "doom",
@@ -103,5 +105,5 @@ return function(manager)
         },
         config = config,
     })
-    manager.load("dashboard-nvim")
+    lock.load("dashboard-nvim")
 end

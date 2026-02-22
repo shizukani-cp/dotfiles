@@ -1,3 +1,5 @@
+local lock = require("manager.lock")
+
 local function config()
     local wk = require("which-key")
     wk.setup()
@@ -27,5 +29,5 @@ return function(manager)
         url = "https://github.com/folke/which-key.nvim",
         config = config,
     })
-    manager.load("which-key.nvim")
+    lock.load("which-key.nvim")
 end

@@ -1,3 +1,5 @@
+local lock = require("manager.lock")
+
 local function config()
     require("hlchunk").setup({
         chunk = { enable = true },
@@ -12,5 +14,5 @@ return function(manager)
         url = "https://github.com/shellRaining/hlchunk.nvim",
         config = config,
     })
-    manager.load("hlchunk.nvim")
+    lock.load("hlchunk.nvim")
 end

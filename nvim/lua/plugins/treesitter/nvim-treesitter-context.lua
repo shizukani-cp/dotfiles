@@ -1,3 +1,5 @@
+local lock = require("manager.lock")
+
 local function config()
     require("treesitter-context").setup()
 end
@@ -11,5 +13,5 @@ return function(manager)
         },
         config = config,
     })
-    manager.load("nvim-treesitter-context")
+    lock.load("nvim-treesitter-context")
 end

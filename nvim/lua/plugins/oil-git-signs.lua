@@ -1,3 +1,5 @@
+local lock = require("manager.lock")
+
 local function config()
     require("oil-git-signs").setup()
 end

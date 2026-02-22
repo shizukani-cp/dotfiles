@@ -1,3 +1,5 @@
+local lock = require("manager.lock")
+
 local function config()
     require("lualine").setup({
         options = {
@@ -76,5 +78,5 @@ return function(manager)
         },
         config = config,
     })
-    manager.load("lualine.nvim")
+    lock.load("lualine.nvim")
 end

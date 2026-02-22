@@ -1,3 +1,5 @@
+local lock = require("manager.lock")
+
 local function config()
     require("smear_cursor").setup({
         stiffness = 0.5,
@@ -12,5 +14,5 @@ return function(manager)
         url = "https://github.com/sphamba/smear-cursor.nvim",
         config = config,
     })
-    manager.load("smear-cursor.nvim")
+    lock.load("smear-cursor.nvim")
 end

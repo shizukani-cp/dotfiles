@@ -19,9 +19,12 @@ local _ = manager.logger:on(function(e)
     end
 end)
 
+require("plugins.manager.manager-lock")(manager)
 require("plugins.manager.manager-lazyload")(manager)
 
-manager.lock()
+local lock = require("manager.lock")
+
+lock.lock()
 require("plugins.2048")(manager)
 require("plugins.Comment")(manager)
 require("plugins.blamer")(manager)
@@ -127,6 +130,6 @@ require("plugins.vim-tmux-navigator")(manager)
 require("plugins.vimdoc-ja")(manager)
 require("plugins.visual-whitespace")(manager)
 require("plugins.which-key")(manager)
-manager.unlock()
+lock.unlock()
 
 -- require("manager.command").setup()
