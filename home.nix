@@ -44,6 +44,8 @@
     nerd-fonts.bitstream-vera-sans-mono
     nil
     nixfmt
+    nodePackages.typescript
+    nodePackages.typescript-language-server
     nodejs_24
     noto-fonts-cjk-sans
     prismlauncher

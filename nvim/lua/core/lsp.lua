@@ -27,6 +27,7 @@ for name, cfg in pairs(lsp_servers) do
         global_on_attach(client, bufnr)
     end
     vim.lsp.config(name, cfg)
+    vim.lsp.enable(name)
 end
 
 vim.api.nvim_create_autocmd("LspAttach", {
@@ -52,10 +53,16 @@ vim.api.nvim_create_autocmd("FileType", {
         end
 
         if vim.fn.findfile("package.json", ".;") ~= "" then
-            vim.lsp.start("vtsls")
+            local config = vim.lsp.config["ts_ls"]
+            if config then
+                vim.lsp.start(config)
+            end
             return
         end
 
-        vim.lsp.start("denols")
+        local deno_config = vim.lsp.config["denols"]
+        if deno_config then
+            vim.lsp.start(deno_config)
+        end
     end,
 })
