@@ -158,9 +158,11 @@ status.setup({
             function()
                 return "こと=こ,ます=む,です=づ,たら=た,から=け,られ=ら"
             end,
+            "|",
             std.filesize,
             std.encoding,
             std.filetype,
+            "|",
             std.file,
             "[%l:%c]",
         },
