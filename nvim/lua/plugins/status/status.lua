@@ -1,16 +1,5 @@
 local lock = require("manager.lock")
 
-local mode_map = {
-    n = "NORMAL",
-    i = "INSERT",
-    v = "VISUAL",
-    V = "V-LINE",
-    ["\22"] = "V-BLOCK",
-    c = "COMMAND",
-    R = "REPLACE",
-    t = "TERMINAL",
-}
-
 local function setup_highlights()
     local colors = {
         blue = "#82aaff",
@@ -26,46 +15,6 @@ local function setup_highlights()
     vim.api.nvim_set_hl(0, "StatusVisual", { fg = colors.bg, bg = colors.purple, bold = true })
     vim.api.nvim_set_hl(0, "StatusReplace", { fg = colors.bg, bg = colors.red, bold = true })
     vim.api.nvim_set_hl(0, "StatusMain", { fg = colors.fg, bg = colors.bg })
-end
-
-local std = {}
-
-function std.mode()
-    local raw_mode = vim.api.nvim_get_mode().mode
-    local first_char = string.sub(raw_mode, 1, 1)
-    local mode = mode_map[first_char] or raw_mode
-    local hl_group = "Status" .. mode:gsub("-", "")
-    local hl = "%#" .. hl_group .. "#"
-    return hl .. " " .. mode .. " %#StatusMain#"
-end
-
-function std.file()
-    return vim.fn.expand("%:t") .. (vim.bo.modified and " [+]" or "")
-end
-
-function std.filetype()
-    return vim.bo.filetype
-end
-
-function std.encoding()
-    local fenc = vim.opt.fileencoding:get()
-    return (fenc ~= "" and fenc) or vim.opt.encoding:get()
-end
-
-function std.filesize()
-    local size = vim.fn.getfsize(vim.fn.expand("%"))
-    if size <= 0 then
-        return ""
-    end
-
-    local units = { "B", "KB", "MB", "GB" }
-    local i = 1
-    while size > 1024 and i < #units do
-        size = size / 1024
-        i = i + 1
-    end
-
-    return string.format("%.1f%s", size, units[i])
 end
 
 local git = {}
@@ -145,6 +94,7 @@ end
 setup_highlights()
 local function config()
     local status = require("status.core")
+    local std = require("status.std")
     status.setup({
         components = {
             left = {
@@ -178,6 +128,9 @@ return function(manager)
     manager.add({
         id = "status.nvim",
         url = "https://github.com/shizukani-cp/status.nvim",
+        dependencies = {
+            "status-std",
+        },
         config = config,
     })
     lock.load("status.nvim")
