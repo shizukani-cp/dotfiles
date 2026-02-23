@@ -17,36 +17,6 @@ local function setup_highlights()
     vim.api.nvim_set_hl(0, "StatusMain", { fg = colors.fg, bg = colors.bg })
 end
 
-local git = {}
-
-function git.branch()
-    local branch = vim.b.gitsigns_head or vim.fn.FugitiveHead and vim.fn.FugitiveHead() or ""
-    if branch == "" then
-        return ""
-    end
-    return " " .. branch
-end
-
-function git.diff()
-    local dict = vim.b.gitsigns_status_dict
-    if not dict then
-        return ""
-    end
-
-    local res = {}
-    if (dict.added or 0) > 0 then
-        table.insert(res, " " .. dict.added)
-    end
-    if (dict.changed or 0) > 0 then
-        table.insert(res, " " .. dict.changed)
-    end
-    if (dict.removed or 0) > 0 then
-        table.insert(res, " " .. dict.removed)
-    end
-
-    return #res > 0 and table.concat(res, " ") or ""
-end
-
 local lsp = {}
 function lsp.status()
     local clients = vim.lsp.get_clients({ bufnr = 0 })
@@ -95,6 +65,7 @@ setup_highlights()
 local function config()
     local status = require("status.core")
     local std = require("status.std")
+    local git = require("status.git")
     status.setup({
         components = {
             left = {
@@ -130,6 +101,7 @@ return function(manager)
         url = "https://github.com/shizukani-cp/status.nvim",
         dependencies = {
             "status-std",
+            "status-git",
         },
         config = config,
     })
