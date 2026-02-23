@@ -1,4 +1,4 @@
-local status = require("utils.status")
+local lock = require("manager.lock")
 
 local mode_map = {
     n = "NORMAL",
@@ -143,30 +143,42 @@ local function skk_status()
 end
 
 setup_highlights()
-status.setup({
-    components = {
-        left = {
-            std.mode,
-            skk_status,
-            "|",
-            git.branch,
-            git.diff,
-            lsp.status,
-            lsp.diagnostics,
+local function config()
+    local status = require("status.core")
+    status.setup({
+        components = {
+            left = {
+                std.mode,
+                skk_status,
+                "|",
+                git.branch,
+                git.diff,
+                lsp.status,
+                lsp.diagnostics,
+            },
+            right = {
+                function()
+                    return "こと=こ,ます=む,です=づ,たら=た,から=け,られ=ら"
+                end,
+                "|",
+                std.filesize,
+                std.encoding,
+                std.filetype,
+                "|",
+                std.file,
+                "[%l:%c]",
+            },
         },
-        right = {
-            function()
-                return "こと=こ,ます=む,です=づ,たら=た,から=け,られ=ら"
-            end,
-            "|",
-            std.filesize,
-            std.encoding,
-            std.filetype,
-            "|",
-            std.file,
-            "[%l:%c]",
-        },
-    },
-})
+    })
 
-vim.opt.statusline = "%!v:lua.require('utils.status').render()"
+    vim.opt.statusline = "%!v:lua.require('status.core').render()"
+end
+
+return function(manager)
+    manager.add({
+        id = "status.nvim",
+        url = "https://github.com/shizukani-cp/status.nvim",
+        config = config,
+    })
+    lock.load("status.nvim")
+end
