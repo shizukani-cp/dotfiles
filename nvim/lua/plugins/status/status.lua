@@ -40,6 +40,7 @@ local function config()
                 "|",
                 git.branch,
                 git.diff,
+                "|",
                 lsp.status,
                 lsp.diagnostics,
             },
