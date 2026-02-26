@@ -3,7 +3,7 @@ return function(manager)
         id = "manager-lock",
         url = "https://github.com/shizukani-cp/manager-lock",
         dev = false,
-        dir = vim.fn.expand("$PROJECTS_DIR") .. "/manager-lock",
+        dir = require("utils.local_plugin_path")("manager-lock"),
     })
     manager.load("manager-lock")
 end

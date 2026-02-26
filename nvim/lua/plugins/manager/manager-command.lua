@@ -10,7 +10,7 @@ return function(manager)
         url = "https://github.com/shizukani-cp/manager-command",
         config = config,
         dev = false,
-        dir = vim.fn.expand("$PROJECTS_DIR") .. "/manager-command",
+        dir = require("utils.local_plugin_path")("manager-command"),
     })
     lazyload.event("CmdLineEnter", "manager-command")
     --[[ vim.api.nvim_create_autocmd("CmdlineEnter", {

@@ -12,7 +12,7 @@ return function(manager)
             "manager-command",
         },
         dev = false,
-        dir = vim.fn.expand("$PROJECTS_DIR") .. "/manager-ui",
+        dir = require("utils.local_plugin_path")("manager-ui"),
         config = config,
     })
     lazyload.event("CmdLineEnter", "manager-ui")

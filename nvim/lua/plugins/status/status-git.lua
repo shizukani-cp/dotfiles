@@ -5,5 +5,7 @@ return function(manager)
         dependencies = {
             "gitsigns.nvim",
         },
+        dev = false,
+        dir = require("utils.local_plugin_path")("status-git"),
     })
 end

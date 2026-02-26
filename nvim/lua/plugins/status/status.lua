@@ -72,6 +72,8 @@ return function(manager)
             "status-lsp",
         },
         config = config,
+        dev = false,
+        dir = require("utils.local_plugin_path")("status.nvim"),
     })
     lock.load("status.nvim")
 end
