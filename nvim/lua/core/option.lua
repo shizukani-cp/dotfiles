@@ -24,7 +24,7 @@ vim.opt.termguicolors = true
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
-vim.g.hit_enter = false
+vim.g.hit_enter = true
 local function set_hit_enter()
     if vim.g.hit_enter then
         vim.opt.messagesopt:append("hit-enter")
