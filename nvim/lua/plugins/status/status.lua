@@ -1,20 +1,17 @@
 local lock = require("manager.lock")
 
 local function setup_highlights()
-    local colors = {
-        blue = "#82aaff",
-        green = "#c3e88d",
-        purple = "#c792ea",
-        red = "#ff5370",
-        bg = "#2c323c",
-        fg = "#abb2bf",
-    }
+    local colors = require("tokyonight.colors").setup({ style = "moon" })
 
-    vim.api.nvim_set_hl(0, "StatusNormal", { fg = colors.bg, bg = colors.green, bold = true })
-    vim.api.nvim_set_hl(0, "StatusInsert", { fg = colors.bg, bg = colors.blue, bold = true })
-    vim.api.nvim_set_hl(0, "StatusVisual", { fg = colors.bg, bg = colors.purple, bold = true })
-    vim.api.nvim_set_hl(0, "StatusReplace", { fg = colors.bg, bg = colors.red, bold = true })
-    vim.api.nvim_set_hl(0, "StatusMain", { fg = colors.fg, bg = colors.bg })
+    local fg_ink = colors.bg_dark
+
+    vim.api.nvim_set_hl(0, "StatusNormal", { fg = fg_ink, bg = colors.green, bold = true })
+    vim.api.nvim_set_hl(0, "StatusInsert", { fg = fg_ink, bg = colors.blue, bold = true })
+    vim.api.nvim_set_hl(0, "StatusVisual", { fg = fg_ink, bg = colors.magenta, bold = true })
+    vim.api.nvim_set_hl(0, "StatusReplace", { fg = fg_ink, bg = colors.red, bold = true })
+    vim.api.nvim_set_hl(0, "StatusCommand", { fg = fg_ink, bg = colors.yellow, bold = true })
+    vim.api.nvim_set_hl(0, "StatusTerminal", { fg = fg_ink, bg = colors.green1, bold = true })
+    vim.api.nvim_set_hl(0, "StatusMain", { fg = colors.fg, bg = colors.bg_statusline or colors.bg_dark })
 end
 
 local function skk_status()
@@ -26,8 +23,8 @@ local function skk_status()
     return map[mode] or "英ab"
 end
 
-setup_highlights()
 local function config()
+    setup_highlights()
     local status = require("status.core")
     local std = require("status.std")
     local git = require("status.git")
@@ -70,6 +67,7 @@ return function(manager)
             "status-std",
             "status-git",
             "status-lsp",
+            "tokyonight.nvim",
         },
         config = config,
         dev = false,
