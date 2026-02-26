@@ -23,6 +23,27 @@ local function skk_status()
     return map[mode] or "英ab"
 end
 
+local function file()
+    local fname = (function()
+        local ft = vim.bo.filetype
+
+        if ft == "oil" then
+            local bufname = vim.api.nvim_buf_get_name(0)
+            local path = bufname:gsub("^oil://", "")
+            local rel_path = vim.fn.fnamemodify(path, ":~:.")
+            if rel_path == "" then
+                rel_path = "."
+            end
+            return "󰏇 " .. rel_path
+        elseif ft == "toggleterm" then
+            return " Terminal"
+        end
+
+        return vim.fn.expand("%:.")
+    end)()
+    return fname .. "%m%r"
+end
+
 local function config()
     setup_highlights()
     local status = require("status.core")
@@ -50,7 +71,7 @@ local function config()
                 std.encoding,
                 std.filetype,
                 "|",
-                std.file,
+                file,
                 "[%l:%c]",
             },
         },
