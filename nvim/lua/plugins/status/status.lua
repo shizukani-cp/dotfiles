@@ -37,6 +37,8 @@ local function file()
             return "󰏇 " .. rel_path
         elseif ft == "toggleterm" then
             return " Terminal"
+        elseif ft == "lazygit" then
+            return " Lazygit"
         end
 
         return vim.fn.expand("%:.")
