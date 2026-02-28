@@ -9,7 +9,7 @@ if not (vim.uv or vim.loop).fs_stat(managerpath) then
     end
 end
 vim.opt.runtimepath:prepend(managerpath)
--- vim.opt.runtimepath:prepend(vim.fn.expand("$PROJECTS_DIR") .. "/manager.nvim")
+-- vim.opt.runtimepath:prepend(require("utils.local_plugins_path")("manager.nvim"))
 
 local manager = require("manager.core")
 
