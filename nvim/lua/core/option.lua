@@ -1,17 +1,17 @@
 vim.scriptencoding = "utf-8"
-vim.o.encoding = "utf-8"
-vim.o.fileencoding = "utf-8"
-vim.o.fileencodings = "utf-8,cp932,euc-jp,sjis"
+vim.opt.encoding = "utf-8"
+vim.opt.fileencoding = "utf-8"
+vim.opt.fileencodings = "utf-8,cp932,euc-jp,sjis"
 vim.g.mapleader = " "
 vim.diagnostic.config({ virtual_text = true })
 
-vim.o.helplang = "ja,en"
+vim.opt.helplang = "ja,en"
 vim.wo.cursorline = true
-vim.o.foldcolumn = "1"
-vim.o.foldlevel = 99
-vim.o.foldlevelstart = 99
-vim.o.foldenable = true
-vim.o.updatetime = 1000
+vim.opt.foldcolumn = "1"
+vim.opt.foldlevel = 99
+vim.opt.foldlevelstart = 99
+vim.opt.foldenable = true
+vim.opt.updatetime = 1000
 vim.opt.number = true
 vim.opt.termguicolors = true
 vim.opt.whichwrap = "b,s,h,l,<,>"
