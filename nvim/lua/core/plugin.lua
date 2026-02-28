@@ -13,6 +13,8 @@ vim.opt.runtimepath:prepend(managerpath)
 
 local manager = require("manager.core").new()
 
+_G.manager = manager
+
 local _ = manager.logger:on(function(e)
     if e.level >= 3 then
         vim.notify(e.msg, e.level)
