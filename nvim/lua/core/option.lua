@@ -21,6 +21,7 @@ vim.opt.expandtab = true
 vim.opt.scrolloff = 4
 vim.opt.relativenumber = true
 vim.opt.termguicolors = true
+vim.opt.laststatus = 3
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
