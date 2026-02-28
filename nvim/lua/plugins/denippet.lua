@@ -1,12 +1,11 @@
-local function config()
+local function config(manager)
     local dir = vim.fn.stdpath("config") .. "/snippets/"
 
     for _, file in ipairs(vim.fn.glob(dir .. "*.*", 1, 1)) do
         vim.fn["denippet#load"](file)
     end
 
-    local root =
-        vim.fs.joinpath(vim.fn.stdpath("data"), "site", "pack", "manager", "opt", "friendly-snippets", "snippets")
+    local root = vim.fs.joinpath(manager:plugin_path("friendly-snippets"), "snippets")
 
     for name, type in vim.fs.dir(root) do
         if type == "file" then
@@ -40,7 +39,9 @@ return function(manager)
             "denops.vim",
             "friendly-snippets",
         },
-        config = config,
+        config = function()
+            config(manager)
+        end,
     })
     manager:lazyload_event("InsertEnter", "denippet.vim")
 end
