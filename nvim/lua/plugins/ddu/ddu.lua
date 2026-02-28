@@ -101,6 +101,7 @@ return function(manager)
             "ddu-source-command_history",
             "ddu-source-file_rec",
             "ddu-source-git_status",
+            "ddu-source-ghq",
             "ddu-source-keymap",
             "ddu-source-lsp",
             "ddu-source-manager",
@@ -172,5 +173,12 @@ return function(manager)
         "<Cmd>call ddu#start({ 'sources': ['command_history'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "Command History" }
+    )
+    manager:lazyload_key(
+        "n",
+        "<Leader>ph",
+        "<Cmd>call ddu#start({ 'sources': ['ghq'], 'ui': 'ff'})<CR>",
+        "ddu.vim",
+        { noremap = true, silent = true, desc = "ghq" }
     )
 end
