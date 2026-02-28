@@ -135,6 +135,4 @@ require("plugins.visual-whitespace")(manager)
 require("plugins.which-key")(manager)
 manager:unlock()
 
-require("core.lsp")(manager)
-
 -- require("manager.command").setup()
