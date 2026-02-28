@@ -1,4 +1,3 @@
-local lazyload = require("manager.lazyload")
 local huj8_table = require("data.huj8")
 
 local function config()
@@ -32,7 +31,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "skkeleton",
         url = "https://github.com/vim-skk/skkeleton",
         dependencies = {
@@ -40,6 +39,6 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("InsertEnter", "skkeleton")
+    manager:lazyload_event("InsertEnter", "skkeleton")
     vim.keymap.set({ "i", "c" }, "<Esc>", "<Nop>")
 end

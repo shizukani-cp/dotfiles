@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     vim.fn["ddc#custom#set_global"]({
         ui = "native",
@@ -101,7 +99,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "ddc.vim",
         url = "https://github.com/Shougo/ddc.vim",
         dependencies = {
@@ -120,5 +118,5 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("InsertEnter", "ddc.vim")
+    manager:lazyload_event("InsertEnter", "ddc.vim")
 end

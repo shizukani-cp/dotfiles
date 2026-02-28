@@ -15,7 +15,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "oil.nvim",
         url = "https://github.com/stevearc/oil.nvim",
         dependencies = {

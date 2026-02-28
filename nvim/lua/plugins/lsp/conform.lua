@@ -1,5 +1,5 @@
 return function(manager)
-    manager.add({
+    manager:add({
         id = "conform.nvim",
         url = "https://github.com/stevearc/conform.nvim",
         config = function()

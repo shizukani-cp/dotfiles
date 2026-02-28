@@ -3,7 +3,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "nvim-web-devicons",
         url = "https://github.com/nvim-tree/nvim-web-devicons",
         config = config,

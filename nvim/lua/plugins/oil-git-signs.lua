@@ -1,11 +1,9 @@
-local lock = require("manager.lock")
-
 local function config()
     require("oil-git-signs").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "oil-git-signs.nvim",
         url = "https://github.com/FerretDetective/oil-git-signs.nvim",
         dependencies = {
@@ -13,5 +11,5 @@ return function(manager)
         },
         config = config,
     })
-    manager.load("oil-git-signs.nvim")
+    manager:load("oil-git-signs.nvim")
 end

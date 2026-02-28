@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("nvim-treesitter-textobjects").setup({
         select = {
@@ -39,7 +37,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "nvim-treesitter-textobjects",
         url = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
         branch = "main",
@@ -49,5 +47,5 @@ return function(manager)
         config = config,
     })
 
-    lazyload.event("BufWinEnter", "nvim-treesitter-textobjects")
+    manager:lazyload_event("BufWinEnter", "nvim-treesitter-textobjects")
 end

@@ -9,9 +9,9 @@ if not (vim.uv or vim.loop).fs_stat(managerpath) then
     end
 end
 vim.opt.runtimepath:prepend(managerpath)
--- vim.opt.runtimepath:prepend(require("utils.local_plugins_path")("manager.nvim"))
+-- vim.opt.runtimepath:prepend(require("utils.local_plugin_path")("manager.nvim"))
 
-local manager = require("manager.core")
+local manager = require("manager.core").new()
 
 local _ = manager.logger:on(function(e)
     if e.level >= 3 then
@@ -22,9 +22,10 @@ end)
 require("plugins.manager.manager-lock")(manager)
 require("plugins.manager.manager-lazyload")(manager)
 
-local lock = require("manager.lock")
+require("manager.lock").setup(manager, true)
+require("manager.lazyload").setup(manager)
 
-lock.lock()
+manager:lock()
 require("plugins.2048")(manager)
 require("plugins.Comment")(manager)
 require("plugins.blamer")(manager)
@@ -132,6 +133,8 @@ require("plugins.vim-tmux-navigator")(manager)
 require("plugins.vimdoc-ja")(manager)
 require("plugins.visual-whitespace")(manager)
 require("plugins.which-key")(manager)
-lock.unlock()
+manager:unlock()
+
+require("core.lsp")(manager)
 
 -- require("manager.command").setup()

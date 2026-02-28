@@ -1,12 +1,10 @@
-local lazyload = require("manager.lazyload")
-
 return function(manager)
-    manager.add({
+    manager:add({
         id = "capture.vim",
         url = "https://github.com/tyru/capture.vim",
     })
-    lazyload.event("CmdLineEnter", "capture.vim")
-    lazyload.key(
+    manager:lazyload_event("CmdLineEnter", "capture.vim")
+    manager:lazyload_key(
         "n",
         "<Leader>em",
         "<Cmd>Capture messages<Cr>",

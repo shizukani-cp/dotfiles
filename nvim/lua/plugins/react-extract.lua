@@ -1,19 +1,17 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("react-extract").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "react-extract.nvim",
         url = "https://github.com/napmn/react-extract.nvim",
         config = config,
     })
-    lazyload.key("x", "<Leader>rn", function()
+    manager:lazyload_key("x", "<Leader>rn", function()
         require("react-extract").extract_to_new_file()
     end, "react-extract.nvim", { noremap = true, silent = true, desc = "Export as a new file in a React component" })
-    lazyload.key(
+    manager:lazyload_key(
         "x",
         "<Leader>rc",
         function()

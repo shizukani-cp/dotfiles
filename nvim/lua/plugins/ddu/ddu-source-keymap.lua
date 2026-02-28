@@ -1,5 +1,5 @@
 return function(manager)
-    manager.add({
+    manager:add({
         id = "ddu-source-keymap",
         url = "https://github.com/kamecha/ddu-source-keymap",
     })

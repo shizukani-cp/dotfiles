@@ -1,11 +1,9 @@
-local lazyload = require("manager.lazyload")
-
 return function(manager)
-    manager.add({
+    manager:add({
         id = "jumpcursor.vim",
         url = "https://github.com/skanehira/jumpcursor.vim",
     })
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "f",
         "<Plug>(jumpcursor-jump)",

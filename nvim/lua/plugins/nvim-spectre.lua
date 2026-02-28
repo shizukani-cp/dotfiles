@@ -1,11 +1,9 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("spectre").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "nvim-spectre",
         url = "https://github.com/nvim-pack/nvim-spectre",
         dependencies = {
@@ -14,7 +12,7 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>cs",
         "<Cmd>lua require('spectre').toggle()<Cr>",

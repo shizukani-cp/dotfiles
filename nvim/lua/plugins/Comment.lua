@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("Comment").setup({
         toggler = {
@@ -14,10 +12,10 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "Comment.nvim",
         url = "https://github.com/numToStr/Comment.nvim",
         config = config,
     })
-    lazyload.event("BufWinEnter", "Comment.nvim")
+    manager:lazyload_event("BufWinEnter", "Comment.nvim")
 end

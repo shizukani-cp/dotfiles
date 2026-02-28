@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("treesj").setup()
     vim.keymap.del("n", "<leader>m")
@@ -7,7 +5,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "treesj",
         url = "https://github.com/Wansmer/treesj",
         dependencies = {
@@ -15,7 +13,7 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>cS",
         "<Cmd>lua require('treesj').toggle()<Cr>",

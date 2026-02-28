@@ -1,16 +1,14 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("nvim_context_vt").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "nvim_context_vt",
         url = "https://github.com/andersevenrud/nvim_context_vt",
         config = config,
     })
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>cv",
         "<Cmd>NvimContextVtToggle<Cr>",

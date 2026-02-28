@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     vim.fn["ddu#custom#set_global"]({
         ui = "ff",
@@ -89,7 +87,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "ddu.vim",
         url = "https://github.com/Shougo/ddu.vim",
         dependencies = {
@@ -112,63 +110,63 @@ return function(manager)
         config = config,
     })
 
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>pf",
         "<Cmd>call ddu#start({ 'sources': ['file_rec'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "File" }
     )
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>pb",
         "<Cmd>call ddu#start({ 'sources': ['buffer'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "Buffer" }
     )
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>ps",
         "<Cmd>call ddu#start({ 'sources': ['lsp_documentSymbol'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "LSP Symbol" }
     )
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>pp",
         "<Cmd>call ddu#start({ 'sources': ['manager_plugins'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "Plugin List" }
     )
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>pl",
         "<Cmd>call ddu#start({ 'sources': ['manager_logs'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "manager.nvim logs" }
     )
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>pg",
         "<Cmd>call ddu#start({ 'sources': ['git_status'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "Git Status" }
     )
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>pk",
         "<Cmd>call ddu#start({ 'sources': ['keymap'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "Keymap" }
     )
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>pa",
         "<Cmd>call ddu#start({ 'sources': ['action'], 'ui': 'ff' })<CR>",
         "ddu.vim",
         { noremap = true, silent = true, desc = "Action" }
     )
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>pc",
         "<Cmd>call ddu#start({ 'sources': ['command_history'], 'ui': 'ff' })<CR>",

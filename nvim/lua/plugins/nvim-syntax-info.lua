@@ -1,11 +1,9 @@
-local lazyload = require("manager.lazyload")
-
 return function(manager)
-    manager.add({
+    manager:add({
         id = "nvim-syntax-info",
         url = "https://github.com/wadackel/nvim-syntax-info",
     })
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>ci",
         "<Plug>(syntax-info-toggle)",

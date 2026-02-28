@@ -1,5 +1,5 @@
 return function(manager)
-    manager.add({
+    manager:add({
         id = "ddc-source-cmdline",
         url = "https://github.com/Shougo/ddc-source-cmdline",
     })

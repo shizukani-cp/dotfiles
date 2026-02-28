@@ -1,11 +1,9 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("satellite").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "satellite.nvim",
         url = "https://github.com/lewis6991/satellite.nvim",
         dependencies = {
@@ -13,5 +11,5 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("BufWinEnter", "satellite.nvim")
+    manager:lazyload_event("BufWinEnter", "satellite.nvim")
 end

@@ -1,5 +1,5 @@
 return function(manager)
-    manager.add({
+    manager:add({
         id = "status-std",
         url = "https://github.com/shizukani-cp/status-std",
         dev = false,

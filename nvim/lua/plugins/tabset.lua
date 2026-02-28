@@ -1,5 +1,3 @@
-local lock = require("manager.lock")
-
 local function config()
     require("tabset").setup({
         default = {
@@ -27,10 +25,10 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "tabset.nvim",
         url = "https://github.com/FotiadisM/tabset.nvim",
         config = config,
     })
-    lock.load("tabset.nvim")
+    manager:load("tabset.nvim")
 end

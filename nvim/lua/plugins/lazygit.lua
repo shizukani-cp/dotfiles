@@ -1,14 +1,12 @@
-local lazyload = require("manager.lazyload")
-
 return function(manager)
-    manager.add({
+    manager:add({
         id = "lazygit.nvim",
         url = "https://github.com/kdheepak/lazygit.nvim",
         dependencies = {
             "plenary.nvim",
         },
     })
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>g",
         "<Cmd>LazyGit<Cr>",

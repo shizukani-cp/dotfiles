@@ -1,5 +1,3 @@
-local lock = require("manager.lock")
-
 local function setup_highlights()
     local colors = require("tokyonight.colors").setup({ style = "moon" })
 
@@ -83,7 +81,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "status.nvim",
         url = "https://github.com/shizukani-cp/status.nvim",
         dependencies = {
@@ -96,5 +94,5 @@ return function(manager)
         dev = false,
         dir = require("utils.local_plugin_path")("status.nvim"),
     })
-    lock.load("status.nvim")
+    manager:load("status.nvim")
 end

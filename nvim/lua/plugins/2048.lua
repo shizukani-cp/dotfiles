@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("2048").setup({
         keys = {
@@ -12,10 +10,10 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "2048.nvim",
         url = "https://github.com/NStefan002/2048.nvim",
         config = config,
     })
-    lazyload.event("CmdLineEnter", "2048.nvim")
+    manager:lazyload_event("CmdLineEnter", "2048.nvim")
 end

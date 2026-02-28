@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("tiny-inline-diagnostic").setup({
         options = {
@@ -18,10 +16,10 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "tiny-inline-diagnostic.nvim",
         url = "https://github.com/rachartier/tiny-inline-diagnostic.nvim",
         config = config,
     })
-    lazyload.event("LspAttach", "tiny-inline-diagnostic.nvim")
+    manager:lazyload_event("LspAttach", "tiny-inline-diagnostic.nvim")
 end

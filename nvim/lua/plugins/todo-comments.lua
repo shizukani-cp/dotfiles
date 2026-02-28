@@ -1,11 +1,9 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("todo-comments").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "todo-comments.nvim",
         url = "https://github.com/folke/todo-comments.nvim",
         dependencies = {
@@ -13,5 +11,5 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("BufWinEnter", "todo-comments.nvim")
+    manager:lazyload_event("BufWinEnter", "todo-comments.nvim")
 end

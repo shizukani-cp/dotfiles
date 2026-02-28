@@ -8,7 +8,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "tree-sitter-norg",
         url = "https://github.com/nvim-neorg/tree-sitter-norg",
         config = config,

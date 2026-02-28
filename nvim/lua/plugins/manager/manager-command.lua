@@ -1,18 +1,16 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("manager.command").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "manager-command",
         url = "https://github.com/shizukani-cp/manager-command",
         config = config,
         dev = false,
         dir = require("utils.local_plugin_path")("manager-command"),
     })
-    lazyload.event("CmdLineEnter", "manager-command")
+    manager:lazyload_event("CmdLineEnter", "manager-command")
     --[[ vim.api.nvim_create_autocmd("CmdlineEnter", {
         group = vim.api.nvim_create_augroup("manager-command_load", { clear = true }),
         pattern = "*",

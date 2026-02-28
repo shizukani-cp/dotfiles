@@ -3,7 +3,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "ddc-source-lsp-setup",
         url = "https://github.com/uga-rosa/ddc-source-lsp-setup",
         dependencies = {

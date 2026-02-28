@@ -2,7 +2,7 @@
 prefix = 'pl'
 body = """
 return function(manager)
-\tmanager.add({
+\tmanager:add({
 \t\tid = "$1",
 \t\turl = "$2",$3
 \t})
@@ -17,7 +17,7 @@ local function config()
 end
 
 return function(manager)
-\tmanager.add({
+\tmanager:add({
 \t\tid = "$1",
 \t\turl = "$2",$3
 \t\tconfig = config,
@@ -28,32 +28,28 @@ end
 [plugin_lazy]
 prefix = 'pll'
 body = """
-local lazyload = require("manager.lazyload")
-
 return function(manager)
-\tmanager.add({
+\tmanager:add({
 \t\tid = "$1",
 \t\turl = "$2",$3
 \t})
-\tlazyload.$4
+\tmanager:lazyload_$4
 end
 """
 
 [plugin_config_lazy]
 prefix = 'plcl'
 body = """
-local lazyload = require("manager.lazyload")
-
 local function config()
 \t$5
 end
 
 return function(manager)
-\tmanager.add({
+\tmanager:add({
 \t\tid = "$1",
 \t\turl = "$2",$3
 \t\tconfig = config,
 \t})
-\tlazyload.$4
+\tmanager:lazyload_$4
 end
 """

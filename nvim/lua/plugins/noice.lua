@@ -1,7 +1,5 @@
-local lazyload = require("manager.lazyload")
-
 return function(manager)
-    manager.add({
+    manager:add({
         id = "noice.nvim",
         url = "https://github.com/folke/noice.nvim",
         dependencies = {
@@ -12,6 +10,6 @@ return function(manager)
             require("noice").setup()
         end,
     })
-    lazyload.event("CmdLineEnter", "noice.nvim")
-    lazyload.event("BufWinEnter", "noice.nvim")
+    manager:lazyload_event("CmdLineEnter", "noice.nvim")
+    manager:lazyload_event("BufWinEnter", "noice.nvim")
 end

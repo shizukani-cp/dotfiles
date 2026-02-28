@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("f-string-toggle").setup({
         key_binding = "<leader>F",
@@ -12,11 +10,11 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "f-string-toggle.nvim",
         url = "https://github.com/roobert/f-string-toggle.nvim",
         config = config,
     })
 
-    lazyload.event("BufEnter", "f-string-toggle.nvim", { "*.py" })
+    manager:lazyload_event("BufEnter", "f-string-toggle.nvim", { "*.py" })
 end

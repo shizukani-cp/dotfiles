@@ -1,9 +1,7 @@
-local lazyload = require("manager.lazyload")
-
 return function(manager)
-    manager.add({
+    manager:add({
         id = "vimdoc-ja",
         url = "https://github.com/vim-jp/vimdoc-ja",
     })
-    lazyload.event("CmdLineEnter", "vimdoc-ja")
+    manager:lazyload_event("CmdLineEnter", "vimdoc-ja")
 end

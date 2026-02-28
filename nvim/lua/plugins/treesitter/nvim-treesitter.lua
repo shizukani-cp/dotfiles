@@ -1,4 +1,3 @@
-local lock = require("manager.lock")
 local parsers = {
     "bash",
     "diff",
@@ -40,10 +39,10 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "nvim-treesitter",
         url = "https://github.com/nvim-treesitter/nvim-treesitter",
         config = config,
     })
-    lock.load("nvim-treesitter")
+    manager:load("nvim-treesitter")
 end

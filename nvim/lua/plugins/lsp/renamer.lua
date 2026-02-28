@@ -1,11 +1,9 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("renamer").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "renamer.nvim",
         url = "https://github.com/filipdutescu/renamer.nvim",
         dependencies = {
@@ -14,14 +12,14 @@ return function(manager)
         config = config,
     })
 
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>cr",
         "<Cmd>lua require('renamer').rename()<Cr>",
         "renamer.nvim",
         { noremap = true, silent = true, desc = "Rename symbol" }
     )
-    lazyload.key(
+    manager:lazyload_key(
         "v",
         "<Leader>r",
         "<Cmd>lua require('renamer').rename()<Cr>",

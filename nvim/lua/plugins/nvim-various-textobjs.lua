@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("various-textobjs").setup({
         keymaps = {
@@ -9,10 +7,10 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "nvim-various-textobjs",
         url = "https://github.com/chrisgrieser/nvim-various-textobjs",
         config = config,
     })
-    lazyload.event("BufWinEnter", "nvim-various-textobjs")
+    manager:lazyload_event("BufWinEnter", "nvim-various-textobjs")
 end

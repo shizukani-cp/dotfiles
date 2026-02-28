@@ -5,10 +5,10 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "smart-column.nvim",
         url = "https://github.com/m4xshen/smartcolumn.nvim",
         config = config,
     })
-    lazyload.event("BufWinEnter", "smart-column.nvim")
+    manager:lazyload_event("BufWinEnter", "smart-column.nvim")
 end

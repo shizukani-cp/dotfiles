@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("toggleterm").setup({
         open_mapping = [[<C-_>]],
@@ -10,10 +8,10 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "toggleterm.nvim",
         url = "https://github.com/akinsho/toggleterm.nvim",
         config = config,
     })
-    lazyload.event("BufWinEnter", "toggleterm.nvim")
+    manager:lazyload_event("BufWinEnter", "toggleterm.nvim")
 end

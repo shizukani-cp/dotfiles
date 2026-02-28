@@ -1,9 +1,7 @@
-local lazyload = require("manager.lazyload")
-
 return function(manager)
-    manager.add({
+    manager:add({
         id = "vim-illuminate",
         url = "https://github.com/RRethy/vim-illuminate",
     })
-    lazyload.event("BufRead", "vim-illuminate")
+    manager:lazyload_event("BufRead", "vim-illuminate")
 end

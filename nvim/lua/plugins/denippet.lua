@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     local dir = vim.fn.stdpath("config") .. "/snippets/"
 
@@ -35,7 +33,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "denippet.vim",
         url = "https://github.com/uga-rosa/denippet.vim",
         dependencies = {
@@ -44,5 +42,5 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("InsertEnter", "denippet.vim")
+    manager:lazyload_event("InsertEnter", "denippet.vim")
 end

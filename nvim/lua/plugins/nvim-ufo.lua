@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     vim.api.nvim_create_autocmd("CursorHold", {
         pattern = "*",
@@ -18,7 +16,7 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "nvim-ufo",
         url = "https://github.com/kevinhwang91/nvim-ufo",
         dependencies = {
@@ -26,5 +24,5 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("BufWinEnter", "nvim-ufo")
+    manager:lazyload_event("BufWinEnter", "nvim-ufo")
 end

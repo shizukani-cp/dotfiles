@@ -1,11 +1,9 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("manager.ui").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "manager-ui",
         url = "https://github.com/shizukani-cp/manager-ui",
         dependencies = {
@@ -15,6 +13,6 @@ return function(manager)
         dir = require("utils.local_plugin_path")("manager-ui"),
         config = config,
     })
-    lazyload.event("CmdLineEnter", "manager-ui")
-    lazyload.event("BufWinEnter", "manager-ui")
+    manager:lazyload_event("CmdLineEnter", "manager-ui")
+    manager:lazyload_event("BufWinEnter", "manager-ui")
 end

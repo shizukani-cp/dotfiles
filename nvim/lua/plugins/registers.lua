@@ -1,16 +1,14 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("registers").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "registers.nvim",
         url = "https://github.com/tversteeg/registers.nvim",
         config = config,
     })
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>er",
         "<Cmd>Registers<Cr>",

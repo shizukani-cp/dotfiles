@@ -1,11 +1,9 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("bufferline").setup()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "bufferline.nvim",
         url = "https://github.com/akinsho/bufferline.nvim",
         dependencies = {
@@ -13,5 +11,5 @@ return function(manager)
         },
         config = config,
     })
-    lazyload.event("BufWinEnter", "bufferline.nvim")
+    manager:lazyload_event("BufWinEnter", "bufferline.nvim")
 end

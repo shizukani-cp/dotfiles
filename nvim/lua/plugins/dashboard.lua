@@ -1,6 +1,4 @@
-local lock = require("manager.lock")
-
-local function config()
+local function config(manager)
     require("dashboard").setup({
         theme = "doom",
         config = {
@@ -35,7 +33,7 @@ local function config()
                     keymap_hl = "Oil",
                     desc = "Oil",
                     action = function()
-                        require("manager.core").load("oil.nvim")
+                        manager:load("oil.nvim")
                         vim.cmd([[Oil]])
                     end,
                 },
@@ -45,7 +43,7 @@ local function config()
                     keymap_hl = "Lazygit",
                     desc = "Lazygit",
                     action = function()
-                        require("manager.core").load("lazygit.nvim")
+                        manager:load("lazygit.nvim")
                         vim.cmd([[LazyGit]])
                     end,
                 },
@@ -55,7 +53,7 @@ local function config()
                     keymap_hl = "Update Plugins",
                     desc = "Update Plugins",
                     action = function()
-                        require("manager.core").update()
+                        manager:update()
                     end,
                 },
                 {
@@ -64,7 +62,7 @@ local function config()
                     keymap_hl = "Clean Unused Plugins",
                     desc = "Clean Unused Plugins",
                     action = function()
-                        require("manager.core").clean()
+                        manager:clean()
                     end,
                 },
                 {
@@ -96,14 +94,16 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "dashboard-nvim",
         url = "https://github.com/nvimdev/dashboard-nvim",
         dependencies = {
             "nvim-web-devicons",
             "vim-better-whitespace",
         },
-        config = config,
+        config = function()
+            config(manager)
+        end,
     })
-    lock.load("dashboard-nvim")
+    manager:load("dashboard-nvim")
 end

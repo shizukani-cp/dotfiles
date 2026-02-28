@@ -1,5 +1,3 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     require("pantran").setup({
         default_engine = "google",
@@ -51,19 +49,19 @@ local function config()
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "pantran.nvim",
         url = "https://github.com/potamides/pantran.nvim",
         config = config,
     })
 
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>et",
         "<Cmd>Pantran<Cr>",
         "pantran.nvim",
         { noremap = true, silent = true, desc = "Translate Window" }
     )
-    --[[ lazyload.key("x", "<Leader>t", function() require("pantran").range_translate({}) end, "pantran.nvim",
+    --[[ manager:lazyload_key("x", "<Leader>t", function() require("pantran").range_translate({}) end, "pantran.nvim",
     { noremap = true, silent = true, desc = "Open Translate Window" }) ]]
 end

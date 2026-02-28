@@ -1,17 +1,15 @@
-local lazyload = require("manager.lazyload")
-
 local function config()
     vim.g.blamer_enabled = false
     vim.g.blamer_date_format = "%y/%m/%d"
 end
 
 return function(manager)
-    manager.add({
+    manager:add({
         id = "blamer.nvim",
         url = "https://github.com/APZelos/blamer.nvim",
         config = config,
     })
-    lazyload.key(
+    manager:lazyload_key(
         "n",
         "<Leader>cb",
         "<Cmd>BlamerToggle<Cr>",
