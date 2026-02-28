@@ -6,9 +6,7 @@ return function(manager)
     manager:add({
         id = "manager-command",
         url = "https://github.com/shizukani-cp/manager-command",
-        config = function()
-            config(manager)
-        end,
+        config = config,
         dev = false,
         dir = require("utils.local_plugin_path")("manager-command"),
     })

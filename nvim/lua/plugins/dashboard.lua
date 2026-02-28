@@ -101,9 +101,7 @@ return function(manager)
             "nvim-web-devicons",
             "vim-better-whitespace",
         },
-        config = function()
-            config(manager)
-        end,
+        config = config,
     })
     manager:load("dashboard-nvim")
 end

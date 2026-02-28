@@ -39,9 +39,7 @@ return function(manager)
             "denops.vim",
             "friendly-snippets",
         },
-        config = function()
-            config(manager)
-        end,
+        config = config,
     })
     manager:lazyload_event("InsertEnter", "denippet.vim")
 end
