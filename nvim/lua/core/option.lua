@@ -1,27 +1,28 @@
-vim.scriptencoding = "utf-8"
+vim.diagnostic.config({ virtual_text = true })
+vim.g.mapleader = " "
+
 vim.opt.encoding = "utf-8"
+vim.opt.expandtab = true
 vim.opt.fileencoding = "utf-8"
 vim.opt.fileencodings = "utf-8,cp932,euc-jp,sjis"
-vim.g.mapleader = " "
-vim.diagnostic.config({ virtual_text = true })
-
-vim.opt.helplang = "ja,en"
-vim.wo.cursorline = true
 vim.opt.foldcolumn = "1"
+vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
-vim.opt.foldenable = true
-vim.opt.updatetime = 1000
-vim.opt.number = true
-vim.opt.termguicolors = true
-vim.opt.whichwrap = "b,s,h,l,<,>"
-vim.opt.tabstop = 4
-vim.opt.shiftwidth = 4
-vim.opt.expandtab = true
-vim.opt.scrolloff = 4
-vim.opt.relativenumber = true
-vim.opt.termguicolors = true
+vim.opt.helplang = "ja,en"
 vim.opt.laststatus = 3
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.opt.scrolloff = 4
+vim.opt.shiftwidth = 4
+vim.opt.tabstop = 4
+vim.opt.termguicolors = true
+vim.opt.termguicolors = true
+vim.opt.updatetime = 1000
+vim.opt.whichwrap = "b,s,h,l,<,>"
+
+vim.scriptencoding = "utf-8"
+vim.wo.cursorline = true
 vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 
