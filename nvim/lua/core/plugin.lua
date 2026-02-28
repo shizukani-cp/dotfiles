@@ -24,9 +24,6 @@ end)
 require("plugins.manager.manager-lock")(manager)
 require("plugins.manager.manager-lazyload")(manager)
 
-require("manager.lock").setup(manager, true)
-require("manager.lazyload").setup(manager)
-
 manager:lock()
 require("plugins.2048")(manager)
 require("plugins.Comment")(manager)
