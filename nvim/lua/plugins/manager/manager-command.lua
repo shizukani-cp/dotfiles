@@ -1,12 +1,14 @@
-local function config()
-    require("manager.command").setup()
+local function config(manager)
+    require("manager.command").setup(manager)
 end
 
 return function(manager)
     manager:add({
         id = "manager-command",
         url = "https://github.com/shizukani-cp/manager-command",
-        config = config,
+        config = function()
+            config(manager)
+        end,
         dev = false,
         dir = require("utils.local_plugin_path")("manager-command"),
     })
