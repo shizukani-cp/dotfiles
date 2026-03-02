@@ -62,6 +62,7 @@
             k = "up";
             l = "right";
             o = "enter";
+            u = "noop";
 
             w = "up";
             a = "left";
