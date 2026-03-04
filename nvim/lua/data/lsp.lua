@@ -30,7 +30,14 @@ M.lsp_servers = {
     },
     rust_analyzer = {},
     html = {},
-    cssls = {},
+    tailwindcss = {},
+    cssls = {
+        settings = {
+            css = {
+                lint = { unknownAtRules = "ignore" },
+            },
+        },
+    },
     ts_ls = {
         root_dir = function(fname)
             local util = require("lspconfig.util")

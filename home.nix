@@ -55,6 +55,7 @@
     skkDictionaries.l
     stylua
     superTuxKart
+    tailwindcss-language-server
     temurin-bin-17
     tmux
     trash-cli
