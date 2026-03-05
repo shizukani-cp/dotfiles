@@ -83,14 +83,6 @@ local function config(manager)
             vim.cmd("DisableWhitespace")
         end,
     })
-    vim.api.nvim_create_autocmd({ "BufLeave", "BufUnload" }, {
-        pattern = "*",
-        callback = function()
-            if vim.bo.filetype ~= "dashboard" then
-                vim.cmd("EnableWhitespace")
-            end
-        end,
-    })
 end
 
 return function(manager)
