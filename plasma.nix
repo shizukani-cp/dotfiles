@@ -34,7 +34,6 @@
                 launchers = [
                   "applications:brave-browser.desktop"
                   "applications:foot.desktop"
-                  "applications:org.kde.dolphin.desktop"
                 ];
               };
             };
