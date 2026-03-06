@@ -93,6 +93,19 @@
 
   services.gvfs.enable = true;
 
+  services.ollama = {
+    enable = true;
+    acceleration = "rocm";
+    rocmOverrideGfx = "11.0.2";
+  };
+
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
+  };
+
   users.users.shizukani-cp = {
     isNormalUser = true;
     extraGroups = [
