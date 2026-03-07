@@ -10,5 +10,5 @@ return function(manager)
         config = config,
     })
 
-    manager:lazyload_event("FileType", "markdown-preview.nvim", "markdown")
+    manager:lazyload_filetype("markdown", "markdown-preview.nvim")
 end
