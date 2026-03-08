@@ -9,6 +9,7 @@ local parsers = {
     "markdown",
     "markdown",
     "markdown_inline",
+    "nix",
     "python",
     "regex",
     "rust",
