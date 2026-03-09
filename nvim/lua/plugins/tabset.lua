@@ -15,6 +15,7 @@ local function config()
                     "htmldjango",
                     "css",
                     "json",
+                    "nix",
                 },
                 config = {
                     tabwidth = 2,
