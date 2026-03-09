@@ -8,5 +8,5 @@ return function(manager)
     })
     manager:lazyload_key("i", "<C-CR>", function()
         require("in-and-out").in_and_out()
-    end)
+    end, "in-and-out.nvim", {})
 end
