@@ -1,5 +1,5 @@
 local function config()
-    require("fidget").setup()
+    require("fidget").setup({})
 end
 
 return function(manager)

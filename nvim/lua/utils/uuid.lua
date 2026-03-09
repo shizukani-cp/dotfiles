@@ -1,7 +1,7 @@
 local M = {}
 
 function M.yank_uuid()
-    local function hex(n)
+    local function hex()
         return string.format("%02x", math.random(0, 255))
     end
 

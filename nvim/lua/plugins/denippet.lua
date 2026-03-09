@@ -1,7 +1,7 @@
 local function config(manager)
     local dir = vim.fn.stdpath("config") .. "/snippets/"
 
-    for _, file in ipairs(vim.fn.glob(dir .. "*.*", 1, 1)) do
+    for _, file in ipairs(vim.fn.glob(dir .. "*.*", true, true)) do
         vim.fn["denippet#load"](file)
     end
 

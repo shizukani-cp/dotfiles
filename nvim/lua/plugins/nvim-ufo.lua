@@ -6,7 +6,7 @@ local function config()
         end,
     })
     require("ufo").setup({
-        provider_selector = function(bufnr, filetype, buftype)
+        provider_selector = function(_, filetype, _)
             if filetype == "dashboard" then
                 return
             end

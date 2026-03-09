@@ -1,5 +1,20 @@
+--- @diagnostic disable: duplicate-set-field
+
+--- @class Defaults
+--- @field title? string
+--- @field padding? table
+--- @field min_width? integer
+--- @field max_width? integer
+--- @field border? boolean
+--- @field border_chars? string[]
+--- @field show_refs? boolean
+--- @field with_qf_list? boolean
+--- @field with_popup? boolean
+--- @field mappings? string
+--- @field handler? function
+
 local function config()
-    require("renamer").setup()
+    require("renamer").setup({})
 end
 
 return function(manager)

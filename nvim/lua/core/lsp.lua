@@ -5,7 +5,7 @@ _G.manager:load("conform.nvim")
 
 local lsp_servers = require("data.lsp").lsp_servers
 require("lazydev").setup()
-local on_attach = function(client, bufnr)
+local on_attach = function(_, bufnr)
     vim.api.nvim_buf_create_user_command(bufnr, "Format", function()
         require("conform").format({ bufnr = bufnr, lsp_fallback = true })
     end, { desc = "Format current buffer with conform.nvim" })
@@ -33,6 +33,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
     callback = function(ev)
         local client = vim.lsp.get_client_by_id(ev.data.client_id)
         local bufnr = ev.buf
+        if not client then
+            return
+        end
         if client.server_capabilities.completionProvider then
             vim.lsp.completion.enable(true, client.id, bufnr)
         end

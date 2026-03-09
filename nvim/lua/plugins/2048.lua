@@ -5,6 +5,11 @@ local function config()
             down = "<Down>",
             left = "<Left>",
             right = "<Right>",
+            undo = "u",
+            restart = "r",
+            new_game = "n",
+            confirm = "<Cr>",
+            cancel = "<Esc>",
         },
     })
 end
