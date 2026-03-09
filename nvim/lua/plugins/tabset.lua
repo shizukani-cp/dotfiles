@@ -7,15 +7,15 @@ local function config()
         languages = {
             {
                 filetypes = {
-                    "javascript",
-                    "javascriptreact",
-                    "typescript",
-                    "typescriptreact",
+                    "css",
                     "html",
                     "htmldjango",
-                    "css",
+                    "javascript",
+                    "javascriptreact",
                     "json",
                     "nix",
+                    "typescript",
+                    "typescriptreact",
                 },
                 config = {
                     tabwidth = 2,
