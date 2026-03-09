@@ -5,7 +5,7 @@ return function(manager)
     })
     manager:lazyload_key(
         "n",
-        "f",
+        "s",
         "<Plug>(jumpcursor-jump)",
         "jumpcursor.vim",
         { noremap = true, silent = true, desc = "Go to any word in the current buffer." }
