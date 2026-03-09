@@ -9,5 +9,5 @@ return function(manager)
         config = config,
     })
 
-    manager:lazyload_event("BufWinEnter", "nvim-ts-autotag")
+    manager:lazyload_event("SafeState", "nvim-ts-autotag")
 end

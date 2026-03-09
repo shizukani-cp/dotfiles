@@ -13,5 +13,5 @@ return function(manager)
         config = config,
     })
 
-    manager:lazyload_event("BufWinEnter", "vim-better-whitespace")
+    manager:lazyload_event("SafeState", "vim-better-whitespace")
 end

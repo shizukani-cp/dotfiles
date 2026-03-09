@@ -11,5 +11,5 @@ return function(manager)
         end,
     })
     manager:lazyload_event("CmdLineEnter", "noice.nvim")
-    manager:lazyload_event("BufWinEnter", "noice.nvim")
+    manager:lazyload_event("SafeState", "noice.nvim")
 end

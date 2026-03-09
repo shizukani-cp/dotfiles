@@ -8,5 +8,5 @@ return function(manager)
         url = "https://github.com/karb94/neoscroll.nvim",
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "neoscroll.nvim")
+    manager:lazyload_event("SafeState", "neoscroll.nvim")
 end

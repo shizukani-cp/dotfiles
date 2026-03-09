@@ -24,5 +24,5 @@ return function(manager)
         },
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "nvim-ufo")
+    manager:lazyload_event("SafeState", "nvim-ufo")
 end

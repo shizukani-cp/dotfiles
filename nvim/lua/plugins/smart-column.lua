@@ -8,5 +8,5 @@ return function(manager)
         url = "https://github.com/m4xshen/smartcolumn.nvim",
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "smart-column.nvim")
+    manager:lazyload_event("SafeState", "smart-column.nvim")
 end

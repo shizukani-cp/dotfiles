@@ -11,5 +11,5 @@ return function(manager)
         },
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "todo-comments.nvim")
+    manager:lazyload_event("SafeState", "todo-comments.nvim")
 end

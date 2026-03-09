@@ -17,5 +17,5 @@ return function(manager)
         url = "https://github.com/numToStr/Comment.nvim",
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "Comment.nvim")
+    manager:lazyload_event("SafeState", "Comment.nvim")
 end

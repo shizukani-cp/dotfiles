@@ -14,5 +14,5 @@ return function(manager)
         config = config,
     })
     manager:lazyload_event("CmdLineEnter", "manager-ui")
-    manager:lazyload_event("BufWinEnter", "manager-ui")
+    manager:lazyload_event("SafeState", "manager-ui")
 end

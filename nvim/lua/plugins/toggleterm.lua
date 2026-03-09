@@ -13,5 +13,5 @@ return function(manager)
         url = "https://github.com/akinsho/toggleterm.nvim",
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "toggleterm.nvim")
+    manager:lazyload_event("SafeState", "toggleterm.nvim")
 end

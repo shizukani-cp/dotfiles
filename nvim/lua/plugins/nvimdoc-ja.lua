@@ -3,5 +3,5 @@ return function(manager)
         id = "nvimdoc-ja",
         url = "https://github.com/vim-jp/nvimdoc-ja",
     })
-    manager:lazyload_event("BufWinEnter", "nvimdoc-ja")
+    manager:lazyload_event("SafeState", "nvimdoc-ja")
 end

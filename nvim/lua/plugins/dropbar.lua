@@ -13,5 +13,5 @@ return function(manager)
         },
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "dropbar.nvim")
+    manager:lazyload_event("SafeState", "dropbar.nvim")
 end

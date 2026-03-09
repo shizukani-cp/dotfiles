@@ -8,5 +8,5 @@ return function(manager)
         url = "https://github.com/sQVe/sort.nvim",
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "sort.nvim")
+    manager:lazyload_event("SafeState", "sort.nvim")
 end

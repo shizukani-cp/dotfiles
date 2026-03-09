@@ -47,5 +47,5 @@ return function(manager)
         config = config,
     })
 
-    manager:lazyload_event("BufWinEnter", "nvim-treesitter-textobjects")
+    manager:lazyload_event("SafeState", "nvim-treesitter-textobjects")
 end

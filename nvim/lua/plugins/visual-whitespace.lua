@@ -8,5 +8,5 @@ return function(manager)
         url = "https://github.com/mcauley-penney/visual-whitespace.nvim",
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "visual-whitespace.nvim")
+    manager:lazyload_event("SafeState", "visual-whitespace.nvim")
 end

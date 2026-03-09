@@ -12,5 +12,5 @@ return function(manager)
         url = "https://github.com/chrisgrieser/nvim-various-textobjs",
         config = config,
     })
-    manager:lazyload_event("BufWinEnter", "nvim-various-textobjs")
+    manager:lazyload_event("SafeState", "nvim-various-textobjs")
 end

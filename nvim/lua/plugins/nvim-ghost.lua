@@ -3,5 +3,5 @@ return function(manager)
         id = "nvim-ghost",
         url = "https://github.com/subnut/nvim-ghost.nvim",
     })
-    manager:lazyload_event("BufWinEnter", "nvim-ghost")
+    manager:lazyload_event("SafeState", "nvim-ghost")
 end
