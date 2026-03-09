@@ -11,6 +11,7 @@ vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.helplang = "ja,en"
 vim.opt.laststatus = 3
+vim.opt.mouse = "n"
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.scrolloff = 4
