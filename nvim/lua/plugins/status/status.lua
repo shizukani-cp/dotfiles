@@ -1,5 +1,9 @@
 local function setup_highlights()
-    local colors = require("tokyonight.colors").setup({ style = "moon" })
+    local colors = require("tokyonight.colors").setup({
+        style = "moon",
+        on_colors = function() end,
+        on_highlights = function() end,
+    })
 
     local fg_ink = colors.bg_dark
 

@@ -5,6 +5,8 @@ local function config()
             sidebars = "transparent",
             floats = "transparent",
         },
+        on_colors = function() end,
+        on_highlights = function() end,
     })
     vim.cmd([[colorscheme tokyonight]])
 end

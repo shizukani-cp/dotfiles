@@ -1,7 +1,7 @@
 local function config()
     local wk = require("which-key")
     wk.setup()
-    wk.register({
+    wk.add({
         {
             "<Leader>p",
             group = "Picker",
