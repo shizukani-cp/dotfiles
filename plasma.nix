@@ -26,7 +26,14 @@
         lengthMode = "fill";
         height = 33;
         widgets = [
-          "org.kde.plasma.kickoff"
+          {
+            name = "org.kde.plasma.kickoff";
+            config = {
+              General = {
+                icon = "nix-snowflake";
+              };
+            };
+          }
           {
             name = "org.kde.plasma.icontasks";
             config = {
