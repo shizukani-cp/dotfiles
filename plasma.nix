@@ -42,7 +42,16 @@
           # "org.kde.plasma.systemmonitor.diskusage"
           # "org.kde.plasma.systemmonitor.diskquota"
           "org.kde.plasma.systemtray"
-          "org.kde.plasma.digitalclock"
+          {
+            name = "org.kde.plasma.digitalclock";
+            config = {
+              Appearance = {
+                showDate = true;
+                dateFormat = "custom";
+                customDateFormat = "MM/dd";
+              };
+            };
+          }
         ];
       }
     ];
