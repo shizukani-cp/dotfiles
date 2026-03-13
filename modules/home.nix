@@ -7,11 +7,11 @@
 
 {
   imports = [
-    ./plasma.nix
-    ./cli.nix
-    ./mpd.nix
     ./browser.nix
+    ./cli.nix
     ./env.nix
+    ./mpd.nix
+    ./plasma.nix
   ];
   home.packages = with pkgs; [
     bat
