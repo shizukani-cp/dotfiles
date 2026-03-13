@@ -72,7 +72,7 @@ local function config()
                 std.filetype,
                 "|",
                 file,
-                "[%l:%c]",
+                "[%l:%v]",
             },
         },
     })
