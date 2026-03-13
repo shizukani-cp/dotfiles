@@ -90,9 +90,6 @@
     "nvim" = {
       source = ./nvim;
     };
-    "foot" = {
-      source = ./foot;
-    };
     "zsh" = {
       source = ./zsh;
     };
@@ -167,6 +164,26 @@
       "dbepggeogbaibhgnhhndojpepiihcmeb" # vimium
       "gabfmnliflodkdafenbcpjdlppllnemd" # 画像を JPG/PNG/WebP として保存
     ];
+  };
+  programs.foot = {
+    enable = true;
+    settings = {
+      main = {
+        font = "BitstromWera Nerd Font Mono:size=13, Noto Sans Mono CJK JP:size=13";
+        initial-window-mode = "maximized";
+        pad = "0x0";
+        term = "xterm-256color";
+        shell = "tmux new-session -A -s main";
+      };
+      colors = {
+        background = "1e1e2e";
+        alpha = "0.85";
+      };
+      csd = {
+        preferred = "none";
+        size = "0";
+      };
+    };
   };
   services.mpd = {
     enable = true;
