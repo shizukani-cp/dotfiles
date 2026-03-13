@@ -25,6 +25,7 @@
       useOSProber = true;
     };
   };
+  boot.kernelParams = [ "amd_pstate=active" ];
 
   networking.hostName = "shizukani-cp";
   networking.networkmanager.enable = true;
@@ -56,6 +57,8 @@
     acceleration = "rocm";
     rocmOverrideGfx = "11.0.2";
   };
+
+  services.power-profiles-daemon.enable = true;
 
   hardware.graphics = {
     enable = true;
