@@ -1,0 +1,6 @@
+{
+  "imports": {
+    "@shougo/ddu-ui-ff": "jsr:@shougo/ddu-ui-ff@~3.1.0",
+    "@shougo/ddu-vim": "jsr:@shougo/ddu-vim@~11.2.0"
+  }
+}
