@@ -152,10 +152,10 @@ for k, v in pairs(romaji_map) do
     if #k == 2 and k:sub(2, 2) == "i" then
         youon_map[k:sub(1, 1) .. "ya"] = v .. "ゃ"
         youon_map[k:sub(1, 1) .. "yu"] = v .. "ゅ"
+        youon_map[k:sub(1, 1) .. "ye"] = v .. "ぇ"
         youon_map[k:sub(1, 1) .. "yo"] = v .. "ょ"
     elseif #k == 2 and k:sub(2, 2) == "e" then
         youon_map[k:sub(1, 1) .. "yi"] = v .. "ぃ"
-        youon_map[k:sub(1, 1) .. "ye"] = v .. "ぇ"
     end
 end
 romaji_map = vim.tbl_extend("force", romaji_map, youon_map)
