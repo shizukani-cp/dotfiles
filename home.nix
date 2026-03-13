@@ -81,7 +81,6 @@
     '')
   ];
   home.file = {
-    ".gemini/".source = ./gemini;
     ".gitconfig".source = ./.gitconfig;
     ".local/share/skk/SKK-JISYO.L".source = "${pkgs.skkDictionaries.l}/share/skk/SKK-JISYO.L";
   };
