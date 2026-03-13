@@ -23,13 +23,13 @@
       nixosConfigurations."shizukani-cp" = nixpkgs.lib.nixosSystem {
         inherit system;
         modules = [
-          ./configuration.nix
+          ./modules/configuration.nix
           home-manager.nixosModules.home-manager
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit plasma-manager; };
-            home-manager.users.shizukani-cp = import ./home.nix;
+            home-manager.users.shizukani-cp = import ./modules/home.nix;
           }
         ];
       };

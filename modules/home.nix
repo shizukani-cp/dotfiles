@@ -81,16 +81,16 @@
     '')
   ];
   home.file = {
-    ".gitconfig".source = ./.gitconfig;
+    ".gitconfig".source = ../.gitconfig;
     ".local/share/skk/SKK-JISYO.L".source = "${pkgs.skkDictionaries.l}/share/skk/SKK-JISYO.L";
   };
   xdg.enable = true;
   xdg.configFile = {
     "nvim" = {
-      source = ./nvim;
+      source = ../nvim;
     };
     "zsh" = {
-      source = ./zsh;
+      source = ../zsh;
     };
   };
   home.sessionVariables = {
@@ -191,7 +191,7 @@
   programs.oh-my-posh = {
     enable = true;
     enableZshIntegration = true;
-    configFile = ./zsh/my-theme.omp.json;
+    configFile = ../zsh/my-theme.omp.json;
   };
   programs.brave = {
     enable = true;
