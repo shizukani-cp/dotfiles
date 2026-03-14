@@ -7,6 +7,7 @@
 
 {
   imports = [
+    ./chromium.nix
     ./host/hardware-configuration.nix
     ./keyd.nix
   ];
