@@ -23,4 +23,4 @@ vim.api.nvim_set_keymap("i", "jf", "<Esc><Cmd>w<Cr>", { noremap = true, silent =
 vim.api.nvim_set_keymap("i", "jd", "<Esc>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "jg", "<Esc><Cmd>wq<Cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "jj", "j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "jf", "<C-\\><C-n>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "ii", "<C-\\><C-n>", { noremap = true, silent = true })
