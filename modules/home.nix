@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./browser.nix
+    ./brave.nix
     ./cli.nix
     ./env.nix
     ./mpd.nix
