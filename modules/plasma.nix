@@ -39,7 +39,7 @@
             config = {
               General = {
                 launchers = [
-                  "applications:brave-browser.desktop"
+                  "applications:org.qutebrowser.qutebrowser.desktop"
                   "applications:foot.desktop"
                 ];
               };

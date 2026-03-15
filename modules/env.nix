@@ -23,6 +23,11 @@
       source = ../zsh;
     };
   };
+  xdg.mimeApps.defaultApplications = {
+    "text/html" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
+    "x-scheme-handler/https" = "org.qutebrowser.qutebrowser.desktop";
+  };
   home.sessionVariables = {
     DOTFILES_DIR = "${config.home.sessionVariables.PROJECTS_DIR}/dotfiles";
     EDITOR = "nvim";

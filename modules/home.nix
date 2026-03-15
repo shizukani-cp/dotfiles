@@ -12,6 +12,7 @@
     ./env.nix
     ./mpd.nix
     ./plasma.nix
+    ./qutebrowser.nix
   ];
   home.packages = with pkgs; [
     bat
