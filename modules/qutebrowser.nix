@@ -6,6 +6,7 @@
       "auto_save.session" = true;
       "colors.webpage.darkmode.enabled" = true;
       "colors.webpage.darkmode.policy.images" = "never";
+      "content.autoplay" = false;
       "content.blocking.enabled" = true;
       "content.blocking.method" = "adblock";
       "content.cookies.accept" = "all";
