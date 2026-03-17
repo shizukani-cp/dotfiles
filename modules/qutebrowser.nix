@@ -1,4 +1,7 @@
 { ... }:
+let
+  leader = "<Space>";
+in
 {
   programs.qutebrowser = {
     enable = true;
@@ -19,9 +22,9 @@
       "tabs.width" = 80;
     };
     extraConfig = ''
-      config.bind('ts', 'open -t https://translate.google.com/translate?sl=auto&tl=ja&u={url}')
-      config.bind(';2', 'jseval document.querySelector("video").playbackRate = 2.0')
-      config.bind(';1', 'jseval document.querySelector("video").playbackRate = 1.0')
+      config.bind('${leader}pt', 'open -t https://translate.google.com/translate?sl=auto&tl=ja&u={url}')
+      config.bind('${leader}p2', 'jseval document.querySelector("video").playbackRate = 2.0')
+      config.bind('${leader}p1', 'jseval document.querySelector("video").playbackRate = 1.0')
       darkmode_disables = ( "https://discord.com/", )
       for s in darkmode_disables:
           config.set('colors.webpage.darkmode.enabled', False, s + "*")
