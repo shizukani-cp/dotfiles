@@ -13,6 +13,7 @@ local function config()
                     "javascript",
                     "javascriptreact",
                     "json",
+                    "markdown",
                     "nix",
                     "typescript",
                     "typescriptreact",
