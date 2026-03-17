@@ -1,4 +1,4 @@
-{ ... }:
+{ config, ... }:
 let
   leader = "<Space>";
 in
@@ -15,6 +15,7 @@ in
       "content.cookies.accept" = "all";
       "content.cookies.store" = true;
       "content.pdfjs" = true;
+      "downloads.location.directory" = "${config.home.homeDirectory}/scratch";
       "fonts.tabs.selected" = "16px 'Noto Sans CJK JP'";
       "fonts.tabs.unselected" = "16px 'Noto Sans CJK JP'";
       "tabs.favicons.show" = "always";
