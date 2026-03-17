@@ -14,6 +14,7 @@ in
       "content.blocking.method" = "adblock";
       "content.cookies.accept" = "all";
       "content.cookies.store" = true;
+      "content.pdfjs" = true;
       "fonts.tabs.selected" = "16px 'Noto Sans CJK JP'";
       "fonts.tabs.unselected" = "16px 'Noto Sans CJK JP'";
       "tabs.favicons.show" = "always";
