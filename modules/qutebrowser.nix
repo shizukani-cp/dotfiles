@@ -25,6 +25,7 @@ in
       config.bind('${leader}pt', 'open -t https://translate.google.com/translate?sl=auto&tl=ja&u={url}')
       config.bind('${leader}p2', 'jseval document.querySelector("video").playbackRate = 2.0')
       config.bind('${leader}p1', 'jseval document.querySelector("video").playbackRate = 1.0')
+      config.bind('${leader}${leader}', 'fake-key ${leader}')
       darkmode_disables = ( "https://discord.com/", )
       for s in darkmode_disables:
           config.set('colors.webpage.darkmode.enabled', False, s + "*")
