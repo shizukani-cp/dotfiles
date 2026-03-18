@@ -26,6 +26,10 @@
       set -ga terminal-overrides '*:Ss=\E[%p1%d q:Se=\E[ q'
       set-environment -g COLORTERM "truecolor"
 
+      set-option -g status-interval 5
+      set-option -g automatic-rename on
+      set-option -g automatic-rename-format "#{b:pane_current_path}"
+
       set -g status-position top
       set -g status-justify left
       set -g status-style bg=default,fg=white
