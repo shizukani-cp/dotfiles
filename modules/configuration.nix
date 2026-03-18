@@ -96,6 +96,7 @@
       "steam-original"
       "steam-run"
       "steam-unwrapped"
+      "widevine-cdm"
     ];
 
   system.stateVersion = "25.11";

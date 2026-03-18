@@ -1,10 +1,11 @@
-{ config, ... }:
+{ config, pkgs, ... }:
 let
   leader = "<Space>";
 in
 {
   programs.qutebrowser = {
     enable = true;
+    package = (pkgs.qutebrowser.override { enableWideVine = true; });
     settings = {
       "auto_save.session" = true;
       "colors.webpage.darkmode.enabled" = true;
