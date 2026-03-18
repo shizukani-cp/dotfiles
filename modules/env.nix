@@ -1,4 +1,14 @@
 { config, pkgs, ... }:
+let
+  huj8Table =
+    pkgs.runCommand "huj8.lua"
+      {
+        buildInputs = [ pkgs.lua5_4 ];
+      }
+      ''
+        lua ${../nvim/lua/data/huj8_gen.lua} > $out
+      '';
+in
 {
   home.username = "shizukani-cp";
   home.homeDirectory = "/home/shizukani-cp";
@@ -18,6 +28,10 @@
   xdg.configFile = {
     "nvim" = {
       source = ../nvim;
+      recursive = true;
+    };
+    "nvim/lua/data/huj8.lua" = {
+      source = huj8Table;
     };
     "zsh" = {
       source = ../zsh;

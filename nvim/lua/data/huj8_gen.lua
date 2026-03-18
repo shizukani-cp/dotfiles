@@ -246,4 +246,17 @@ local specials = merge(special_exts, {
 })
 local kanatable = merge(final_kanatable, specials)
 
-return kanatable
+local function serialize(t)
+    local s = "return {\n"
+    for k, v in pairs(t) do
+        if type(v) == "table" then
+            s = s .. string.format('  ["%s"] = {"%s", "%s"},\n', k, v[1], v[2] or "")
+        elseif type(v) == "string" then
+            s = s .. string.format('  ["%s"] = "%s",\n', k, v)
+        end
+    end
+    s = s .. "}"
+    return s
+end
+
+io.write(serialize(kanatable))
