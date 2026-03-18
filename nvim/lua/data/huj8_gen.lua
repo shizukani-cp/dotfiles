@@ -1,3 +1,10 @@
+local function merge(t1, t2)
+    for k, v in pairs(t2) do
+        t1[k] = v
+    end
+    return t1
+end
+
 local function to_kana(romaji, dict)
     local results = {}
     local i = 1
@@ -158,7 +165,7 @@ for k, v in pairs(romaji_map) do
         youon_map[k:sub(1, 1) .. "yi"] = v .. "ぃ"
     end
 end
-romaji_map = vim.tbl_extend("force", romaji_map, youon_map)
+romaji_map = merge(romaji_map, youon_map)
 
 local kanatable_romaji = {}
 
@@ -211,7 +218,7 @@ local special_exts = {
     ["a."] = { "われ", "" },
 }
 
-local specials = vim.tbl_extend("force", special_exts, {
+local specials = merge(special_exts, {
     [" "] = "henkanFirst",
     ["^"] = "henkanPoint",
     ["<s-b>"] = "zenkaku",
@@ -237,6 +244,6 @@ local specials = vim.tbl_extend("force", special_exts, {
     ["."] = { "。", "" },
     ["ak"] = { "うぉ", "" },
 })
-local kanatable = vim.tbl_extend("force", final_kanatable, specials)
+local kanatable = merge(final_kanatable, specials)
 
 return kanatable
