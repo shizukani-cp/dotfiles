@@ -175,7 +175,7 @@ local final_kanatable = {}
 
 for key, romaji in pairs(kanatable_romaji) do
     local kana = to_kana(romaji, romaji_map)
-    if kana then
+    if kana and not kana:match("[a-zA-Z]") then
         final_kanatable[key] = { kana, "" }
     end
 end
