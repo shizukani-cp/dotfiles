@@ -23,6 +23,14 @@ in
       "tabs.title.format" = "{index} {audio}{host}";
       "tabs.width" = 80;
     };
+    searchEngines = {
+      "DEFAULT" = "https://duckduckgo.com/?q={}";
+      "d" = "https://duckduckgo.com/?q={}";
+      "g" = "https://github.com/{}";
+      "gs" = "https://github.com/search?q={}";
+      "go" = "https://www.google.com/search?q={}";
+      "n" = "https://search.nixos.org/packages?query={}";
+    };
     extraConfig = ''
       config.bind('${leader}pt', 'open -t https://translate.google.com/translate?sl=auto&tl=ja&u={url}')
       config.bind('${leader}p2', 'jseval document.querySelector("video").playbackRate = 2.0')
