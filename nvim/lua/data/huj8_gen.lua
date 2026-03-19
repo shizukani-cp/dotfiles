@@ -46,7 +46,7 @@ local consonants = {
     r = "n",
     s = "h",
     ["5"] = "f",
-    ["6"] = "v",
+    ["5 "] = "v",
     q = "b",
     x = "p",
     ["3"] = "m",
@@ -181,7 +181,11 @@ local kanatable_romaji = {}
 for ck, cv in pairs(consonants) do
     for vk, vv in pairs(vowels) do
         kanatable_romaji[ck .. vk] = cv .. vv
-        kanatable_romaji[ck .. " " .. vk] = cv .. "y" .. vv
+        if ck == "5" then
+            kanatable_romaji[ck .. " " .. vk] = "v" .. vv
+        else
+            kanatable_romaji[ck .. " " .. vk] = cv .. "y" .. vv
+        end
     end
 end
 for vk, vv in pairs(vowels) do
