@@ -31,6 +31,7 @@ in
       "gs" = "https://github.com/search?q={}";
       "go" = "https://www.google.com/search?q={}";
       "n" = "https://search.nixos.org/packages?query={}";
+      "y" = "https://youtube.com{}";
     };
     extraConfig = ''
       config.bind('${leader}pt', 'open -t https://translate.google.com/translate?sl=auto&tl=ja&u={url}')
