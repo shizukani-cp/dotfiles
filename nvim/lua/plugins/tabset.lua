@@ -32,5 +32,5 @@ return function(manager)
         url = "https://github.com/FotiadisM/tabset.nvim",
         config = config,
     })
-    manager:load("tabset.nvim")
+    manager:locked_load("tabset.nvim")
 end

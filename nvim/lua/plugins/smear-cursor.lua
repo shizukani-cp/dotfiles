@@ -12,5 +12,5 @@ return function(manager)
         url = "https://github.com/sphamba/smear-cursor.nvim",
         config = config,
     })
-    manager:load("smear-cursor.nvim")
+    manager:locked_load("smear-cursor.nvim")
 end

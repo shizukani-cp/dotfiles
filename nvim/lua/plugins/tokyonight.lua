@@ -17,5 +17,5 @@ return function(manager)
         url = "https://github.com/folke/tokyonight.nvim",
         config = config,
     })
-    manager:load("tokyonight.nvim")
+    manager:locked_load("tokyonight.nvim")
 end

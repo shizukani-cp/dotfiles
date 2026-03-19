@@ -45,5 +45,5 @@ return function(manager)
         url = "https://github.com/nvim-treesitter/nvim-treesitter",
         config = config,
     })
-    manager:load("nvim-treesitter")
+    manager:locked_load("nvim-treesitter")
 end

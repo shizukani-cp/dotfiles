@@ -12,5 +12,5 @@ return function(manager)
         url = "https://github.com/shellRaining/hlchunk.nvim",
         config = config,
     })
-    manager:load("hlchunk.nvim")
+    manager:locked_load("hlchunk.nvim")
 end

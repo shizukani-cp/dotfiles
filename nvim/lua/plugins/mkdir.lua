@@ -3,5 +3,5 @@ return function(manager)
         id = "mkdir.nvim",
         url = "https://github.com/jghauser/mkdir.nvim",
     })
-    manager:load("mkdir.nvim")
+    manager:locked_load("mkdir.nvim")
 end

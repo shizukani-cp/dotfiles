@@ -27,5 +27,5 @@ return function(manager)
         url = "https://github.com/folke/which-key.nvim",
         config = config,
     })
-    manager:load("which-key.nvim")
+    manager:locked_load("which-key.nvim")
 end

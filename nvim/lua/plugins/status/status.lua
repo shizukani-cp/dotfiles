@@ -94,5 +94,5 @@ return function(manager)
         dev = false,
         dir = require("utils.local_plugin_path")("status.nvim"),
     })
-    manager:load("status.nvim")
+    manager:locked_load("status.nvim")
 end

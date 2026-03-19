@@ -95,5 +95,5 @@ return function(manager)
         },
         config = config,
     })
-    manager:load("dashboard-nvim")
+    manager:locked_load("dashboard-nvim")
 end

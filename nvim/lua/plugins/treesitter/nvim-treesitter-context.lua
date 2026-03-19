@@ -11,5 +11,5 @@ return function(manager)
         },
         config = config,
     })
-    manager:load("nvim-treesitter-context")
+    manager:locked_load("nvim-treesitter-context")
 end

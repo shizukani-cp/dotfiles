@@ -11,5 +11,5 @@ return function(manager)
         },
         config = config,
     })
-    manager:load("oil-git-signs.nvim")
+    manager:locked_load("oil-git-signs.nvim")
 end

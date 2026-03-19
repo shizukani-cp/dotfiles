@@ -1,7 +1,7 @@
-_G.manager:load("lazydev.nvim")
-_G.manager:load("nvim-lspconfig")
-_G.manager:load("ddc-source-lsp-setup")
-_G.manager:load("conform.nvim")
+_G.manager:locked_load("lazydev.nvim")
+_G.manager:locked_load("nvim-lspconfig")
+_G.manager:locked_load("ddc-source-lsp-setup")
+_G.manager:locked_load("conform.nvim")
 
 local lsp_servers = require("data.lsp").lsp_servers
 require("lazydev").setup()

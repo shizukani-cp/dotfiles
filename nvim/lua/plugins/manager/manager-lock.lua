@@ -1,5 +1,5 @@
 local function config(manager)
-    require("manager.lock").setup(manager, true)
+    require("manager.lock").setup(manager, false)
 end
 
 return function(manager)

@@ -8,5 +8,5 @@ return function(manager)
         url = "https://github.com/OXY2DEV/markview.nvim",
         config = config,
     })
-    manager:load("markview.nvim")
+    manager:locked_load("markview.nvim")
 end
