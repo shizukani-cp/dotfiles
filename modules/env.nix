@@ -3,10 +3,14 @@ let
   huj8Table =
     pkgs.runCommand "huj8.lua"
       {
-        buildInputs = [ pkgs.lua5_4 ];
+        buildInputs = with pkgs; [
+          lua5_4
+          luajit
+        ];
       }
       ''
-        lua ${../nvim/lua/data/huj8_gen.lua} > $out
+        lua ${../nvim/lua/data/huj8_gen.lua} > temp.lua
+        luajit -b temp.lua $out
       '';
 in
 {
