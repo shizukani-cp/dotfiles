@@ -1,6 +1,5 @@
-local huj8_table = require("data.huj8")
-
 local function config()
+    local huj8_table = require("data.huj8")
     vim.fn["skkeleton#register_kanatable"]("huj8", huj8_table, 1)
     local lowercases = {}
     lowercases['"'] = "2"
