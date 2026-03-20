@@ -11,7 +11,7 @@
         plugin = continuum;
         extraConfig = ''
           set -g @continuum-save-interval '15'
-          set -g @continuum-restore 'on'
+          set -g @continuum-restore 'off'
         '';
       }
       vim-tmux-navigator
