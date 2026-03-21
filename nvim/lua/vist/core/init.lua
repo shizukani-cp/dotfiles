@@ -7,9 +7,14 @@
 ---@field kind `T`
 ---@field data? any
 
+---@class Vist.Diff
+---@field id? number
+---@field line string
+
 ---@class Vist.Adapter
+---@field bufname fun(): string
 ---@field list fun(): Vist.Item[]
----@field parse? fun(lines: string[]): Vist.Action<any>[]
+---@field parse? fun(diff: Vist.Diff[]): Vist.Action<any>[]
 ---@field do_action? fun(action: Vist.Action<any>)
 
 local M = {}
@@ -26,6 +31,7 @@ function M.open(adapter)
     local buf = vim.api.nvim_create_buf(false, true)
     vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
     vim.api.nvim_set_current_buf(buf)
+    vim.api.nvim_buf_set_name(buf, adapter.bufname())
     vim.bo[buf].modified = false
     vim.bo[buf].buftype = "acwrite"
     vim.bo[buf].bufhidden = "hide"
@@ -37,6 +43,27 @@ function M.open(adapter)
             id = item.id,
         })
     end
+
+    vim.api.nvim_create_autocmd("BufWriteCmd", {
+        buffer = buf,
+        callback = function()
+            local ns = vim.api.nvim_create_namespace("vist")
+            local current_lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
+            local state = {}
+
+            for i, line in ipairs(current_lines) do
+                local marks = vim.api.nvim_buf_get_extmarks(0, ns, { i - 1, 0 }, { i - 1, -1 }, {})
+                local id = (#marks > 0) and marks[1][1] or nil
+                table.insert(state, { id = id, text = line })
+            end
+
+            local actions = adapter.parse(state)
+            for _, action in ipairs(actions) do
+                adapter.do_action(action)
+            end
+            vim.bo[buf].modified = false
+        end,
+    })
 end
 
 return M
