@@ -68,4 +68,16 @@ function M.do_action(action)
     end
 end
 
+function M.open_item(_, text)
+    local cwd = vim.fn.getcwd()
+    local path = vim.fs.joinpath(cwd, text)
+
+    if vim.fn.isdirectory(path) == 1 then
+        vim.api.nvim_set_current_dir(path)
+        require("vist.core").open(M)
+    else
+        vim.cmd("edit " .. vim.fn.fnameescape(path))
+    end
+end
+
 return M --[[@as Vist.Adapter]]

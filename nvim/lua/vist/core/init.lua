@@ -16,6 +16,7 @@
 ---@field list fun(): Vist.Item[]
 ---@field parse? fun(state: Vist.State[]): Vist.Action<any>[]
 ---@field do_action? fun(action: Vist.Action<any>)
+---@field open_item fun(id: number, line: string)
 
 local M = {}
 
@@ -76,6 +77,17 @@ function M.open(adapter)
             M.open(adapter)
         end,
     })
+    vim.keymap.set("n", "<CR>", function()
+        local row = vim.api.nvim_win_get_cursor(0)[1] - 1
+        local line = vim.api.nvim_buf_get_lines(0, row, row + 1, false)[1]
+        local ns = vim.api.nvim_create_namespace("vist")
+        local marks = vim.api.nvim_buf_get_extmarks(0, ns, { row, 0 }, { row, -1 }, {})
+
+        if #marks > 0 then
+            local id = marks[#marks][1]
+            adapter.open_item(id, line)
+        end
+    end, { buffer = buf, silent = true, noremap = true })
 end
 
 return M
