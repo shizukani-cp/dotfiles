@@ -20,15 +20,38 @@ local function list()
     return items
 end
 
-local function parse(diff)
-    vim.print(diff)
-    return {
-        { kind = "create" },
-    }
+local function parse(state)
+    local actions = {}
+    local current_ids = {}
+
+    for _, item in ipairs(state) do
+        if item.id then
+            current_ids[item.id] = true
+            local old_name = data.cache[item.id]
+            if old_name and old_name ~= item.text then
+                table.insert(actions, {
+                    kind = "rename",
+                    data = { old = old_name, new = item.text },
+                })
+            end
+        else
+            if item.text ~= "" then
+                table.insert(actions, { kind = "create", data = { name = item.text } })
+            end
+        end
+    end
+
+    for id, name in pairs(data.cache) do
+        if not current_ids[id] then
+            table.insert(actions, { kind = "delete", data = { name = name } })
+        end
+    end
+
+    return actions
 end
 
 local function do_action(action)
-    local _ = action
+    vim.print(action)
 end
 
 ---@type Vist.Adapter

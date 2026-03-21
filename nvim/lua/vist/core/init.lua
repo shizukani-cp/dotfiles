@@ -7,14 +7,14 @@
 ---@field kind `T`
 ---@field data? any
 
----@class Vist.Diff
+---@class Vist.State
 ---@field id? number
 ---@field line string
 
 ---@class Vist.Adapter
 ---@field bufname fun(): string
 ---@field list fun(): Vist.Item[]
----@field parse? fun(diff: Vist.Diff[]): Vist.Action<any>[]
+---@field parse? fun(state: Vist.State[]): Vist.Action<any>[]
 ---@field do_action? fun(action: Vist.Action<any>)
 
 local M = {}
@@ -41,6 +41,7 @@ function M.open(adapter)
         local row = i - 1
         vim.api.nvim_buf_set_extmark(buf, ns_id, row, 0, {
             id = item.id,
+            invalidate = true,
         })
     end
 
@@ -53,7 +54,10 @@ function M.open(adapter)
 
             for i, line in ipairs(current_lines) do
                 local marks = vim.api.nvim_buf_get_extmarks(0, ns, { i - 1, 0 }, { i - 1, -1 }, {})
-                local id = (#marks > 0) and marks[1][1] or nil
+                local id = nil
+                if #marks > 0 then
+                    id = marks[#marks][1]
+                end
                 table.insert(state, { id = id, text = line })
             end
 
