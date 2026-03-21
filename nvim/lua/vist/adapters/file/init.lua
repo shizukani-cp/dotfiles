@@ -51,7 +51,21 @@ local function parse(state)
 end
 
 local function do_action(action)
-    vim.print(action)
+    local cwd = vim.fn.getcwd()
+    if action.kind == "rename" then
+        local old_path = vim.fs.joinpath(cwd, action.data.old)
+        local new_path = vim.fs.joinpath(cwd, action.data.new)
+        os.rename(old_path, new_path)
+    elseif action.kind == "delete" then
+        local path = vim.fs.joinpath(cwd, action.data.name)
+        os.remove(path)
+    elseif action.kind == "create" then
+        local path = vim.fs.joinpath(cwd, action.data.name)
+        local f = io.open(path, "w")
+        if f then
+            f:close()
+        end
+    end
 end
 
 ---@type Vist.Adapter
