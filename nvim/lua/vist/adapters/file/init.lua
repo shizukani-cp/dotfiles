@@ -1,15 +1,23 @@
 ---@alias Vist.Adapters.File.Action.Kind "create" | "delete" | "rename"
 
-local protocol = "vist-file://"
+local data = { protocol = "vist-file://", cache = {} }
 
 local function bufname()
-    return protocol .. vim.fn.expand("%:p:h")
+    return data.protocol .. vim.fn.expand("%:p:h")
 end
 
 local function list()
-    return {
-        { id = 1, display = "test.txt" },
-    }
+    local cwd = vim.fn.getcwd()
+    local files = vim.fn.readdir(cwd)
+    local items = {}
+    data.cache = {}
+
+    for i, name in ipairs(files) do
+        local item = { id = i, display = name }
+        table.insert(items, item)
+        data.cache[i] = name
+    end
+    return items
 end
 
 local function parse(diff)
@@ -29,6 +37,7 @@ local M = {
     list = list,
     parse = parse,
     do_action = do_action,
+    data = data,
 }
 
 return M
