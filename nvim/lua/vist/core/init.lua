@@ -21,6 +21,7 @@ local M = {}
 
 ---@param adapter Vist.Adapter
 function M.open(adapter)
+    local name = adapter.bufname()
     local items = adapter.list()
     local lines = {}
     for _, item in ipairs(items) do
@@ -28,10 +29,14 @@ function M.open(adapter)
         table.insert(lines, text)
     end
 
+    local old_buf = vim.fn.bufnr(name)
+    if old_buf ~= -1 then
+        vim.api.nvim_buf_delete(old_buf, { force = true })
+    end
     local buf = vim.api.nvim_create_buf(false, true)
+    vim.api.nvim_buf_set_name(buf, name)
     vim.api.nvim_buf_set_lines(buf, 0, -1, false, lines)
     vim.api.nvim_set_current_buf(buf)
-    vim.api.nvim_buf_set_name(buf, adapter.bufname())
     vim.bo[buf].modified = false
     vim.bo[buf].buftype = "acwrite"
     vim.bo[buf].bufhidden = "hide"
@@ -45,8 +50,10 @@ function M.open(adapter)
         })
     end
 
+    local group = vim.api.nvim_create_augroup("VistGroup_" .. buf, { clear = true })
     vim.api.nvim_create_autocmd("BufWriteCmd", {
         buffer = buf,
+        group = group,
         callback = function()
             local ns = vim.api.nvim_create_namespace("vist")
             local current_lines = vim.api.nvim_buf_get_lines(0, 0, -1, false)
@@ -66,6 +73,7 @@ function M.open(adapter)
                 adapter.do_action(action)
             end
             vim.bo[buf].modified = false
+            M.open(adapter)
         end,
     })
 end
