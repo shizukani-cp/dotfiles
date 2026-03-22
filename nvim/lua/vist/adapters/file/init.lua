@@ -1,19 +1,26 @@
 ---@alias Vist.Adapters.File.Action.Kind "create" | "delete" | "rename"
 
-local M = { protocol = "vist-file://", cache = {}, cwd = nil }
+local M = { protocol = "vist-file://", cache = {} }
+
+local function get_cwd(bufnr)
+    local bufname = vim.api.nvim_buf_get_name(bufnr)
+    local path = bufname:match("^" .. M.protocol .. "(.*)")
+
+    return (path and path ~= "") and path or vim.fn.getcwd()
+end
 
 function M.bufname()
     return M.protocol .. vim.fn.expand("%:p:h")
 end
 
 function M.list()
-    M.cwd = vim.fn.getcwd()
-    local files = vim.fn.readdir(M.cwd)
+    local cwd = vim.fn.expand("%:p:h")
+    local files = vim.fn.readdir(cwd)
     local items = {}
     M.cache = {}
 
     for i, name in ipairs(files) do
-        local full_path = vim.fs.joinpath(M.cwd, name)
+        local full_path = vim.fs.joinpath(cwd, name)
         local display_name = name
         if vim.fn.isdirectory(full_path) == 1 then
             display_name = name .. "/"
@@ -56,15 +63,16 @@ function M.parse(state)
 end
 
 function M.do_action(action)
+    local cwd = get_cwd(0)
     if action.kind == "rename" then
-        local old_path = vim.fs.joinpath(M.cwd, action.data.old)
-        local new_path = vim.fs.joinpath(M.cwd, action.data.new)
+        local old_path = vim.fs.joinpath(cwd, action.data.old)
+        local new_path = vim.fs.joinpath(cwd, action.data.new)
         os.rename(old_path, new_path)
     elseif action.kind == "delete" then
-        local path = vim.fs.joinpath(M.cwd, action.data.name)
+        local path = vim.fs.joinpath(cwd, action.data.name)
         os.remove(path)
     elseif action.kind == "create" then
-        local path = vim.fs.joinpath(M.cwd, action.data.name)
+        local path = vim.fs.joinpath(cwd, action.data.name)
         if action.data.name:sub(-1) == "/" then
             vim.fn.mkdir(path, "p")
         else
@@ -77,7 +85,7 @@ function M.do_action(action)
 end
 
 function M.open_item(_, text)
-    local cwd = vim.fn.getcwd()
+    local cwd = get_cwd(0)
     local path = vim.fs.joinpath(cwd, text)
 
     if vim.fn.isdirectory(path) == 1 then
