@@ -13,7 +13,12 @@ function M.list()
     M.cache = {}
 
     for i, name in ipairs(files) do
-        local item = { id = i, display = name }
+        local full_path = vim.fs.joinpath(cwd, name)
+        local display_name = name
+        if vim.fn.isdirectory(full_path) == 1 then
+            display_name = name .. "/"
+        end
+        local item = { id = i, display = display_name }
         table.insert(items, item)
         M.cache[i] = name
     end
@@ -61,9 +66,13 @@ function M.do_action(action)
         os.remove(path)
     elseif action.kind == "create" then
         local path = vim.fs.joinpath(cwd, action.data.name)
-        local f = io.open(path, "w")
-        if f then
-            f:close()
+        if action.data.name:sub(-1) == "/" then
+            vim.fn.mkdir(path, "p")
+        else
+            local f = io.open(path, "w")
+            if f then
+                f:close()
+            end
         end
     end
 end
