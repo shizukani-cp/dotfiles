@@ -1,20 +1,37 @@
 ---@alias Vist.Adapters.File.Action.Kind "create" | "delete" | "rename"
 
-local M = { protocol = "vist-file://", cache = {}, current_path = vim.fn.getcwd() }
+local M = { protocol = "vist-file://", cache = {}, pending_path = nil }
 
-local function get_cwd(bufnr)
+local function dirname_from_bufname(bufnr)
     local bufname = vim.api.nvim_buf_get_name(bufnr)
-    local path = bufname:match("^" .. M.protocol .. "(.*)")
+    if bufname:find(M.protocol, 1, true) == 1 then
+        return bufname:sub(#M.protocol + 1)
+    end
+    return nil
+end
 
-    return (path and path ~= "") and path or vim.fn.getcwd()
+local function get_cwd()
+    if M.pending_path then
+        return M.pending_path
+    end
+    local from_bufname = dirname_from_bufname(0)
+    if from_bufname then
+        return from_bufname
+    end
+    local bufname = vim.api.nvim_buf_get_name(0)
+    local buftype = vim.bo.buftype
+    if buftype == "" and bufname ~= "" then
+        return vim.fn.fnamemodify(bufname, ":p:h")
+    end
+    return vim.fn.getcwd()
 end
 
 function M.bufname()
-    return M.protocol .. M.current_path
+    return M.protocol .. get_cwd()
 end
 
 function M.list()
-    local cwd = M.current_path
+    local cwd = get_cwd()
     local files = vim.fn.readdir(cwd)
     local items = {}
     M.cache = {}
@@ -63,7 +80,7 @@ function M.parse(state)
 end
 
 function M.do_action(action)
-    local cwd = get_cwd(0)
+    local cwd = get_cwd()
     if action.kind == "rename" then
         local old_path = vim.fs.joinpath(cwd, action.data.old)
         local new_path = vim.fs.joinpath(cwd, action.data.new)
@@ -86,11 +103,12 @@ end
 
 function M.open_item(_, text)
     local clean_name = text:gsub("/$", "")
-    local new_path = vim.fs.joinpath(M.current_path, clean_name)
+    local new_path = vim.fs.joinpath(dirname_from_bufname(0), clean_name)
 
     if vim.fn.isdirectory(new_path) == 1 then
-        M.current_path = new_path
+        M.pending_path = new_path
         require("vist.core").open(M)
+        M.pending_path = nil
     else
         vim.cmd("edit " .. vim.fn.fnameescape(new_path))
     end
