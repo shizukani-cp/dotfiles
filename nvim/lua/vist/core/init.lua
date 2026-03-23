@@ -17,6 +17,7 @@
 ---@field parse? fun(state: Vist.State[]): Vist.Action<any>[]
 ---@field do_action? fun(action: Vist.Action<any>)
 ---@field open_item fun(id: number, line: string)
+---@field on_open fun(bufnr: number)
 
 local M = {}
 
@@ -88,6 +89,7 @@ function M.open(adapter)
             adapter.open_item(id, line)
         end
     end, { buffer = buf, silent = true, noremap = true })
+    adapter.on_open(buf)
 end
 
 return M

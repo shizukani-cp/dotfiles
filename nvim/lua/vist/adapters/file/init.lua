@@ -114,4 +114,19 @@ function M.open_item(_, text)
     end
 end
 
+function M.on_open(bufnr)
+    vim.keymap.set("n", "-", function()
+        local current = dirname_from_bufname(bufnr):gsub("/$", "")
+        local parent = vim.fn.fnamemodify(current, ":p:h:h")
+
+        if current == parent or current == "/" then
+            return
+        end
+
+        M.pending_path = parent
+        require("vist.core").open(M)
+        M.pending_path = nil
+    end, { buffer = bufnr, silent = true, noremap = true })
+end
+
 return M --[[@as Vist.Adapter]]
