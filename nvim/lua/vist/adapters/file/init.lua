@@ -1,6 +1,6 @@
 ---@alias Vist.Adapters.File.Action.Kind "create" | "delete" | "rename"
 
-local M = { protocol = "vist-file://", cache = {} }
+local M = { protocol = "vist-file://", cache = {}, current_path = vim.fn.getcwd() }
 
 local function get_cwd(bufnr)
     local bufname = vim.api.nvim_buf_get_name(bufnr)
@@ -10,11 +10,11 @@ local function get_cwd(bufnr)
 end
 
 function M.bufname()
-    return M.protocol .. vim.fn.expand("%:p:h")
+    return M.protocol .. M.current_path
 end
 
 function M.list()
-    local cwd = vim.fn.expand("%:p:h")
+    local cwd = M.current_path
     local files = vim.fn.readdir(cwd)
     local items = {}
     M.cache = {}
@@ -85,14 +85,14 @@ function M.do_action(action)
 end
 
 function M.open_item(_, text)
-    local cwd = get_cwd(0)
-    local path = vim.fs.joinpath(cwd, text)
+    local clean_name = text:gsub("/$", "")
+    local new_path = vim.fs.joinpath(M.current_path, clean_name)
 
-    if vim.fn.isdirectory(path) == 1 then
-        vim.api.nvim_set_current_dir(path)
+    if vim.fn.isdirectory(new_path) == 1 then
+        M.current_path = new_path
         require("vist.core").open(M)
     else
-        vim.cmd("edit " .. vim.fn.fnameescape(path))
+        vim.cmd("edit " .. vim.fn.fnameescape(new_path))
     end
 end
 
