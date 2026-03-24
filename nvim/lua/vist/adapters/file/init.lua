@@ -133,4 +133,27 @@ function M.on_open(bufnr)
     end, { buffer = bufnr, silent = true, noremap = true })
 end
 
+function M.confirm(actions)
+    if #actions == 0 then
+        return
+    end
+
+    local lines = {}
+    for _, a in ipairs(actions) do
+        if a.kind == "create" then
+            table.insert(lines, "  [+] " .. a.data.name)
+        elseif a.kind == "delete" then
+            table.insert(lines, "  [-] " .. a.data.name)
+        elseif a.kind == "rename" then
+            table.insert(lines, "  [R] " .. a.data.old .. " -> " .. a.data.new)
+        end
+    end
+
+    local choice = vim.fn.confirm(table.concat(lines, "\n"), "&Yes\n&No", 1)
+    if choice ~= 1 then
+        return false
+    end
+    return true
+end
+
 return M --[[@as Vist.Adapter]]

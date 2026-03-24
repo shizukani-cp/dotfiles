@@ -18,6 +18,7 @@
 ---@field do_action? fun(action: Vist.Action<string>)
 ---@field open_item? fun(id: number, line: string)
 ---@field on_open? fun(bufnr: number)
+---@field confirm? fun(actions: Vist.Action<string>[]): boolean
 
 local M = {}
 
@@ -73,6 +74,13 @@ function M.open(adapter)
             local has_parse, actions = pcall(adapter.parse, state)
             if not has_parse then
                 actions = {}
+            end
+            local success, result = pcall(adapter.confirm, actions)
+            if not success then
+                result = true
+            end
+            if not result then
+                return
             end
             for _, action in ipairs(actions) do
                 local _, _ = pcall(adapter.do_action, action)
