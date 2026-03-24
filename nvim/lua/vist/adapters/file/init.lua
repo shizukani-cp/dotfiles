@@ -2,6 +2,8 @@
 
 local M = { protocol = "vist-file://", cache = {}, pending_path = nil }
 
+local devicons = require("nvim-web-devicons")
+
 local function dirname_from_bufname(bufnr)
     local bufname = vim.api.nvim_buf_get_name(bufnr)
     if bufname:find(M.protocol, 1, true) == 1 then
@@ -40,12 +42,16 @@ function M.list()
     M.cache = {}
 
     for i, name in ipairs(files) do
+        local ext = name:match("%.([^%.]+)$")
+        local icon, hl = devicons.get_icon(name, ext, { default = true })
         local full_path = vim.fs.joinpath(cwd, name)
         local display_name = name
         if vim.fn.isdirectory(full_path) == 1 then
             display_name = name .. "/"
+            icon = ""
+            hl = "Directory"
         end
-        local item = { id = i, display = display_name }
+        local item = { id = i, display = display_name, icon = icon, icon_hl = hl }
         table.insert(items, item)
         M.cache[i] = name
     end

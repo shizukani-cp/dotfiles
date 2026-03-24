@@ -1,6 +1,8 @@
 ---@class Vist.Item
 ---@field id number
 ---@field display? string
+---@field icon? string
+---@field icon_hl? string
 ---@field data? any
 
 ---@class Vist.Action<T>
@@ -29,7 +31,7 @@ function M.open(adapter)
     local lines = {}
     for _, item in ipairs(items) do
         local text = item.display or tostring(item.id) or ""
-        table.insert(lines, text)
+        table.insert(lines, "  " .. text)
     end
 
     local old_buf = vim.fn.bufnr(name)
@@ -47,10 +49,17 @@ function M.open(adapter)
     local ns_id = vim.api.nvim_create_namespace("vist")
     for i, item in ipairs(items) do
         local row = i - 1
-        vim.api.nvim_buf_set_extmark(buf, ns_id, row, 0, {
+        local opts = {
             id = item.id,
             invalidate = true,
-        })
+        }
+
+        if item.icon then
+            opts.virt_text = { { item.icon .. " ", item.icon_hl or "None" } }
+            opts.virt_text_pos = "overlay"
+        end
+
+        vim.api.nvim_buf_set_extmark(buf, ns_id, row, 0, opts)
     end
 
     local group = vim.api.nvim_create_augroup("VistGroup_" .. buf, { clear = true })
@@ -68,7 +77,8 @@ function M.open(adapter)
                 if #marks > 0 then
                     id = marks[#marks][1]
                 end
-                table.insert(state, { id = id, text = line })
+                local clean_text = line:match("^%s%s(.*)$") or line
+                table.insert(state, { id = id, text = clean_text })
             end
 
             local has_parse, actions = pcall(adapter.parse, state)
@@ -92,6 +102,7 @@ function M.open(adapter)
     vim.keymap.set("n", "<CR>", function()
         local row = vim.api.nvim_win_get_cursor(0)[1] - 1
         local line = vim.api.nvim_buf_get_lines(0, row, row + 1, false)[1]
+        line = line:gsub("^  ", "")
         local ns = vim.api.nvim_create_namespace("vist")
         local marks = vim.api.nvim_buf_get_extmarks(0, ns, { row, 0 }, { row, -1 }, {})
 
