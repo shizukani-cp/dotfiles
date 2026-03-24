@@ -8,7 +8,7 @@ local function config()
             show_hidden = true,
         },
     })
-    vim.keymap.set("n", "<Leader>f", "<Cmd>Oil<Cr>", { noremap = true, silent = true, desc = "Oil" })
+    -- vim.keymap.set("n", "<Leader>f", "<Cmd>Oil<Cr>", { noremap = true, silent = true, desc = "Oil" })
 
     vim.g.loaded_netrw = 1
     vim.g.loaded_netrwPlugin = 1

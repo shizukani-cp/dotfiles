@@ -30,11 +30,11 @@ local function config(manager)
                 {
                     icon = "📁 ",
                     key = "f",
-                    keymap_hl = "Oil",
-                    desc = "Oil",
+                    keymap_hl = "File",
+                    desc = "File",
                     action = function()
-                        manager:load("oil.nvim")
-                        vim.cmd([[Oil]])
+                        manager:load("vist.nvim")
+                        require("vist.core").open(require("vist.file"))
                     end,
                 },
                 {
