@@ -15,9 +15,9 @@
 ---@field bufname fun(): string
 ---@field list fun(): Vist.Item[]
 ---@field parse? fun(state: Vist.State[]): Vist.Action<any>[]
----@field do_action? fun(action: Vist.Action<any>)
----@field open_item fun(id: number, line: string)
----@field on_open fun(bufnr: number)
+---@field do_action? fun(action: Vist.Action<string>)
+---@field open_item? fun(id: number, line: string)
+---@field on_open? fun(bufnr: number)
 
 local M = {}
 
@@ -70,9 +70,12 @@ function M.open(adapter)
                 table.insert(state, { id = id, text = line })
             end
 
-            local actions = adapter.parse(state)
+            local has_parse, actions = pcall(adapter.parse, state)
+            if not has_parse then
+                actions = {}
+            end
             for _, action in ipairs(actions) do
-                adapter.do_action(action)
+                local _, _ = pcall(adapter.do_action, action)
             end
             vim.bo[buf].modified = false
             M.open(adapter)
@@ -86,10 +89,10 @@ function M.open(adapter)
 
         if #marks > 0 then
             local id = marks[#marks][1]
-            adapter.open_item(id, line)
+            local _, _ = pcall(adapter.open_item, id, line)
         end
     end, { buffer = buf, silent = true, noremap = true })
-    adapter.on_open(buf)
+    local _, _ = pcall(adapter.on_open, buf)
 end
 
 return M

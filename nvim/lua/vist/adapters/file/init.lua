@@ -32,6 +32,9 @@ end
 
 function M.list()
     local cwd = get_cwd()
+    if not cwd then
+        return
+    end
     local files = vim.fn.readdir(cwd)
     local items = {}
     M.cache = {}
@@ -50,6 +53,7 @@ function M.list()
 end
 
 function M.parse(state)
+    ---@type Vist.Action<Vist.Adapters.File.Action.Kind>
     local actions = {}
     local current_ids = {}
 
