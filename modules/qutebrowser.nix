@@ -20,6 +20,7 @@ in
       "fonts.tabs.selected" = "16px 'Noto Sans CJK JP'";
       "fonts.tabs.unselected" = "16px 'Noto Sans CJK JP'";
       "tabs.favicons.show" = "always";
+      "tabs.lazy" = true;
       "tabs.position" = "left";
       "tabs.title.format" = "{index} {audio}{host}";
       "tabs.width" = 80;

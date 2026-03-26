@@ -61,6 +61,8 @@
 
   services.power-profiles-daemon.enable = true;
 
+  services.earlyoom.enable = true;
+
   hardware.graphics = {
     enable = true;
     extraPackages = with pkgs; [
