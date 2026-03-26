@@ -29,9 +29,9 @@ end
 
 --[[
 1:小 2:z  3:m  4:記 5:f  6:v  7:in 8:un 9:en 0:on
- Q:b  W:r  E:ん R:n  T:t  Y:ai U:uu I:ai O:ou P:ei @:カ
-  A:w  S:h  D:s  F:k  G:g  H:a  J:i  K:u  L:e  ;:o ::shortcut
-   Z:y  X:p  C:D  V:っ B:   N:   M:   ,:、 .:。
+ Q:b  W:r  E:ん R:n  T:t  Y:ai U:uu I:ai O:ou P:ei @:拡a[:拡i
+  A:w  S:h  D:s  F:k  G:g  H:a  J:i  K:u  L:e  ;:o  ::拡u]:拡e
+   Z:y  X:p  C:D  V:っ B:   N:   M:   ,:、 .:。 /:拡o
                     Space:拗
 ]]
 --
