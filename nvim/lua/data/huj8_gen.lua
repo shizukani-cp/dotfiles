@@ -234,7 +234,7 @@ local special_exts = {
 local specials = merge(special_exts, {
     [" "] = "henkanFirst",
     ["^"] = "henkanPoint",
-    ["<s-b>"] = "zenkaku",
+    ["<s-m>"] = "zenkaku",
     ["@"] = "katakana",
     ["/"] = "abbrev",
 
