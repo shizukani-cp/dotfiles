@@ -160,6 +160,8 @@ local romaji_map = {
     re = "れ",
     ro = "ろ",
     wa = "わ",
+    wi = "うぃ",
+    we = "うぇ",
     wo = "を",
     nn = "ん",
 }
