@@ -45,9 +45,7 @@
               };
             };
           }
-          # "org.kde.plasma.weather"
-          # "org.kde.plasma.systemmonitor.diskusage"
-          # "org.kde.plasma.systemmonitor.diskquota"
+          "org.kde.plasma.systemmonitor.memory"
           "org.kde.plasma.systemtray"
           {
             name = "org.kde.plasma.digitalclock";
