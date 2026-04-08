@@ -1,3 +1,5 @@
+vim.loader.enable()
+
 vim.diagnostic.config({ virtual_text = true })
 vim.g.mapleader = " "
 
