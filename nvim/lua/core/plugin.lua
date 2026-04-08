@@ -127,5 +127,3 @@ require("plugins.vist.vist-file")(manager)
 require("plugins.visual-whitespace")(manager)
 require("plugins.which-key")(manager)
 manager:unlock()
-
--- require("manager.command").setup()
