@@ -16,7 +16,7 @@
       }
       vim-tmux-navigator
     ];
-    shortcut = "a";
+    shortcut = "s";
     keyMode = "vi";
     mouse = true;
     terminal = "screen-256color";
