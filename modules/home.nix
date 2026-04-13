@@ -66,7 +66,7 @@
 
       touch "$FILE_PATH"
 
-      foot nvim "$FILE_PATH"
+      VIME=1 foot nvim "$FILE_PATH"
 
       if [ -f "$FILE_PATH" ]; then
         sleep 0.1
