@@ -39,7 +39,7 @@ in
       config.bind('${leader}p2', 'jseval document.querySelector("video").playbackRate = 2.0')
       config.bind('${leader}p1', 'jseval document.querySelector("video").playbackRate = 1.0')
       config.bind('${leader}${leader}', 'fake-key ${leader}')
-      darkmode_disables = ( "https://discord.com/", "http://localhost:3000/", )
+      darkmode_disables = ( "https://discord.com/", "http://localhost:3000/", "https://docs.google.com/", )
       for s in darkmode_disables:
           config.set('colors.webpage.darkmode.enabled', False, s + "*")
       for i in range(1, 10):
