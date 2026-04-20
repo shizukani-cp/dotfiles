@@ -46,6 +46,7 @@
     python312Packages.python-lsp-server
     ripgrep
     rustup
+    shotcut
     skkDictionaries.l
     stylua
     superTuxKart
