@@ -1,6 +1,9 @@
 { pkgs, ... }:
 
 {
+  security.polkit.enable = true;
+  programs.nm-applet.enable = true;
+
   programs.sway.enable = true;
 
   environment.etc."sway/config".text = ''
@@ -26,5 +29,8 @@
     input "type:keyboard" {
       xkb_layout "jp"
     }
+
+    exec ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator
+    exec ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
   '';
 }
