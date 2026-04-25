@@ -10,6 +10,7 @@
     ./chromium.nix
     ./host/hardware-configuration.nix
     ./keyd.nix
+    ./sway.nix
   ];
 
   nix.settings.experimental-features = [
