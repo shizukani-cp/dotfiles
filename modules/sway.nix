@@ -14,6 +14,7 @@
     bindsym $mod+d exec ${pkgs.fuzzel}/bin/fuzzel
     bindsym $mod+Shift+q kill
     bindsym $mod+Shift+e exec swaymsg exit
+    bindsym $mod+Shift+c reload
     bindsym $mod+Tab focus next
     bindsym $mod+j focus left
     bindsym $mod+k focus right
