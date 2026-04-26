@@ -24,6 +24,10 @@
     bindsym $mod+s layout stacking
     bindsym Henkan_Mode exec vime
 
+    bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+
     bar {
       status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
     }
