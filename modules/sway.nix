@@ -29,7 +29,7 @@
     bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
     bar {
-      status_command while date +'%Y-%m-%d %H:%M:%S'; do sleep 1; done
+      swaybar_command waybar
     }
     input "type:keyboard" {
       xkb_layout "jp"
@@ -37,5 +37,7 @@
 
     exec ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator
     exec ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
+    exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
   '';
+  programs.waybar.enable = true;
 }

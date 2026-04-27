@@ -49,6 +49,9 @@ in
     "nvim" = {
       source = compiledNvimConfig;
     };
+    "waybar" = {
+      source = ../waybar;
+    };
     "zsh" = {
       source = ../zsh;
     };

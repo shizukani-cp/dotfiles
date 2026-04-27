@@ -1,0 +1,14 @@
+* {
+  font-family: monospace;
+  font-size: 14px;
+}
+
+window#waybar {
+  background: rgba(43, 48, 59, 0.5);
+  color: #ffffff;
+}
+
+#workspaces button {
+  padding: 0 5px;
+  color: #ffffff;
+}

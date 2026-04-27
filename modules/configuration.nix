@@ -48,7 +48,20 @@
     xkb.layout = "jp";
   };
   services.displayManager.sddm.enable = true;
-  services.desktopManager.plasma6.enable = true;
+  # services.desktopManager.plasma6.enable = true;
+
+  xdg.portal = {
+    enable = true;
+    wlr.enable = true;
+    extraPortals = [ pkgs.xdg-desktop-portal-gtk ];
+    config.sway = {
+      default = lib.mkForce ([
+        "wlr"
+        "gtk"
+      ]);
+    };
+    config.common.default = [ "gtk" ];
+  };
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
