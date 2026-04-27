@@ -48,7 +48,8 @@
     xkb.layout = "jp";
   };
   services.displayManager.sddm.enable = true;
-  # services.desktopManager.plasma6.enable = true;
+
+  services.pipewire.pulse.enable = true;
 
   xdg.portal = {
     enable = true;

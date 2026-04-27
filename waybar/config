@@ -1,8 +1,24 @@
 {
     "layer": "top",
-    "position": "top",
-    "height": 30,
+    "position": "left",
+    "width": 40,
+    "spacing": 5,
     "modules-left": ["sway/workspaces", "sway/mode"],
     "modules-center": ["sway/window"],
-    "modules-right": ["clock", "battery"]
+    "modules-right": ["pulseaudio", "clock", "battery"],
+
+    "pulseaudio": {
+        "format": "{icon}\n{volume}%",
+        "format-muted": "󰝟",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol"
+    },
+    "clock": {
+        "format": "{:%m/%d\n%H:%M}"
+    },
+    "battery": {
+        "format": "{capacity}%"
+    }
 }
