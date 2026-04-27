@@ -49,7 +49,10 @@
   };
   services.displayManager.sddm.enable = true;
 
+  services.pipewire.enable = true;
+  services.pipewire.alsa.enable = true;
   services.pipewire.pulse.enable = true;
+  security.rtkit.enable = true;
 
   xdg.portal = {
     enable = true;
