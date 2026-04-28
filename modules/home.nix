@@ -35,13 +35,11 @@
     mpc
     ncmpcpp
     neovim
-    nerd-fonts.bitstream-vera-sans-mono
     nil
     nixfmt
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodejs_24
-    noto-fonts-cjk-sans
     prismlauncher
     python312Packages.python-lsp-server
     ripgrep

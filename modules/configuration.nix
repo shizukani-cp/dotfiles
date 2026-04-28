@@ -120,5 +120,32 @@
       "widevine-cdm"
     ];
 
+  fonts = {
+    packages = with pkgs; [
+      nerd-fonts.bitstream-vera-sans-mono
+      nerd-fonts.symbols-only
+      noto-fonts-cjk-sans
+      noto-fonts-color-emoji
+    ];
+
+    fontconfig = {
+      enable = true;
+      defaultFonts = {
+        monospace = [
+          "BitstromWera Nerd Font Mono"
+          "Noto Color Emoji"
+        ];
+        sansSerif = [
+          "Noto Sans CJK JP"
+          "BitstromWera Nerd Font Mono"
+        ];
+        serif = [
+          "Noto Serif CJK JP"
+          "JetBrainsMono Nerd Font"
+        ];
+      };
+    };
+  };
+
   system.stateVersion = "25.11";
 }
