@@ -28,6 +28,17 @@ window#waybar {
   background-color: rgba(255, 255, 255, 0.2);
 }
 
+#battery {
+  color: #ffffff;
+  margin-top: 10px;
+}
+
+#battery.charging,
+#battery.plugged {
+  color: #26A65B;
+  font-weight: bold;
+}
+
 #memory.warning {
   color: #f1c40f;
 }

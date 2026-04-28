@@ -28,7 +28,13 @@
         "format": "{:%m/%d\n%H:%M}"
     },
     "battery": {
-        "format": "{capacity}%"
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}%",
+        "format-charging": "[{capacity}%]",
+        "format-plugged": "[{capacity}%]",
     },
     "wlr/taskbar": {
         "format": "{icon}",
