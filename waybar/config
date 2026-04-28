@@ -3,8 +3,8 @@
     "position": "left",
     "width": 40,
     "spacing": 5,
-    "modules-left": ["sway/workspaces", "sway/mode"],
-    "modules-center": ["sway/window"],
+    "modules-left": ["sway/workspaces", "wlr/taskbar"],
+    "modules-center": [],
     "modules-right": ["pulseaudio", "clock", "battery"],
 
     "pulseaudio": {
@@ -20,5 +20,10 @@
     },
     "battery": {
         "format": "{capacity}%"
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "on-click": "activate",
+        "on-click-middle": "close"
     }
 }

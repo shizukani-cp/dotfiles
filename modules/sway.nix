@@ -31,6 +31,13 @@
     bar {
       swaybar_command waybar
     }
+
+    font pango:monospace 1
+    titlebar_padding 1
+    titlebar_border_thickness 1
+    client.focused #000000 #000000 #000000 #000000 #000000
+    client.unfocused #000000 #000000 #000000 #000000 #000000
+
     input "type:keyboard" {
       xkb_layout "jp"
     }
