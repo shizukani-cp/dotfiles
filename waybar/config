@@ -5,7 +5,7 @@
     "spacing": 5,
     "modules-left": ["sway/workspaces", "wlr/taskbar"],
     "modules-center": [],
-    "modules-right": ["cpu", "memory", "pulseaudio", "clock", "battery"],
+    "modules-right": ["cpu", "memory", "pulseaudio", "network", "custom/bluetooth", "clock", "battery"],
 
     "cpu": {
         "interval": 1,
@@ -23,6 +23,16 @@
             "default": ["󰕿", "󰖀", "󰕾"]
         },
         "on-click": "pavucontrol"
+    },
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰤮",
+        "on-click": "foot nmtui"
+    },
+    "custom/bluetooth": {
+        "format": "",
+        "on-click": "foot bluetuith"
     },
     "clock": {
         "format": "{:%m/%d\n%H:%M}"
