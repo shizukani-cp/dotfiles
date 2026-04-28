@@ -27,3 +27,11 @@ window#waybar {
 #taskbar button:hover {
   background-color: rgba(255, 255, 255, 0.2);
 }
+
+#memory.warning {
+  color: #f1c40f;
+}
+
+#memory.critical {
+  color: #e74c3c;
+}
