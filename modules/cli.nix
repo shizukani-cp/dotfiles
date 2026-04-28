@@ -40,7 +40,7 @@
       setw -g window-status-separator ""
       setw -g window-status-separator ""
       set -g status-right-length 50
-      set -g status-right "#[bg=blue,fg=black,bold] #S #[default] #[fg=green]CPU:#(top -bn1 | grep 'Cpu(s)' | awk '{print $2}')%% #[fg=white]| #[fg=cyan]MEM:#(free -m | awk '/Mem:/ { printf(\"%.1f%%\", $3/$2*100) }') "
+      set -g status-right "#[bg=blue,fg=black,bold] #S #[default]"
       set -g status-interval 1
 
       set -g status-keys vi
