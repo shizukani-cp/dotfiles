@@ -38,6 +38,7 @@
         "format": "{:%m/%d\n%H:%M}"
     },
     "battery": {
+        "interval": 1,
         "states": {
             "warning": 30,
             "critical": 15
