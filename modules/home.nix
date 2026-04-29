@@ -72,6 +72,11 @@
       if [ -f "$FILE_PATH" ]; then
         sleep 0.1
         printf %s "$(cat "$FILE_PATH")" | wl-copy
+        while [ "$(wl-paste | tr -d '\n')" != "$(tr -d '\n' < "$FILE_PATH")" ]; do
+          sleep 0.05
+        done
+
+        notify-send -t 800 "Copy OK" "Sucessfly copied"
       fi
     '')
   ];
