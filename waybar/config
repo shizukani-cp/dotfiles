@@ -50,6 +50,7 @@
     "wlr/taskbar": {
         "format": "{icon}",
         "on-click": "activate",
-        "on-click-middle": "close"
+        "on-click-middle": "close",
+        "sort-by-number": true
     }
 }

@@ -20,8 +20,8 @@
     bindsym $mod+Shift+e exec ${pkgs.wlogout}/bin/wlogout
     bindsym $mod+Shift+c reload
     bindsym $mod+Tab focus next
-    bindsym $mod+j focus left
-    bindsym $mod+k focus right
+    bindsym $mod+j focus right
+    bindsym $mod+k focus left
 
     bindsym $mod+f fullscreen toggle
     bindsym $mod+w layout tabbed
