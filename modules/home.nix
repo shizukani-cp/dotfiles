@@ -13,7 +13,7 @@
     ./mpd.nix
     ./plasma.nix
     ./qutebrowser.nix
-    ./wlogout.nix
+    ./desktop.nix
   ];
   home.packages = with pkgs; [
     bat

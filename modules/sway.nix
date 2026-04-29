@@ -7,6 +7,7 @@
   programs.sway.enable = true;
 
   environment.systemPackages = with pkgs; [
+    libnotify
     wlogout
   ];
   environment.etc."sway/config".text = ''
@@ -48,6 +49,7 @@
     exec ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator
     exec ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
+    exec ${pkgs.dunst}/bin/dunst
   '';
   programs.waybar.enable = true;
 }
