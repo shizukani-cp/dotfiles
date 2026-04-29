@@ -6,6 +6,9 @@
 
   programs.sway.enable = true;
 
+  environment.systemPackages = with pkgs; [
+    wlogout
+  ];
   environment.etc."sway/config".text = ''
     set $mod Mod4
     workspace_layout tabbed
@@ -13,7 +16,7 @@
     bindsym $mod+Return exec ${pkgs.foot}/bin/foot
     bindsym $mod+d exec ${pkgs.fuzzel}/bin/fuzzel
     bindsym $mod+Shift+q kill
-    bindsym $mod+Shift+e exec swaymsg exit
+    bindsym $mod+Shift+e exec ${pkgs.wlogout}/bin/wlogout
     bindsym $mod+Shift+c reload
     bindsym $mod+Tab focus next
     bindsym $mod+j focus left
