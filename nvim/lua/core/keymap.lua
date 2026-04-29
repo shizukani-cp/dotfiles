@@ -19,7 +19,6 @@ vim.keymap.set({ "n", "x" }, "gg", "gg^", { noremap = true, silent = true, desc 
 vim.keymap.set({ "n", "x" }, "G", "G$", { noremap = true, silent = true, desc = "Go to the end of the file" })
 vim.keymap.set("n", "L", ":bnext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "H", ":bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
-vim.keymap.set("n", "<Cr>", "za", { noremap = true, silent = true, desc = "Fold under Cursor" })
 
 vim.api.nvim_set_keymap("i", "jf", "<Esc><Cmd>w<Cr>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("i", "jd", "<Esc>", { noremap = true, silent = true })
