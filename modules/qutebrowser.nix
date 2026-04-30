@@ -25,6 +25,7 @@ in
       "fonts.tabs.unselected" = "16px 'Noto Sans CJK JP'";
       "session.lazy_restore" = true;
       "tabs.favicons.show" = "always";
+      "tabs.new_position.related" = "last";
       "tabs.position" = "left";
       "tabs.title.format" = "{index} {audio}{host}";
       "tabs.width" = 80;
