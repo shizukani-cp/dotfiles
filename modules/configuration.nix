@@ -70,6 +70,8 @@
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.sddm.enableGnomeKeyring = true;
 
+  virtualisation.waydroid.enable = true;
+
   services.gvfs.enable = true;
 
   services.ollama = {
