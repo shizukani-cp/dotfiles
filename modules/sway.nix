@@ -7,7 +7,10 @@
   programs.sway.enable = true;
 
   environment.systemPackages = with pkgs; [
+    grim
     libnotify
+    slurp
+    wl-clipboard
     wlogout
   ];
   environment.etc."sway/config".text = ''
@@ -27,6 +30,8 @@
     bindsym $mod+w layout tabbed
     bindsym $mod+s layout stacking
     bindsym Henkan_Mode exec vime
+
+    bindsym $mod+Shift+s exec grim -g "$(slurp)" - | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | wl-copy && notify-send "Captured screen"
 
     bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
     bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-

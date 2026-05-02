@@ -50,6 +50,7 @@
     skkDictionaries.l
     stylua
     superTuxKart
+    swayimg
     tailwindcss-language-server
     temurin-bin-17
     tmux
