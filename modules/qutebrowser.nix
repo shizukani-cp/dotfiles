@@ -50,6 +50,11 @@ in
           config.set('colors.webpage.darkmode.enabled', False, s + "*")
       for i in range(1, 10):
           config.bind(f'<Ctrl-{i}>', f'tab-focus {i}')
+
+      import os
+      local_script = os.path.expanduser('~/.config/qutebrowser/local_config.py')
+      if os.path.exists(local_script):
+          config.source(local_script)
     '';
   };
 }
