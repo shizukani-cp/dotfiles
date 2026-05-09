@@ -33,7 +33,7 @@ local function config(manager)
                     keymap_hl = "File",
                     desc = "File",
                     action = function()
-                        manager:load("vist.nvim")
+                        manager:load("vist-file")
                         require("vist.core").open(require("vist.file"))
                     end,
                 },
