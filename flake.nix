@@ -20,7 +20,12 @@
     }@inputs:
     let
       system = "x86_64-linux";
-      pkgs-unstable = import nixpkgs-unstable { inherit system; };
+      pkgs-unstable = import nixpkgs-unstable {
+        inherit system;
+        config = {
+          allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "widevine-cdm" ];
+        };
+      };
     in
     {
       nixosConfigurations."shizukani-cp" = nixpkgs.lib.nixosSystem {
