@@ -1,6 +1,7 @@
 {
   config,
   pkgs,
+  pkgs-unstable,
   plasma-manager,
   ...
 }:
@@ -36,12 +37,12 @@
     lua-language-server
     mpc
     ncmpcpp
-    neovim
     nil
     nixfmt
     nodePackages.typescript
     nodePackages.typescript-language-server
     nodejs_24
+    pkgs-unstable.neovim
     prismlauncher
     python312Packages.python-lsp-server
     ripgrep
