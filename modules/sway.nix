@@ -1,4 +1,4 @@
-{ pkgs, ... }:
+{ pkgs, pkgs-unstable, ... }:
 
 {
   security.polkit.enable = true;
@@ -17,7 +17,7 @@
     set $mod Mod4
     workspace_layout tabbed
 
-    bindsym $mod+Return exec ${pkgs.foot}/bin/foot
+    bindsym $mod+Return exec ${pkgs.foot}/bin/foot , exec ${pkgs-unstable.qutebrowser}/bin/qutebrowser
     bindsym $mod+d exec ${pkgs.fuzzel}/bin/fuzzel
     bindsym $mod+Shift+q kill
     bindsym $mod+Shift+e exec ${pkgs.wlogout}/bin/wlogout

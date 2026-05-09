@@ -30,6 +30,7 @@
     {
       nixosConfigurations."shizukani-cp" = nixpkgs.lib.nixosSystem {
         inherit system;
+        specialArgs = { inherit pkgs-unstable; };
         modules = [
           ./modules/configuration.nix
           home-manager.nixosModules.home-manager
