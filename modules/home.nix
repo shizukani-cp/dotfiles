@@ -18,8 +18,8 @@
   ];
   home.packages = with pkgs; [
     bat
-    bottom
     bluetuith
+    bottom
     brave
     clamtk
     deno
