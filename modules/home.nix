@@ -58,6 +58,7 @@
     trash-cli
     tree
     tree-sitter
+    unzip
     uv
     vscode-langservers-extracted
     wl-clipboard
