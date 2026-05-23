@@ -21,7 +21,6 @@
     libnotify
     slurp
     wl-clipboard
-    wlogout
   ];
   environment.etc."sway/config".text = ''
     set $mod Mod4
