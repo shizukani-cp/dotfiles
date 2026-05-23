@@ -27,7 +27,7 @@
     workspace_layout tabbed
 
     bindsym $mod+Return exec ${pkgs.foot}/bin/foot , exec ${pkgs-unstable.qutebrowser}/bin/qutebrowser
-    bindsym $mod+d exec ${pkgs.fuzzel}/bin/fuzzel
+    bindsym $mod+d exec ${pkgs.rofi}/bin/rofi -modi drun\,run -show drun
     bindsym $mod+Shift+q kill
     bindsym $mod+Shift+e exec ${pkgs.wlogout}/bin/wlogout
     bindsym $mod+Shift+c reload
