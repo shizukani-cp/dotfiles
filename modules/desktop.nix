@@ -41,6 +41,13 @@
       }
     ];
   };
+  programs.rofi = {
+    enable = true;
+    extraConfig = {
+      modi = "combi";
+      show-icons = true;
+    };
+  };
   services.dunst = {
     enable = true;
     settings = {
