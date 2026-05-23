@@ -7,6 +7,7 @@ in
     enable = true;
     package = (pkgs-unstable.qutebrowser.override { enableWideVine = true; });
     settings = {
+      "auto_save.interval" = 1000;
       "auto_save.session" = true;
       "colors.webpage.darkmode.algorithm" = "lightness-cielab";
       "colors.webpage.darkmode.enabled" = true;
