@@ -45,10 +45,8 @@
   hardware.bluetooth.enable = true;
 
   services.xserver = {
-    enable = true;
     xkb.layout = "jp";
   };
-  services.displayManager.sddm.enable = true;
 
   services.pipewire.enable = true;
   services.pipewire.alsa.enable = true;

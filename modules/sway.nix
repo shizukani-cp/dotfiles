@@ -1,6 +1,16 @@
 { pkgs, pkgs-unstable, ... }:
 
 {
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd sway";
+        user = "greeter";
+      };
+    };
+  };
+
   security.polkit.enable = true;
   programs.nm-applet.enable = true;
 
