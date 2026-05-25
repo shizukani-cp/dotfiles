@@ -63,25 +63,6 @@
     vscode-langservers-extracted
     wl-clipboard
     zsh
-    (writeShellScriptBin "vime" ''
-      export PATH="/run/current-system/sw/bin:/etc/profiles/per-user/shizukani-cp/bin:$PATH"
-
-      FILE_PATH="/tmp/$(date +%Y%m%d%H%M%S).md"
-
-      touch "$FILE_PATH"
-
-      VIME=1 foot nvim "$FILE_PATH"
-
-      if [ -f "$FILE_PATH" ]; then
-        sleep 0.1
-        printf %s "$(cat "$FILE_PATH")" | wl-copy
-        while [ "$(wl-paste | tr -d '\n')" != "$(tr -d '\n' < "$FILE_PATH")" ]; do
-          sleep 0.05
-        done
-
-        notify-send -t 800 "Copy OK" "Sucessfly copied"
-      fi
-    '')
   ];
   programs.home-manager.enable = true;
 }

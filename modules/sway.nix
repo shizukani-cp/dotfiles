@@ -1,5 +1,26 @@
 { pkgs, pkgs-unstable, ... }:
+let
+  coreutils_bin = "${pkgs.coreutils}/bin";
+  vime = pkgs.writeShellScriptBin "vime" ''
+    export PATH="/run/current-system/sw/bin:/etc/profiles/per-user/shizukani-cp/bin:$PATH"
 
+    FILE_PATH="/tmp/$(${coreutils_bin}/date +%Y%m%d%H%M%S).md"
+
+    ${coreutils_bin}/touch "$FILE_PATH"
+
+    VIME=1 ${pkgs.foot}/bin/foot ${pkgs-unstable.neovim}/bin/nvim "$FILE_PATH"
+
+    if [ -f "$FILE_PATH" ]; then
+      ${coreutils_bin}/sleep 0.1
+      ${coreutils_bin}/printf %s "$(${coreutils_bin}/cat "$FILE_PATH")" | ${pkgs.wl-clipboard}/bin/wl-copy
+      while [ "$(${pkgs.wl-clipboard}/bin/wl-paste | ${coreutils_bin}/tr -d '\n')" != "$(${coreutils_bin}/tr -d '\n' < "$FILE_PATH")" ]; do
+        ${coreutils_bin}/sleep 0.05
+      done
+
+      ${pkgs.libnotify}/bin/notify-send -t 800 "Copy OK" "Sucessfly copied"
+    fi
+  '';
+in
 {
   services.greetd = {
     enable = true;
@@ -15,6 +36,8 @@
   programs.nm-applet.enable = true;
 
   programs.sway.enable = true;
+
+  environment.systemPackages = [ vime ];
 
   environment.etc."sway/config".text = ''
     set $mod Mod4
@@ -32,13 +55,13 @@
     bindsym $mod+f fullscreen toggle
     bindsym $mod+w layout tabbed
     bindsym $mod+s layout stacking
-    bindsym Henkan_Mode exec vime
+    bindsym Henkan_Mode exec ${vime}/bin/vime
 
-    bindsym $mod+Shift+s exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Captured screen"
+    bindsym $mod+Shift+s exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.coreutils}/bin/tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Captured screen"
 
-    bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-    bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-    bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
+    bindsym XF86AudioRaiseVolume exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+    bindsym XF86AudioLowerVolume exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    bindsym XF86AudioMute exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 
     bar {
       swaybar_command waybar
