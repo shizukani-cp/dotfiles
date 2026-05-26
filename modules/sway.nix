@@ -17,7 +17,7 @@ let
         ${coreutils_bin}/sleep 0.05
       done
 
-      ${pkgs.libnotify}/bin/notify-send -t 800 "Copy OK" "Sucessfly copied"
+      ${pkgs.libnotify}/bin/notify-send -t 800 "Copy OK" "Sucessfully copied"
     fi
   '';
 in
