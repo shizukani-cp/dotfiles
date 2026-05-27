@@ -32,6 +32,7 @@
     gitFull
     glibc
     gnumake
+    krita
     lazygit
     libreoffice-fresh
     lua-language-server
