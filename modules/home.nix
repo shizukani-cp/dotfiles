@@ -12,7 +12,6 @@
     ./cli.nix
     ./env.nix
     ./mpd.nix
-    ./plasma.nix
     ./qutebrowser.nix
     ./desktop.nix
   ];
@@ -42,17 +41,14 @@
     nixfmt
     nodejs_24
     pkgs-unstable.neovim
-    prismlauncher
     python312Packages.python-lsp-server
     ripgrep
     rustup
     shotcut
     skkDictionaries.l
     stylua
-    superTuxKart
     swayimg
     tailwindcss-language-server
-    temurin-bin-17
     tmux
     trash-cli
     tree

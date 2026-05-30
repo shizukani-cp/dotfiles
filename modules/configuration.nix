@@ -73,12 +73,6 @@
 
   services.gvfs.enable = true;
 
-  services.ollama = {
-    enable = true;
-    rocmOverrideGfx = "11.0.2";
-    package = pkgs.ollama-rocm;
-  };
-
   services.power-profiles-daemon.enable = true;
 
   services.earlyoom.enable = true;
