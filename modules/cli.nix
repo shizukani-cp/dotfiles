@@ -201,7 +201,7 @@
                 style = "full";
                 max_depth = 0;
                 mapped_locations = {
-                  "~/workspace" = "󰃖";
+                  "~/workspace/github.com/shizukani-cp" = "󰃖";
                 };
               };
             }
