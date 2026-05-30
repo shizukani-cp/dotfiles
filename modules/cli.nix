@@ -73,12 +73,26 @@
       tree = "tree --gitignore";
       nv = "nvim";
     };
+    siteFunctions = {
+      p = ''
+        if [ -d "./.venv" ]; then
+            deactivate
+        fi
+        cd "$PROJECTS_DIR/$1"
+        if [ -d "./.venv" ]; then
+            source ./.venv/bin/activate
+        fi
+      '';
+      _p = ''
+        #compdef prj
+        _path_files -W "$PROJECTS_DIR" -/
+      '';
+    };
     initContent = ''
       fpath=(~/.config/zsh/functions $fpath)
-      autoload -Uz $(ls ~/.config/zsh/functions)
       if [ -n "$TMUX" ] && [ -z "$NVIM" ]; then
           if [ "$PWD" = "$HOME" ]; then
-              s
+              cd $SCRATCH_DIR
           fi
       fi
     '';

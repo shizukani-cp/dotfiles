@@ -65,5 +65,6 @@ in
     LESSCHARSET = "utf-8";
     PATH = "$HOME/.local/bin:$PATH";
     PROJECTS_DIR = "${config.home.homeDirectory}/workspace/github.com/shizukani-cp";
+    SCRATCH_DIR = "${config.home.homeDirectory}/scratch";
   };
 }
