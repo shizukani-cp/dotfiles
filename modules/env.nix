@@ -49,9 +49,6 @@ in
     "nvim" = {
       source = compiledNvimConfig;
     };
-    "zsh" = {
-      source = ../zsh;
-    };
   };
   xdg.mimeApps.defaultApplications = {
     "text/html" = "org.qutebrowser.qutebrowser.desktop";

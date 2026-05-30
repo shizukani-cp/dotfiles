@@ -111,7 +111,120 @@
   programs.oh-my-posh = {
     enable = true;
     enableZshIntegration = true;
-    configFile = ../zsh/my-theme.omp.json;
+    settings = {
+      "$schema" = "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json";
+      blocks = [
+        {
+          alignment = "left";
+          segments = [
+            {
+              foreground = "#7eb8da";
+              style = "plain";
+              template = "┏[<#ffffff></> {{ .UserName }} from <#ffffff></> {{ .HostName }}]";
+              type = "session";
+            }
+            {
+              foreground = "#be9ddf";
+              properties = {
+                style = "dallas";
+                threshold = 0;
+              };
+              style = "diamond";
+              template = "[<#ffffff></> {{ .FormattedMs }}s]";
+              type = "executiontime";
+            }
+            {
+              properties = {
+                root_icon = "";
+              };
+              style = "diamond";
+              template = "";
+              type = "root";
+            }
+            {
+              foreground = "#7eb8da";
+              properties = {
+                time_format = "Monday at 3:04:05 PM";
+              };
+              style = "diamond";
+              template = "[<#ffffff></> {{ .CurrentDate | date .Format }}]";
+              type = "time";
+            }
+            {
+              foreground = "#ffa5d8";
+              properties = {
+                fetch_stash_count = true;
+                fetch_status = true;
+                fetch_upstream_icon = true;
+              };
+              style = "plain";
+              template = "[<#ffffff>{{ .UpstreamIcon }}</>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#ffffff></> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#ffffff></> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <#ffffff></> {{ .StashCount }}{{ end }}]";
+              type = "git";
+            }
+            {
+              foreground = "#ffa5d8";
+              style = "plain";
+              template = "[{{ .Profile }}{{if .Region}}@{{ .Region }}{{ end }}]";
+              type = "aws";
+            }
+            {
+              foreground = "#ffa5d8";
+              style = "plain";
+              template = "[{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}]";
+              type = "kubectl";
+            }
+            {
+              foreground = "#ffa5d8";
+              style = "plain";
+              template = "[]";
+              type = "root";
+            }
+            {
+              foreground = "#ffa5d8";
+              style = "powerline";
+              template = "[<#ffffff></> Error, check your command]";
+              type = "status";
+            }
+          ];
+          type = "prompt";
+        }
+        {
+          alignment = "left";
+          newline = true;
+          segments = [
+            {
+              foreground = "#7eb8da";
+              style = "plain";
+              template = "┖[<#98bfad>{{ .Path }}</>]";
+              type = "path";
+              options = {
+                style = "full";
+                max_depth = 0;
+                mapped_locations = {
+                  "~/workspace" = "󰃖";
+                };
+              };
+            }
+          ];
+          type = "prompt";
+        }
+        {
+          alignment = "left";
+          newline = true;
+          segments = [
+            {
+              foreground = "#7eb8da";
+              style = "plain";
+              template = "└─Δ";
+              type = "text";
+            }
+          ];
+          type = "prompt";
+        }
+      ];
+      final_space = true;
+      version = 3;
+    };
   };
   programs.foot = {
     enable = true;
