@@ -84,7 +84,7 @@
         fi
       '';
       _p = ''
-        #compdef prj
+        #compdef p
         _path_files -W "$PROJECTS_DIR" -/
       '';
     };
