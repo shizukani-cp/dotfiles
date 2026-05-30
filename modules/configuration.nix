@@ -75,8 +75,8 @@
 
   services.ollama = {
     enable = true;
-    acceleration = "rocm";
     rocmOverrideGfx = "11.0.2";
+    package = pkgs.ollama-rocm;
   };
 
   services.power-profiles-daemon.enable = true;
@@ -147,5 +147,5 @@
     };
   };
 
-  system.stateVersion = "25.11";
+  system.stateVersion = "26.05";
 }

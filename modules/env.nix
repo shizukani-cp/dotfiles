@@ -32,7 +32,7 @@ in
 {
   home.username = "shizukani-cp";
   home.homeDirectory = "/home/shizukani-cp";
-  home.stateVersion = "25.11";
+  home.stateVersion = "26.05";
   home.pointerCursor = {
     package = pkgs.catppuccin-cursors.frappeLavender;
     name = "catppuccin-frappe-lavender-cursors";

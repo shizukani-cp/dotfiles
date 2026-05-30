@@ -40,8 +40,6 @@
     ncmpcpp
     nil
     nixfmt
-    nodePackages.typescript
-    nodePackages.typescript-language-server
     nodejs_24
     pkgs-unstable.neovim
     prismlauncher
@@ -59,6 +57,8 @@
     trash-cli
     tree
     tree-sitter
+    typescript
+    typescript-language-server
     unzip
     uv
     vscode-langservers-extracted
