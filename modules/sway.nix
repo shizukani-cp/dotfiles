@@ -82,5 +82,4 @@ in
     exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
     exec ${pkgs.dunst}/bin/dunst
   '';
-  programs.waybar.enable = true;
 }
