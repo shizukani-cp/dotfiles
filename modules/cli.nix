@@ -236,7 +236,7 @@
         term = "xterm-256color";
         shell = "tmux new-session -A -s main";
       };
-      colors = {
+      colors-dark = {
         background = "1e1e2e";
         alpha = "0.85";
       };
