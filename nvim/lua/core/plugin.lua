@@ -126,5 +126,14 @@ plugin("vist.vist")
 plugin("vist.vist-file")
 plugin("visual-whitespace")
 plugin("which-key", { vime = true })
+
+vim.wait(30000, function()
+    for _, p in pairs(_G.manager.plugins) do
+        if p.status == "installing" then
+            return false
+        end
+    end
+    return true
+end, 100)
 manager:unlock()
 plugin("lsp.config")
