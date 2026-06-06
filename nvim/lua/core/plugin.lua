@@ -26,28 +26,29 @@ local _ = manager.logger:on(function(e)
 end)
 
 local flags = {
-    vime = vim.env.VIME,
+    vime = (vim.env.VIME ~= nil),
 }
-local flags_all = false
-for _, f in pairs(flags) do
-    if f then
-        flags_all = true
-    end
-end
 
 local function plugin(mod, opt)
-    if not flags_all then
+    if not opt then
         return require("plugins." .. mod)(manager)
     end
-    if not opt then
-        return
-    end
+
     for fn, fv in pairs(flags) do
-        if fv and opt[fn] then
-            return require("plugins." .. mod)(manager)
+        if opt[fn] ~= nil then
+            if opt[fn] == true then
+                return require("plugins." .. mod)(manager)
+            end
+
+            if opt[fn] == false then
+                if fv == true then
+                    return require("plugins." .. mod)(manager)
+                else
+                    return
+                end
+            end
         end
     end
-    return
 end
 
 plugin("manager.manager-lock", { vime = true })
