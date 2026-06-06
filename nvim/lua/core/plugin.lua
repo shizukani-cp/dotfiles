@@ -54,78 +54,78 @@ plugin("manager.manager-lock", { vime = true })
 plugin("manager.manager-lazyload", { vime = true })
 
 manager:lock()
-plugin("Comment")
-plugin("bufferline")
-plugin("capture")
-plugin("dashboard")
-plugin("ddc.ddc")
-plugin("ddc.ddc-source-lsp-setup")
-plugin("ddu.ddu")
-plugin("ddu.ddu-plugins")
-plugin("ddu.ddu-source-manager")
-plugin("denippet")
-plugin("deps.denops", { vime = true })
-plugin("deps.nui")
-plugin("deps.nvim-web-devicons")
+plugin("Comment") -- Comment
+plugin("bufferline") -- bufferline
+plugin("capture") -- コマンドの結果をバッファに出す
+plugin("dashboard") -- dashboard
+plugin("ddc.ddc") -- ddc.vim
+plugin("ddc.ddc-source-lsp-setup") -- ddc.vimのLSP連携
+plugin("ddu.ddu") -- ddu.vim
+plugin("ddu.ddu-plugins") -- ddu.vimの取り巻き
+plugin("ddu.ddu-source-manager") -- ddu.vimのmanager.nvim連携
+plugin("denippet") -- snippet
+plugin("deps.denops", { vime = true }) -- from ddc.vim,ddu.vim,denippet,skkeleton
+plugin("deps.nui") -- from noice.nvim
+plugin("deps.nvim-web-devicons") -- from many plugins
 plugin("deps.plenary")
-plugin("dial")
-plugin("dropbar")
-plugin("fidget")
-plugin("friendly-snippets")
-plugin("gitsigns", { vime = true })
-plugin("hlargs")
-plugin("hlchunk")
-plugin("indent-blankline")
-plugin("jumpcursor", { vime = true })
-plugin("lazygit")
-plugin("lsp.conform")
-plugin("lsp.lazydev")
-plugin("lsp.nvim-lspconfig")
-plugin("lsp.renamer")
-plugin("manager.manager-command")
-plugin("manager.manager-remove")
-plugin("manager.manager-ui")
-plugin("manager.manager-update")
-plugin("markview", { vime = true })
-plugin("mkdir")
-plugin("neoscroll", { vime = true })
-plugin("noice")
-plugin("numb")
-plugin("nvim-autopairs", { vime = true })
-plugin("nvim-surround")
-plugin("nvim-various-textobjs")
-plugin("nvim_context_vt")
-plugin("nvimdoc-ja")
-plugin("oklch-color-picker")
-plugin("overseer")
-plugin("satellite")
-plugin("skkeleton", { vime = true })
-plugin("smart-column")
-plugin("smear-cursor", { vime = true })
-plugin("sort")
-plugin("status.status", { vime = true })
-plugin("status.status-git", { vime = true })
-plugin("status.status-lsp", { vime = true })
-plugin("status.status-std", { vime = true })
-plugin("tabset")
-plugin("tiny-inline-diagnostic")
-plugin("todo-comments")
-plugin("toggleterm")
-plugin("tokyonight", { vime = true })
-plugin("treesitter.nvim-treesitter", { vime = true })
-plugin("treesitter.nvim-treesitter-context")
-plugin("treesitter.nvim-treesitter-textobjects")
-plugin("treesitter.nvim-ts-autotag", { vime = true })
-plugin("trouble")
-plugin("undotree", { vime = true })
-plugin("vim-better-whitespace")
-plugin("vim-illuminate")
-plugin("vim-tmux-navigator")
-plugin("vimdoc-ja")
-plugin("vist.vist")
-plugin("vist.vist-file")
-plugin("visual-whitespace")
-plugin("which-key", { vime = true })
+plugin("dial") -- Ctrl+a,Ctrl+x
+plugin("dropbar") -- パンくずリスト
+plugin("fidget") -- LSPがロードしてるのをカッコ良く表示してくれる
+plugin("friendly-snippets") -- スニペット集
+plugin("gitsigns", { vime = true }) -- gitの差分表示
+plugin("hlargs") -- 引数強調
+plugin("hlchunk") -- インデント系util
+plugin("indent-blankline") -- ブロックの頭の行を出してくれる
+plugin("jumpcursor", { vime = true }) -- カーソルをいろんなところにジャンプできる
+plugin("lazygit") -- lazygit
+plugin("lsp.conform") -- formatter to LSP
+plugin("lsp.lazydev") -- Neovim develop
+plugin("lsp.nvim-lspconfig") -- LSP Configs
+plugin("lsp.renamer") -- rename var
+plugin("manager.manager-command") -- manager.nvim commands
+plugin("manager.manager-remove") -- manager.nvim remove,clean()
+plugin("manager.manager-ui") -- manager.nvim ui
+plugin("manager.manager-update") -- manager.nvim update()
+plugin("markview", { vime = true }) -- markdown view
+plugin("mkdir") -- auto make dir
+plugin("neoscroll", { vime = true }) -- スクロールを滑らかにしてくれる
+plugin("noice") -- UIをいい感じにしてくれる
+plugin("numb") -- `:行数`でインタラクティブに移動してくれる
+plugin("nvim-autopairs", { vime = true }) -- ペアを自動で入力してくれる
+plugin("nvim-surround") -- 囲み文字系のtextobject
+plugin("nvim-various-textobjs") -- Add textobjects
+plugin("nvim_context_vt") -- context virtual text
+plugin("nvimdoc-ja") -- Neovim document Japanese
+plugin("oklch-color-picker") -- color highlight
+plugin("overseer") -- task runner
+plugin("satellite") -- Decorate scrollbar
+plugin("skkeleton", { vime = true }) -- IME
+plugin("smart-column") -- Statuscolumn
+plugin("smear-cursor", { vime = true }) -- カーソルを滑らかにしてくれる
+plugin("sort") -- `:Sort`コマンド
+plugin("status.status", { vime = true }) -- status bar
+plugin("status.status-git", { vime = true }) -- status bar git
+plugin("status.status-lsp", { vime = true }) -- status bar lsp
+plugin("status.status-std", { vime = true }) -- status bar std
+plugin("tabset") -- 言語ごとにインデントの深さを設定してくれる
+plugin("tiny-inline-diagnostic") -- インラインで警告表示
+plugin("todo-comments") -- TODO: とかを強調してくれる
+plugin("toggleterm") -- トグルできるターミナル
+plugin("tokyonight", { vime = true }) -- colorscheme
+plugin("treesitter.nvim-treesitter", { vime = true }) -- treesitter
+plugin("treesitter.nvim-treesitter-context") -- ?
+plugin("treesitter.nvim-treesitter-textobjects") -- textobjects from treesitter
+plugin("treesitter.nvim-ts-autotag", { vime = true }) -- XML系のタグを自動で閉じてくれるやつ
+plugin("trouble") -- diagnostics
+plugin("undotree", { vime = true }) -- undo tree
+plugin("vim-better-whitespace") -- highlight end of line spaces
+plugin("vim-illuminate") -- 同じ変数をハイライトしてくれる
+plugin("vim-tmux-navigator") -- Tmux連携
+plugin("vimdoc-ja") -- Vim document Japanese
+plugin("vist.vist") -- vist.nvim
+plugin("vist.vist-file") -- file like oil.nvim
+plugin("visual-whitespace") -- 空白文字をvisualで選択したときに記号を出してくれる
+plugin("which-key", { vime = true }) -- key helps
 
 vim.wait(30000, function()
     for _, p in pairs(_G.manager.plugins) do
