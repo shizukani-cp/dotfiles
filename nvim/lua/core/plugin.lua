@@ -27,6 +27,7 @@ end)
 
 local flags = {
     vime = (vim.env.VIME ~= nil),
+    ddu = (vim.env.DDU ~= nil),
 }
 
 local function plugin(mod, opt)
@@ -61,9 +62,9 @@ plugin("capture") -- コマンドの結果をバッファに出す
 plugin("dashboard") -- dashboard
 plugin("ddc.ddc") -- ddc.vim
 plugin("ddc.ddc-source-lsp-setup") -- ddc.vimのLSP連携
-plugin("ddu.ddu") -- ddu.vim
-plugin("ddu.ddu-plugins") -- ddu.vimの取り巻き
-plugin("ddu.ddu-source-manager") -- ddu.vimのmanager.nvim連携
+plugin("ddu.ddu", { ddu = false }) -- ddu.vim
+plugin("ddu.ddu-plugins", { ddu = false }) -- ddu.vimの取り巻き
+plugin("ddu.ddu-source-manager", { ddu = false }) -- ddu.vimのmanager.nvim連携
 plugin("denippet") -- snippet
 plugin("deps.denops", { vime = true }) -- from ddc.vim,ddu.vim,denippet,skkeleton
 plugin("deps.nui") -- from noice.nvim
