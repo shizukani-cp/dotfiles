@@ -84,23 +84,17 @@ plugin("lsp.nvim-lspconfig") -- LSP Configs
 plugin("lsp.renamer") -- rename var
 plugin("manager.manager-command") -- manager.nvim commands
 plugin("manager.manager-remove") -- manager.nvim remove,clean()
-plugin("manager.manager-ui") -- manager.nvim ui
 plugin("manager.manager-update") -- manager.nvim update()
 plugin("markview", { vime = true }) -- markdown view
-plugin("mkdir") -- auto make dir
 plugin("neoscroll", { vime = true }) -- スクロールを滑らかにしてくれる
 plugin("noice") -- UIをいい感じにしてくれる
-plugin("numb") -- `:行数`でインタラクティブに移動してくれる
 plugin("nvim-autopairs", { vime = true }) -- ペアを自動で入力してくれる
 plugin("nvim-surround") -- 囲み文字系のtextobject
 plugin("nvim-various-textobjs") -- Add textobjects
-plugin("nvim_context_vt") -- context virtual text
 plugin("nvimdoc-ja") -- Neovim document Japanese
 plugin("oklch-color-picker") -- color highlight
-plugin("overseer") -- task runner
 plugin("satellite") -- Decorate scrollbar
 plugin("skkeleton", { vime = true }) -- IME
-plugin("smart-column") -- Statuscolumn
 plugin("smear-cursor", { vime = true }) -- カーソルを滑らかにしてくれる
 plugin("sort") -- `:Sort`コマンド
 plugin("status.status", { vime = true }) -- status bar
@@ -113,14 +107,12 @@ plugin("todo-comments") -- TODO: とかを強調してくれる
 plugin("toggleterm") -- トグルできるターミナル
 plugin("tokyonight", { vime = true }) -- colorscheme
 plugin("treesitter.nvim-treesitter", { vime = true }) -- treesitter
-plugin("treesitter.nvim-treesitter-context") -- ?
 plugin("treesitter.nvim-treesitter-textobjects") -- textobjects from treesitter
 plugin("treesitter.nvim-ts-autotag", { vime = true }) -- XML系のタグを自動で閉じてくれるやつ
 plugin("trouble") -- diagnostics
 plugin("undotree", { vime = true }) -- undo tree
 plugin("vim-better-whitespace") -- highlight end of line spaces
 plugin("vim-illuminate") -- 同じ変数をハイライトしてくれる
-plugin("vim-tmux-navigator") -- Tmux連携
 plugin("vimdoc-ja") -- Vim document Japanese
 plugin("vist.vist") -- vist.nvim
 plugin("vist.vist-file") -- file like oil.nvim
