@@ -32,6 +32,8 @@
 
   networking.hostName = "shizukani-cp";
   networking.networkmanager.enable = true;
+  networking.nftables.enable = true;
+  networking.firewall.allowPing = true;
 
   i18n.defaultLocale = "ja_JP.UTF-8";
   console.keyMap = "jp106";
