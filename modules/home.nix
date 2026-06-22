@@ -2,7 +2,6 @@
   config,
   pkgs,
   pkgs-unstable,
-  plasma-manager,
   ...
 }:
 
