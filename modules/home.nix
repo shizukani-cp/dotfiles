@@ -8,7 +8,6 @@
 
 {
   imports = [
-    ./brave.nix
     ./cli.nix
     ./env.nix
     ./mpd.nix
@@ -19,7 +18,6 @@
     bat
     bluetuith
     bottom
-    brave
     clamtk
     deno
     fd
