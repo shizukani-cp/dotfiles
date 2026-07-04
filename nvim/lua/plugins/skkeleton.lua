@@ -39,5 +39,4 @@ return function(manager)
         config = config,
     })
     manager:lazyload_event("InsertEnter", "skkeleton")
-    vim.keymap.set({ "i", "c" }, "<Esc>", "<Nop>")
 end
