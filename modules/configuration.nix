@@ -36,7 +36,7 @@
   networking.firewall.allowPing = true;
 
   i18n.defaultLocale = "ja_JP.UTF-8";
-  console.keyMap = "jp106";
+  console.keyMap = "us";
 
   nix.gc = {
     automatic = true;
@@ -47,7 +47,7 @@
   hardware.bluetooth.enable = true;
 
   services.xserver = {
-    xkb.layout = "jp";
+    xkb.layout = "us";
   };
 
   services.pipewire.enable = true;

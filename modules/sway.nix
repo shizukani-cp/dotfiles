@@ -49,12 +49,12 @@ in
     bindsym $mod+Shift+e exec ${pkgs.wlogout}/bin/wlogout
     bindsym $mod+Shift+c reload
     bindsym $mod+Tab focus next
-    bindsym $mod+j focus right
-    bindsym $mod+k focus left
+    bindsym $mod+n focus right
+    bindsym $mod+s focus left
 
     bindsym $mod+f fullscreen toggle
     bindsym $mod+w layout tabbed
-    bindsym $mod+s layout stacking
+    bindsym $mod+r layout stacking
     bindsym Henkan_Mode exec ${vime}/bin/vime
 
     bindsym $mod+Shift+s exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.coreutils}/bin/tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Captured screen"
@@ -74,7 +74,7 @@ in
     client.unfocused #000000 #000000 #000000 #000000 #000000
 
     input "type:keyboard" {
-      xkb_layout "jp"
+      xkb_layout "us"
     }
 
     exec ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator

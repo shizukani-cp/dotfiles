@@ -24,6 +24,7 @@ in
       "downloads.location.directory" = "${config.home.homeDirectory}/scratch";
       "fonts.tabs.selected" = "16px 'Noto Sans CJK JP'";
       "fonts.tabs.unselected" = "16px 'Noto Sans CJK JP'";
+      "hints.chars" = "auoitnsr";
       "session.lazy_restore" = true;
       "tabs.favicons.show" = "always";
       "tabs.new_position.related" = "last";

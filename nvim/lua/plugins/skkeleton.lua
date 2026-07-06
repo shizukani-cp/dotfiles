@@ -1,16 +1,6 @@
 local function config()
     local huj8_table = require("data.huj8")
     vim.fn["skkeleton#register_kanatable"]("huj8", huj8_table, 1)
-    local lowercases = {}
-    lowercases['"'] = "2"
-    lowercases["#"] = "3"
-    lowercases["$"] = "4"
-    lowercases["%"] = "5"
-    lowercases["&"] = "6"
-    lowercases["'"] = "7"
-    lowercases["("] = "8"
-    lowercases[")"] = "9"
-    lowercases["+"] = ";"
     vim.fn["skkeleton#config"]({
         globalDictionaries = {
             "~/.local/share/skk/SKK-JISYO.L",
@@ -23,9 +13,15 @@ local function config()
     })
     vim.keymap.set(
         { "i", "c" },
-        "<F9>",
-        "<Plug>(skkeleton-toggle)",
-        { noremap = true, silent = true, desc = "Skkeleton enable/disable" }
+        "<C-F1>",
+        "<Plug>(skkeleton-enable)",
+        { noremap = true, silent = true, desc = "Skkeleton enable" }
+    )
+    vim.keymap.set(
+        { "i", "c" },
+        "<C-F2>",
+        "<Plug>(skkeleton-disable)",
+        { noremap = true, silent = true, desc = "Skkeleton disable" }
     )
 end
 
