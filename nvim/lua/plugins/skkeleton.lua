@@ -23,6 +23,18 @@ local function config()
         "<Plug>(skkeleton-disable)",
         { noremap = true, silent = true, desc = "Skkeleton disable" }
     )
+    vim.keymap.set(
+        { "i", "c" },
+        "<F25>",
+        "<Plug>(skkeleton-enable)",
+        { noremap = true, silent = true, desc = "Skkeleton enable" }
+    )
+    vim.keymap.set(
+        { "i", "c" },
+        "<F26>",
+        "<Plug>(skkeleton-disable)",
+        { noremap = true, silent = true, desc = "Skkeleton disable" }
+    )
 end
 
 return function(manager)
