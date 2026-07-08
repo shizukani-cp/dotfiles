@@ -1,6 +1,6 @@
 local function config()
     require("toggleterm").setup({
-        open_mapping = [[<C-_>]],
+        open_mapping = [[<C-t>]],
         hide_numbers = true,
         close_on_exit = true,
         direction = "tab",
