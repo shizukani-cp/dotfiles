@@ -13,7 +13,11 @@ local function to_kana(romaji, dict)
         for len = 3, 1, -1 do
             local part = romaji:sub(i, i + len - 1)
             if dict[part] then
-                table.insert(results, dict[part])
+                local val = dict[part]
+                if type(val) == "table" then
+                    val = val[1]
+                end
+                table.insert(results, val)
                 i = i + len
                 found = true
                 break
@@ -61,6 +65,11 @@ local vowels = {
     t = "ai",
     s = "uu",
     n = "ou",
+    w = "_a",
+    m = "_i",
+    g = "_u",
+    l = "_e",
+    p = "_o",
 }
 local romaji_map = {
     a = "あ",
@@ -155,6 +164,33 @@ local romaji_map = {
     we = "うぇ",
     wo = "を",
     nn = "ん",
+    k_o = { "こと", "" },
+    k_a = { "から", "" },
+    k_u = { "かも", "" },
+    g_o = { "ごと", "" },
+    g_a = { "がら", "" },
+    s_u = { "する", "" },
+    s_a = { "した", "" },
+    z_u = { "ざる", "" },
+    t_i = { "たち", "" },
+    t_o = { "たび", "" },
+    t_e = { "ため", "" },
+    t_a = { "たら", "" },
+    n_u = { "なる", "" },
+    n_i = { "にち", "" },
+    n_a = { "ねば", "" },
+    d_u = { "です", "" },
+    d_i = { "だち", "" },
+    d_o = { "でも", "" },
+    h_o = { "ひと", "" },
+    b_o = { "びと", "" },
+    m_u = { "ます", "" },
+    m_o = { "もの", "" },
+    m_a = { "また", "" },
+    y_u = { "よる", "" },
+    r_e = { "られ", "" },
+    w_a = { "わた", "" },
+    w_e = { "われ", "" },
 }
 local youon_map = {}
 for k, v in pairs(romaji_map) do
@@ -189,38 +225,7 @@ for key, romaji in pairs(kanatable_romaji) do
     end
 end
 
--- e:; i:. o:, u:( a:)
-local special_exts = {
-    ["k,"] = { "こと", "" },
-    ["k)"] = { "から", "" },
-    ["k("] = { "かも", "" },
-    ["g,"] = { "ごと", "" },
-    ["g)"] = { "がら", "" },
-    ["s("] = { "する", "" },
-    ["s)"] = { "した", "" },
-    ["z("] = { "ざる", "" },
-    ["t."] = { "たち", "" },
-    ["t,"] = { "たび", "" },
-    ["t;"] = { "ため", "" },
-    ["t)"] = { "たら", "" },
-    ["n("] = { "なる", "" },
-    ["n."] = { "にち", "" },
-    ["n)"] = { "ねば", "" },
-    ["d("] = { "です", "" },
-    ["d."] = { "だち", "" },
-    ["d,"] = { "でも", "" },
-    ["h,"] = { "ひと", "" },
-    ["b,"] = { "びと", "" },
-    ["m("] = { "ます", "" },
-    ["m,"] = { "もの", "" },
-    ["m)"] = { "また", "" },
-    ["y("] = { "よる", "" },
-    ["r;"] = { "られ", "" },
-    ["w)"] = { "わた", "" },
-    ["w;"] = { "われ", "" },
-}
-
-local specials = merge(special_exts, {
+local specials = {
     [" "] = "henkanFirst",
     ["^"] = "henkanPoint",
     [":"] = "zenkaku",
@@ -245,7 +250,7 @@ local specials = merge(special_exts, {
     [","] = { "、", "" },
     ["."] = { "。", "" },
     ["wu"] = { "うぉ", "" },
-})
+}
 local kanatable = merge(final_kanatable, specials)
 
 local function serialize(t)
