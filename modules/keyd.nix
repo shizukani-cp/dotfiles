@@ -25,6 +25,8 @@
             c = "layer(fn_layer)";
             v = "leftalt";
 
+            apostrophe = "layer(shift_layer)";
+
             # 右手上段
             y = "b";
             u = "h";
