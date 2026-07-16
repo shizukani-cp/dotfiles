@@ -9,7 +9,6 @@ local function config()
         markerHenkan = "¦",
         markerHenkanSelect = "|",
         kanaTable = "huj8",
-        lowercaseMap = lowercases,
     })
     vim.keymap.set(
         { "i", "c" },
