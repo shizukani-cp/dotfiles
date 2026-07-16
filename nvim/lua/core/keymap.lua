@@ -20,8 +20,12 @@ vim.keymap.set({ "n", "x" }, "G", "G$", { noremap = true, silent = true, desc = 
 vim.keymap.set("n", "L", ":bnext<CR>", { noremap = true, silent = true, desc = "Next buffer" })
 vim.keymap.set("n", "H", ":bprevious<CR>", { noremap = true, silent = true, desc = "Previous buffer" })
 
-vim.api.nvim_set_keymap("i", "jf", "<Esc><Cmd>w<Cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "jd", "<Esc>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "jg", "<Esc><Cmd>wq<Cr>", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("i", "jj", "j", { noremap = true, silent = true })
-vim.api.nvim_set_keymap("t", "ii", "<C-\\><C-n>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<F27><F27>", "<Esc><Cmd>w<Cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<F27>r", "<Esc>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<F27>s", "<Esc><Cmd>wq<Cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<F27><F27>", "<C-\\><C-n>", { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap("i", "<C-F3><C-F3>", "<Esc><Cmd>w<Cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-F3>r", "<Esc>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("i", "<C-F3>s", "<Esc><Cmd>wq<Cr>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("t", "<C-F3><C-F3>", "<C-\\><C-n>", { noremap = true, silent = true })

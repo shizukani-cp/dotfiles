@@ -127,6 +127,7 @@
             l = "up";
             semicolon = "right";
             # 下段
+            b = "C-f3";
             n = "C-f1"; # n,mに関してはVim側で受け取れるか検証
             m = "C-f2";
             slash = "tab";
