@@ -9,7 +9,6 @@ local function config()
         markerHenkan = "¦",
         markerHenkanSelect = "|",
         kanaTable = "huj8",
-        completion = { enabled = true },
     })
     vim.keymap.set(
         { "i", "c" },
