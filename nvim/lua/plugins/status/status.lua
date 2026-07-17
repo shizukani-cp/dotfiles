@@ -17,7 +17,7 @@ local function setup_highlights()
 end
 
 local function skk_status()
-    local ok, mode = pcall(vim.fn["skkeleton#mode"])
+    local ok, mode = pcall(require("skkelua").mode())
     if not ok then
         return ""
     end

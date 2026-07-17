@@ -96,7 +96,7 @@ plugin("nvim-various-textobjs") -- Add textobjects
 plugin("nvimdoc-ja") -- Neovim document Japanese
 plugin("oklch-color-picker") -- color highlight
 plugin("satellite") -- Decorate scrollbar
-plugin("skkeleton", { vime = true }) -- IME
+plugin("skkelua", { vime = true }) -- IME
 plugin("smear-cursor", { vime = true }) -- カーソルを滑らかにしてくれる
 plugin("sort") -- `:Sort`コマンド
 plugin("status.status", { vime = true }) -- status bar

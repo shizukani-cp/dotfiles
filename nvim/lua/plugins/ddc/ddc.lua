@@ -68,7 +68,6 @@ return function(manager)
             "ddc-filter-sorter_rank",
             "ddc-fuzzy",
             "denippet.vim",
-            "skkeleton",
         },
         config = config,
     })
