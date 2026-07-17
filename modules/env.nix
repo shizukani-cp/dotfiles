@@ -12,21 +12,32 @@ let
         lua ${../nvim/lua/data/huj8_gen.lua} > temp.lua
         luajit -b temp.lua $out
       '';
+  compileNvim = true;
   compiledNvimConfig =
-    pkgs.runCommand "compiled-nvim-config"
-      {
-        nativeBuildInputs = [ pkgs.luajit ];
-      }
-      ''
+    if compileNvim then
+      pkgs.runCommand "compiled-nvim-config"
+        {
+          nativeBuildInputs = [ pkgs.luajit ];
+        }
+        ''
+          mkdir -p $out
+          cp -r ${../nvim}/* $out/
+
+          chmod -R +w $out
+
+          mkdir -p $out/lua/data
+          cp ${huj8Table} $out/lua/data/huj8.lua
+
+          find $out -name "*.lua" -type f -exec echo "Compiling {}..." \; -exec luajit -b {} {} \;
+        ''
+    else
+      pkgs.runCommand "uncompiled-nvim-config" { } ''
         mkdir -p $out
         cp -r ${../nvim}/* $out/
-
         chmod -R +w $out
 
         mkdir -p $out/lua/data
         cp ${huj8Table} $out/lua/data/huj8.lua
-
-        find $out -name "*.lua" -type f -exec echo "Compiling {}..." \; -exec luajit -b {} {} \;
       '';
 in
 {
