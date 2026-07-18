@@ -10,6 +10,10 @@ local function config()
         markerHenkanSelect = "|",
         kanaTable = "huj8",
     })
+    local is_vime = (vim.env.VIME ~= nil)
+    if is_vime then
+        require("skkelua").initialize()
+    end
     vim.keymap.set(
         { "i", "c" },
         "<C-F1>",

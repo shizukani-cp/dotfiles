@@ -3,12 +3,13 @@ let
   coreutils_bin = "${pkgs.coreutils}/bin";
   vime = pkgs.writeShellScriptBin "vime" ''
     export PATH="/run/current-system/sw/bin:/etc/profiles/per-user/shizukani-cp/bin:$PATH"
-
+    PIPE_PATH="$XDG_RUNTIME_DIR/nvim-vime.pipe"
     FILE_PATH="/tmp/$(${coreutils_bin}/date +%Y%m%d%H%M%S).md"
 
     ${coreutils_bin}/touch "$FILE_PATH"
 
-    VIME=1 ${pkgs.foot}/bin/foot -T "vime - foot" ${pkgs-unstable.neovim}/bin/nvim "$FILE_PATH"
+    ${pkgs-unstable.neovim}/bin/nvim --server "$PIPE_PATH" --remote-send "<Cmd>e $FILE_PATH<Cr>"
+    ${pkgs.foot}/bin/foot -T "vime - foot" ${pkgs-unstable.neovim}/bin/nvim --server "$PIPE_PATH" --remote-ui "$FILE_PATH"
 
     if [ -f "$FILE_PATH" ]; then
       ${coreutils_bin}/sleep 0.1

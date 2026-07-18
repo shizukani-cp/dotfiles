@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
 let
   huj8Table =
     pkgs.runCommand "huj8.lua"
@@ -74,5 +79,19 @@ in
     PATH = "$HOME/.local/bin:$PATH";
     PROJECTS_DIR = "${config.home.homeDirectory}/workspace/github.com/shizukani-cp";
     SCRATCH_DIR = "${config.home.homeDirectory}/scratch";
+  };
+  systemd.user.services.nvim-vime = {
+    Unit = {
+      Description = "Neovim VIME Server";
+    };
+    Install = {
+      WantedBy = [ "default.target" ];
+    };
+    Service = {
+      Type = "simple";
+      Environment = [ "VIME=1" ];
+      ExecStart = "${pkgs-unstable.neovim}/bin/nvim --listen %t/nvim-vime.pipe --headless";
+      Restart = "always";
+    };
   };
 }
