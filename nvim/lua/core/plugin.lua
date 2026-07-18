@@ -61,7 +61,7 @@ plugin("ddu.ddu", { ddu = false }) -- ddu.vim
 plugin("ddu.ddu-plugins", { ddu = false }) -- ddu.vimの取り巻き
 plugin("ddu.ddu-source-manager", { ddu = false }) -- ddu.vimのmanager.nvim連携
 plugin("denippet") -- snippet
-plugin("deps.denops", { vime = true }) -- from ddc.vim,ddu.vim,denippet,skkeleton
+plugin("deps.denops") -- from ddc.vim,ddu.vim,denippet
 plugin("deps.nui") -- from noice.nvim
 plugin("deps.nvim-web-devicons") -- from many plugins
 plugin("deps.plenary")
@@ -94,10 +94,10 @@ plugin("satellite") -- Decorate scrollbar
 plugin("skkelua", { vime = true }) -- IME
 plugin("smear-cursor", { vime = true }) -- カーソルを滑らかにしてくれる
 plugin("sort") -- `:Sort`コマンド
-plugin("status.status", { vime = true }) -- status bar
-plugin("status.status-git", { vime = true }) -- status bar git
-plugin("status.status-lsp", { vime = true }) -- status bar lsp
-plugin("status.status-std", { vime = true }) -- status bar std
+plugin("status.status") -- status bar
+plugin("status.status-git") -- status bar git
+plugin("status.status-lsp") -- status bar lsp
+plugin("status.status-std") -- status bar std
 plugin("tabset") -- 言語ごとにインデントの深さを設定してくれる
 plugin("tiny-inline-diagnostic") -- インラインで警告表示
 plugin("tobira") -- 怒らないで Vim を教えてくれる

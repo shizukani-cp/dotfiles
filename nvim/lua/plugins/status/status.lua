@@ -16,15 +16,6 @@ local function setup_highlights()
     vim.api.nvim_set_hl(0, "StatusMain", { fg = colors.fg, bg = colors.bg_statusline or colors.bg_dark })
 end
 
-local function skk_status()
-    local ok, mode = pcall(require("skkelua").mode())
-    if not ok then
-        return ""
-    end
-    local map = { hira = "全ひ", kata = "全カ", hankata = "半ｶﾀ", zenkaku = "全Ａ", abbrev = "abbr" }
-    return map[mode] or "英ab"
-end
-
 local function file()
     local fname = (function()
         local ft = vim.bo.filetype
@@ -58,8 +49,6 @@ local function config()
         components = {
             left = {
                 std.mode,
-                skk_status,
-                "|",
                 git.branch,
                 git.diff,
                 "|",
