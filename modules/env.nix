@@ -90,7 +90,7 @@ in
     Service = {
       Type = "simple";
       Environment = [ "VIME=1" ];
-      ExecStart = "${pkgs-unstable.neovim}/bin/nvim --listen %t/nvim-vime.pipe --headless";
+      ExecStart = "${pkgs-unstable.neovim}/bin/nvim --listen %t/nvim-vime.pipe --headless -c 'normal! i'";
       Restart = "always";
     };
   };
