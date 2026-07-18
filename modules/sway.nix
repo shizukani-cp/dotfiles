@@ -8,7 +8,7 @@ let
 
     ${coreutils_bin}/touch "$FILE_PATH"
 
-    VIME=1 ${pkgs.foot}/bin/foot ${pkgs-unstable.neovim}/bin/nvim "$FILE_PATH"
+    VIME=1 ${pkgs.foot}/bin/foot -T "vime - foot" ${pkgs-unstable.neovim}/bin/nvim "$FILE_PATH"
 
     if [ -f "$FILE_PATH" ]; then
       ${coreutils_bin}/sleep 0.1
@@ -76,6 +76,8 @@ in
     input "type:keyboard" {
       xkb_layout "us"
     }
+
+    for_window [title="vime - foot"] floating enable
 
     exec ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator
     exec ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
