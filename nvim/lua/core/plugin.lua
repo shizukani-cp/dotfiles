@@ -25,31 +25,26 @@ local _ = manager.logger:on(function(e)
     end
 end)
 
-local flags = {
-    vime = (vim.env.VIME ~= nil),
-    ddu = (vim.env.DDU ~= nil),
-}
+local is_vime = (vim.env.VIME ~= nil)
+local enabled_ddu = (vim.env.DDU ~= nil)
 
 local function plugin(mod, opt)
     if not opt then
-        return require("plugins." .. mod)(manager)
+        opt = {}
     end
-
-    for fn, fv in pairs(flags) do
-        if opt[fn] ~= nil then
-            if opt[fn] == true then
-                return require("plugins." .. mod)(manager)
-            end
-
-            if opt[fn] == false then
-                if fv == true then
-                    return require("plugins." .. mod)(manager)
-                else
-                    return
-                end
-            end
+    if is_vime then
+        if opt.vime == true then
+            return require("plugins." .. mod)(manager)
         end
+        return
     end
+    if opt.ddu == false then
+        if enabled_ddu then
+            return require("plugins." .. mod)(manager)
+        end
+        return
+    end
+    return require("plugins." .. mod)(manager)
 end
 
 plugin("manager.manager-lock", { vime = true })
