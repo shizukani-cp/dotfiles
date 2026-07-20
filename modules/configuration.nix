@@ -114,6 +114,7 @@
       "steam-original"
       "steam-run"
       "steam-unwrapped"
+      "widevine-cdm"
     ];
 
   fonts = {

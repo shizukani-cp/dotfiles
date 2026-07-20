@@ -1,11 +1,11 @@
-{ config, pkgs-unstable, ... }:
+{ config, pkgs, ... }:
 let
   leader = "<Space>";
 in
 {
   programs.qutebrowser = {
     enable = true;
-    package = (pkgs-unstable.qutebrowser.override { enableWideVine = true; });
+    package = (pkgs.qutebrowser.override { enableWideVine = true; });
     settings = {
       "auto_save.interval" = 1000;
       "auto_save.session" = true;
