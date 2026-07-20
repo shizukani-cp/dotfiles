@@ -5,7 +5,15 @@ in
 {
   programs.qutebrowser = {
     enable = true;
-    package = (pkgs.qutebrowser.override { enableWideVine = true; });
+    package = pkgs.symlinkJoin {
+      name = "qutebrowser-wrapped";
+      paths = [ (pkgs.qutebrowser.override { enableWideVine = true; }) ];
+      buildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/qutebrowser \
+          --set QT_QPA_PLATFORM xcb
+      '';
+    };
     settings = {
       "auto_save.interval" = 1000;
       "auto_save.session" = true;
