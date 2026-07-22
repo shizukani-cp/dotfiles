@@ -29,7 +29,7 @@ local function config(manager)
                 },
                 {
                     icon = "📁 ",
-                    key = "f",
+                    key = "h",
                     keymap_hl = "File",
                     desc = "File",
                     action = function()
