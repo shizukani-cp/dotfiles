@@ -71,7 +71,6 @@ local function config(manager)
                     desc = "Quit",
                     key = "q",
                     keymap_hl = "Quit",
-                    key_format = " %s",
                     action = "quit",
                 },
             },
