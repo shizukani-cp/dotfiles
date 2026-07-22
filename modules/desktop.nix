@@ -235,7 +235,9 @@ in
           on-click = "foot bluetuith";
         };
         clock = {
+          interval = 1;
           format = "{:%m/%d\n%H:%M}";
+          tooltip-format = "{:%H:%M:%S}";
         };
         battery = {
           interval = 1;
