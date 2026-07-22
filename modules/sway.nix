@@ -38,7 +38,10 @@ in
 
   programs.sway.enable = true;
 
-  environment.systemPackages = [ vime ];
+  environment.systemPackages = [
+    vime
+    pkgs.wf-recorder
+  ];
 
   environment.etc."sway/config".text = ''
     set $mod Mod4
