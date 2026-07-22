@@ -1,5 +1,5 @@
 vim.diagnostic.config({ virtual_text = true })
-vim.g.mapleader = " "
+vim.g.mapleader = "k"
 
 vim.opt.encoding = "utf-8"
 vim.opt.expandtab = true
