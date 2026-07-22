@@ -252,6 +252,9 @@ in
           on-click = "activate";
           on-click-middle = "close";
           sort-by-number = true;
+          all-outputs = true;
+          ignore-list = [ ];
+          active-first = false;
         };
       }
     ];
