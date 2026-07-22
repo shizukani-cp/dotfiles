@@ -95,6 +95,9 @@ in
 
     for_window [title="vime - foot"] floating enable
 
+    # curl -o ~/Pictures/Wallpapers/nixos-wallpaper-catppuccin-frappe.png "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nixos-wallpaper-catppuccin-frappe.png"
+    output * bg ~/Pictures/Wallpapers/nixos-wallpaper-catppuccin-frappe.png fill
+
     exec ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator
     exec ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
