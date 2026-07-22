@@ -44,6 +44,36 @@ let
         mkdir -p $out/lua/data
         cp ${huj8Table} $out/lua/data/huj8.lua
       '';
+  vime-manager = pkgs.writeShellScriptBin "vime-manager" ''
+    #!/usr/bin/env bash
+    set -euo pipefail
+
+    RUN_DIR="''${XDG_RUNTIME_DIR:-/tmp}"
+    READY_PIPE="$RUN_DIR/nvim-vime-ready.pipe"
+
+    cleanup() {
+      rm -f "$READY_PIPE"
+    }
+    trap cleanup EXIT
+
+    while true; do
+      rm -f "$READY_PIPE"
+
+      ${pkgs-unstable.neovim}/bin/nvim --listen "$READY_PIPE" --headless -c 'normal! i' &
+      NVIM_PID=$!
+
+      while [ ! -S "$READY_PIPE" ]; do
+        sleep 0.05
+      done
+
+      while [ -S "$READY_PIPE" ]; do
+        if ! kill -0 "$NVIM_PID" 2>/dev/null; then
+          break
+        fi
+        sleep 0.1
+      done
+    done
+  '';
 in
 {
   home.username = "shizukani-cp";
@@ -82,7 +112,7 @@ in
   };
   systemd.user.services.nvim-vime = {
     Unit = {
-      Description = "Neovim VIME Server";
+      Description = "Neovim VIME Pool Manager";
     };
     Install = {
       WantedBy = [ "default.target" ];
@@ -90,7 +120,7 @@ in
     Service = {
       Type = "simple";
       Environment = [ "VIME=1" ];
-      ExecStart = "${pkgs-unstable.neovim}/bin/nvim --listen %t/nvim-vime.pipe --headless -c 'normal! i'";
+      ExecStart = "${pkgs.bash}/bin/bash ${vime-manager}/bin/vime-manager";
       Restart = "always";
     };
   };

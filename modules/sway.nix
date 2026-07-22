@@ -1,15 +1,27 @@
 { pkgs, pkgs-unstable, ... }:
 let
   coreutils_bin = "${pkgs.coreutils}/bin";
-  vime = pkgs.writeShellScriptBin "vime" ''
+  vime-client = pkgs.writeShellScriptBin "vime-client" ''
     export PATH="/run/current-system/sw/bin:/etc/profiles/per-user/shizukani-cp/bin:$PATH"
-    PIPE_PATH="$XDG_RUNTIME_DIR/nvim-vime.pipe"
+
+    RUN_DIR="''${XDG_RUNTIME_DIR:-/tmp}"
+    READY_PIPE="$RUN_DIR/nvim-vime-ready.pipe"
+    MY_PIPE="$RUN_DIR/nvim-vime-$$.pipe"
     FILE_PATH="/tmp/$(${coreutils_bin}/date +%Y%m%d%H%M%S).md"
+
+    while [ ! -S "$READY_PIPE" ]; do
+      ${coreutils_bin}/sleep 0.05
+    done
+
+    ${coreutils_bin}/mv "$READY_PIPE" "$MY_PIPE"
 
     ${coreutils_bin}/touch "$FILE_PATH"
 
-    ${pkgs-unstable.neovim}/bin/nvim --server "$PIPE_PATH" --remote-send "<Cmd>e $FILE_PATH<Cr>"
-    ${pkgs.foot}/bin/foot -T "vime - foot" ${pkgs-unstable.neovim}/bin/nvim --server "$PIPE_PATH" --remote-ui "$FILE_PATH"
+    ${pkgs-unstable.neovim}/bin/nvim --server "$MY_PIPE" --remote-send "<Cmd>e $FILE_PATH<Cr>"
+    ${pkgs.foot}/bin/foot -T "vime - foot" ${pkgs-unstable.neovim}/bin/nvim --server "$MY_PIPE" --remote-ui "$FILE_PATH"
+
+    ${pkgs-unstable.neovim}/bin/nvim --server "$MY_PIPE" --remote-send "<Cmd>qa!<Cr>" 2>/dev/null || true
+    rm -f "$MY_PIPE"
 
     if [ -f "$FILE_PATH" ]; then
       ${coreutils_bin}/sleep 0.1
@@ -39,7 +51,7 @@ in
   programs.sway.enable = true;
 
   environment.systemPackages = [
-    vime
+    vime-client
     pkgs.wf-recorder
   ];
 
@@ -59,7 +71,7 @@ in
     bindsym $mod+f fullscreen toggle
     bindsym $mod+w layout tabbed
     bindsym $mod+r layout stacking
-    bindsym Henkan_Mode exec ${vime}/bin/vime
+    bindsym Henkan_Mode exec ${vime-client}/bin/vime-client
 
     bindsym $mod+Shift+s exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.coreutils}/bin/tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Captured screen"
 
