@@ -64,7 +64,7 @@ plugin("denippet") -- snippet
 plugin("deps.denops") -- from ddc.vim,ddu.vim,denippet
 plugin("deps.nui") -- from noice.nvim
 plugin("deps.nvim-web-devicons") -- from many plugins
-plugin("deps.plenary")
+plugin("deps.plenary") -- from undotree,lazygit.nvim,todo-comments.nvim,renamer.nvim
 plugin("dial") -- Ctrl+a,Ctrl+x
 plugin("dropbar") -- パンくずリスト
 plugin("fidget") -- LSPがロードしてるのをカッコ良く表示してくれる
