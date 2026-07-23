@@ -33,6 +33,7 @@ in
       "fonts.tabs.selected" = "16px 'Noto Sans CJK JP'";
       "fonts.tabs.unselected" = "16px 'Noto Sans CJK JP'";
       "hints.chars" = "auoitnsr";
+      "qt.args" = [ "disable-gpu" ];
       "session.lazy_restore" = true;
       "tabs.favicons.show" = "always";
       "tabs.new_position.related" = "last";
