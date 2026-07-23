@@ -61,6 +61,7 @@ in
 
     bindsym $mod+Return exec ${pkgs.foot}/bin/foot , exec ${pkgs-unstable.qutebrowser}/bin/qutebrowser
     bindsym $mod+d exec ${pkgs.rofi}/bin/rofi -modi drun\,run -show drun
+    bindsym $mod+v exec ${pkgs.cliphist}/bin/cliphist list | ${pkgs.rofi}/bin/rofi -dmenu | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy
     bindsym $mod+Shift+q kill
     bindsym $mod+Shift+e exec ${pkgs.wlogout}/bin/wlogout
     bindsym $mod+Shift+c reload
@@ -102,5 +103,6 @@ in
     exec ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
     exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
     exec ${pkgs.dunst}/bin/dunst
+    exec ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store
   '';
 }
