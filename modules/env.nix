@@ -5,8 +5,8 @@
   ...
 }:
 let
-  huj8Table =
-    pkgs.runCommand "huj8.lua"
+  customKanatable =
+    pkgs.runCommand "kanatable.lua"
       {
         buildInputs = with pkgs; [
           lua5_4
@@ -14,7 +14,7 @@ let
         ];
       }
       ''
-        lua ${../nvim/lua/data/huj8_gen.lua} > temp.lua
+        lua ${../nvim/lua/data/kanatable_gen.lua} > temp.lua
         luajit -b temp.lua $out
       '';
   compileNvim = true;
@@ -31,7 +31,7 @@ let
           chmod -R +w $out
 
           mkdir -p $out/lua/data
-          cp ${huj8Table} $out/lua/data/huj8.lua
+          cp ${customKanatable} $out/lua/data/kanatable.lua
 
           find $out -name "*.lua" -type f -exec echo "Compiling {}..." \; -exec luajit -b {} {} \;
         ''
@@ -42,7 +42,7 @@ let
         chmod -R +w $out
 
         mkdir -p $out/lua/data
-        cp ${huj8Table} $out/lua/data/huj8.lua
+        cp ${customKanatable} $out/lua/data/kanatable.lua
       '';
   vime-manager = pkgs.writeShellScriptBin "vime-manager" ''
     #!/usr/bin/env bash

@@ -1,6 +1,6 @@
 local function config()
-    local huj8_table = require("data.huj8")
-    require("skkelua").register_kanatable("huj8", huj8_table, 1)
+    local kanatable = require("data.kanatable")
+    require("skkelua").register_kanatable("custom", kanatable, 1)
     require("skkelua").config({
         globalDictionaries = {
             "~/.local/share/skk/SKK-JISYO.L",
@@ -8,7 +8,7 @@ local function config()
         eggLikeNewline = true,
         markerHenkan = "¦",
         markerHenkanSelect = "|",
-        kanaTable = "huj8",
+        kanaTable = "custom",
     })
     local is_vime = (vim.env.VIME ~= nil)
     if is_vime then
