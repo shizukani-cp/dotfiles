@@ -267,7 +267,7 @@ in
       }
 
       window#waybar {
-        background: rgba(43, 48, 59, 0.5);
+        background: transparent;
         color: #ffffff;
       }
 
