@@ -1,6 +1,6 @@
 { config, pkgs, ... }:
 let
-  leader = "<Space>";
+  leader = "k";
   color-palette = {
     bg = "#24283b";
     bg_dark = "#1f2335";
@@ -168,11 +168,11 @@ in
       "y" = "https://youtube.com{}";
     };
     extraConfig = ''
+      config.unbind('${leader}')
       config.bind('${leader}pt', 'open -t https://translate.google.com/translate?sl=auto&tl=ja&u={url}')
       config.bind('${leader}pd', 'config-cycle colors.webpage.darkmode.enabled')
       config.bind('${leader}p2', 'jseval document.querySelector("video").playbackRate = 2.0')
       config.bind('${leader}p1', 'jseval document.querySelector("video").playbackRate = 1.0')
-      config.bind('${leader}${leader}', 'fake-key ${leader}')
       config.bind('<Shift-Down>', 'tab-next')
       config.bind('<Shift-Up>', 'tab-prev')
       darkmode_disables = ( "https://discord.com/", "http://localhost:3000/", "https://docs.google.com/", )
