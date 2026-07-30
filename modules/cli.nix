@@ -1,5 +1,6 @@
 {
   pkgs,
+  pkgs-unstable,
   ...
 }:
 {
@@ -252,5 +253,89 @@
       pager = "${pkgs.ov}/bin/ov -F";
       theme = "Catppuccin Macchiato";
     };
+  };
+  programs.bluetuith = {
+    enable = true;
+  };
+  programs.bottom = {
+    enable = true;
+  };
+  programs.fastfetch = {
+    enable = true;
+  };
+  programs.fd = {
+    enable = true;
+  };
+  programs.gcc = {
+    enable = true;
+  };
+  programs.gh = {
+    enable = true;
+  };
+  programs.git = {
+    enable = true;
+    package = pkgs.gitFull;
+    settings = {
+      "filter \"lfs\"" = {
+        smudge = "git-lfs smudge -- %f";
+        process = "git-lfs filter-process";
+        required = true;
+        clean = "git-lfs clean -- %f";
+      };
+      user = {
+        name = "shizukani-cp";
+        email = "shizukani.cp@gmail.com";
+      };
+      core = {
+        autocrlf = false;
+        pager = "${pkgs.ov}/bin/ov -cm";
+        editor = "${pkgs-unstable.neovim}/bin/nvim";
+      };
+      init = {
+        defaultBranch = "main";
+      };
+      alias = {
+        tree = "log --graph --all --format=\"%x09%C(cyan bold)%an%Creset%x09%C(yellow)%h%Creset %C(magenta reverse)%d%Creset %s\"";
+        si = "switch";
+        st = "status";
+      };
+      ghq = {
+        root = "~/workspace";
+      };
+      url = {
+        "git@github.com:" = {
+          insteadOf = "https://github.com/";
+        };
+      };
+    };
+  };
+  programs.lazygit = {
+    enable = true;
+    enableZshIntegration = true;
+    settings = {
+      activeBorderColor = [
+        "#ff9e64"
+        "bold"
+      ];
+      inactiveBorderColor = [ "#29a4bd" ];
+      searchingActiveBorderColor = [
+        "#ff9e64"
+        "bold"
+      ];
+      optionsTextColor = [ "#7aa2f7" ];
+      selectedLineBgColor = [ "#2e3c64" ];
+      cherryPickedCommitFgColor = [ "#7aa2f7" ];
+      cherryPickedCommitBgColor = [ "#bb9af7" ];
+      markedBaseCommitFgColor = [ "#7aa2f7" ];
+      markedBaseCommitBgColor = [ "#e0af68" ];
+      unstagedChangesColor = [ "#db4b4b" ];
+      defaultFgColor = [ "#c0caf5" ];
+    };
+  };
+  programs.ripgrep = {
+    enable = true;
+  };
+  programs.uv = {
+    enable = true;
   };
 }

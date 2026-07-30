@@ -311,6 +311,9 @@ in
       }
     '';
   };
+  programs.swayimg = {
+    enable = true;
+  };
 
   services.dunst = {
     enable = true;

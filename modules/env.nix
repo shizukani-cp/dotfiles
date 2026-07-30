@@ -87,7 +87,6 @@ in
     x11.enable = true;
   };
   home.file = {
-    ".gitconfig".source = ../.gitconfig;
     ".local/share/skk/SKK-JISYO.L".source = "${pkgs.skkDictionaries.l}/share/skk/SKK-JISYO.L";
   };
   xdg.enable = true;

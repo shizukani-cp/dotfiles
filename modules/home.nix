@@ -14,39 +14,26 @@
     ./desktop.nix
   ];
   home.packages = with pkgs; [
-    bluetuith
-    bottom
     clamtk
     deno
-    fastfetch
-    fd
     ffmpeg
-    foot
-    gcc
-    gh
     ghq
-    gitFull
     glibc
     gnumake
     krita
-    lazygit
     libreoffice-fresh
     lua-language-server
     mpc
-    ncmpcpp
     nil
     nixfmt
     nodejs_24
     pkgs-unstable.neovim
     python312Packages.python-lsp-server
-    ripgrep
     rustup
     shotcut
     skkDictionaries.l
     stylua
-    swayimg
     tailwindcss-language-server
-    tmux
     trash-cli
     tree
     tree-sitter
@@ -56,7 +43,6 @@
     uv
     vscode-langservers-extracted
     wl-clipboard
-    zsh
   ];
   programs.home-manager.enable = true;
 }
