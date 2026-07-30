@@ -19,6 +19,7 @@
     bottom
     clamtk
     deno
+    fastfetch
     fd
     ffmpeg
     foot
