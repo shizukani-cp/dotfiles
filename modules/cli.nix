@@ -246,4 +246,11 @@
       };
     };
   };
+  programs.bat = {
+    enable = true;
+    config = {
+      pager = "${pkgs.ov}/bin/ov -F";
+      theme = "Catppuccin Macchiato";
+    };
+  };
 }

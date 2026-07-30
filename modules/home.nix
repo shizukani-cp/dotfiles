@@ -14,7 +14,6 @@
     ./desktop.nix
   ];
   home.packages = with pkgs; [
-    bat
     bluetuith
     bottom
     clamtk
