@@ -46,7 +46,7 @@ in
       setw -g window-status-separator ""
       setw -g window-status-separator ""
       set -g status-right-length 50
-      set -g status-right "#[bg=${color-palette.blue},fg=${color-palette.black},bold] #S #[default]"
+      set -g status-right "#{?client_prefix,#[bg=${color-palette.red}]#[fg=${color-palette.fg}][PREFIX]#[default],}#[bg=${color-palette.blue},fg=${color-palette.black},bold] #S #[default]"
       set -g status-interval 1
 
       set -g status-keys vi
