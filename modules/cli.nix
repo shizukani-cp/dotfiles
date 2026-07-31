@@ -41,12 +41,12 @@ in
       set -g status-style bg=default,fg=white
       set -g status-left ""
       set -g status-left-length 0
-      setw -g window-status-format "#[fg=#5c6d74,bg=default]#[fg=#FFFFFF,bg=#5c6d74] #I:#W #[fg=#5c6d74,bg=default]"
-      setw -g window-status-current-format "#[fg=#ae8b2d,bg=default]#[fg=#FFFFFF,bg=#ae8b2d,bold] #I:#W #[fg=#ae8b2d,bg=default]"
+      setw -g window-status-format "#[fg=${color-palette.terminal_black},bg=default]#[fg=${color-palette.fg},bg=${color-palette.terminal_black}] #I:#W #[fg=${color-palette.terminal_black},bg=default]"
+      setw -g window-status-current-format "#[fg=${color-palette.blue0},bg=default]#[fg=${color-palette.fg},bg=${color-palette.blue0},bold] #I:#W #[fg=${color-palette.blue0},bg=default]"
       setw -g window-status-separator ""
       setw -g window-status-separator ""
       set -g status-right-length 50
-      set -g status-right "#[bg=blue,fg=black,bold] #S #[default]"
+      set -g status-right "#[bg=${color-palette.blue},fg=${color-palette.black},bold] #S #[default]"
       set -g status-interval 1
 
       set -g status-keys vi
