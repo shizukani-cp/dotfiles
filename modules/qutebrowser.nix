@@ -1,31 +1,11 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  color-palette,
+  ...
+}:
 let
   leader = "k";
-  color-palette = {
-    bg = "#24283b";
-    bg_dark = "#1f2335";
-    bg_highlight = "#292e42";
-    bg_popup = "#1f2335";
-    bg_statusline = "#1f2335";
-    bg_visual = "#3d59a1";
-    black = "#1b1e2d";
-    blue = "#7aa2f7";
-    border_highlight = "#2ac3de";
-    cyan = "#7dcfff";
-    dark3 = "#545c7e";
-    dark5 = "#737aa2";
-    error = "#db4b4b";
-    fg = "#c0caf5";
-    fg_gutter = "#3b4261";
-    green = "#9ece6a";
-    green1 = "#73daca";
-    info = "#0db9d7";
-    magenta = "#bb9af7";
-    orange = "#ff9e64";
-    purple = "#9d7cd8";
-    warning = "#e0af68";
-    yellow = "#e0af68";
-  };
 in
 {
   programs.qutebrowser = {

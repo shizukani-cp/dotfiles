@@ -1,6 +1,7 @@
 {
   pkgs,
   pkgs-unstable,
+  color-palette,
   ...
 }:
 {
@@ -314,22 +315,22 @@
     enableZshIntegration = true;
     settings = {
       activeBorderColor = [
-        "#ff9e64"
+        color-palette.orange
         "bold"
       ];
-      inactiveBorderColor = [ "#29a4bd" ];
+      inactiveBorderColor = [ color-palette.bg_highlight ];
       searchingActiveBorderColor = [
-        "#ff9e64"
+        color-palette.orange
         "bold"
       ];
-      optionsTextColor = [ "#7aa2f7" ];
-      selectedLineBgColor = [ "#2e3c64" ];
-      cherryPickedCommitFgColor = [ "#7aa2f7" ];
-      cherryPickedCommitBgColor = [ "#bb9af7" ];
-      markedBaseCommitFgColor = [ "#7aa2f7" ];
-      markedBaseCommitBgColor = [ "#e0af68" ];
-      unstagedChangesColor = [ "#db4b4b" ];
-      defaultFgColor = [ "#c0caf5" ];
+      optionsTextColor = [ color-palette.blue ];
+      selectedLineBgColor = [ color-palette.bg_highlight ];
+      cherryPickedCommitFgColor = [ color-palette.blue ];
+      cherryPickedCommitBgColor = [ color-palette.magenta ];
+      markedBaseCommitFgColor = [ color-palette.blue ];
+      markedBaseCommitBgColor = [ color-palette.yellow ];
+      unstagedChangesColor = [ color-palette.error ];
+      defaultFgColor = [ color-palette.fg ];
     };
   };
   programs.ripgrep = {
