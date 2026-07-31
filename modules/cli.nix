@@ -257,6 +257,34 @@
   };
   programs.bluetuith = {
     enable = true;
+    settings = {
+      theme = {
+        Text = color-palette.fg;
+        Border = color-palette.border_highlight;
+        Background = color-palette.bg_dark;
+        StatusInfo = color-palette.blue;
+        StatusError = color-palette.error;
+        Adapter = color-palette.purple;
+        AdapterPowered = color-palette.green;
+        AdapterNotPowered = color-palette.dark3;
+        AdapterDiscoverable = color-palette.cyan;
+        AdapterScanning = color-palette.warning;
+        AdapterPairable = color-palette.magenta;
+        Device = color-palette.fg;
+        DeviceType = color-palette.blue;
+        DeviceAlias = color-palette.border_highlight;
+        DeviceConnected = color-palette.green;
+        DeviceDiscovered = color-palette.orange;
+        DeviceProperty = color-palette.dark5;
+        DevicePropertyConnected = color-palette.green1;
+        DevicePropertyDiscovered = color-palette.orange;
+        Menu = color-palette.bg_dark;
+        MenuBar = color-palette.black;
+        MenuItem = color-palette.fg;
+        ProgressBar = color-palette.blue;
+        ProgressText = color-palette.fg;
+      };
+    };
   };
   programs.bottom = {
     enable = true;
