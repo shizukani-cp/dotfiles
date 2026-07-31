@@ -25,7 +25,7 @@ let
 
     if [ -f "$FILE_PATH" ]; then
       ${coreutils_bin}/sleep 0.1
-      ${coreutils_bin}/printf %s "$(${coreutils_bin}/cat "$FILE_PATH")" | ${pkgs.wl-clipboard}/bin/wl-copy
+      ${coreutils_bin}/printf %s "$(${coreutils_bin}/cat "$FILE_PATH")" | ${pkgs.wl-clipboard}/bin/wl-copy --type text/plain
       while [ "$(${pkgs.wl-clipboard}/bin/wl-paste | ${coreutils_bin}/tr -d '\n')" != "$(${coreutils_bin}/tr -d '\n' < "$FILE_PATH")" ]; do
         ${coreutils_bin}/sleep 0.05
       done
