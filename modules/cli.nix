@@ -1,9 +1,13 @@
 {
   pkgs,
   pkgs-unstable,
+  lib,
   color-palette,
   ...
 }:
+let
+  no-hash-color-palette = lib.mapAttrs (name: value: lib.removePrefix "#" value) color-palette;
+in
 {
   programs.tmux = {
     enable = true;
@@ -239,7 +243,29 @@
         shell = "tmux new-session -A -s main";
       };
       colors-dark = {
-        background = "1e1e2e";
+        foreground = no-hash-color-palette.fg;
+        background = no-hash-color-palette.bg;
+        selection-foreground = no-hash-color-palette.fg;
+        selection-background = no-hash-color-palette.blue7;
+        urls = no-hash-color-palette.green1;
+        regular0 = no-hash-color-palette.black;
+        regular1 = no-hash-color-palette.red;
+        regular2 = no-hash-color-palette.green;
+        regular3 = no-hash-color-palette.yellow;
+        regular4 = no-hash-color-palette.blue;
+        regular5 = no-hash-color-palette.magenta;
+        regular6 = no-hash-color-palette.cyan;
+        regular7 = no-hash-color-palette.fg_dark;
+        bright0 = no-hash-color-palette.blue7;
+        bright1 = no-hash-color-palette.red;
+        bright2 = no-hash-color-palette.green;
+        bright3 = no-hash-color-palette.yellow;
+        bright4 = no-hash-color-palette.blue;
+        bright5 = no-hash-color-palette.magenta;
+        bright6 = no-hash-color-palette.cyan;
+        bright7 = no-hash-color-palette.fg;
+        "16" = no-hash-color-palette.orange;
+        "17" = no-hash-color-palette.red1;
         alpha = "0.85";
       };
       csd = {
