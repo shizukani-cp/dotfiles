@@ -2,6 +2,7 @@
   config,
   pkgs,
   pkgs-unstable,
+  lib,
   ...
 }:
 let
@@ -74,6 +75,20 @@ let
       done
     done
   '';
+  skk-jisyo = builtins.listToAttrs (
+    map
+      (name: {
+        name = "skk/SKK-JISYO.${name}";
+        value = {
+          source = "${pkgs.skkDictionaries.${lib.toLower name}}/share/skk/SKK-JISYO.${name}";
+        };
+      })
+      [
+        "L"
+        "geo"
+        "station"
+      ]
+  );
 in
 {
   home.username = "shizukani-cp";
@@ -87,11 +102,7 @@ in
     x11.enable = true;
   };
   xdg.enable = true;
-  xdg.dataFile = {
-    "skk/SKK-JISYO.L".source = "${pkgs.skkDictionaries.l}/share/skk/SKK-JISYO.L";
-    "skk/SKK-JISYO.geo".source = "${pkgs.skkDictionaries.geo}/share/skk/SKK-JISYO.geo";
-    "skk/SKK-JISYO.station".source = "${pkgs.skkDictionaries.station}/share/skk/SKK-JISYO.station";
-  };
+  xdg.dataFile = skk-jisyo;
   xdg.configFile = {
     "nvim" = {
       source = compiledNvimConfig;
