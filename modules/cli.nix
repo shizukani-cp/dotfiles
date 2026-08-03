@@ -124,19 +124,19 @@ in
           alignment = "left";
           segments = [
             {
-              foreground = "#7eb8da";
+              foreground = color-palette.cyan;
               style = "plain";
-              template = "┏[<#ffffff></> {{ .UserName }} from <#ffffff></> {{ .HostName }}]";
+              template = "┏[<${color-palette.fg}></> {{ .UserName }} from <${color-palette.fg}></> {{ .HostName }}]";
               type = "session";
             }
             {
-              foreground = "#be9ddf";
+              foreground = color-palette.magenta;
               properties = {
                 style = "dallas";
                 threshold = 0;
               };
               style = "diamond";
-              template = "[<#ffffff></> {{ .FormattedMs }}s]";
+              template = "[<${color-palette.fg}></> {{ .FormattedMs }}s]";
               type = "executiontime";
             }
             {
@@ -148,47 +148,47 @@ in
               type = "root";
             }
             {
-              foreground = "#7eb8da";
+              foreground = color-palette.cyan;
               properties = {
                 time_format = "Monday at 3:04:05 PM";
               };
               style = "diamond";
-              template = "[<#ffffff></> {{ .CurrentDate | date .Format }}]";
+              template = "[<${color-palette.fg}></> {{ .CurrentDate | date .Format }}]";
               type = "time";
             }
             {
-              foreground = "#ffa5d8";
+              foreground = color-palette.magenta;
               properties = {
                 fetch_stash_count = true;
                 fetch_status = true;
                 fetch_upstream_icon = true;
               };
               style = "plain";
-              template = "[<#ffffff>{{ .UpstreamIcon }}</>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <#ffffff></> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <#ffffff></> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <#ffffff></> {{ .StashCount }}{{ end }}]";
+              template = "[<${color-palette.fg}>{{ .UpstreamIcon }}</>{{ .HEAD }}{{if .BranchStatus }} {{ .BranchStatus }}{{ end }}{{ if .Working.Changed }} <${color-palette.fg}></> {{ .Working.String }}{{ end }}{{ if and (.Working.Changed) (.Staging.Changed) }} |{{ end }}{{ if .Staging.Changed }} <${color-palette.fg}></> {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0 }} <${color-palette.fg}></> {{ .StashCount }}{{ end }}]";
               type = "git";
             }
             {
-              foreground = "#ffa5d8";
+              foreground = color-palette.magenta;
               style = "plain";
               template = "[{{ .Profile }}{{if .Region}}@{{ .Region }}{{ end }}]";
               type = "aws";
             }
             {
-              foreground = "#ffa5d8";
+              foreground = color-palette.magenta;
               style = "plain";
               template = "[{{.Context}}{{if .Namespace}} :: {{.Namespace}}{{end}}]";
               type = "kubectl";
             }
             {
-              foreground = "#ffa5d8";
+              foreground = color-palette.magenta;
               style = "plain";
               template = "[]";
               type = "root";
             }
             {
-              foreground = "#ffa5d8";
+              foreground = color-palette.magenta;
               style = "powerline";
-              template = "[<#ffffff></> Error, check your command]";
+              template = "[<${color-palette.fg}></> Error, check your command]";
               type = "status";
             }
           ];
@@ -199,9 +199,9 @@ in
           newline = true;
           segments = [
             {
-              foreground = "#7eb8da";
+              foreground = "${color-palette.cyan}";
               style = "plain";
-              template = "┖[<#98bfad>{{ .Path }}</>]";
+              template = "┖[<${color-palette.green1}>{{ .Path }}</>]";
               type = "path";
               options = {
                 style = "full";
@@ -219,7 +219,7 @@ in
           newline = true;
           segments = [
             {
-              foreground = "#7eb8da";
+              foreground = "${color-palette.cyan}";
               style = "plain";
               template = "└─Δ";
               type = "text";
