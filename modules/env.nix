@@ -86,13 +86,12 @@ in
     gtk.enable = true;
     x11.enable = true;
   };
-  home.file = {
-    ".local/share/skk/SKK-JISYO.L".source = "${pkgs.skkDictionaries.l}/share/skk/SKK-JISYO.L";
-    ".local/share/skk/SKK-JISYO.geo".source = "${pkgs.skkDictionaries.geo}/share/skk/SKK-JISYO.geo";
-    ".local/share/skk/SKK-JISYO.station".source =
-      "${pkgs.skkDictionaries.station}/share/skk/SKK-JISYO.station";
-  };
   xdg.enable = true;
+  xdg.dataFile = {
+    "skk/SKK-JISYO.L".source = "${pkgs.skkDictionaries.l}/share/skk/SKK-JISYO.L";
+    "skk/SKK-JISYO.geo".source = "${pkgs.skkDictionaries.geo}/share/skk/SKK-JISYO.geo";
+    "skk/SKK-JISYO.station".source = "${pkgs.skkDictionaries.station}/share/skk/SKK-JISYO.station";
+  };
   xdg.configFile = {
     "nvim" = {
       source = compiledNvimConfig;
