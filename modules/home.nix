@@ -32,9 +32,6 @@
     python312Packages.python-lsp-server
     rustup
     shotcut
-    skkDictionaries.l
-    skkDictionaries.geo
-    skkDictionaries.station
     stylua
     tailwindcss-language-server
     trash-cli
