@@ -33,6 +33,8 @@
     rustup
     shotcut
     skkDictionaries.l
+    skkDictionaries.geo
+    skkDictionaries.station
     stylua
     tailwindcss-language-server
     trash-cli
