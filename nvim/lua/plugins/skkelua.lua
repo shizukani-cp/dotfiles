@@ -11,6 +11,7 @@ local function config()
         markerHenkan = "¦",
         markerHenkanSelect = "|",
         kanaTable = "custom",
+        selectCandidateKeys = "auoitnr",
     })
     local is_vime = (vim.env.VIME ~= nil)
     if is_vime then
