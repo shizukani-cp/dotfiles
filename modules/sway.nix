@@ -72,6 +72,7 @@ in
     bindsym $mod+f fullscreen toggle
     bindsym $mod+w layout tabbed
     bindsym $mod+r layout stacking
+    bindsym $mod+Shift+space floating toggle
     bindsym Henkan_Mode exec ${vime-client}/bin/vime-client
 
     bindsym $mod+Shift+s exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.coreutils}/bin/tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Captured screen"
