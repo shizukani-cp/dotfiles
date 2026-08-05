@@ -329,7 +329,7 @@ in
         transparency = 10;
         font = "BitstromWera Nerd Font Mono 13, Noto Sans Mono CJK JP 13";
         frame_width = 1;
-        frame_color = "#888888";
+        frame_color = color-palette.dark5;
       };
       urgency_normal = {
         background = color-palette.bg;
