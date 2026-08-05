@@ -48,15 +48,15 @@ in
     enable = true;
     theme = {
       "*" = {
-        bg = mkLiteral "#24283b";
-        hv = mkLiteral "#9274ca";
-        primary = mkLiteral "#C5C8C6";
-        ug = mkLiteral "#0B2447";
+        bg = mkLiteral color-palette.bg;
+        hv = mkLiteral color-palette.purple;
+        primary = mkLiteral color-palette.fg;
+        ug = mkLiteral color-palette.bg;
         font = "Monospace 11";
         background-color = mkLiteral "@bg";
         border = mkLiteral "0px";
-        kl = mkLiteral "#7aa2f7";
-        black = mkLiteral "#000000";
+        kl = mkLiteral color-palette.blue;
+        black = mkLiteral color-palette.bg_dark1;
         transparent = mkLiteral "rgba(46,52,64,0)";
       };
 
