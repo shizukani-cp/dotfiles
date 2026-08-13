@@ -6,19 +6,37 @@
   ...
 }:
 let
-  customKanatable =
-    pkgs.runCommand "kanatable.lua"
-      {
-        buildInputs = with pkgs; [
-          lua5_4
-          luajit
-        ];
+  customKanatableFile = pkgs.writeText "kanatable.lua" (
+    let
+      kanatableData = import ../lib/kanatable.nix;
+
+      renderEntry =
+        k: v:
+        let
+          escapedKey = builtins.replaceStrings [ "\\" ''"'' ] [ "\\\\" ''\"'' ] k;
+        in
+        if builtins.isList v then
+          let
+            v1 = builtins.replaceStrings [ "\\" ''"'' ] [ "\\\\" ''\"'' ] (builtins.elemAt v 0);
+            v2 = builtins.replaceStrings [ "\\" ''"'' ] [ "\\\\" ''\"'' ] (builtins.elemAt v 1);
+          in
+          ''["${escapedKey}"] = {"${v1}", "${v2}"},''
+        else
+          let
+            vStr = builtins.replaceStrings [ "\\" ''"'' ] [ "\\\\" ''\"'' ] v;
+          in
+          ''["${escapedKey}"] = "${vStr}",'';
+
+      luaBody = builtins.concatStringsSep "\n" (lib.mapAttrsToList renderEntry kanatableData);
+
+    in
+    ''
+      return {
+      ${luaBody}
       }
-      ''
-        lua ${../nvim/lua/data/kanatable_gen.lua} > temp.lua
-        luajit -b temp.lua $out
-      '';
-  compileNvim = true;
+    ''
+  );
+  compileNvim = false;
   compiledNvimConfig =
     if compileNvim then
       pkgs.runCommand "compiled-nvim-config"
@@ -32,7 +50,7 @@ let
           chmod -R +w $out
 
           mkdir -p $out/lua/data
-          cp ${customKanatable} $out/lua/data/kanatable.lua
+          cp ${customKanatableFile} $out/lua/data/kanatable.lua
 
           find $out -name "*.lua" -type f -exec echo "Compiling {}..." \; -exec luajit -b {} {} \;
         ''
@@ -43,7 +61,7 @@ let
         chmod -R +w $out
 
         mkdir -p $out/lua/data
-        cp ${customKanatable} $out/lua/data/kanatable.lua
+        cp ${customKanatableFile} $out/lua/data/kanatable.lua
       '';
   vime-manager = pkgs.writeShellScriptBin "vime-manager" ''
     #!/usr/bin/env bash
