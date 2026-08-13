@@ -8,7 +8,13 @@
 let
   customKanatableFile = pkgs.writeText "kanatable.lua" (
     let
-      kanatableData = import ../lib/kanatable.nix;
+      kanatableData = import ../lib/kanatable.nix // {
+        " " = "henkanFirst";
+        "^" = "henkanPoint";
+        ":" = "zenkaku";
+        ";" = "katakana";
+        "/" = "abbrev";
+      };
 
       renderEntry =
         k: v:

@@ -190,12 +190,6 @@ let
   );
 
 specials = {
-    " " = "henkanFirst";
-    "^" = "henkanPoint";
-    ":" = "zenkaku";
-    ";" = "katakana";
-    "/" = "abbrev";
-
     "[" = [ "「" "" ];
     "]" = [ "」" "" ];
     "-" = [ "ー" "" ];
