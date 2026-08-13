@@ -7,14 +7,6 @@ vim.api.nvim_create_autocmd("TermOpen", {
     end,
 })
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-    group = vim.api.nvim_create_augroup("FormatOnSave", { clear = true }),
-    pattern = "*",
-    callback = function()
-        vim.lsp.buf.format({ async = false })
-    end,
-})
-
 vim.api.nvim_create_autocmd("ModeChanged", {
     pattern = "c:*",
     group = vim.api.nvim_create_augroup("CleanHistory", { clear = true }),
