@@ -13,6 +13,7 @@
     ./mpd.nix
     ./qutebrowser.nix
     ./desktop.nix
+    ./sway.nix
   ];
   home.packages = with pkgs; [
     clamtk

@@ -1,6 +1,11 @@
 { pkgs, pkgs-unstable, ... }:
 let
   coreutils_bin = "${pkgs.coreutils}/bin";
+  modifier = "Mod4";
+  wallpaper = pkgs.fetchurl {
+    url = "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nixos-wallpaper-catppuccin-frappe.png";
+    sha256 = "wtBffKK9rqSJo8+7Wo8OMruRlg091vdroyUZj5mDPfI=";
+  };
   vime-client = pkgs.writeShellScriptBin "vime-client" ''
     export PATH="/run/current-system/sw/bin:/etc/profiles/per-user/shizukani-cp/bin:$PATH"
 
@@ -35,75 +40,84 @@ let
   '';
 in
 {
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd sway --theme border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red";
-        user = "greeter";
-      };
-    };
-  };
-
-  security.polkit.enable = true;
-  programs.nm-applet.enable = true;
-
-  programs.sway.enable = true;
-
-  environment.systemPackages = [
+  home.packages = [
     vime-client
     pkgs.wf-recorder
   ];
 
-  environment.etc."sway/config".text = ''
-    set $mod Mod4
-    workspace_layout tabbed
-
-    bindsym $mod+Return exec ${pkgs.foot}/bin/foot , exec ${pkgs-unstable.qutebrowser}/bin/qutebrowser
-    bindsym $mod+d exec ${pkgs.rofi}/bin/rofi -modi drun\,run -show drun
-    bindsym $mod+v exec ${pkgs.cliphist}/bin/cliphist list | ${pkgs.rofi}/bin/rofi -dmenu | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy
-    bindsym $mod+Shift+q kill
-    bindsym $mod+Shift+e exec ${pkgs.wlogout}/bin/wlogout
-    bindsym $mod+Shift+c reload
-    bindsym $mod+Tab focus next
-    bindsym $mod+n focus right
-    bindsym $mod+s focus left
-
-    bindsym $mod+f fullscreen toggle
-    bindsym $mod+w layout tabbed
-    bindsym $mod+r layout stacking
-    bindsym $mod+Shift+space floating toggle
-    bindsym Henkan_Mode exec ${vime-client}/bin/vime-client
-
-    bindsym $mod+Shift+s exec ${pkgs.grim}/bin/grim -g "$(${pkgs.slurp}/bin/slurp)" - | ${pkgs.coreutils}/bin/tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send "Captured screen"
-
-    bindsym XF86AudioRaiseVolume exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-    bindsym XF86AudioLowerVolume exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-    bindsym XF86AudioMute exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-
-    bar {
-      swaybar_command waybar
-    }
-
-    font pango:monospace 1
-    titlebar_padding 1
-    titlebar_border_thickness 1
-    client.focused #000000 #000000 #000000 #000000 #000000
-    client.unfocused #000000 #000000 #000000 #000000 #000000
-
-    input "type:keyboard" {
-      xkb_layout "us"
-    }
-
-    for_window [title="vime - foot"] floating enable
-
-    # curl -o ~/Pictures/Wallpapers/nixos-wallpaper-catppuccin-frappe.png "https://raw.githubusercontent.com/NixOS/nixos-artwork/master/wallpapers/nixos-wallpaper-catppuccin-frappe.png"
-    output * bg ~/Pictures/Wallpapers/nixos-wallpaper-catppuccin-frappe.png fill
-
-    exec ${pkgs.networkmanagerapplet}/bin/nm-applet --indicator
-    exec ${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1
-    exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
-    exec ${pkgs.dunst}/bin/dunst
-    exec ${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store
-  '';
+  wayland.windowManager.sway = {
+    enable = true;
+    config = {
+      bars = [ { command = "${pkgs.waybar}/bin/waybar"; } ];
+      colors = {
+        focused = {
+          background = "#000000";
+          border = "#000000";
+          childBorder = "#000000";
+          indicator = "#000000";
+          text = "#000000";
+        };
+        unfocused = {
+          background = "#000000";
+          border = "#000000";
+          childBorder = "#000000";
+          indicator = "#000000";
+          text = "#000000";
+        };
+      };
+      floating.criteria = [ { title = "vime - foot"; } ];
+      fonts = {
+        names = [ "monospace" ];
+        size = 1.0;
+      };
+      input = {
+        "type:keyboard" = {
+          xkb_layout = "us";
+        };
+      };
+      keybindings = {
+        "${modifier}+Return" =
+          "exec ${pkgs.foot}/bin/foot , exec ${pkgs-unstable.qutebrowser}/bin/qutebrowser";
+        "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
+        "${modifier}+v" =
+          "exec ${pkgs.cliphist}/bin/cliphist list | ${pkgs.rofi}/bin/rofi -dmenu | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
+        "${modifier}+Shift+q" = "kill";
+        "${modifier}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
+        "${modifier}+Shift+c" = "reload";
+        "${modifier}+Tab" = "focus next";
+        "${modifier}+n" = "focus right";
+        "${modifier}+s" = "focus left";
+        "${modifier}+f" = "fullscreen toggle";
+        "${modifier}+w" = "layout tabbed";
+        "${modifier}+r" = "layout stacking";
+        "${modifier}+Shift+space" = "floating toggle";
+        "Henkan_Mode" = "exec ${vime-client}/bin/vime-client";
+        "${modifier}+Shift+s" =
+          "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - | ${pkgs.coreutils}/bin/tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png | ${pkgs.wl-clipboard}/bin/wl-copy && ${pkgs.libnotify}/bin/notify-send \"Captured screen\"";
+        "XF86AudioRaiseVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
+        "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
+        "XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
+      };
+      modifier = "Mod4";
+      output = {
+        "*" = {
+          bg = "${wallpaper} fill";
+        };
+      };
+      startup = [
+        { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
+        { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
+        {
+          command = "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";
+        }
+        { command = "${pkgs.dunst}/bin/dunst"; }
+        { command = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
+      ];
+      workspaceLayout = "tabbed";
+    };
+    extraConfig = ''
+      titlebar_padding 1
+      titlebar_border_thickness 1
+    '';
+  };
 }
