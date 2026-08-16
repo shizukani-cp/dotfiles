@@ -160,4 +160,5 @@ in
       Restart = "always";
     };
   };
+  services.network-manager-applet.enable = true;
 }

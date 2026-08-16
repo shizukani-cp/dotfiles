@@ -105,13 +105,9 @@ in
         };
       };
       startup = [
-        { command = "${pkgs.networkmanagerapplet}/bin/nm-applet --indicator"; }
-        { command = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1"; }
         {
           command = "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";
         }
-        { command = "${pkgs.dunst}/bin/dunst"; }
-        { command = "${pkgs.wl-clipboard}/bin/wl-paste --watch ${pkgs.cliphist}/bin/cliphist store"; }
       ];
       workspaceLayout = "tabbed";
     };

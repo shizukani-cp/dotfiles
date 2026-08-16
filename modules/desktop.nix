@@ -351,4 +351,5 @@ in
       };
     };
   };
+  services.cliphist.enable = true;
 }

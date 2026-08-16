@@ -48,6 +48,15 @@
   services.xserver = {
     xkb.layout = "us";
   };
+  services.greetd = {
+    enable = true;
+    settings = {
+      default_session = {
+        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd sway --theme border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red";
+        user = "greeter";
+      };
+    };
+  };
 
   services.pipewire.enable = true;
   services.pipewire.alsa.enable = true;
@@ -69,6 +78,7 @@
 
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.greetd.enableGnomeKeyring = true;
+  security.polkit.enable = true;
 
   virtualisation.waydroid.enable = true;
 
@@ -103,9 +113,8 @@
   ];
   programs.zsh.enable = true;
   programs.nix-ld.enable = true;
-  programs.steam = {
-    enable = true;
-  };
+  programs.nm-applet.enable = true;
+  programs.steam.enable = true;
   nixpkgs.config.allowUnfreePredicate =
     pkg:
     builtins.elem (lib.getName pkg) [
@@ -142,18 +151,6 @@
       };
     };
   };
-  services.greetd = {
-    enable = true;
-    settings = {
-      default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd sway --theme border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red";
-        user = "greeter";
-      };
-    };
-  };
-
-  security.polkit.enable = true;
-  programs.nm-applet.enable = true;
 
   system.stateVersion = "26.05";
 }
