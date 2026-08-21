@@ -73,8 +73,8 @@ plugin("friendly-snippets") -- スニペット集
 plugin("gitsigns", { vime = true }) -- gitの差分表示
 plugin("hlargs") -- 引数強調
 plugin("hlchunk") -- インデント系util
+plugin("hop") -- カーソルをいろんなところにジャンプできる
 plugin("indent-blankline") -- ブロックの頭の行を出してくれる
-plugin("jumpcursor") -- カーソルをいろんなところにジャンプできる
 plugin("lazygit") -- lazygit
 plugin("lsp.conform") -- formatter to LSP
 plugin("lsp.lazydev") -- Neovim develop
