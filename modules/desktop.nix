@@ -314,6 +314,51 @@ in
   programs.swayimg = {
     enable = true;
   };
+  programs.feh = {
+    enable = true;
+    themes = {
+      booth = [
+        "--full-screen"
+        "--hide-pointer"
+        "--slideshow-delay"
+        "20"
+      ];
+      example = [
+        "--info"
+        "foo bar"
+      ];
+      feh = [
+        "--image-bg"
+        color-palette.bg
+      ];
+      imagemap = [
+        "-rVq"
+        "--thumb-width"
+        "40"
+        "--thumb-height"
+        "30"
+        "--index-info"
+        "%n\\n%wx%h"
+      ];
+      present = [
+        "--full-screen"
+        "--sort"
+        "name"
+        "--hide-pointer"
+      ];
+      webcam = [
+        "--multiwindow"
+        "--reload"
+        "20"
+      ];
+    };
+    keybindings = {
+      prev_img = [ "Left" ];
+      next_img = [ "Right" ];
+      zoom_in = "plus";
+      zoom_out = "minus";
+    };
+  };
 
   services.dunst = {
     enable = true;
