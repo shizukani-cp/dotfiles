@@ -1,7 +1,6 @@
 {
   config,
   pkgs,
-  pkgs-unstable,
   lib,
   ...
 }:
@@ -17,7 +16,6 @@
     "nix-command"
     "flakes"
   ];
-
   boot.loader = {
     efi.canTouchEfiVariables = true;
     grub = {
@@ -28,47 +26,50 @@
     };
   };
   boot.kernelParams = [ "amd_pstate=active" ];
-
-  networking.hostName = "shizukani-cp";
-  networking.networkmanager.enable = true;
-  networking.nftables.enable = true;
-  networking.firewall.allowPing = true;
-
-  i18n.defaultLocale = "ja_JP.UTF-8";
-  console.keyMap = "us";
-
   nix.gc = {
     automatic = true;
     dates = "weekly";
     options = "--delete-older-than 7d";
   };
+  i18n.defaultLocale = "ja_JP.UTF-8";
+  console.keyMap = "us";
 
+  networking = {
+    hostName = "shizukani-cp";
+    networkmanager.enable = true;
+    nftables.enable = true;
+    firewall.allowPing = true;
+  };
   zramSwap = {
     enable = true;
     memoryPercent = 30;
     algorithm = "zstd";
   };
-
   hardware.bluetooth.enable = true;
-
-  services.xserver = {
-    xkb.layout = "us";
+  hardware.graphics = {
+    enable = true;
+    extraPackages = with pkgs; [
+      rocmPackages.clr.icd
+    ];
   };
+
   services.greetd = {
     enable = true;
     settings = {
       default_session = {
-        command = "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd sway --theme border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red";
+        command =
+          "${pkgs.tuigreet}/bin/tuigreet --time --remember --cmd sway"
+          + "--theme border=magenta;text=cyan;prompt=green;time=red;action=blue;button=yellow;container=black;input=red";
         user = "greeter";
       };
     };
   };
-
   services.pipewire.enable = true;
   services.pipewire.alsa.enable = true;
   services.pipewire.pulse.enable = true;
-  security.rtkit.enable = true;
-
+  services.xserver = {
+    xkb.layout = "us";
+  };
   xdg.portal = {
     enable = true;
     wlr.enable = true;
@@ -81,62 +82,6 @@
     };
     config.common.default = [ "gtk" ];
   };
-
-  services.gnome.gnome-keyring.enable = true;
-  security.pam.services.greetd.enableGnomeKeyring = true;
-  security.polkit.enable = true;
-
-  virtualisation.waydroid.enable = true;
-
-  services.gvfs.enable = true;
-
-  services.power-profiles-daemon.enable = true;
-
-  services.earlyoom.enable = true;
-
-  services.logind = {
-    settings = {
-      Login.HandlePowerKey = "ignore";
-    };
-  };
-
-  hardware.graphics = {
-    enable = true;
-    extraPackages = with pkgs; [
-      rocmPackages.clr.icd
-    ];
-  };
-
-  users.users.shizukani-cp = {
-    isNormalUser = true;
-    extraGroups = [
-      "wheel"
-      "networkmanager"
-    ];
-    shell = pkgs.zsh;
-  };
-
-  home-manager.backupFileExtension = "backup";
-
-  environment.systemPackages = with pkgs; [
-    git
-    neovim
-    wget
-  ];
-  programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
-  programs.nm-applet.enable = true;
-  programs.steam.enable = true;
-  nixpkgs.config.allowUnfreePredicate =
-    pkg:
-    builtins.elem (lib.getName pkg) [
-      "steam"
-      "steam-original"
-      "steam-run"
-      "steam-unwrapped"
-      "widevine-cdm"
-    ];
-
   fonts = {
     packages = with pkgs; [
       nerd-fonts.bitstream-vera-sans-mono
@@ -163,6 +108,48 @@
       };
     };
   };
+
+  security.pam.services.greetd.enableGnomeKeyring = true;
+  security.polkit.enable = true;
+  security.rtkit.enable = true;
+  services.gnome.gnome-keyring.enable = true;
+  services.gvfs.enable = true;
+  services.power-profiles-daemon.enable = true;
+  services.earlyoom.enable = true;
+  services.logind = {
+    settings = {
+      Login.HandlePowerKey = "ignore";
+    };
+  };
+
+  users.users.shizukani-cp = {
+    isNormalUser = true;
+    extraGroups = [
+      "wheel"
+      "networkmanager"
+    ];
+    shell = pkgs.zsh;
+  };
+  environment.systemPackages = with pkgs; [
+    git
+    neovim
+    wget
+  ];
+  programs.zsh.enable = true;
+  programs.nix-ld.enable = true;
+  programs.nm-applet.enable = true;
+  programs.steam.enable = true;
+  virtualisation.waydroid.enable = true;
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (lib.getName pkg) [
+      "steam"
+      "steam-original"
+      "steam-run"
+      "steam-unwrapped"
+      "widevine-cdm"
+    ];
+  home-manager.backupFileExtension = "backup";
 
   system.stateVersion = "26.05";
 }
