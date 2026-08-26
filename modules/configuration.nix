@@ -43,6 +43,12 @@
     options = "--delete-older-than 7d";
   };
 
+  zramSwap = {
+    enable = true;
+    memoryPercent = 30;
+    algorithm = "zstd";
+  };
+
   hardware.bluetooth.enable = true;
 
   services.xserver = {
