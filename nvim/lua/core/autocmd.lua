@@ -34,3 +34,9 @@ vim.api.nvim_create_autocmd("QuitPre", {
         vim.cmd.only({ bang = true })
     end,
 })
+
+vim.api.nvim_create_autocmd("QuitPre", {
+    callback = function()
+        collectgarbage("collect")
+    end,
+})
