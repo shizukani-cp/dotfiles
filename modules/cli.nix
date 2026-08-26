@@ -377,7 +377,7 @@ in
       };
       core = {
         autocrlf = false;
-        pager = "${pkgs.ov}/bin/ov -cm";
+        pager = "${pkgs.ov}/bin/ov -c";
         editor = "${pkgs-unstable.neovim}/bin/nvim";
       };
       init = {
