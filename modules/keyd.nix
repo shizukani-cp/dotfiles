@@ -48,6 +48,7 @@
             slash = "w";
           };
           "shift_layer:S" = { };
+          "fn_layer" = { };
           "function_layer" = {
             # 中段
             j = "mute";
@@ -55,7 +56,7 @@
             l = "volumeup";
             semicolon = "henkan";
           };
-          "fn_layer+function_layer" = {
+          "function_layer+fn_layer" = {
             # 上段
             y = "f5";
             u = "f6";
