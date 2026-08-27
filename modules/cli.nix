@@ -324,6 +324,16 @@ in
   programs.bottom = {
     enable = true;
   };
+  programs.direnv = {
+    enable = true;
+    enableZshIntegration = true;
+    nix-direnv.enable = true;
+    config = {
+      global = {
+        default_env = { };
+      };
+    };
+  };
   programs.fastfetch = {
     enable = true;
     settings = {
