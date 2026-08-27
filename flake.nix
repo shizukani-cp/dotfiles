@@ -58,6 +58,7 @@
         warning = "#e0af68";
         yellow = "#e0af68";
       };
+      pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
         config = {
@@ -85,6 +86,19 @@
             home-manager.users.shizukani-cp = import ./modules/home.nix;
           }
         ];
+      };
+
+      devShells.${system}.default = pkgs.mkShell {
+        buildInputs = with pkgs; [
+          deno
+          lua-language-server
+          nodejs_24
+          python314Packages.python-lsp-server
+          stylua
+        ];
+        shellHook = ''
+          echo "Entered dotfiles!"
+        '';
       };
     };
 }
