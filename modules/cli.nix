@@ -187,6 +187,15 @@ in
             }
             {
               foreground = color-palette.magenta;
+              style = "plain";
+              template = "[ NEST:{{ .SHLVL }} ]";
+              option = {
+                threshold = 2;
+              };
+              type = "text";
+            }
+            {
+              foreground = color-palette.magenta;
               style = "powerline";
               template = "[<${color-palette.fg}></> Error, check your command]";
               type = "status";
