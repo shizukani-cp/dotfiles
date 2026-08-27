@@ -9,16 +9,15 @@ let
   vime-client = pkgs.writeShellScriptBin "vime-client" ''
     export PATH="/run/current-system/sw/bin:/etc/profiles/per-user/shizukani-cp/bin:$PATH"
 
-    RUN_DIR="''${XDG_RUNTIME_DIR:-/tmp}"
-    READY_PIPE="$RUN_DIR/nvim-vime-ready.pipe"
-    MY_PIPE="$RUN_DIR/nvim-vime-$$.pipe"
+    SOCK_PATH="/tmp/nvim-vime.sock"
     FILE_PATH="/tmp/$(${coreutils_bin}/date +%Y%m%d%H%M%S).md"
 
-    while [ ! -S "$READY_PIPE" ]; do
-      ${coreutils_bin}/sleep 0.05
-    done
+    MY_PIPE=$(${pkgs.netcat-openbsd}/bin/nc -U "$SOCK_PATH" <<< "GET")
 
-    ${coreutils_bin}/mv "$READY_PIPE" "$MY_PIPE"
+    if [ -z "$MY_PIPE" ]; then
+      ${pkgs.libnotify}/bin/notify-send -t 800 "Error" "Failed to get pipe from daemon"
+      exit 1
+    fi
 
     ${coreutils_bin}/touch "$FILE_PATH"
 
@@ -26,7 +25,7 @@ let
     ${pkgs.foot}/bin/foot -T "vime - foot" ${pkgs-unstable.neovim}/bin/nvim --server "$MY_PIPE" --remote-ui "$FILE_PATH"
 
     ${pkgs-unstable.neovim}/bin/nvim --server "$MY_PIPE" --remote-send "<Cmd>qa!<Cr>" 2>/dev/null || true
-    rm -f "$MY_PIPE"
+    ${pkgs.netcat-openbsd}/bin/nc -U "$SOCK_PATH" <<< "RELEASE $MY_PIPE" >/dev/null
 
     if [ -f "$FILE_PATH" ]; then
       ${coreutils_bin}/sleep 0.1

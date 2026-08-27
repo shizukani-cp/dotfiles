@@ -69,36 +69,9 @@ let
         mkdir -p $out/lua/data
         cp ${customKanatableFile} $out/lua/data/kanatable.lua
       '';
-  vime-manager = pkgs.writeShellScriptBin "vime-manager" ''
-    #!/usr/bin/env bash
-    set -euo pipefail
-
-    RUN_DIR="''${XDG_RUNTIME_DIR:-/tmp}"
-    READY_PIPE="$RUN_DIR/nvim-vime-ready.pipe"
-
-    cleanup() {
-      rm -f "$READY_PIPE"
-    }
-    trap cleanup EXIT
-
-    while true; do
-      rm -f "$READY_PIPE"
-
-      ${pkgs-unstable.neovim}/bin/nvim --listen "$READY_PIPE" --headless -c 'normal! i' &
-      NVIM_PID=$!
-
-      while [ ! -S "$READY_PIPE" ]; do
-        sleep 0.05
-      done
-
-      while [ -S "$READY_PIPE" ]; do
-        if ! kill -0 "$NVIM_PID" 2>/dev/null; then
-          break
-        fi
-        sleep 0.1
-      done
-    done
-  '';
+  vime-manager = pkgs.writers.writePython3Bin "vime-manager" {
+    libraries = [ ];
+  } (builtins.readFile ../files/vime.py);
   skk-jisyo = builtins.listToAttrs (
     map
       (name: {
@@ -156,7 +129,7 @@ in
     Service = {
       Type = "simple";
       Environment = [ "VIME=1" ];
-      ExecStart = "${pkgs.bash}/bin/bash ${vime-manager}/bin/vime-manager";
+      ExecStart = "${vime-manager}/bin/vime-manager";
       Restart = "always";
     };
   };
