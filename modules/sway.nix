@@ -99,7 +99,7 @@ in
         "XF86AudioLowerVolume" = "exec ${pkgs.wireplumber}/bin/wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
         "XF86AudioMute" = "exec ${pkgs.wireplumber}/bin/wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle";
       };
-      modifier = "Mod4";
+      modifier = modifier;
       output = {
         "*" = {
           bg = "${wallpaper} fill";
