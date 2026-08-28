@@ -10,6 +10,19 @@ config.bind(f"<Ctrl-v>", "fake-key <BackSpace> ;; fake-key <Ctrl-v> ;; mode-ente
 config.bind("<Shift-Down>", "tab-next")
 config.bind("<Shift-Up>", "tab-prev")
 
+config.unbind("f")
+config.unbind("F")
+config.bind("s", "hint")
+config.bind("S", "hint all tab-bg")
+config.bind("ff", "save")
+config.bind("fk", "cmd-set-text -s :bind")
+config.bind("fl", "cmd-set-text -s :set -t")
+config.bind("fs", "cmd-set-text -s :set")
+config.bind("Fb", "bookmark-list --jump")
+config.bind("Fh", "history")
+config.bind("Fq", "bookmark-list")
+config.bind("Fs", "set")
+
 darkmode_disables = ( "https://discord.com/", "http://localhost:3000/", "https://docs.google.com/", )
 for s in darkmode_disables:
     config.set("colors.webpage.darkmode.enabled", False, s + "*")
