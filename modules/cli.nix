@@ -383,6 +383,7 @@ in
   programs.git = {
     enable = true;
     package = pkgs.gitFull;
+    ignores = [ ".direnv" ];
     settings = {
       "filter \"lfs\"" = {
         smudge = "git-lfs smudge -- %f";
