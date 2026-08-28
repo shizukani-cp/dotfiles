@@ -1,10 +1,10 @@
-leader = "k"
+LEADER = "k"
 
-config.unbind(f"{leader}")
-config.bind(f"{leader}t", "open -t https://translate.google.com/translate?sl=auto&tl=ja&u={url}")
-config.bind(f"{leader}d", "config-cycle colors.webpage.darkmode.enabled")
-config.bind(f"{leader}2", "jseval document.querySelector('video').playbackRate = 2.0")
-config.bind(f"{leader}1", "jseval document.querySelector('video').playbackRate = 1.0")
+config.unbind(f"{LEADER}")
+config.bind(f"{LEADER}t", "open -t https://translate.google.com/translate?sl=auto&tl=ja&u={url}")
+config.bind(f"{LEADER}d", "config-cycle colors.webpage.darkmode.enabled")
+config.bind(f"{LEADER}2", "jseval document.querySelector('video').playbackRate = 2.0")
+config.bind(f"{LEADER}1", "jseval document.querySelector('video').playbackRate = 1.0")
 config.bind("<Shift-Down>", "tab-next")
 config.bind("<Shift-Up>", "tab-prev")
 
