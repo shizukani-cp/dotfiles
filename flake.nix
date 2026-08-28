@@ -92,6 +92,8 @@
         buildInputs = with pkgs; [
           deno
           lua-language-server
+          nil
+          nixfmt
           nodejs_24
           python314Packages.python-lsp-server
           stylua

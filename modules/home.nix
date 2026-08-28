@@ -24,8 +24,6 @@
     krita
     libreoffice-fresh
     mpc
-    nil
-    nixfmt
     pkgs-unstable.neovim
     shotcut
     trash-cli
