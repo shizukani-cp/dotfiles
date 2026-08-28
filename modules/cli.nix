@@ -60,6 +60,7 @@ in
       bind -n M-Left previous-window
       bind -n M-Right next-window
       bind r source-file ~/.config/tmux/tmux.conf \; display "Reloaded!"
+      bind k previous-window
       bind -n M-1 select-window -t 1
       bind -n M-2 select-window -t 2
       bind -n M-3 select-window -t 3
