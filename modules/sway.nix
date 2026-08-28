@@ -91,6 +91,7 @@ in
         "${modifier}+r" = "layout stacking";
         "${modifier}+Shift+space" = "floating toggle";
         "Henkan_Mode" = "exec ${vime-client}/bin/vime-client";
+        "Shift+Henkan_Mode" = "exec ${pkgs.wtype}/bin/wtype -k F25 && ${vime-client}/bin/vime-client";
         "${modifier}+Shift+s" =
           "exec ${pkgs.grim}/bin/grim -g \"$(${pkgs.slurp}/bin/slurp)\" - |"
           + " ${pkgs.coreutils}/bin/tee ~/Pictures/Screenshots/$(date +%Y-%m-%d_%H-%M-%S).png |"

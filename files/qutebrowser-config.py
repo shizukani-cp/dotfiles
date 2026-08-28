@@ -5,6 +5,8 @@ config.bind(f"{LEADER}t", "open -t https://translate.google.com/translate?sl=aut
 config.bind(f"{LEADER}d", "config-cycle colors.webpage.darkmode.enabled")
 config.bind(f"{LEADER}2", "jseval document.querySelector('video').playbackRate = 2.0")
 config.bind(f"{LEADER}1", "jseval document.querySelector('video').playbackRate = 1.0")
+config.bind(f"<F25>", "fake-key a")
+config.bind(f"<Ctrl-v>", "fake-key <BackSpace> ;; fake-key <Ctrl-v> ;; mode-enter insert")
 config.bind("<Shift-Down>", "tab-next")
 config.bind("<Shift-Up>", "tab-prev")
 
