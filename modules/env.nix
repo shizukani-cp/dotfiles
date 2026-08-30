@@ -85,7 +85,14 @@ let
         "geo"
         "station"
       ]
-  );
+  ) // {
+      "skk/SKK-JISYO.maru-num" = {
+        source = pkgs.fetchurl {
+          url = "https://raw.githubusercontent.com/Lttce/skk-maru-num/main/SKK-JISYO.maru-num";
+          hash = "sha256-JRKMuG4WiVTXdXWynm6n6bGm4pt08bn07xp5AWA1F8w=";
+        };
+      };
+    };
 in
 {
   home.username = "shizukani-cp";

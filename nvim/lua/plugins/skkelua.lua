@@ -5,6 +5,7 @@ local function config()
         globalDictionaries = {
             "~/.local/share/skk/SKK-JISYO.L",
             "~/.local/share/skk/SKK-JISYO.geo",
+            "~/.local/share/skk/SKK-JISYO.maru-num",
             "~/.local/share/skk/SKK-JISYO.station",
         },
         eggLikeNewline = true,
