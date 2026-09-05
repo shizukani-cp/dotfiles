@@ -47,8 +47,10 @@ end
 return function(manager)
     manager:add({
         id = "skkelua",
-        url = "https://github.com/kjuq/skkelua.nvim",
+        url = "https://github.com/shizukani-cp/skkelua.nvim",
         config = config,
+        dev = false,
+        dir = require("utils.local_plugin_path")("skkelua.nvim"),
     })
     manager:lazyload_event("InsertEnter", "skkelua")
 end
