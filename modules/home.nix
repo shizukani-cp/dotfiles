@@ -17,6 +17,7 @@
   ];
   home.packages = with pkgs; [
     clamtk
+    deno
     ffmpeg
     ghq
     glibc

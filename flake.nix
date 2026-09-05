@@ -99,7 +99,6 @@
       {
         devShells.default = pkgs.mkShell {
           packages = with pkgs; [
-            deno
             lua-language-server
             nil
             nixfmt
