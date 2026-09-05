@@ -80,6 +80,8 @@ in
         "${modifier}+d" = "exec ${pkgs.rofi}/bin/rofi -show drun";
         "${modifier}+v" =
           "exec ${pkgs.cliphist}/bin/cliphist list | ${pkgs.rofi}/bin/rofi -dmenu | ${pkgs.cliphist}/bin/cliphist decode | ${pkgs.wl-clipboard}/bin/wl-copy";
+        "${modifier}+Shift+d" =
+          "exec ${pkgs.cliphist}/bin/cliphist list | ${pkgs.rofi}/bin/rofi -dmenu | ${pkgs.cliphist}/bin/cliphist delete";
         "${modifier}+Shift+q" = "kill";
         "${modifier}+Shift+e" = "exec ${pkgs.wlogout}/bin/wlogout";
         "${modifier}+Shift+c" = "reload";
