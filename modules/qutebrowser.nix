@@ -122,6 +122,7 @@
       "content.blocking.method" = "adblock";
       "content.cookies.accept" = "all";
       "content.cookies.store" = true;
+      "content.headers.accept_language" = "ja-JP,ja;q=0.9,en;q=0.6";
       "content.pdfjs" = true;
       "downloads.location.directory" = "${config.home.homeDirectory}/scratch";
       "fonts.tabs.selected" = "16px 'Noto Sans CJK JP'";
