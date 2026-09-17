@@ -109,7 +109,10 @@
     };
   };
 
-  security.pam.services.greetd.enableGnomeKeyring = true;
+  security.pam.services = {
+    swaylock = { };
+    greetd.enableGnomeKeyring = true;
+  };
   security.polkit.enable = true;
   security.rtkit.enable = true;
   services.gnome.gnome-keyring.enable = true;

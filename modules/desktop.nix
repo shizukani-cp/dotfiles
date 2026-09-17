@@ -320,6 +320,40 @@ in
   programs.swayimg = {
     enable = true;
   };
+  programs.swaylock = {
+    enable = true;
+    package = pkgs.swaylock-effects;
+    settings = {
+      screenshots = true;
+      effect-blur = "7x5";
+      effect-vignette = "0.5:0.5";
+
+      clock = true;
+      indicator = true;
+      indicator-radius = 100;
+      indicator-thickness = 7;
+
+      color = no-hash-color-palette.bg_dark;
+      inside-color = no-hash-color-palette.bg_dark;
+      ring-color = no-hash-color-palette.blue;
+      key-hl-color = no-hash-color-palette.magenta;
+      text-color = no-hash-color-palette.fg;
+      line-color = "00000000";
+
+      ring-wrong-color = no-hash-color-palette.red;
+      inside-wrong-color = no-hash-color-palette.red;
+      text-wrong-color = no-hash-color-palette.bg_dark;
+
+      ring-clear-color = no-hash-color-palette.yellow;
+      inside-clear-color = no-hash-color-palette.yellow;
+
+      ring-caps-lock-color = no-hash-color-palette.orange;
+      inside-caps-lock-color = no-hash-color-palette.orange;
+
+      grace = 2;
+      fade-in = 0.2;
+    };
+  };
   programs.feh = {
     enable = true;
     themes = {
