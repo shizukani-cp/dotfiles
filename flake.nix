@@ -60,6 +60,13 @@
         warning = "#e0af68";
         yellow = "#e0af68";
       };
+      removeHash =
+        str:
+        if builtins.substring 0 1 str == "#" then
+          builtins.substring 1 (builtins.stringLength str - 1) str
+        else
+          str;
+      no-hash-color-palette = builtins.mapAttrs (name: value: removeHash value) color-palette;
       pkgs = nixpkgs.legacyPackages.${system};
       pkgs-unstable = import nixpkgs-unstable {
         inherit system;
@@ -74,6 +81,7 @@
         specialArgs = {
           inherit pkgs-unstable;
           inherit color-palette;
+          inherit no-hash-color-palette;
         };
         modules = [
           ./modules/configuration.nix
@@ -84,14 +92,14 @@
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable;
               inherit color-palette;
+              inherit no-hash-color-palette;
             };
             home-manager.users.shizukani-cp = import ./modules/home.nix;
           }
         ];
       };
     }
-    //
-    flake-utils.lib.eachDefaultSystem (
+    // flake-utils.lib.eachDefaultSystem (
       system:
       let
         pkgs = nixpkgs.legacyPackages.${system};

@@ -1,4 +1,10 @@
-{ config, color-palette, ... }:
+{
+  pkgs,
+  config,
+  color-palette,
+  no-hash-color-palette,
+  ...
+}:
 let
   inherit (config.lib.formats.rasi) mkLiteral;
 in

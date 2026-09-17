@@ -3,6 +3,7 @@
   pkgs,
   pkgs-unstable,
   color-palette,
+  no-hash-color-palette,
   ...
 }:
 

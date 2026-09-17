@@ -1,13 +1,10 @@
 {
   pkgs,
   pkgs-unstable,
-  lib,
   color-palette,
+  no-hash-color-palette,
   ...
 }:
-let
-  no-hash-color-palette = lib.mapAttrs (name: value: lib.removePrefix "#" value) color-palette;
-in
 {
   programs.tmux = {
     enable = true;
