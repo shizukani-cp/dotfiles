@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    neovim-stable.url = "github:shizukani-cp/neovim-stable-overlay";
   };
 
   outputs =
@@ -16,6 +17,7 @@
       nixpkgs-unstable,
       flake-utils,
       home-manager,
+      neovim-stable,
       ...
     }@inputs:
     let
@@ -73,6 +75,7 @@
         config = {
           allowUnfreePredicate = pkg: builtins.elem (nixpkgs.lib.getName pkg) [ "widevine-cdm" ];
         };
+        overlays = [ neovim-stable.overlays.default ];
       };
     in
     {
