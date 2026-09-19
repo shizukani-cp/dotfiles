@@ -79,9 +79,7 @@
       nixosConfigurations."shizukani-cp" = nixpkgs.lib.nixosSystem {
         inherit system;
         specialArgs = {
-          inherit pkgs-unstable;
-          inherit color-palette;
-          inherit no-hash-color-palette;
+          inherit pkgs-unstable color-palette no-hash-color-palette;
         };
         modules = [
           ./modules/configuration.nix
@@ -90,9 +88,7 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = {
-              inherit pkgs-unstable;
-              inherit color-palette;
-              inherit no-hash-color-palette;
+              inherit pkgs-unstable color-palette no-hash-color-palette;
             };
             home-manager.users.shizukani-cp = import ./modules/home.nix;
           }
