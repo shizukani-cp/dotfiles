@@ -39,6 +39,9 @@ M.lsp_servers = {
         },
     },
     ts_ls = {
+        cmd = function(dispatchers, _)
+            return vim.lsp.rpc.start({ "typescript-language-server", "--stdio" }, dispatchers)
+        end,
         root_dir = function(fname)
             local util = require("lspconfig.util")
             return util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
