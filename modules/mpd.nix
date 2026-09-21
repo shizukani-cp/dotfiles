@@ -9,7 +9,7 @@
         name    "My BGM Stream"
         encoder "opus"
         port    "8000"
-        bind_address "127.0.0.1"
+        bind_to_address "127.0.0.1"
         bitrate "128000"
         format  "48000:16:2"
       }
