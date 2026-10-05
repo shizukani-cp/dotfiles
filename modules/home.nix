@@ -11,7 +11,6 @@
   imports = [
     ./cli.nix
     ./env.nix
-    ./mpd.nix
     ./qutebrowser.nix
     ./desktop.nix
     ./sway.nix
@@ -25,7 +24,6 @@
     gnumake
     krita
     libreoffice-fresh
-    mpc
     nil
     nixfmt
     pkgs-unstable.neovim
