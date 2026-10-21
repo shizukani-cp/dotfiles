@@ -10,6 +10,7 @@ vim.opt.foldenable = true
 vim.opt.foldlevel = 99
 vim.opt.foldlevelstart = 99
 vim.opt.helplang = "ja,en"
+vim.opt.iskeyword = "@,48-57,192-255"
 vim.opt.laststatus = 3
 vim.opt.mouse = ""
 vim.opt.number = true
