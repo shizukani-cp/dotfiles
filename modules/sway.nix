@@ -81,6 +81,9 @@ in
         "type:keyboard" = {
           xkb_layout = "us";
         };
+        "type:touchpad" = {
+          pointer_accel = "0.5";
+        };
       };
       keybindings = {
         "${modifier}+Return" =

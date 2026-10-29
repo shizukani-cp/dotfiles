@@ -46,6 +46,10 @@
             comma = "p";
             dot = "g";
             slash = "w";
+
+            # マウス操作
+            muhenkan = "leftmouse";
+            henkan = "rightmouse";
           };
           "shift_layer:S" = { };
           "fn_layer" = { };
