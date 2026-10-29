@@ -143,7 +143,6 @@
       "gs" = "https://github.com/search?q={}";
       "go" = "https://www.google.com/search?q={}";
       "n" = "https://search.nixos.org/packages?query={}";
-      "y" = "https://youtube.com{}";
     };
     extraConfig = builtins.readFile ../files/qutebrowser-config.py;
   };
