@@ -82,6 +82,7 @@ in
           xkb_layout = "us";
         };
         "type:touchpad" = {
+          natural_scroll = "enabled";
           pointer_accel = "0.5";
         };
       };
