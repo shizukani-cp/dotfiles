@@ -49,9 +49,12 @@
 
             # マウス操作
             muhenkan = "leftmouse";
+            space = "scrolldown";
             henkan = "rightmouse";
           };
-          "shift_layer:S" = { };
+          "shift_layer:S" = {
+            space = "scrollup";
+          };
           "fn_layer" = { };
           "function_layer" = {
             # 中段
