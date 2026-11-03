@@ -83,7 +83,7 @@ in
         };
         "type:touchpad" = {
           natural_scroll = "enabled";
-          pointer_accel = "0.5";
+          pointer_accel = "0.8";
         };
       };
       keybindings = {
