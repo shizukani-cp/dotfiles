@@ -7,6 +7,7 @@
       url = "github:nix-community/home-manager/release-26.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nixvim.url = "github:nix-community/nixvim/nixos-26.05";
     neovim-stable.url = "github:shizukani-cp/neovim-stable-overlay";
   };
 
@@ -17,6 +18,7 @@
       nixpkgs-unstable,
       flake-utils,
       home-manager,
+      nixvim,
       neovim-stable,
       ...
     }@inputs:
@@ -85,6 +87,11 @@
           inherit pkgs-unstable color-palette no-hash-color-palette;
         };
         modules = [
+          {
+            nixpkgs.overlays = [
+              neovim-stable.overlays.default
+            ];
+          }
           ./modules/configuration.nix
           home-manager.nixosModules.home-manager
           {
@@ -93,7 +100,12 @@
             home-manager.extraSpecialArgs = {
               inherit pkgs-unstable color-palette no-hash-color-palette;
             };
-            home-manager.users.shizukani-cp = import ./modules/home.nix;
+            home-manager.users.shizukani-cp = {
+              imports = [
+                ./modules/home.nix
+                nixvim.homeModules.nixvim
+              ];
+            };
           }
         ];
       };

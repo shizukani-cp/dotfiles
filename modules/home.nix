@@ -11,6 +11,7 @@
   imports = [
     ./cli.nix
     ./env.nix
+    ./nvim.nix
     ./qutebrowser.nix
     ./desktop.nix
     ./sway.nix
@@ -26,7 +27,6 @@
     libreoffice-fresh
     nil
     nixfmt
-    pkgs-unstable.neovim
     shotcut
     trash-cli
     tree
