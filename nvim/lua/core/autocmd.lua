@@ -40,3 +40,13 @@ vim.api.nvim_create_autocmd("QuitPre", {
         collectgarbage("collect")
     end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+    group = vim.api.nvim_create_augroup("FormatOnSave", { clear = true }),
+    pattern = "*",
+    callback = function(args)
+        if vim.g.formatonsave then
+            require("conform").format({ bufnr = args.buf })
+        end
+    end,
+})

@@ -13,6 +13,13 @@ vim.keymap.set("n", "<Leader>en", function()
     end
 end, { desc = "Relative/Absolute Line Numbers" })
 vim.keymap.set("n", "<Leader>eh", "<Cmd>ToggleHitEnter<Cr>", { desc = "Enable/Disable hit enter" })
+vim.keymap.set({ "n" }, "<Leader>ef", function()
+    if vim.g.formatonsave then
+        vim.g.formatonsave = false
+    else
+        vim.g.formatonsave = true
+    end
+end, { noremap = true, silent = true, desc = "Toggle fonmat on save" })
 -- vim.keymap.set("n", "<Leader>eo", "<Cmd>noh<Cr>", { desc = ":noh" })
 -- vim.keymap.set("n", "<Leader>em", "<Cmd>messages<Cr>", { desc = "Messages" })
 -- vim.keymap.set({ "n", "x" }, "gg", "gg^", { noremap = true, silent = true, desc = "Go to the top of the file" })

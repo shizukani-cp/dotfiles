@@ -12,6 +12,7 @@
       };
     };
     globals = {
+      formatonsave = true;
       mapleader = "k";
     };
     keymaps = [
@@ -175,6 +176,17 @@
       whichwrap = "b,s,h,l,<,>";
     };
     plugins = {
+      # Formatter to LSP
+      conform-nvim = {
+        enable = true;
+        settings = {
+          formatters_by_ft = {
+            lua = [ "stylua" ];
+            nix = [ "nixfmt" ];
+            rust = [ "rustfmt" ];
+          };
+        };
+      };
       lsp = {
         enable = true;
         servers = {
