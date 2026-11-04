@@ -63,7 +63,7 @@ plugin("ddu.ddu-plugins", { ddu = false }) -- ddu.vimの取り巻き
 plugin("ddu.ddu-source-manager", { ddu = false }) -- ddu.vimのmanager.nvim連携
 plugin("denippet") -- snippet
 plugin("deps.denops") -- from ddc.vim,ddu.vim,denippet
-plugin("deps.nui") -- from noice.nvim
+-- plugin("deps.nui") -- from noice.nvim
 plugin("deps.plenary") -- from undotree,lazygit.nvim,todo-comments.nvim,renamer.nvim
 -- plugin("deps.web-devicons") -- from many plugins
 plugin("dial") -- Ctrl+a,Ctrl+x
@@ -85,7 +85,7 @@ plugin("manager.manager-remove") -- manager.nvim remove,clean()
 plugin("manager.manager-update") -- manager.nvim update()
 plugin("markview", { vime = true }) -- markdown view
 plugin("neoscroll", { vime = true }) -- スクロールを滑らかにしてくれる
-plugin("noice") -- UIをいい感じにしてくれる
+-- plugin("noice") -- UIをいい感じにしてくれる
 plugin("nvimdoc-ja") -- Neovim document Japanese
 plugin("oklch-color-picker") -- color highlight
 plugin("satellite") -- Decorate scrollbar

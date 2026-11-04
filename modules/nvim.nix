@@ -396,6 +396,18 @@
       };
       # Lazy loading
       lz-n.enable = true;
+      # Better UI
+      noice = {
+        enable = true;
+        lazyLoad.settings.event = [
+          "CmdLineEnter"
+          "SafeState"
+        ];
+      };
+      # UI
+      nui = {
+        enable = true;
+      };
       # Icons
       web-devicons.enable = true;
     };
