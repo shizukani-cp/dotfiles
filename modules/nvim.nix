@@ -321,6 +321,13 @@
           blank.enable = true;
         };
       };
+      # Move cursor
+      hop = {
+        enable = true;
+        settings = {
+          keys = "iouatnsrhkdcmpgwbzl";
+        };
+      };
       # Neovim develop
       lazydev = {
         enable = true;

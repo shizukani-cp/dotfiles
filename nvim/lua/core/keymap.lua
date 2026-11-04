@@ -20,6 +20,13 @@ vim.keymap.set({ "n" }, "<Leader>ef", function()
         vim.g.formatonsave = true
     end
 end, { noremap = true, silent = true, desc = "Toggle fonmat on save" })
+manager:lazyload_key(
+    "n",
+    "s",
+    "<Cmd>HopWord<Cr>",
+    "hop.vim",
+    { noremap = true, silent = true, desc = "Go to any word in the current buffer." }
+)
 -- vim.keymap.set("n", "<Leader>eo", "<Cmd>noh<Cr>", { desc = ":noh" })
 -- vim.keymap.set("n", "<Leader>em", "<Cmd>messages<Cr>", { desc = "Messages" })
 -- vim.keymap.set({ "n", "x" }, "gg", "gg^", { noremap = true, silent = true, desc = "Go to the top of the file" })
