@@ -51,7 +51,7 @@ plugin("manager.manager-lock", { vime = true })
 plugin("manager.manager-lazyload", { vime = true })
 
 manager:lock()
-plugin("Comment") -- Comment
+-- plugin("Comment") -- Comment
 -- plugin("autopairs", { vime = true }) -- ペアを自動で入力してくれる
 -- plugin("bufferline") -- bufferline
 plugin("capture") -- コマンドの結果をバッファに出す

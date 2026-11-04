@@ -186,6 +186,21 @@
         enable = true;
         lazyLoad.settings.event = "BufWinEnter";
       };
+      # Comment
+      comment = {
+        enable = true;
+        lazyLoad.settings.event = "SafeState";
+        settings = {
+          toggler = {
+            line = "<Leader>cc";
+            block = "<Leader>cC";
+          };
+          opleader = {
+            line = "gcc";
+            block = "gcC";
+          };
+        };
+      };
       # Formatter to LSP
       conform-nvim = {
         enable = true;
