@@ -174,5 +174,104 @@
       updatetime = 1000;
       whichwrap = "b,s,h,l,<,>";
     };
+    plugins = {
+      lsp = {
+        enable = true;
+        servers = {
+          cssls = {
+            enable = true;
+            settings = {
+              css = {
+                lint = {
+                  unknownAtRules = "ignore";
+                };
+              };
+            };
+          };
+          denols = {
+            enable = true;
+            settings = {
+              lint = true;
+              unstable = true;
+              suggest = {
+                imports = {
+                  hosts = {
+                    "https://crux.land" = true;
+                    "https://deno.land" = true;
+                    "https://x.nest.land" = true;
+                  };
+                };
+              };
+            };
+            # root_dir = function(fname)
+            #     local util = require("lspconfig.util")
+            #     return util.root_pattern(".git", "deno.json", "deno.jsonc")(fname)
+            # end,
+          };
+          html = {
+            enable = true;
+          };
+          jsonls = {
+            enable = true;
+          };
+          lua_ls = {
+            enable = true;
+            settings = {
+              Lua = {
+                runtime = {
+                  version = "LuaJIT";
+                };
+                diagnostics = {
+                  globals = [ "vim" ];
+                };
+                workspace = {
+                  # library = vim.list_extend(vim.api.nvim_get_runtime_file("lua", true), {
+                  #     "${3rd}/luv/library",
+                  #     "${3rd}/busted/library",
+                  #     "${3rd}/luassert/library",
+                  # }),
+                  checkThirdParty = "Disable";
+                };
+              };
+            };
+          };
+          nil_ls = {
+            enable = true;
+          };
+          pylsp = {
+            enable = true;
+            cmd = [ "pylsp" ];
+            settings = {
+              pylsp = {
+                plugins = {
+                  pyflakes = {
+                    enabled = true;
+                  };
+                  pylint = {
+                    enabled = true;
+                  };
+                };
+              };
+            };
+          };
+          rust_analyzer = {
+            enable = true;
+          };
+          tailwindcss = {
+            enable = true;
+          };
+          ts_ls = {
+            enable = true;
+            # cmd = function(dispatchers, _)
+            #     return vim.lsp.rpc.start({ "typescript-language-server", "--stdio" }, dispatchers)
+            # end,
+            # root_dir = function(fname)
+            #     local util = require("lspconfig.util")
+            #     return util.root_pattern("tsconfig.json", "package.json", "jsconfig.json", ".git")(fname)
+            # end,
+          };
+        };
+      };
+    };
   };
 }

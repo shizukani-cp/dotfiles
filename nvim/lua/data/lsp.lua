@@ -4,40 +4,40 @@ M.lsp_servers = {
     lua_ls = {
         settings = {
             Lua = {
-                runtime = { version = "LuaJIT" },
-                diagnostics = { globals = { "vim" } },
+                -- runtime = { version = "LuaJIT" },
+                -- diagnostics = { globals = { "vim" } },
                 workspace = {
                     library = vim.list_extend(vim.api.nvim_get_runtime_file("lua", true), {
                         "${3rd}/luv/library",
                         "${3rd}/busted/library",
                         "${3rd}/luassert/library",
                     }),
-                    checkThirdParty = "Disable",
+                    -- checkThirdParty = "Disable",
                 },
             },
         },
     },
-    pylsp = {
-        cmd = { "pylsp" },
-        settings = {
-            pylsp = {
-                plugins = {
-                    pyflakes = { enabled = true },
-                    pylint = { enabled = true },
-                },
-            },
-        },
-    },
-    rust_analyzer = {},
-    html = {},
-    tailwindcss = {},
-    cssls = {
-        settings = {
-            css = {
-                lint = { unknownAtRules = "ignore" },
-            },
-        },
-    },
+    -- pylsp = {
+    --     cmd = { "pylsp" },
+    --     settings = {
+    --         pylsp = {
+    --             plugins = {
+    --                 pyflakes = { enabled = true },
+    --                 pylint = { enabled = true },
+    --             },
+    --         },
+    --     },
+    -- },
+    -- rust_analyzer = {},
+    -- html = {},
+    -- tailwindcss = {},
+    -- cssls = {
+    --     settings = {
+    --         css = {
+    --             lint = { unknownAtRules = "ignore" },
+    --         },
+    --     },
+    -- },
     ts_ls = {
         cmd = function(dispatchers, _)
             return vim.lsp.rpc.start({ "typescript-language-server", "--stdio" }, dispatchers)
@@ -48,28 +48,28 @@ M.lsp_servers = {
         end,
     },
     denols = {
-        init_options = {
-            lint = true,
-            unstable = true,
-            suggest = {
-                imports = {
-                    hosts = {
-                        ["https://crux.land"] = true,
-                        ["https://deno.land"] = true,
-                        ["https://x.nest.land"] = true,
-                    },
-                },
-            },
-        },
+        -- init_options = {
+        --     lint = true,
+        --     unstable = true,
+        --     suggest = {
+        --         imports = {
+        --             hosts = {
+        --                 ["https://crux.land"] = true,
+        --                 ["https://deno.land"] = true,
+        --                 ["https://x.nest.land"] = true,
+        --             },
+        --         },
+        --     },
+        -- },
         root_dir = function(fname)
             local util = require("lspconfig.util")
             return util.root_pattern(".git", "deno.json", "deno.jsonc")(fname)
         end,
     },
-    jsonls = {},
-    ["nil"] = {},
+    -- jsonls = {},
+    -- ["nil"] = {},
 }
 
-M.installed_servers = vim.tbl_keys(M.lsp_servers)
+-- M.installed_servers = vim.tbl_keys(M.lsp_servers)
 
 return M
