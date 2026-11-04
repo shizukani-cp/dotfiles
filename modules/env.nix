@@ -42,33 +42,6 @@ let
       }
     ''
   );
-  compileNvim = false;
-  compiledNvimConfig =
-    if compileNvim then
-      pkgs.runCommand "compiled-nvim-config"
-        {
-          nativeBuildInputs = [ pkgs.luajit ];
-        }
-        ''
-          mkdir -p $out
-          cp -r ${../nvim}/* $out/
-
-          chmod -R +w $out
-
-          mkdir -p $out/lua/data
-          cp ${customKanatableFile} $out/lua/data/kanatable.lua
-
-          find $out -name "*.lua" -type f -exec echo "Compiling {}..." \; -exec luajit -b {} {} \;
-        ''
-    else
-      pkgs.runCommand "uncompiled-nvim-config" { } ''
-        mkdir -p $out
-        cp -r ${../nvim}/* $out/
-        chmod -R +w $out
-
-        mkdir -p $out/lua/data
-        cp ${customKanatableFile} $out/lua/data/kanatable.lua
-      '';
   vime-manager = pkgs.writers.writePython3Bin "vime-manager" {
     libraries = [ ];
   } (builtins.readFile ../files/vime.py);
@@ -107,11 +80,6 @@ in
   };
   xdg.enable = true;
   xdg.dataFile = skk-jisyo;
-  xdg.configFile = {
-    "nvim" = {
-      source = compiledNvimConfig;
-    };
-  };
   xdg.mimeApps.defaultApplications = {
     "text/html" = "org.qutebrowser.qutebrowser.desktop";
     "x-scheme-handler/http" = "org.qutebrowser.qutebrowser.desktop";
