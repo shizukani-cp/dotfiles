@@ -55,7 +55,7 @@ manager:lock()
 -- plugin("autopairs", { vime = true }) -- ペアを自動で入力してくれる
 -- plugin("bufferline") -- bufferline
 plugin("capture") -- コマンドの結果をバッファに出す
-plugin("dashboard") -- dashboard
+-- plugin("dashboard") -- dashboard
 plugin("ddc.ddc") -- ddc.vim
 plugin("ddc.ddc-source-lsp-setup") -- ddc.vimのLSP連携
 plugin("ddu.ddu", { ddu = false }) -- ddu.vim
@@ -65,7 +65,7 @@ plugin("denippet") -- snippet
 plugin("deps.denops") -- from ddc.vim,ddu.vim,denippet
 plugin("deps.nui") -- from noice.nvim
 plugin("deps.plenary") -- from undotree,lazygit.nvim,todo-comments.nvim,renamer.nvim
-plugin("deps.web-devicons") -- from many plugins
+-- plugin("deps.web-devicons") -- from many plugins
 plugin("dial") -- Ctrl+a,Ctrl+x
 plugin("dropbar") -- パンくずリスト
 plugin("fidget") -- LSPがロードしてるのをカッコ良く表示してくれる

@@ -50,3 +50,9 @@ vim.api.nvim_create_autocmd("BufWritePre", {
         end
     end,
 })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "dashboard",
+    callback = function()
+        vim.cmd("DisableWhitespace")
+    end,
+})
