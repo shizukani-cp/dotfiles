@@ -176,6 +176,11 @@
       whichwrap = "b,s,h,l,<,>";
     };
     plugins = {
+      # Auto input pair
+      nvim-autopairs = {
+        enable = true;
+        lazyLoad.settings.event = "InsertEnter";
+      };
       # Formatter to LSP
       conform-nvim = {
         enable = true;
@@ -288,6 +293,8 @@
           };
         };
       };
+      # Lazy loading
+      lz-n.enable = true;
     };
   };
 }
