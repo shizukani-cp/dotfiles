@@ -77,7 +77,7 @@ plugin("hop") -- カーソルをいろんなところにジャンプできる
 plugin("indent-blankline") -- ブロックの頭の行を出してくれる
 plugin("lazygit") -- lazygit
 -- plugin("lsp.conform") -- formatter to LSP
-plugin("lsp.lazydev") -- Neovim develop
+-- plugin("lsp.lazydev") -- Neovim develop
 -- plugin("lsp.lspconfig") -- LSP Configs
 plugin("lsp.renamer") -- rename var
 plugin("manager.manager-command") -- manager.nvim commands

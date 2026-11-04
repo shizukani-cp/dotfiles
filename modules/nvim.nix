@@ -187,6 +187,10 @@
           };
         };
       };
+      # Neovim develop
+      lazydev = {
+        enable = true;
+      };
       lsp = {
         enable = true;
         servers = {
