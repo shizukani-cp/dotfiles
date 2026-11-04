@@ -181,6 +181,11 @@
         enable = true;
         lazyLoad.settings.event = "InsertEnter";
       };
+      # Bufferline
+      bufferline = {
+        enable = true;
+        lazyLoad.settings.event = "BufWinEnter";
+      };
       # Formatter to LSP
       conform-nvim = {
         enable = true;
