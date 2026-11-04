@@ -69,7 +69,7 @@ plugin("deps.plenary") -- from undotree,lazygit.nvim,todo-comments.nvim,renamer.
 plugin("dial") -- Ctrl+a,Ctrl+x
 -- plugin("dropbar") -- パンくずリスト
 -- plugin("fidget") -- LSPがロードしてるのをカッコ良く表示してくれる
-plugin("friendly-snippets") -- スニペット集
+-- plugin("friendly-snippets") -- スニペット集
 plugin("gitsigns", { vime = true }) -- gitの差分表示
 plugin("hlargs") -- 引数強調
 plugin("hlchunk") -- インデント系util

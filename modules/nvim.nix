@@ -303,6 +303,10 @@
         enable = true;
         lazyLoad.settings.event = "LspAttach";
       };
+      # Snippets
+      friendly-snippets = {
+        enable = true;
+      };
       # Neovim develop
       lazydev = {
         enable = true;
