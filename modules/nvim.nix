@@ -312,6 +312,15 @@
         enable = true;
         lazyLoad.settings.event = "BufReadPost";
       };
+      # Indent utilities
+      hlchunk = {
+        enable = true;
+        settings = {
+          chunk.enable = true;
+          indent.enable = true;
+          blank.enable = true;
+        };
+      };
       # Neovim develop
       lazydev = {
         enable = true;
