@@ -307,6 +307,11 @@
       friendly-snippets = {
         enable = true;
       };
+      # Git status on statuscolumn(vime=true)
+      gitsigns = {
+        enable = true;
+        lazyLoad.settings.event = "BufReadPost";
+      };
       # Neovim develop
       lazydev = {
         enable = true;
