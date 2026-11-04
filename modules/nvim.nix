@@ -298,6 +298,11 @@
         enable = true;
         lazyLoad.settings.event = "SafeState";
       };
+      # View LSP load
+      fidget = {
+        enable = true;
+        lazyLoad.settings.event = "LspAttach";
+      };
       # Neovim develop
       lazydev = {
         enable = true;
