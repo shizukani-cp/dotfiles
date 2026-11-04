@@ -1,6 +1,16 @@
 { pkgs, pkgs-unstable, ... }: {
   programs.nixvim = {
     enable = true;
+    colorschemes.tokyonight = {
+      enable = true;
+      settings = {
+        transparent = true;
+        styles = {
+          sidebars = "transparent";
+          floats = "transparent";
+        };
+      };
+    };
     globals = {
       mapleader = "k";
     };
