@@ -67,7 +67,7 @@ plugin("deps.denops") -- from ddc.vim,ddu.vim,denippet
 plugin("deps.plenary") -- from undotree,lazygit.nvim,todo-comments.nvim,renamer.nvim
 -- plugin("deps.web-devicons") -- from many plugins
 plugin("dial") -- Ctrl+a,Ctrl+x
-plugin("dropbar") -- パンくずリスト
+-- plugin("dropbar") -- パンくずリスト
 plugin("fidget") -- LSPがロードしてるのをカッコ良く表示してくれる
 plugin("friendly-snippets") -- スニペット集
 plugin("gitsigns", { vime = true }) -- gitの差分表示
@@ -126,4 +126,5 @@ vim.wait(30000, function()
     return true
 end, 100)
 manager:unlock()
+vim.ui.select = require("dropbar.utils.menu").select
 plugin("lsp.config")

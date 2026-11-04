@@ -293,6 +293,11 @@
           };
         };
       };
+      # Breadcrumb list
+      dropbar = {
+        enable = true;
+        lazyLoad.settings.event = "SafeState";
+      };
       # Neovim develop
       lazydev = {
         enable = true;
