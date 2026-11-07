@@ -37,7 +37,6 @@ let
       ${pkgs.libnotify}/bin/notify-send -t 800 "Copy OK" "Sucessfully copied"
     fi
   '';
-  lock-command = "${pkgs.swaylock-effects}/bin/swaylock -f";
 in
 {
   home.packages = [
@@ -49,13 +48,6 @@ in
     enable = true;
     config = {
       bars = [ { command = "${pkgs.waybar}/bin/waybar"; } ];
-      bindswitches = {
-        "lid:on" = {
-          reload = true;
-          locked = true;
-          action = "exec ${lock-command}";
-        };
-      };
       colors = {
         focused = {
           background = "#000000";
@@ -123,9 +115,6 @@ in
       startup = [
         {
           command = "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway";
-        }
-        {
-          command = "${pkgs.swayidle}/bin/swayidle -w event lid:on exec ${lock-command}";
         }
       ];
       workspaceLayout = "tabbed";

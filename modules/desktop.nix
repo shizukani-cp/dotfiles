@@ -437,4 +437,21 @@ in
     };
   };
   services.cliphist.enable = true;
+  services.swayidle = {
+    enable = true;
+    timeouts = [
+      {
+        timeout = 50;
+        command = "${pkgs.libnotify}/bin/notify-send 'Locking in 10 seconds' -t 10000";
+      }
+      {
+        timeout = 60;
+        command = "${pkgs.swaylock-effects}/bin/swaylock -f";
+      }
+    ];
+    events = {
+      "after-resume" = "${pkgs.swaylock-effects}/bin/swaylock -f";
+      "before-sleep" = "${pkgs.swaylock-effects}/bin/swaylock -f";
+    };
+  };
 }
