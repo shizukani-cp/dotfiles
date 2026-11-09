@@ -328,6 +328,12 @@
           keys = "iouatnsrhkdcmpgwbzl";
         };
       };
+      # Head row of block
+      indent-blankline = {
+        enable = true;
+        callSetup = true;
+        lazyLoad.settings.event = "BufRead";
+      };
       # Neovim develop
       lazydev = {
         enable = true;

@@ -74,7 +74,7 @@ plugin("dial") -- Ctrl+a,Ctrl+x
 plugin("hlargs") -- 引数強調
 -- plugin("hlchunk") -- インデント系util
 -- plugin("hop") -- カーソルをいろんなところにジャンプできる
-plugin("indent-blankline") -- ブロックの頭の行を出してくれる
+-- plugin("indent-blankline") -- ブロックの頭の行を出してくれる
 plugin("lazygit") -- lazygit
 -- plugin("lsp.conform") -- formatter to LSP
 -- plugin("lsp.lazydev") -- Neovim develop
