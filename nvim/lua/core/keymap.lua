@@ -27,6 +27,13 @@ manager:lazyload_key(
     "hop.vim",
     { noremap = true, silent = true, desc = "Go to any word in the current buffer." }
 )
+manager:lazyload_key(
+    "n",
+    "<Leader>g",
+    "<Cmd>LazyGit<Cr>",
+    "lazygit.nvim",
+    { noremap = true, silent = true, desc = "Lazygit" }
+)
 -- vim.keymap.set("n", "<Leader>eo", "<Cmd>noh<Cr>", { desc = ":noh" })
 -- vim.keymap.set("n", "<Leader>em", "<Cmd>messages<Cr>", { desc = "Messages" })
 -- vim.keymap.set({ "n", "x" }, "gg", "gg^", { noremap = true, silent = true, desc = "Go to the top of the file" })

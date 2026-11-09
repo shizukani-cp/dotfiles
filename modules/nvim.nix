@@ -347,6 +347,11 @@
         enable = true;
         callSetup = true;
       };
+      # Integrate lazygit
+      lazygit = {
+        enable = true;
+      };
+      # LSP
       lsp = {
         enable = true;
         servers = {
