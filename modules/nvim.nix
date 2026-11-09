@@ -179,16 +179,19 @@
       # Auto input pair
       nvim-autopairs = {
         enable = true;
+        callSetup = true;
         lazyLoad.settings.event = "InsertEnter";
       };
       # Bufferline
       bufferline = {
         enable = true;
+        callSetup = true;
         lazyLoad.settings.event = "BufWinEnter";
       };
       # Comment
       comment = {
         enable = true;
+        callSetup = true;
         lazyLoad.settings.event = "SafeState";
         settings = {
           toggler = {
@@ -204,6 +207,7 @@
       # Formatter to LSP
       conform-nvim = {
         enable = true;
+        callSetup = true;
         settings = {
           formatters_by_ft = {
             lua = [ "stylua" ];
@@ -215,6 +219,7 @@
       # Dashboard
       dashboard = {
         enable = true;
+        callSetup = true;
         settings = {
           theme = "doom";
           config = {
@@ -296,25 +301,27 @@
       # Breadcrumb list
       dropbar = {
         enable = true;
+        callSetup = true;
         lazyLoad.settings.event = "SafeState";
       };
       # View LSP load
       fidget = {
         enable = true;
+        callSetup = true;
         lazyLoad.settings.event = "LspAttach";
       };
       # Snippets
-      friendly-snippets = {
-        enable = true;
-      };
+      friendly-snippets.enable = true;
       # Git status on statuscolumn(vime=true)
       gitsigns = {
         enable = true;
+        callSetup = true;
         lazyLoad.settings.event = "BufReadPost";
       };
       # Indent utilities
       hlchunk = {
         enable = true;
+        callSetup = true;
         settings = {
           chunk.enable = true;
           indent.enable = true;
@@ -324,6 +331,7 @@
       # Move cursor
       hop = {
         enable = true;
+        callSetup = true;
         settings = {
           keys = "iouatnsrhkdcmpgwbzl";
         };
@@ -337,6 +345,7 @@
       # Neovim develop
       lazydev = {
         enable = true;
+        callSetup = true;
       };
       lsp = {
         enable = true;
@@ -440,17 +449,19 @@
       # Better UI
       noice = {
         enable = true;
+        callSetup = true;
         lazyLoad.settings.event = [
           "CmdLineEnter"
           "SafeState"
         ];
       };
       # UI
-      nui = {
-        enable = true;
-      };
+      nui.enable = true;
       # Icons
-      web-devicons.enable = true;
+      web-devicons = {
+        enable = true;
+        callSetup = true;
+      };
     };
   };
 }
