@@ -506,6 +506,12 @@
           };
         };
       };
+      # Todo commets
+      todo-comments = {
+        enable = true;
+        callSetup = true;
+        lazyLoad.settings.event = "SafeState";
+      };
       # Icons
       web-devicons = {
         enable = true;
