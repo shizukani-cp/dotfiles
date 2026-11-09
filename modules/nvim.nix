@@ -483,6 +483,12 @@
           never_draw_over_target = false;
         };
       };
+      # Surround
+      nvim-surround = {
+        enable = true;
+        callSetup = true;
+        lazyLoad.settings.event = "SafeState";
+      };
       # Icons
       web-devicons = {
         enable = true;

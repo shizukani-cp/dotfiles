@@ -96,7 +96,7 @@ plugin("status.status") -- status bar
 plugin("status.status-git") -- status bar git
 plugin("status.status-lsp") -- status bar lsp
 plugin("status.status-std") -- status bar std
-plugin("surround") -- 囲み文字系のtextobject
+-- plugin("surround") -- 囲み文字系のtextobject
 plugin("tabset") -- 言語ごとにインデントの深さを設定してくれる
 plugin("tiny-inline-diagnostic") -- インラインで警告表示
 plugin("tobira") -- 怒らないで Vim を教えてくれる
