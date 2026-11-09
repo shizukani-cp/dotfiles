@@ -1,4 +1,10 @@
-{ pkgs, pkgs-unstable, ... }: {
+{
+  config,
+  pkgs,
+  pkgs-unstable,
+  ...
+}:
+{
   programs.nixvim = {
     enable = true;
     colorschemes.tokyonight = {
@@ -523,6 +529,32 @@
           close_on_exit = true;
           direction = "tab";
         };
+      };
+      # Treesitter
+      treesitter = {
+        enable = true;
+        settings = {
+          install_dir = "${config.xdg.dataHome}/nvim/site";
+        };
+        grammarPackages = with config.programs.nixvim.plugins.treesitter.package.builtGrammars; [
+          astro
+          bash
+          diff
+          html
+          javascript
+          json
+          lua
+          markdown
+          markdown_inline
+          nix
+          python
+          regex
+          rust
+          tsx
+          typescript
+          vim
+          vimdoc
+        ];
       };
       # Icons
       web-devicons = {
