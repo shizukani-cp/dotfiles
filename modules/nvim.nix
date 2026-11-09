@@ -581,6 +581,11 @@
         callSetup = true;
         lazyLoad.settings.event = "SafeState";
       };
+      # Diagnostics window
+      trouble = {
+        enable = true;
+        callSetup = true;
+      };
       # Icons
       web-devicons = {
         enable = true;

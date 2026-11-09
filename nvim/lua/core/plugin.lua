@@ -106,7 +106,7 @@ plugin("tobira") -- 怒らないで Vim を教えてくれる
 -- plugin("treesitter.treesitter", { vime = true }) -- treesitter
 -- plugin("treesitter.treesitter-textobjects") -- textobjects from treesitter
 -- plugin("treesitter.ts-autotag", { vime = true }) -- XML系のタグを自動で閉じてくれるやつ
-plugin("trouble") -- diagnostics
+-- plugin("trouble") -- diagnostics
 plugin("undotree", { vime = true }) -- undo tree
 plugin("various-textobjs") -- Add textobjects
 plugin("vim-better-whitespace") -- highlight end of line spaces

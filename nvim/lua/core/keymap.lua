@@ -58,6 +58,13 @@ end, "nvim-treesitter-textobjects", { noremap = true, silent = true, desc = "pre
 manager:lazyload_key({ "n", "x", "o" }, "[c", function()
     require("nvim-treesitter-textobjects.move").goto_previous_start("@class.outer", "textobjects")
 end, "nvim-treesitter-textobjects", { noremap = true, silent = true, desc = "previous class" })
+manager:lazyload_key(
+    "n",
+    "<Leader>cd",
+    "<Cmd>Trouble diagnostics toggle<Cr>",
+    "trouble.nvim",
+    { noremap = true, silent = true, desc = "Diagnostics" }
+)
 -- vim.keymap.set("n", "<Leader>eo", "<Cmd>noh<Cr>", { desc = ":noh" })
 -- vim.keymap.set("n", "<Leader>em", "<Cmd>messages<Cr>", { desc = "Messages" })
 -- vim.keymap.set({ "n", "x" }, "gg", "gg^", { noremap = true, silent = true, desc = "Go to the top of the file" })
