@@ -489,6 +489,23 @@
         callSetup = true;
         lazyLoad.settings.event = "SafeState";
       };
+      # Inline diagnostic
+      tiny-inline-diagnostic = {
+        enable = true;
+        callSetup = true;
+        lazyLoad.settings.event = "LspAttach";
+        settings = {
+          add_messages = {
+            display_count = true;
+          };
+          multilines = {
+            enabled = true;
+          };
+          show_source = {
+            enabled = true;
+          };
+        };
+      };
       # Icons
       web-devicons = {
         enable = true;

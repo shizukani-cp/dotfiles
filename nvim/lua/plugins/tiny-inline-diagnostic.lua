@@ -12,7 +12,6 @@ local function config()
             },
         },
     })
-    vim.diagnostic.config({ virtual_text = false })
 end
 
 return function(manager)
