@@ -104,7 +104,7 @@ plugin("tobira") -- 怒らないで Vim を教えてくれる
 -- plugin("toggleterm") -- トグルできるターミナル
 -- plugin("tokyonight", { vime = true }) -- colorscheme
 -- plugin("treesitter.treesitter", { vime = true }) -- treesitter
-plugin("treesitter.treesitter-textobjects") -- textobjects from treesitter
+-- plugin("treesitter.treesitter-textobjects") -- textobjects from treesitter
 plugin("treesitter.ts-autotag", { vime = true }) -- XML系のタグを自動で閉じてくれるやつ
 plugin("trouble") -- diagnostics
 plugin("undotree", { vime = true }) -- undo tree

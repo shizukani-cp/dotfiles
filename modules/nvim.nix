@@ -556,6 +556,25 @@
           vimdoc
         ];
       };
+      # Textobjects
+      treesitter-textobjects = {
+        enable = true;
+        callSetup = true;
+        lazyLoad.settings.event = "SafeState";
+        settings = {
+          select = {
+            enable = true;
+            lookahead = true;
+            selection_modes = {
+              "@class.outer" = "V";
+              "@function.outer" = "V";
+            };
+          };
+          move = {
+            set_jumps = true;
+          };
+        };
+      };
       # Icons
       web-devicons = {
         enable = true;
