@@ -456,6 +456,12 @@
         enable = true;
         callSetup = true;
       };
+      # Smooth scrolling
+      neoscroll = {
+        enable = true;
+        callSetup = true;
+        lazyLoad.settings.event = "SafeState";
+      };
       # Better UI
       noice = {
         enable = true;

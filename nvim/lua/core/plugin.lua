@@ -84,7 +84,7 @@ plugin("manager.manager-command") -- manager.nvim commands
 plugin("manager.manager-remove") -- manager.nvim remove,clean()
 plugin("manager.manager-update") -- manager.nvim update()
 -- plugin("markview", { vime = true }) -- markdown view
-plugin("neoscroll", { vime = true }) -- スクロールを滑らかにしてくれる
+-- plugin("neoscroll", { vime = true }) -- スクロールを滑らかにしてくれる
 -- plugin("noice") -- UIをいい感じにしてくれる
 plugin("nvimdoc-ja") -- Neovim document Japanese
 plugin("oklch-color-picker") -- color highlight
