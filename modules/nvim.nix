@@ -342,6 +342,11 @@
           keys = "iouatnsrhkdcmpgwbzl";
         };
       };
+      # Highlight same variable
+      illuminate = {
+        enable = true;
+        lazyLoad.settings.event = "BufRead";
+      };
       # Head row of block
       indent-blankline = {
         enable = true;

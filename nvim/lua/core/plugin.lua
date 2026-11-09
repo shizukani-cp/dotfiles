@@ -110,7 +110,7 @@ plugin("tobira") -- 怒らないで Vim を教えてくれる
 plugin("undotree", { vime = true }) -- undo tree
 plugin("various-textobjs") -- Add textobjects
 plugin("vim-better-whitespace") -- highlight end of line spaces
-plugin("vim-illuminate") -- 同じ変数をハイライトしてくれる
+-- plugin("vim-illuminate") -- 同じ変数をハイライトしてくれる
 plugin("vimdoc-ja") -- Vim document Japanese
 plugin("vist.vist") -- vist.nvim
 plugin("vist.vist-file") -- file like oil.nvim
