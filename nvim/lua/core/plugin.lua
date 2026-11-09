@@ -90,7 +90,7 @@ plugin("nvimdoc-ja") -- Neovim document Japanese
 plugin("oklch-color-picker") -- color highlight
 plugin("satellite") -- Decorate scrollbar
 plugin("skkelua", { vime = true }) -- IME
-plugin("smear-cursor", { vime = true }) -- カーソルを滑らかにしてくれる
+-- plugin("smear-cursor", { vime = true }) -- カーソルを滑らかにしてくれる
 plugin("sort") -- `:Sort`コマンド
 plugin("status.status") -- status bar
 plugin("status.status-git") -- status bar git

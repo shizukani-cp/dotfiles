@@ -473,6 +473,16 @@
       };
       # UI
       nui.enable = true;
+      # Smooth cursor
+      smear-cursor = {
+        enable = true;
+        callSetup = true;
+        settings = {
+          stiffness = 0.5;
+          trailing_stiffness = 0.49;
+          never_draw_over_target = false;
+        };
+      };
       # Icons
       web-devicons = {
         enable = true;
