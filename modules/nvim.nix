@@ -601,6 +601,11 @@
         enable = true;
         callSetup = true;
       };
+      # Key helps
+      whick-key = {
+        enable = true;
+        callSetup = true;
+      };
     };
   };
 }
