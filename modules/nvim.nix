@@ -591,6 +591,11 @@
         enable = true;
         callSetup = true;
       };
+      # Visualize whitespaces
+      visual-whitespace = {
+        enable = true;
+        lazyLoad.settings.event = "SafeState";
+      };
       # Icons
       web-devicons = {
         enable = true;

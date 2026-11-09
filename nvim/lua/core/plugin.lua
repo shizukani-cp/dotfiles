@@ -114,7 +114,7 @@ plugin("vim-better-whitespace") -- highlight end of line spaces
 plugin("vimdoc-ja") -- Vim document Japanese
 plugin("vist.vist") -- vist.nvim
 plugin("vist.vist-file") -- file like oil.nvim
-plugin("visual-whitespace") -- 空白文字をvisualで選択したときに記号を出してくれる
+-- plugin("visual-whitespace") -- 空白文字をvisualで選択したときに記号を出してくれる
 plugin("which-key", { vime = true }) -- key helps
 
 vim.wait(30000, function()
