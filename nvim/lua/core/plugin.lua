@@ -101,7 +101,7 @@ plugin("tabset") -- 言語ごとにインデントの深さを設定してくれ
 -- plugin("tiny-inline-diagnostic") -- インラインで警告表示
 plugin("tobira") -- 怒らないで Vim を教えてくれる
 -- plugin("todo-comments") -- TODO: とかを強調してくれる
-plugin("toggleterm") -- トグルできるターミナル
+-- plugin("toggleterm") -- トグルできるターミナル
 -- plugin("tokyonight", { vime = true }) -- colorscheme
 plugin("treesitter.treesitter", { vime = true }) -- treesitter
 plugin("treesitter.treesitter-textobjects") -- textobjects from treesitter

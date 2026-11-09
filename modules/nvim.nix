@@ -512,6 +512,18 @@
         callSetup = true;
         lazyLoad.settings.event = "SafeState";
       };
+      # Toggleable terminal
+      toggleterm = {
+        enable = true;
+        callSetup = true;
+        lazyLoad.settings.event = "SafeState";
+        settings = {
+          open_mapping = "<C-t>";
+          hide_numbers = true;
+          close_on_exit = true;
+          direction = "tab";
+        };
+      };
       # Icons
       web-devicons = {
         enable = true;
