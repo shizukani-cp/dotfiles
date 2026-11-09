@@ -441,11 +441,11 @@ in
     enable = true;
     timeouts = [
       {
-        timeout = 50;
+        timeout = 590;
         command = "${pkgs.libnotify}/bin/notify-send 'Locking in 10 seconds' -t 10000";
       }
       {
-        timeout = 60;
+        timeout = 600;
         command = "${pkgs.swaylock-effects}/bin/swaylock -f";
       }
     ];
