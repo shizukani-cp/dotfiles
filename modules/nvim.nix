@@ -451,6 +451,11 @@
       };
       # Lazy loading
       lz-n.enable = true;
+      # Markdown viewer
+      markview = {
+        enable = true;
+        callSetup = true;
+      };
       # Better UI
       noice = {
         enable = true;
