@@ -139,8 +139,43 @@
     wget
   ];
   programs.zsh.enable = true;
-  programs.nix-ld.enable = true;
   programs.nm-applet.enable = true;
+  programs.nix-ld = {
+    enable = true;
+
+    libraries = with pkgs; [
+      glib
+      nspr
+      nss
+      atk
+      at-spi2-atk
+      at-spi2-core
+      cups
+
+      dbus
+      cairo
+      gtk3
+      pango
+
+      libx11
+      libxcomposite
+      libxdamage
+      libxext
+      libxfixes
+      libxrandr
+      libxcb
+
+      libgbm
+      expat
+      libxkbcommon
+      alsa-lib
+      systemd
+
+      libgbm
+      libglvnd
+      mesa
+    ];
+  };
   programs.steam.enable = true;
   virtualisation.waydroid.enable = true;
   nixpkgs.config.allowUnfreePredicate =
